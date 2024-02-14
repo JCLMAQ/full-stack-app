@@ -1,0 +1,9 @@
+{
+  "name": "todo",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/frontend/todo/src",
+  "prefix": "full-stack-app",
+  "tags": [],
+  "projectType": "library",
+  "targets": {}
+}
