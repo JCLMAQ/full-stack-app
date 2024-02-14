@@ -1,0 +1,9 @@
+{
+  "name": "post",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/frontend/post/src",
+  "prefix": "full-stack-app",
+  "tags": [],
+  "projectType": "library",
+  "targets": {}
+}

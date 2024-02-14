@@ -1,0 +1,9 @@
+{
+  "name": "utilities",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/frontend/ui/utilities/src",
+  "prefix": "full-stack-app",
+  "tags": [],
+  "projectType": "library",
+  "targets": {}
+}

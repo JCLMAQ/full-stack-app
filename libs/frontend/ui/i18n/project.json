@@ -1,0 +1,9 @@
+{
+  "name": "language-selector",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/frontend/ui/i18n/src",
+  "prefix": "full-stack-app",
+  "tags": [],
+  "projectType": "library",
+  "targets": {}
+}

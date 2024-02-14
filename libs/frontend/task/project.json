@@ -1,0 +1,9 @@
+{
+  "name": "task",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/frontend/task/src",
+  "prefix": "full-stack-app",
+  "tags": [],
+  "projectType": "library",
+  "targets": {}
+}

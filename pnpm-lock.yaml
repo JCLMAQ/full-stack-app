@@ -11,6 +11,9 @@ dependencies:
   '@angular/animations':
     specifier: ^17.1.3
     version: 17.1.3(@angular/core@17.1.3)
+  '@angular/cdk':
+    specifier: ^17.1.2
+    version: 17.1.2(@angular/common@17.1.3)(@angular/core@17.1.3)(rxjs@7.8.1)
   '@angular/common':
     specifier: ^17.1.3
     version: 17.1.3(@angular/core@17.1.3)(rxjs@7.8.1)

@@ -1,0 +1,14 @@
+<button
+  mat-icon-button
+  [matMenuTriggerFor]="menupalette"
+  aria-label="Change Theme Menu">
+  <mat-icon>palette</mat-icon>
+</button>
+
+<mat-menu #menupalette="matMenu">
+  <mat-checkbox
+   [(ngModel)]="isDarkTheme"
+    (change)="toggleDarkTheme($event.checked)">
+  Dark Mode
+  </mat-checkbox>
+</mat-menu>

@@ -1,0 +1,64 @@
+
+  @if (!editbutton && editable) {
+<button mat-button matTooltip="Editer l'enregistrement" (click)="actionClick('edit')">
+    <mat-icon>edit</mat-icon>
+    Editer
+  </button>
+}
+  @if (editbutton) {
+<button mat-button matTooltip="Enregistrer les modifications" (click)="actionClick('save')">
+    <mat-icon>save</mat-icon>
+    Enregistrer
+  </button>
+}
+  @if (editbutton) {
+<button mat-button matTooltip="Annuler" (click) = "actionClick('cancel')">
+      <mat-icon>cancel</mat-icon>
+      Annuler
+    </button>
+}
+    @if (editable && virtualdeletebutton) {
+<button mat-button matTooltip="Rendre comme non-disponible" (click)="actionClick('virtualdelete')">
+        <mat-icon>delete</mat-icon>
+        Retirer
+      </button>
+}
+  @if (editable && removebutton) {
+<button mat-button matTooltip="Supprimer définitivement l'enregistrement et le fichier associé" (click)="actionClick('remove')">
+    <mat-icon>delete_forever</mat-icon>
+    Supprimer
+  </button>
+}
+  @if (!editbutton) {
+<button mat-button matTooltip="Retour à la liste des enregistrements" (click)="actionClick('backtolist')">
+    <mat-icon>list</mat-icon>
+    Retour à la liste
+  </button>
+}
+  <!-- Navigation -->
+  @if (!editbutton) {
+<button mat-button matTooltip="Premier enregistrement de la sélection" [disabled]="!navigable.navigation?.hasPrevious"
+  (click)="actionClick('first')">
+    <mat-icon>skip_previous</mat-icon>
+    Premier
+  </button>
+}
+
+  @if (!editbutton) {
+<button mat-button matTooltip="Enregistrement précédent" [disabled]="!navigable.navigation?.hasPrevious" (click) = "actionClick('previus')">
+    <mat-icon>navigate_before</mat-icon>
+    Précédent
+  </button>
+}
+  @if (!editbutton) {
+<button mat-button matTooltip="Enregistrement suivant" [disabled]="!navigable.navigation?.hasNext" (click) = "actionClick('next')">
+    <mat-icon>navigate_next</mat-icon>
+    Suivant
+  </button>
+}
+  @if (!editbutton) {
+<button mat-button matTooltip="Dernier enregistrement de la sélection" [disabled]="!navigable.navigation?.hasNext" (click) = "actionClick('last')">
+    <mat-icon>skip_next</mat-icon>
+    Dernier
+  </button>
+}
