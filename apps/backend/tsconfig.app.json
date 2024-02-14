@@ -5,7 +5,7 @@
     "module": "commonjs",
     "types": ["node"],
     "emitDecoratorMetadata": true,
-    "target": "es2021",
+    "target": "ES2022",
     "plugins": [
       { "transform": "@nestjs/swagger/plugin", "introspectComments": true },
     ],
@@ -13,7 +13,8 @@
     "noImplicitAny": false,
     "strictBindCallApply": true,
     "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": false,
+    "useDefineForClassFields": false,
   },
   "exclude": ["jest.config.ts", "src/**/*.spec.ts", "src/**/*.test.ts"],
   "include": ["src/**/*.ts"]
