@@ -1,0 +1,22 @@
+{
+  "name": "data-users",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/data/users/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": ["{projectRoot}/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/data/users"],
+      "options": {
+        "jestConfig": "libs/data/users/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}

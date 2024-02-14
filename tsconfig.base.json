@@ -8,14 +8,32 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es2015",
+    "target": "ES2022",
     "module": "esnext",
-    "lib": ["es2020", "dom"],
+    "lib": ["ES2022", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@full-stack-app/todo": ["libs/frontend/todo/src/index.ts"]
+      "@fe/todo": ["libs/frontend/todo/src/index.ts"],
+
+      "@be/api-interfaces": ["zmodel/libs/api-interfaces/src/index.ts"],
+      "@be/auths": ["libs/backend/auths/src/index.ts"],
+      "@be/changestracking": [
+        "libs/backend/utilities/changestracking/src/index.ts"
+      ],
+      "@be/common": ["libs/backend/common/src/index.ts"],
+      "@be/db-config": ["libs/backend/utilities/db-config/src/index.ts"],
+      "@be/files": ["libs/backend/utilities/files/src/index.ts"],
+      "@be/iam": ["libs/backend/iam/src/index.ts"],
+      "@be/mails": ["libs/backend/utilities/mails/src/index.ts"],
+      "@be/posts": ["libs/backend/posts/src/index.ts"],
+      "@be/tasks": ["libs/backend/tasks/src/index.ts"],
+      "@be/time-util": ["libs/backend/utilities/time-util/src/index.ts"],
+      "@be/todos": ["libs/backend/todos/src/index.ts"],
+      "@be/users": ["libs/backend/users/src/index.ts"],
+      "@be/jwtconfig":["libs/backend/common/src/lib/config/jwt.config"],
+      "@prisma/prisma": ["libs/prisma/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

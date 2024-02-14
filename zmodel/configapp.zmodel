@@ -1,0 +1,91 @@
+import "base"
+
+enum Language {
+    en
+    fr
+}
+
+enum Role {
+    GUEST
+    USER
+    ADMIN
+    SUPERADMIN
+    REGULAR
+}
+
+enum PermissionClaim {
+    CreateCoffee
+    UpdateCoffee
+    DeleteCoffee
+}
+
+enum TokenType {
+    EMAIL
+    API
+    FORGOT
+    ACCOUNT
+    REFREZH
+}
+
+model ConfigParam extends BaseInt {
+    name String @unique()
+    value String
+    utility String
+}
+
+model OrgEmailUseTo extends BaseInt {
+    useTo String
+    isActiv Boolean
+    emailOrg OrgEmail @relation(fields: [emailOrgId], references: [id])
+    emailOrgId Int
+}
+
+model AppEmailDomain extends BaseInt { // For General purpose - level of the app
+    domain String @unique()
+    allowed Boolean
+}
+
+model RefreshToken extends BaseInt {
+    userId String @unique()
+    tokenId String @unique()
+}
+
+model ApiKey extends BaseInt {
+    key String
+    uuid String
+    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId String
+    Scopes Scope[] @relation("apikeysscopes")
+}
+
+model Scope extends BaseInt {
+    scope String
+    ApiKey ApiKey[] @relation("apikeysscopes")
+}
+
+model Token extends BaseInt {
+    tokenId String? @unique()
+    type TokenType
+    emailToken String? @unique()
+    valid Boolean @default(true)
+    expiration DateTime
+    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId String
+}
+
+model ChangesTracking extends BaseInt {
+    doneAt DateTime @default(now())
+    modifiedBy User @relation(fields: [modifiedById], references: [id])
+    modifiedById String
+    modelName String
+    recordId String
+    operation String
+    newData Json
+    oldData Json
+}
+
+model AccountValidation extends BaseUuid{
+    isValidated Boolean @default(false)
+    emailToken String @unique()
+    timeStamp DateTime
+}

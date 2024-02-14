@@ -40,3 +40,44 @@ Thumbs.db
 
 .nx/cache
 .angular
+
+# Package files
+package-lock.json
+pnpm-lock.yaml
+
+# .env
+.env
+
+# Primsa Migration
+/zmodel/prisma/migrations
+# Prisma utils generated files
+/zmodel/prisma/generated
+
+# Tests
+/coverage
+/.nyc_output
+
+#Uploaded files
+/uploaded
+/uploadedimages
+/uploadedfiles
+/uploadedtempimages
+
+# Angular cache
+/.angular
+
+.angular
+
+# Documentation by CompDoc
+/Documentation
+
+# proxy setting
+proxy.conf.json
+
+# pnpm
+pnpm-lock.yaml
+
+.nx/cache
+
+# ZenStack
+.zenstack_repl_history

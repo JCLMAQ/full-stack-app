@@ -1,0 +1,377 @@
+import 'base'
+import 'configapp'
+
+
+datasource db {
+    provider="postgresql"
+    url=env("DATABASE_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+generator docs {
+  provider = "node node_modules/prisma-docs-generator"
+  output = "../doc"
+  // output = "/Users/jcl.maquinay/MonoRepo/my-app/zmodel/doc"
+ // /Users/jcl.maquinay/MonoRepo/my-app/zmodel/doc
+}
+
+// generator jsonSchema {
+//     provider = "prisma-json-schema-generator"
+//     keepRelationScalarFields = "true"
+//     schemaId = "jcm"
+// }
+
+// generator dbml {
+//     provider = "prisma-dbml-generator"
+// }
+
+generator crud {
+    provider = "prisma-crud-generator"
+    output = "./generated/#{model}"
+    strict = true
+}
+// generator crud {
+//   provider = "prisma-crud-generator"
+//   output = "./generated/#{model}"
+
+//   # dryRun = true / false
+//   # strict = true / false
+// }
+
+// generator nestjsDto {
+//     provider = "prisma-generator-nestjs-dto"
+//     output = "../libs/api-interfaces/src/lib/nestjs-dto"
+//     outputToNestJsResourceStructure = "true"
+//     exportRelationModifierClasses = "true"
+//     reExport = "false"
+//     createDtoPrefix = "Create"
+//     updateDtoPrefix = "Update"
+//     dtoSuffix = "Dto"
+//     entityPrefix = ""
+//     entitySuffix = ""
+//     fileNamingStyle = "camel"
+// }
+
+plugin openapi {
+  provider = '@zenstackhq/openapi'
+  flavor = 'rest'
+  output = 'openapi.yaml'
+  summary = 'Created with ZenStack'
+  description = 'My awesome API created with ZenStack'
+  prefix = '/apizen'
+}
+
+enum TaskState {
+    CREATION
+    STANDBY
+    RUNNING
+    DONE
+}
+
+enum TodoState {
+    CREATION
+    STANDBY
+    RUNNING
+    DONE
+}
+
+enum Gender {
+    MALE
+    FEMELE
+    UNKNOWN
+}
+
+enum Title {
+    Mr
+    Mme
+    Dct
+}
+
+enum Position {
+    Manager
+    Member
+    Secretary
+    }
+
+ // Organization is the top-level tenant. Any instance of User, post, and group belong to an organization.
+model Organization extends BaseUuid {
+    name String @unique()
+    description String?
+    address Json?  @db.Json
+    emailITAdmin String @email
+    webSite String?
+
+    // 1 to n relations
+    OrgEmails  OrgEmail[] @relation("OrgEmails")
+    OrgDomains OrgDomain[] @relation("OrgDomains")
+
+    // Org dependencies // Self relation
+    mainOrg Organization? @relation("OrgSelfRelation",fields: [mainOrgId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+    mainOrgId String?
+    OrgEntity Organization[] @relation("OrgSelfRelation")
+
+    // n to m relations
+    Members User[]
+
+    // 1 to n relations
+    Posts Post[]
+    Groups Group[]
+    Files File[]
+    Tasks Task[]
+    Todos Todo[]
+
+  // login users can create an org
+    @@allow('create', auth() != null)
+
+    // members can read the org
+    @@allow('read', Members?[auth() == this])
+
+    // everyone can create a organization
+    // @@allow('create', true)
+}
+
+model OrgEmail extends BaseInt { // List of Organization's email
+    email String @email
+    description String?
+
+    org Organization? @relation("OrgEmails",fields: [orgId], references: [id],onDelete: NoAction, onUpdate: NoAction)
+    orgId String
+
+    OrgEmailUseTos OrgEmailUseTo[]
+}
+
+model OrgDomain extends BaseInt { // Allowed domains or Extensions for Organizatin
+    domainName  String
+    extension  String  // Domain Extension
+
+    org Organization? @relation("OrgDomains",fields: [orgId], references: [id],onDelete: NoAction, onUpdate: NoAction)
+    orgId String
+}
+
+model User extends BaseUuid {
+    email String @unique() @email
+    lastName String?
+    firstName String?
+    title Title?
+    nickName String?
+    Gender Gender? @default(UNKNOWN)
+    social Json? @db.Json
+    Language Language? @default(en)
+    dob DateTime?
+    address Json?  @db.Json
+    isValidated DateTime?
+    isSuspended DateTime?
+
+    Orgs Organization[] // Organization: one User could belong to multiple organizations
+
+    // Manager of the User // Self relation
+    manager User? @relation("ManagerTeams", fields: [managerId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+    managerId String?
+    Team User[] @relation("ManagerTeams")
+
+    Profiles Profile[] @relation("UsersProfiles")
+
+    Groups Group[] // @relation("UsersGroups") // One User could belong to multiple groups
+    // One post belongs to a User and could belong to multiple Groups.
+    Posts Post[]
+    Comments Comment[]
+    Stories     Story[]
+
+    Todo UserTodoLink[]  // user to its Todos : explicit relation
+	  TodosAuthor Todo[] // To-dos created by the user
+
+    Tasks UserTaskLink[]  // user to its Todos : explicit relation
+	  TasksAuthor Task[] // To-dos created by the user
+
+    Files File[] // File management
+
+    ChangesLogs ChangesTracking[]
+
+    // User's Roles and Premissions enum
+    Roles Role[] // enum
+    Permissions PermissionClaim[]
+
+    // Access key for one User
+    Tokens Token[] // see configapp.zmodel
+    ApiKeys ApiKey[] // see configapp.zmodel
+    isTfaEnable Boolean @default(false)
+    tfaSecret String?
+
+    userSecret UserSecret? // Hashed Pwd and Hash are strored in UserSercret Model - 1 to 1 relation
+
+
+    followers   UserFollower[] @relation("followers")
+    followings  UserFollower[] @relation("followings")
+    posts_liked PostLike[]
+
+    // For test and seeding only
+    passWordFaker String?
+
+    // can be created by anyone, even not logged in
+    @@allow('create', true)
+    // can be read by users in the same organization
+    @@allow('read', Orgs?[Members?[auth() == this]])
+    // full access by oneself
+    @@allow('all', auth() == this)
+}
+
+model UserSecret extends BaseIntSimplified {
+    user User @relation(fields: [userId], references: [email], onDelete: Cascade)
+    userId String @unique()
+    pwdHash String? @password @omit
+    salt String?
+    isAdmin Boolean? @default(false)
+}
+
+model Profile extends BaseInt {
+    orderProfile Int
+    Users User[] @relation("UsersProfiles")
+    bio String
+}
+
+model Group extends BaseInt {
+    orderGroup Int
+    name String
+    description String?
+    isActiv DateTime?
+    Users User[]
+    Tasks Task[]
+    Todos Todo[]
+    Posts Post[]
+    Files File[]
+    org Organization @relation(fields: [orgId], references: [id])
+    orgId String
+    // owner User @relation(fields: [userId], references: [id])
+    // ownerId String
+    // group is shared by organization
+    @@allow('all', org.Members?[auth() == this])
+}
+
+model Todo extends organizationBaseEntity {
+    orderTodo Int
+    title String
+    content String?
+    todoState TodoState @default(CREATION)
+    mainTodo Todo? @relation("MainSubTodo", fields: [mainTodoId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+    mainTodoId String? @map("mainTodo")
+    SubTodos Todo[] @relation("MainSubTodo")
+    Users UserTodoLink[]
+    Tasks Task[]
+    // @@allow('update', groups?[users?[this== auth()]] )
+}
+
+model UserTodoLink {
+    user User @relation(fields: [userId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+    userId String
+    todo Todo @relation(fields: [todoId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+    todoId String
+    isAuthor Boolean @default(true)
+    isAssigned Boolean @default(true)
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt()
+    comment String
+
+    @@id([userId, todoId])
+}
+model Task extends organizationBaseEntity {
+    orderTask Int
+    title String
+    content String?
+    taskState TaskState @default(CREATION)
+    mainTask Task? @relation("MainSubTask", fields: [mainTaskId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+    mainTaskId String? @map("mainTask")
+    SubTasks Task[] @relation("MainSubTask")
+    Users UserTaskLink[]
+    todo  Todo?  @relation(fields: [todoId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+    todoId String?
+    // @@allow('update', groups?[users?[this== auth()]] )
+}
+
+model UserTaskLink {
+    user User @relation(fields: [userId], references: [id])
+    userId String
+    task Task @relation(fields: [taskId], references: [id])
+    taskId String
+    isAuthor Boolean @default(true)
+    isAssigned Boolean @default(true)
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt()
+    comment String
+
+    @@id([userId, taskId])
+}
+
+model Post extends organizationBaseEntity {
+    orderPost Int?
+   // publishedPost Boolean @default(false)
+    title String
+    content String?
+    Categories Category[] @relation("PostsCategory") // Categories of a Post - n to n relation
+    Comments Comment[] // Comments related to one Post
+    LikedBys  PostLike[]
+
+}
+
+model Category extends BaseUuid { // Category for Posts - n to n relation
+    orderCategory Int
+    name String
+    Posts Post[] @relation("PostsCategory") // Posts linked to Category
+}
+
+model Comment extends BaseUuid { // Linked 1 to n to Post - 1 to 1 to User (author)
+    orderComment Int
+  //  publishedComment Boolean @default(false)
+    content String?
+    post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+    postId String
+    author User @relation(fields: [authorId], references: [id], onDelete: Cascade)
+    authorId String
+}
+
+model File extends organizationBaseEntity {
+    name String
+    storageName String @unique()
+    type String?
+    data String?
+    size Int?
+    isArchived DateTime?
+
+}
+
+model UserFollower {
+  user_id     String
+  user        User     @relation("followers", fields: [user_id], references: [id])
+  follower_id String
+  follower    User     @relation("followings", fields: [follower_id], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt()
+
+  @@id([user_id, follower_id])
+}
+
+model PostLike {
+  user_id    String
+  user       User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  post_id    String
+  post       Post     @relation(fields: [post_id], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt()
+
+  @@id([user_id, post_id])
+}
+
+model Story extends BaseUuid { // User's Stories
+  caption    String
+  user_id    String
+  user       User     @relation(fields: [user_id], references: [id])
+}
+
+model Image extends BaseInt {
+  type          String
+  url           String
+  associated_id String
+  sequence      Int
+}

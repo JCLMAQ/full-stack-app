@@ -6,8 +6,11 @@
     "types": ["node"],
     "emitDecoratorMetadata": true,
     "target": "es2021",
-    "strictNullChecks": true,
-    "noImplicitAny": true,
+    "plugins": [
+      { "transform": "@nestjs/swagger/plugin", "introspectComments": true },
+    ],
+    "strictNullChecks": false,
+    "noImplicitAny": false,
     "strictBindCallApply": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true

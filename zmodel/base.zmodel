@@ -1,0 +1,79 @@
+import 'schema'
+
+// Base model for all entites in a organization
+abstract model organizationBaseEntity {
+    id String @default(uuid()) @id()
+    numSeq Int @default(autoincrement())
+    createdAt DateTime @default(now())
+    updatedAt DateTime @default(now()) @updatedAt()
+    published Boolean @default(true)
+    isDeleted Int @default(0) @omit
+    isDeletedDT DateTime?
+    isPublic Boolean @default(false)
+
+    owner User @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+    ownerId String
+
+    org Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+    orgId String
+
+    groups Group[]
+
+    // author has full access
+    @@allow('all', auth() != null && published)
+    // when create, owner must be set to current user, and user must be in the organization
+    @@allow('create', owner == auth() && org.Members?[this == auth()])
+    // only the owner can update it and is not allowed to change the owner
+    @@allow('update', owner == auth() && org.Members?[this == auth()] && future().owner == owner)
+    // allow owner to read and delete
+    @@allow('read,delete', owner == auth())
+    // allow shared group members to read it
+    @@allow('read', groups?[Users?[this == auth()]])
+    // allow organization to access if public
+    @@allow('read', isPublic && org.Members?[this == auth()])
+    // can not be read if deleted
+    @@deny('read', isDeleted != 0)
+}
+
+// Base model for Integer Id
+abstract model BaseInt {
+    id Int @id @default(autoincrement())
+    createdAt DateTime @default(now())
+    updatedAt DateTime @default(now()) @updatedAt()
+
+    published Boolean @default(true)
+    isPublic Boolean @default(true)
+
+    isDeleted Int @default(0) @omit
+    isDeletedDT DateTime?
+    // author has full access
+    @@allow('all', auth() != null && published)
+    // can not be read if deleted
+    @@deny('read', isDeleted != 0)
+}
+
+// Base model for Uuid Id
+abstract model BaseUuid {
+    id String @default(uuid()) @id()
+    numSeq Int @default(autoincrement())
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @default(now()) @updatedAt()
+
+    published Boolean? @default(false)
+    isPublic Boolean? @default(true)
+
+    isDeleted Int? @default(0) @omit
+    isDeletedDT DateTime?
+
+    // author has full access
+    @@allow('all', auth() != null && published)
+    // can not be read if deleted
+    @@deny('read', isDeleted != 0)
+}
+// Simplified Base model for Integer Id
+abstract model BaseIntSimplified {
+    id Int @id @default(autoincrement())
+    createdAt DateTime @default(now())
+    updatedAt DateTime @default(now()) @updatedAt()
+}
