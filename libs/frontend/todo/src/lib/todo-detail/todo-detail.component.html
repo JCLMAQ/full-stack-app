@@ -1,0 +1,101 @@
+@if (todoStore.todoLoading()) {
+  <h2>Loading...</h2>
+  <mat-progress-bar
+  mode="indeterminate"
+  class="loader"
+></mat-progress-bar>
+
+  }
+
+@if (todoStore.todoLoaded()) {
+  <h2>Loaded...</h2>
+  }
+
+@if (todoStore.todoError()) {
+  <div>{{ todoStore.todoError() }}</div>
+}
+
+<div [formGroup]="form">
+  <mat-card class="todo-card mat-elevation-z10">
+    <mat-card-header>
+      <mat-card-title>Todo</mat-card-title>
+      <mat-card-subtitle>Todo Id : {{todoId}}</mat-card-subtitle>
+    </mat-card-header>
+      <mat-card-content>
+        <mat-form-field  >
+          <mat-label>Title</mat-label>
+          <input matInput placeholder="Todo Title" formControlName="title">
+            <mat-icon matSuffix>title</mat-icon>
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+        <mat-form-field >
+          <mat-label>Content</mat-label>
+          <textarea matInput placeholder="Todo content" formControlName="content"></textarea>
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+
+    </mat-card-content>
+
+    <mat-card-actions class="todo-actions">
+      @if (isAdmin) {
+        <button mat-icon-button matTooltip="Permanent Delete" [disabled]="!isAdmin" (click)="remove()">
+          <mat-icon>delete_forever </mat-icon>
+        </button>
+  }
+      @if (isAdmin) {
+        <button mat-icon-button (click)="virtualRemove()" [disabled]="!isAdmin" matTooltip="Virtual Delete">
+            <!-- <button mat-icon-button (click)="virtualRemove(user?.id)"> -->
+          <mat-icon>delete</mat-icon>
+        </button>
+      }
+     <button mat-icon-button matTooltip="Add record" [disabled]="!isAdmin" (click)="add()">
+        <mat-icon>add_circle</mat-icon>
+      </button>
+      <button mat-icon-button matTooltip="Cancel" [disabled]="mode==='view'" (click)="cancel()">
+        <mat-icon>cancel</mat-icon>
+      </button>
+      <button mat-icon-button matTooltip="Save changes"  [disabled]="mode==='view'" (click)="save()">
+        <mat-icon>check_circle</mat-icon>
+      </button>
+      <button mat-icon-button matTooltip="First record"
+                                  [disabled]="todoStore.navigation.isFirst()"
+                                  (click)="first()">
+        <mat-icon>first_page</mat-icon>
+      </button>
+      <button mat-icon-button matTooltip="Previous record"
+                                  [disabled]="!todoStore.navigation.hasPrevious()"
+                                  (click)="previous()">
+        <mat-icon>skip_previous</mat-icon>
+      </button>
+      <button mat-icon-button matTooltip="Next record"
+                                  [disabled]="!todoStore.navigation.hasNext()"
+
+                                  (click)="next()">
+        <mat-icon>skip_next</mat-icon>
+      </button>
+      <button mat-icon-button matTooltip="Last record"
+                                  [disabled]="todoStore.navigation.isLast()"
+                                  (click)="last()">
+        <mat-icon>last_page</mat-icon>
+      </button>
+      <button mat-icon-button placeholder="Reload" matTooltip="Reset" (click)="reload()">
+        <!-- <button mat-icon-button placeholder="Reload" matTooltip="Reset" (click)="reload(form.value.id)"> -->
+        <mat-icon>autorenew</mat-icon>
+      </button>
+      <button mat-icon-button matTooltip="Back to list" [routerLink]="['/todos']">
+        <mat-icon>exit_to_app</mat-icon>
+      </button>
+      <!-- <button (click)="onSubmit()" mat-raised-button color="primary">Save</button> -->
+    </mat-card-actions>
+    <mat-card-footer class="form-val">
+      {{this.todoStore.selectedId()}} / {{form.value | json}} /
+    </mat-card-footer>
+  </mat-card>
+</div>
+<div>Current Position : {{todoStore.currentPosition()}}</div>
+<div>Last Position : {{todoStore.lastPosition()}}</div>
+<div>Selected Items: {{todoStore.selection().selected.length}}</div>
+<div>Selection : {{todoStore.selection().selected | json}}</div>
+<div>SelectedItem Index: {{todoStore.selectedItemIndex()}}</div>
+<div>Selected entries : {{todoStore.selection().selected.entries.length }}</div>
+<div>SelectedRowIds : {{todoStore.selectedIds() | json}}</div>

@@ -42,7 +42,6 @@
   },
   "private": true,
   "dependencies": {
-    "@angular-architects/ngrx-toolkit": "^0.0.4",
     "@angular/animations": "^17.2.1",
     "@angular/cdk": "^17.2.0",
     "@angular/common": "^17.2.1",
@@ -198,5 +197,8 @@
     "typesync": "^0.12.1",
     "webpack-cli": "^5.1.4",
     "zenstack": "^1.8.2"
+  },
+  "prisma": {
+    "seed": "ts-node zmodel/prisma/seed.ts"
   }
 }

@@ -31,6 +31,10 @@
       "@be/time-util": ["libs/backend/utilities/time-util/src/index.ts"],
       "@be/todos": ["libs/backend/todos/src/index.ts"],
       "@be/users": ["libs/backend/users/src/index.ts"],
+
+      "@fe/app": ["libs/frontend/app/src/index.ts"],
+      "@fe/auth": ["libs/frontend/auth/src/index.ts"],
+      "@fe/auth-data-access": ["libs/frontend/auth/data-access/src/index.ts"],
       "@fe/data-access": ["libs/frontend/auth/data-access/src/index.ts"],
       "@fe/feature-auth": ["libs/frontend/auth/feature-auth/src/index.ts"],
       "@fe/i18n": ["libs/frontend/ui/i18n/src/index.ts"],

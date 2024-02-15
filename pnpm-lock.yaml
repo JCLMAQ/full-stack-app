@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@angular-architects/ngrx-toolkit':
-    specifier: ^0.0.4
-    version: 0.0.4(@angular/common@17.2.1)(@angular/core@17.2.1)(@ngrx/signals@17.1.0)
   '@angular/animations':
     specifier: ^17.2.1
     version: 17.2.1(@angular/core@17.2.1)
@@ -203,6 +200,9 @@ dependencies:
   pnpm:
     specifier: ^8.15.2
     version: 8.15.2
+  process:
+    specifier: ^0.11.10
+    version: 0.11.10
   qrcode:
     specifier: ^1.5.3
     version: 1.5.3
@@ -212,6 +212,9 @@ dependencies:
   rxjs:
     specifier: ^7.8.1
     version: 7.8.1
+  stream-browserify:
+    specifier: ^3.0.0
+    version: 3.0.0
   swagger-ui-express:
     specifier: ^5.0.0
     version: 5.0.0(express@4.18.2)
@@ -482,19 +485,6 @@ packages:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.3
       '@jridgewell/trace-mapping': 0.3.22
-
-  /@angular-architects/ngrx-toolkit@0.0.4(@angular/common@17.2.1)(@angular/core@17.2.1)(@ngrx/signals@17.1.0):
-    resolution: {integrity: sha512-isdUcp5MYwAretR7dj5l8sRpWZ0qg2ZqVd+mKQwt5CmSSQ/QdgBaSkSjRuS240G/UrNSeEIxf5NK4cwnR7zS/Q==}
-    peerDependencies:
-      '@angular/common': ^17.0.0
-      '@angular/core': ^17.0.0
-      '@ngrx/signals': ^17.0.0
-    dependencies:
-      '@angular/common': 17.2.1(@angular/core@17.2.1)(rxjs@7.8.1)
-      '@angular/core': 17.2.1(rxjs@7.8.1)(zone.js@0.14.4)
-      '@ngrx/signals': 17.1.0(@angular/core@17.2.1)(rxjs@7.8.1)
-      tslib: 2.6.2
-    dev: false
 
   /@angular-devkit/architect@0.1702.0:
     resolution: {integrity: sha512-+HkOYhdq8ez2+yqpxaQ6XtQevOYJNaDpM4oDmZ2lIpiIusFNsmpY2b9iL5PZGb4EfUgN8KsY3n9Q9fmRlRB9eA==}
@@ -12471,6 +12461,8 @@ packages:
     peerDependenciesMeta:
       webpack:
         optional: true
+      webpack-sources:
+        optional: true
     dependencies:
       webpack: 5.90.1(@swc/core@1.4.1)(esbuild@0.20.0)(webpack-cli@5.1.4)
       webpack-sources: 3.2.3
@@ -16356,6 +16348,13 @@ packages:
   /statuses@2.0.1:
     resolution: {integrity: sha512-RwNA9Z/7PrK06rYLIzFMlaF+l73iwpzsqRIFgbMLbTcLD6cOao82TaWefPXQvB2fOC4AjuYSEndS7N/mTCbkdQ==}
     engines: {node: '>= 0.8'}
+
+  /stream-browserify@3.0.0:
+    resolution: {integrity: sha512-H73RAHsVBapbim0tU2JwwOiXUj+fikfiaoYAKHF3VJfA0pe2BCzkhAHBlLG6REzE+2WNZcxOXjK7lkso+9euLA==}
+    dependencies:
+      inherits: 2.0.4
+      readable-stream: 3.6.2
+    dev: false
 
   /streamsearch@1.1.0:
     resolution: {integrity: sha512-Mcc5wHehp9aXz1ax6bZUyY5afg9u2rv5cqQI3mRrYkGC8rW2hM02jWuwjtL++LS5qinSyhj2QfLyNsuc+VsExg==}
