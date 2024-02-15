@@ -110,6 +110,7 @@
     "qrcode": "^1.5.3",
     "reflect-metadata": "^0.2.1",
     "rxjs": "^7.8.1",
+    "stream-browserify": "^3.0.0",
     "swagger-ui-express": "^5.0.0",
     "tslib": "^2.6.2",
     "typescript-nestjs-swagger-plugin": "^2.0.0",
