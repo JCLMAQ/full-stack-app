@@ -20,6 +20,7 @@ const environmentFileContent = `
     export const environment = {
         production: ${isProduction},
         API_URL: "${process.env.API_URL}",
+        API_PORT: "${process.env.API_PORT}",
         API_SECRET: "${process.env.API_SECRET}",
         AUTO_REGISTRATION_ENABLE: "${process.env.AUTO_REGISTRATION_ENABLE}",
         REGISTRATION_VALIDATION: "${process.env.REGISTRATION_VALIDATION}",
