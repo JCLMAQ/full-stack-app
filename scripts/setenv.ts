@@ -6,7 +6,7 @@ require('dotenv').config();
 const environment = argv.environment;
 const isProduction = environment === 'prod';
 
-if (!process.env.API_URL || !process.env.API_SECRET || !process.env.AUTO_REGISTRATION_ENABLE || !process.env.REGISTRATION_VALIDATION || !process.env.PWDLESS_LOGIN_ENABLE || !process.env.DEFAULT_LANGUAGE ) {
+if (!process.env.API_URL || !process.env.API_PORT || !process.env.API_SECRET || !process.env.AUTO_REGISTRATION_ENABLE || !process.env.REGISTRATION_VALIDATION || !process.env.PWDLESS_LOGIN_ENABLE || !process.env.DEFAULT_LANGUAGE ) {
   console.error('All the required environment variables were not provided!');
   process.exit(-1);
 }
@@ -20,7 +20,7 @@ const environmentFileContent = `
     export const environment = {
         production: ${isProduction},
         API_URL: "${process.env.API_URL}",
-        apiUrl: "${process.env.API_URL}",
+        API_PORT: "${process.env.API_PORT}",
         API_SECRET: "${process.env.API_SECRET}",
         AUTO_REGISTRATION_ENABLE: "${process.env.AUTO_REGISTRATION_ENABLE}",
         REGISTRATION_VALIDATION: "${process.env.REGISTRATION_VALIDATION}",
