@@ -1,3 +1,5 @@
-export * from './lib/lib.routes';
+export * from './lib/services/auth-guard';
+export * from './lib/services/local-storage-jwt.service';
+export * from './lib/services/token-interceptor.service';
 
-export * from './lib/data-access/data-access.component';
+export { AuthStore } from './lib/auth.store';

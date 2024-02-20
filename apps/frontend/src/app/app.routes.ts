@@ -24,10 +24,10 @@ export const appRoutes: Route[] = [
     loadChildren: () => import('@fe/pages').then((m) => m.uiPagesRoutes),
   },
 
-  // {
-  //   path: 'auth',
-  //   loadChildren: () => import('@fe/auth').then((m) => m.uiAuthRoutes),
-  // },
+  {
+    path: 'auth',
+    loadChildren: () => import('@fe/auth').then((m) => m.uiAuthRoutes),
+  },
   { path: '', redirectTo: 'page', pathMatch: 'full' },
 
   { path: '**', component: PageNotFoundComponent },

@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@angular-architects/ngrx-toolkit':
+    specifier: ^0.0.4
+    version: 0.0.4(@angular/common@17.2.1)(@angular/core@17.2.1)(@ngrx/signals@17.1.0)
   '@angular/animations':
     specifier: ^17.2.1
     version: 17.2.1(@angular/core@17.2.1)
@@ -482,6 +485,19 @@ packages:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.3
       '@jridgewell/trace-mapping': 0.3.22
+
+  /@angular-architects/ngrx-toolkit@0.0.4(@angular/common@17.2.1)(@angular/core@17.2.1)(@ngrx/signals@17.1.0):
+    resolution: {integrity: sha512-isdUcp5MYwAretR7dj5l8sRpWZ0qg2ZqVd+mKQwt5CmSSQ/QdgBaSkSjRuS240G/UrNSeEIxf5NK4cwnR7zS/Q==}
+    peerDependencies:
+      '@angular/common': ^17.0.0
+      '@angular/core': ^17.0.0
+      '@ngrx/signals': ^17.0.0
+    dependencies:
+      '@angular/common': 17.2.1(@angular/core@17.2.1)(rxjs@7.8.1)
+      '@angular/core': 17.2.1(rxjs@7.8.1)(zone.js@0.14.4)
+      '@ngrx/signals': 17.1.0(@angular/core@17.2.1)(rxjs@7.8.1)
+      tslib: 2.6.2
+    dev: false
 
   /@angular-devkit/architect@0.1702.0:
     resolution: {integrity: sha512-+HkOYhdq8ez2+yqpxaQ6XtQevOYJNaDpM4oDmZ2lIpiIusFNsmpY2b9iL5PZGb4EfUgN8KsY3n9Q9fmRlRB9eA==}

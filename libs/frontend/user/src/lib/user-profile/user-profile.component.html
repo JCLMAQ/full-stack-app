@@ -1,0 +1,117 @@
+<div [formGroup]="form">
+<mat-card class="user-card mat-elevation-z10">
+  <mat-card-header>
+    <mat-card-title>User</mat-card-title>
+    <mat-card-subtitle>User Id : {{user?.id}}</mat-card-subtitle>
+  </mat-card-header>
+    <mat-card-content>
+      <mat-form-field  floatLabel="auto">
+        <mat-label>Standard form field</mat-label>
+        <input matInput placeholder="Placeholder">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-hint align="end">Hint</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-form-field  >
+        <mat-label>Your email</mat-label>
+        <input matInput placeholder="Your email" formControlName="email" type="email" name="email">
+          <mat-icon matSuffix>email</mat-icon>
+          <mat-hint>Hint</mat-hint>
+           <!-- @if (formField.email.errors?.emailExists) {
+            <mat-error>
+              This email is already being used.</mat-error>
+            }
+          @if (formField[email].errors?.required) {
+            <mat-error>The email is mandatory.</mat-error>
+            } -->
+      </mat-form-field>
+      <mat-form-field >
+         <mat-label>Your NickName</mat-label>
+        <input matInput placeholder="Your NickName" formControlName="nickName">
+          <mat-hint>Hint</mat-hint>
+          <!-- @if (formField.nickName.errors?.required) {
+            <mat-error>The nickName is mandatory.</mat-error>
+            }
+          @if (formField.nickName.errors?.nickNameExists) {
+            <mat-error>This nickName is already being used.</mat-error>
+            }
+          @if (formField.nickName.errors?.minlength) {
+            <mat-error>
+                        Your NickName must have minimum {{formField.nickName.errors?.minlength.requiredLength}} chars,
+                        but it only has {{formField.nickName.errors?.minlength.actualLength}}.
+            </mat-error>
+            }
+          @if (formField.nickName.errors?.maxlength) {
+            <mat-error>
+              Your NickName must have maximum {{formField.nickName.errors?.maxlength.requiredLength}} chars,
+              but it has {{formField.nickName.errors?.maxlength.actualLength}}.
+            </mat-error>
+        } -->
+      </mat-form-field>
+       <br>
+      <mat-form-field >
+        <mat-label>Your Last Name</mat-label>
+        <input matInput placeholder="Your Last Namel" formControlName="lastName">
+          <!-- <mat-icon matSuffix>email</mat-icon> -->
+          <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+       <mat-form-field >
+        <mat-label>Your First Name</mat-label>
+        <input matInput placeholder="Your First Name" formControlName="firstName">
+          <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Date of Birth</mat-label>
+        <input matInput [matDatepicker]="dobDatePicker"
+                formControlName="dob"
+                placeholder="Date of birth">
+        <mat-datepicker-toggle matSuffix [for]="dobDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #dobDatePicker></mat-datepicker>
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-actions class="user-actions">
+     @if (isAdmin) {
+<button mat-icon-button matTooltip="Permanent Delete" [disabled]="!isAdmin" (click)="remove()">
+      <mat-icon>delete_forever </mat-icon>
+    </button>
+}
+    @if (isAdmin) {
+<button mat-icon-button (click)="virtualRemove()" [disabled]="!isAdmin" matTooltip="Virtual Delete">
+    <!-- <button mat-icon-button (click)="virtualRemove(user?.id)"> -->
+      <mat-icon>delete</mat-icon>
+    </button>
+}
+   <button mat-icon-button matTooltip="Add record" [disabled]="!isAdmin" (click)="add()">
+      <mat-icon>add_circle</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Cancel" [disabled]="mode==='view'" (click)="cancel()">
+      <mat-icon>cancel</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Save changes"  [disabled]="mode==='view'" (click)="save()">
+      <mat-icon>check_circle</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="First record" (click)="first()">
+      <mat-icon>first_page</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Previous record" (click)="previous()">
+      <mat-icon>skip_previous</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Next record" (click)="next()">
+      <mat-icon>skip_next</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Last record" (click)="last()">
+      <mat-icon>last_page</mat-icon>
+    </button>
+    <button mat-icon-button placeholder="Reload" matTooltip="Reset" (click)="reload(form.value.id)">
+      <mat-icon>autorenew</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Back to list" [routerLink]="['/users']">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+    <!-- <button (click)="onSubmit()" mat-raised-button color="primary">Save</button> -->
+  </mat-card-actions>
+  <mat-card-footer class="form-val">
+    {{form.value | json}}
+  </mat-card-footer>
+</mat-card>
+</div>

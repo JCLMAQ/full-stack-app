@@ -1,1 +1,75 @@
-<p>post works!</p>
+<p>Post works!</p>
+
+@if (postStore.postLoading()) {
+  <h2>Loading...</h2>
+      <mat-progress-bar
+          mode="indeterminate"
+          class="loader"
+        >
+      </mat-progress-bar>
+      }
+
+@if (postStore.postLoaded()) {
+  <h2>Loaded...</h2>
+  }
+
+@if (postStore.postError()) {
+  <div>{{ postStore.postError() }}</div>
+}
+
+<form [formGroup]="addForm">
+  <input type="text" placeholder="Add Title..." formControlName="title" />
+  <input type="text" placeholder="Add Content..." formControlName="content" />
+</form>
+
+<button mat-icon-button matTooltip="Save changes" (click)="addPost()">
+  <mat-icon>check_circle</mat-icon>
+</button>
+      <!-- <button (click)="onSubmit()" mat-raised-button color="primary">Save</button> -->
+
+<!-- <div>Total: {{ postStore.postsCount() }}</div> -->
+
+@for (item of postStore.postEntities(); track item.title) {
+  <li>
+    <div class="d-flex align-items-center">
+      <input
+        class="form-check-input me-2"
+        type="checkbox"
+      [checked]=""
+        value=""
+        aria-label="..."
+        (click)="selectedPost(item.id)"
+      />
+      {{ item.title }}
+    </div>
+    <button
+      type="button"
+      class="btn btn-danger btn-sm"
+      (click)="postStore.remove(item.id)"
+    >
+      Delete
+    </button>
+
+
+
+  </li>
+  <!-- @for (cat of postStore.categories(); track cat.name) {
+  <li> {{ cat.name }} </li>
+  } -->
+} @empty {
+  <li> There are no items. </li>
+}
+
+<div>selected Post Id: {{selectedPostId}}</div>
+<div>Selected Post: {{selectedPostEntities}}</div>
+
+<!-- @for (item of postsItems; track item.title) {
+  <li> {{ item.title }} </li>
+  <!-- @for (cat of postStore.categories(); track cat.name) {
+  <li> {{ cat.name }} </li>
+  }
+} @empty {
+  <li> There are no items. </li>
+} -->
+
+

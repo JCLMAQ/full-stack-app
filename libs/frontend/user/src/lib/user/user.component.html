@@ -1,1 +1,114 @@
-<p>user works!</p>
+@if (isLoading$ | async) {
+  <mat-progress-bar
+  *ngIf="isLoading$ | async"
+  mode="indeterminate"
+  class="loader"
+></mat-progress-bar>
+}
+
+@if(error$ | async ) {
+  {{ error$ }}
+}
+
+<h2>Users</h2>
+<div class="main-div">
+  <mat-card class="mat-elevation-z8" >
+    <mat-card-content>
+
+      <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+      </mat-form-field>
+
+      <table mat-table [dataSource]="userDataSource" matSort>
+
+        <!-- Checkbox Column -->
+        <ng-container matColumnDef="select">
+          <mat-header-cell *matHeaderCellDef>
+            <mat-checkbox (change)="$event ? masterToggle() : null"
+                          [checked]="selection.hasValue() && isAllSelected()"
+                          [indeterminate]="selection.hasValue() && !isAllSelected()">
+                          <!-- [aria-label]="checkboxLabel()"> -->
+            </mat-checkbox>
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <mat-checkbox (click)="$event.stopPropagation()"
+                          (change)="$event ? selection.toggle(row) : null"
+                          [checked]="selection.isSelected(row)">
+                          <!-- [aria-label]="checkboxLabel(row)"> -->
+            </mat-checkbox>
+          </mat-cell>
+
+        </ng-container>
+        <ng-container matColumnDef="num">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> num </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.numSeq}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="nickName">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> NickName </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row?.nickName}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="lastName">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row?.lastName}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="firstName">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> First Name </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row?.firstName}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row?.email}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="tools">
+          <mat-header-cell *matHeaderCellDef> Tools </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <!-- <button mat-icon-button routerLink="{{one.ID}}"> -->
+                <button mat-icon-button (click)="navigateButton(row.id, 'update')">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <!-- <button mat-icon-button routerLink="{{one.ID}}/view"> -->
+              <button mat-icon-button (click)="navigateButton(row.id, 'view')">
+              <mat-icon>remove_red_eye</mat-icon>
+            </button>
+            <button mat-icon-button  (click)="virtualRemove(row.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+            @if (owner) {
+              <button mat-icon-button [disabled]=owner (click)="virtualRemove(row)">
+                              <mat-icon>delete</mat-icon>
+                            </button>
+            }
+            <button mat-icon-button [disabled]=master (click)="remove(row)">
+                <mat-icon>delete_forever</mat-icon>
+              </button>
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="tableColumns; sticky: true"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: tableColumns;"></mat-row>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </mat-card-content>
+    <mat-card-footer>
+      <button mat-icon-button (click)="addOneUser()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-card-footer>
+  </mat-card>
+  <div>
+    <!-- <span>Showing {{selection.selected.length}} items</span> -->
+    @if (selection.selected.length) {
+      <span class="selected-text"> ({{selection.selected.length}} items selected)</span>
+    }
+    <br>
+    <span> {{userDataSource.data.length}} data length </span>
+  </div>
+</div>
+

@@ -1,0 +1,20 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { inject, TestBed } from '@angular/core/testing';
+import { ApiService } from '@fe/core/http-client';
+
+import { MockProvider } from 'ng-mocks';
+import { AuthService } from './auth.service';
+import { LocalStorageJwtService } from './local-storage-jwt.service';
+
+describe('AuthService', () => {
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [AuthService, ApiService, LocalStorageJwtService, MockProvider(ApiService)],
+    });
+  });
+
+  it('should be created', inject([AuthService], (service: AuthService) => {
+    expect(service).toBeTruthy();
+  }));
+});
