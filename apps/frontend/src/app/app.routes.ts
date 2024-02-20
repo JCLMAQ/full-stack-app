@@ -26,7 +26,7 @@ export const appRoutes: Route[] = [
 
   {
     path: 'auth',
-    loadChildren: () => import('@fe/auth').then((m) => m.uiAuthRoutes),
+    loadChildren: () => import('@fe/ui/auth').then((m) => m.uiAuthRoutes),
   },
   { path: '', redirectTo: 'page', pathMatch: 'full' },
 
