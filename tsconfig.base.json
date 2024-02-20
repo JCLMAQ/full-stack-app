@@ -31,12 +31,15 @@
       "@be/time-util": ["libs/backend/utilities/time-util/src/index.ts"],
       "@be/todos": ["libs/backend/todos/src/index.ts"],
       "@be/users": ["libs/backend/users/src/index.ts"],
-
+      "@fe/api-types": ["libs/frontend/ui/core/api-types/src/index.ts"],
       "@fe/app": ["libs/frontend/app/src/index.ts"],
       "@fe/auth": ["libs/frontend/auth/src/index.ts"],
-      "@fe/ui/auth": ["libs/frontend/ui/auth/src/index.ts"],
       "@fe/auth/data-access": ["libs/frontend/auth/data-access/src/index.ts"],
       "@fe/auth/feature-auth": ["libs/frontend/auth/feature-auth/src/index.ts"],
+      "@fe/core": ["libs/frontend/ui/core/src/index.ts"],
+      "@fe/error-handler": ["libs/frontend/ui/core/error-handler/src/index.ts"],
+      "@fe/forms": ["libs/frontend/ui/core/forms/src/index.ts"],
+      "@fe/http-client": ["libs/frontend/ui/core/http-client/src/index.ts"],
       "@fe/i18n": ["libs/frontend/ui/i18n/src/index.ts"],
       "@fe/language-selector": ["libs/frontend/ui/i18n/src/index.ts"],
       "@fe/material": ["libs/frontend/material/src/index.ts"],
@@ -53,19 +56,9 @@
       "@fe/task": ["libs/frontend/task/src/index.ts"],
       "@fe/test": ["libs/frontend/test/src/index.ts"],
       "@fe/todo": ["libs/frontend/todo/src/index.ts"],
+      "@fe/ui/auth": ["libs/frontend/ui/auth/src/index.ts"],
       "@fe/user": ["libs/frontend/user/src/index.ts"],
       "@fe/utilities": ["libs/frontend/ui/utilities/src/index.ts"],
-      "@fe/api-types": [
-        "libs/frontend/ui/core/api-types/src/index.ts"
-      ],
-      "@fe/core": ["libs/frontend/ui/core/src/index.ts"],
-      "@fe/error-handler": [
-        "libs/frontend/ui/core/error-handler/src/index.ts"
-      ],
-      "@fe/forms": ["libs/frontend/ui/core/forms/src/index.ts"],
-      "@fe/http-client": [
-        "libs/frontend/ui/core/http-client/src/index.ts"
-      ],
       "@prisma/prisma": ["libs/prisma/src/index.ts"]
     }
   },

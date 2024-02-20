@@ -39,19 +39,6 @@
         }
       }
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
     "serve": {
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
@@ -66,6 +53,10 @@
           "buildTarget": "backend:build:production"
         }
       }
+    },
+    "docker-build": {
+      "dependsOn": ["build"],
+      "command": "docker build -f apps/backend/Dockerfile . -t backend"
     }
   },
   "tags": ["be"]
