@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  nx-app-base:
+    # restart: always
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DEV_PLATFORM=DOCKER
+    volumes:
+      - ./:/app
+      - mono-node-modules:/app/node_modules

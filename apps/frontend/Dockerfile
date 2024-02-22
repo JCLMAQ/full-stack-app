@@ -30,14 +30,13 @@ RUN --mount=type=bind,source=package.json,target=package.json \
     pnpm install --prod --frozen-lockfile
 
 # Run the application as a non-root user.
-# USER node
+USER node
 
 # Copy the rest of the source files into the image.
 COPY . .
 
 # Expose the port that the application listens on.
-# EXPOSE 3300
+EXPOSE 4300
 
 # Run the application.
-# CMD pnpm run configproxy && nx serve backend --watch
-
+CMD pnpm run configangular -- --environment=dev && nx serve frontend --proxy-config ./proxy.conf.json --host 127.0.0.1 --port 4300
