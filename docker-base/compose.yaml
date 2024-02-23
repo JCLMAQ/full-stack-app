@@ -8,8 +8,7 @@ services:
       extends:
         file: compose.base.yaml
         service: nx-app-base
-      # command: nx serve backend --watch --host=0.0.0.0
-      command: pnpm run backend:dev:docker --watch
+      command: nx serve backend --watch --host=0.0.0.0
       # command: pnpm run configproxy && nx serve backend --watch --host=0.0.0.0
       # build:
       #   context: .
@@ -23,9 +22,8 @@ services:
       # depends_on:
       #   - postgres
       env_file:
-        - .env
-      restart: no
-      # tty: true
+        - ../.env
+      restart: unless-stopped
 
 
 networks:

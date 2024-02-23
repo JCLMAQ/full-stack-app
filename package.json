@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "backend:dev:docker": "nx serve backend --host=0.0.0.0 --port=3300",
     "docker:up": "docker compose -f './db/docker-compose.yml' --env-file ./.env up -d --build",
     "docker:down": "docker compose -f './db/docker-compose.yml' --env-file ./.env down",
     "start:zenstack-prisma": "pnpm run zenstack:generate && pnpm run prisma:generate && pnpm run prisma-migrate",
@@ -36,7 +37,6 @@
     "configangular": "dotenv -e ../.env ts-node ./scripts/setenv.ts",
     "configproxy": "dotenv -e ../.env ts-node ./scripts/setproxyconfig.ts",
     "ng": "pnpm nx",
-
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test"

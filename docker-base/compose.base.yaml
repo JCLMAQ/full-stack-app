@@ -11,8 +11,7 @@ services:
       - DEV_PLATFORM=DOCKER
     volumes:
       - ./:/app
-      # - mono-node-modules:/app/node_modules
-      - mono-node-modules:/node_modules
+      - mono-node-modules:/app/node_modules
 
 # build section is telling Docker that the build context is the current directory
 # and use the Dockerfile at this directory.
