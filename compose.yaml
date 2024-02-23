@@ -9,7 +9,7 @@ services:
         file: compose.base.yaml
         service: nx-app-base
       # command: nx serve backend --watch --host=0.0.0.0
-      command: pnpm run backend:dev:docker --watch
+      command: pnpm run backend:dev:docker
       # command: pnpm run configproxy && nx serve backend --watch --host=0.0.0.0
       # build:
       #   context: .
@@ -17,14 +17,14 @@ services:
       #   args:
       #     - POSTGRESQL_URL=${POSTGRESQL_URL}
       ports:
-        - 3300:3300
+        - 3000:3000
       networks:
           - postgres
       # depends_on:
       #   - postgres
       env_file:
         - .env
-      restart: no
+      # restart: no
       # tty: true
 
 
