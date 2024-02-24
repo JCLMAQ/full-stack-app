@@ -11,12 +11,12 @@ generator client {
     provider = "prisma-client-js"
 }
 
-generator docs {
-  provider = "node node_modules/prisma-docs-generator"
-  output = "../doc"
-  // output = "/Users/jcl.maquinay/MonoRepo/my-app/zmodel/doc"
- // /Users/jcl.maquinay/MonoRepo/my-app/zmodel/doc
-}
+// generator docs {
+//   provider = "node node_modules/prisma-docs-generator"
+//   output = "../doc"
+//   // output = "/Users/jcl.maquinay/MonoRepo/my-app/zmodel/doc"
+//  // /Users/jcl.maquinay/MonoRepo/my-app/zmodel/doc
+// }
 
 // generator jsonSchema {
 //     provider = "prisma-json-schema-generator"
@@ -28,11 +28,11 @@ generator docs {
 //     provider = "prisma-dbml-generator"
 // }
 
-generator crud {
-    provider = "prisma-crud-generator"
-    output = "./generated/#{model}"
-    strict = true
-}
+// generator crud {
+//     provider = "prisma-crud-generator"
+//     output = "./generated/#{model}"
+//     strict = true
+// }
 // generator crud {
 //   provider = "prisma-crud-generator"
 //   output = "./generated/#{model}"

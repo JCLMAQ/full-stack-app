@@ -10,11 +10,11 @@
     "start:frontend": "pnpm run configangular -- --environment=dev && nx serve frontend --proxy-config ./proxy.conf.json --host 127.0.0.1 --port 4300",
     "start: frontendbis": "dotenv -e ../.env ts-node ./scripts/run-env.js",
     "pnpm-instal": "pnpm install --no-frozen-lockfile",
-    "prisma:studio": "dotenv -e ../.env -- pnpx prisma studio --schema=./zmodel/prisma/schema.prisma",
+    "prisma:studio": "dotenv -e ../.env -- pnpm exec prisma studio --schema=./zmodel/prisma/schema.prisma",
     "seed-param": "dotenv -e ../.env ts-node zmodel/prisma/seed-param.ts",
     "seed-faker": "dotenv -e ../.env ts-node zmodel/prisma/seedfaker.ts",
     "seed-org": "dotenv -e ../.env ts-node zmodel/prisma/seedOrg.ts",
-    "seed": "pnpx prisma db seed",
+    "seed": "pnpm exec prisma db seed",
     "db-reset": "dotenv -e ../.env ts-node zmodel/prisma/resetdb.ts",
     "nx": "pnpm nx",
     "nxupdate": "nx migrate latest",
@@ -24,14 +24,14 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "zenstack:generate": "zenstack generate --schema zmodel/schema.zmodel",
-    "zenStack:repl": "npx zenstack repl",
+    "zenStack:repl": "pnpm exec zenstack repl",
     "zenstack:info": "zenstack info",
-    "zenstack:init": "npx zenstack init -p pnpm",
+    "zenstack:init": "pnpm exec zenstack init -p pnpm",
     "start:prisma": "pnpm run prisma:generate && pnpm run prisma-migrate",
     "generate-metadata-swagger": "ts-node ./apps/backend/src/generate-metadata.ts",
-    "prisma:generate": "pnpx prisma generate --schema=./zmodel/prisma/schema.prisma",
-    "prisma:generate:watch": "pnpx prisma generate --schema=./zmodel/prisma/schema.prisma --watch",
-    "prisma-migrate": "dotenv -e ../.env -- pnpx prisma migrate dev --schema=./zmodel/prisma/schema.prisma",
+    "prisma:generate": "pnpm exec prisma generate --schema=./zmodel/prisma/schema.prisma",
+    "prisma:generate:watch": "pnpm exec prisma generate --schema=./zmodel/prisma/schema.prisma --watch",
+    "prisma-migrate": "dotenv -e ../.env -- pnpm exec prisma migrate dev --schema=./zmodel/prisma/schema.prisma",
     "circular-dependency": "pnpm madge --circular apps/backend/src/main.ts",
     "configangular": "dotenv -e ../.env ts-node ./scripts/setenv.ts",
     "configproxy": "dotenv -e ../.env ts-node ./scripts/setproxyconfig.ts",
@@ -205,4 +205,3 @@
     "seed": "ts-node zmodel/prisma/seed.ts"
   }
 }
-

@@ -12,17 +12,6 @@ generator client {
     provider = "prisma-client-js"
 }
 
-generator docs {
-    provider = "node node_modules/prisma-docs-generator"
-    output = "../doc"
-}
-
-generator crud {
-    provider = "prisma-crud-generator"
-    output = "./generated/#{model}"
-    strict = true
-}
-
 enum TaskState {
     CREATION
     STANDBY
