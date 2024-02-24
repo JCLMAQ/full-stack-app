@@ -45,7 +45,7 @@ export function withNavigationMethods() {
         //   });
         // },
 
-        initNavButton(todoId) {
+        initNavButton(todoId: string) {
           let currentPosition = 0;
           let lastPosition = 0;
           if(store.selection().selected.length <= 1 ) {
@@ -109,7 +109,7 @@ export function withNavigationMethods() {
           // })
         },
 
-        next(currentPosition, lastPosition) {
+        next(currentPosition: number, lastPosition: number) {
           currentPosition = currentPosition + 1
           if (currentPosition > lastPosition) {
             currentPosition = lastPosition
@@ -122,18 +122,18 @@ export function withNavigationMethods() {
           this.navStateMgt( currentPosition, lastPosition );
         },
 
-        last(lastPosition) {
+        last(lastPosition: number) {
           const currentPosition = lastPosition
           this.navStateMgt( currentPosition, lastPosition );
         },
 
-        first(lastPosition) {
+        first(lastPosition: number) {
           const currentPosition = 0;
           // const lastPosition = store.lastPosition()
           this.navStateMgt( currentPosition, lastPosition );
         },
 
-        previous(currentPosition, lastPosition) {
+        previous(currentPosition: number, lastPosition: number) {
           currentPosition = currentPosition - 1
           if (currentPosition < 0) {
             currentPosition= 0

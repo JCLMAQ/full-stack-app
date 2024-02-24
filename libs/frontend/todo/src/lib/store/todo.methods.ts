@@ -75,7 +75,7 @@ export function withTodosMethods() {
         patchState(store,{ selectedId: selectionId.id })
       },
 
-      selectedItemUpdate(selectedRowId){
+      selectedItemUpdate(selectedRowId: string){
         const allSelectedRowId = store.selectedIds();
         if(allSelectedRowId.length > 0 ) {
           const existSelectedRowId = allSelectedRowId.filter( item => item === selectedRowId);
