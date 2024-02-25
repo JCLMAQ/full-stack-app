@@ -46,7 +46,7 @@ COPY . .
 # Copy the package.json and pnpm-lock.yaml into the image.
 # COPY package.json pnpm-lock.yaml ./
 # COPY ../package.json ../pnpm-lock.yaml ./
-RUN pnpm install --force --no-frozen-lockfile
+RUN pnpm install --force
 # RUN pnpm install --force --no-frozen-lockfile
 
 # Stage 03: dependencies

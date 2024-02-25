@@ -1,9 +1,16 @@
-.git
-node_modules
+
 compose.yaml
 compose.base.yaml
-Dockerfile
+pnpm-lock.yaml
 .prettierrc
-.gitignore
 .eslintrc.js
-README.md
+.dockerignore
+node_modules
+npm-debug.log
+Dockerfile
+.git
+.gitignore
+# .npmrc
+.env-*
+.github
+*.md

@@ -137,6 +137,7 @@
     "@nestjs/testing": "^10.3.3",
     "@ngrx/schematics": "^17.1.1",
     "@ngrx/store-devtools": "^17.1.1",
+    "@nx-tools/nx-container": "5.2.0",
     "@nx/cypress": "18.0.5",
     "@nx/eslint": "18.0.5",
     "@nx/eslint-plugin": "18.0.5",
@@ -205,4 +206,3 @@
     "seed": "ts-node zmodel/prisma/seed.ts"
   }
 }
-
