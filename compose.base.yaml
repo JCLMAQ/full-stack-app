@@ -1,0 +1,37 @@
+version: '3.9'
+
+services:
+  nx-app-base:
+    restart: always
+    # restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DEV_PLATFORM=DOCKER
+    volumes:
+      - ./:/app
+      - mono-node-modules:/app/node_modules
+      # - mono-node-modules:/node_modules
+
+# build section is telling Docker that the build context is the current directory
+# and use the Dockerfile at this directory.
+# If your Dockerfile is in a different location, you can specify the relative path to it here,
+#  e.g. ./.docker/Dockerfile.
+
+# The environment section is used to specify environment variables.
+# For our case, we are using Node image. Hence, the values defined here will go into process.env.
+# [the_environment_variable_name], i.e. the Node environment variables. Here, we defined an environment
+# variable called "DEV_PLATFORM". This value will be used to override
+# a Webpack config file in following next section for the hot reload feature to work.
+
+# The volumes section defined 2 very important things.
+
+# ./:/app
+# Maps our source codes to the container's /app directory (which is defined as the working directory in our Dockerfile)
+# This will enable our host machine and the containers to share the same source files, enabling file monitoring and hot reloads later on
+
+# mono-node-modules:/app/node_modules
+# mono-node-modules will be defined in our docker-compose.yml later as the shared volume. This is for all containers to share the same node_modules volume
+# In a way, this will speed up "npm install" after the first service, because we now only need to install the node dependencies once
+# For our case, it makes total sense because in monorepo, dependencies are shared

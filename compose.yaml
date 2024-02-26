@@ -1,0 +1,49 @@
+version: '3.9'
+
+services:
+
+# # nestjs App
+#     nestjs-api:
+#       container_name: nest-api
+#       extends:
+#         file: compose.base.yaml
+#         service: nx-app-base
+#       command: pnpm run backend:dev:docker --watch
+#       # command: pnpm run configproxy && nx serve backend --watch --host=0.0.0.0
+#       # build:
+#       #   context: .
+#       #   dockerfile: ../apps/backend/Dockerfile
+#       #   args:
+#       #     - POSTGRESQL_URL=${POSTGRESQL_URL}
+#       ports:
+#         - 3300:3300
+#       networks:
+#           - postgres
+#       # depends_on:
+#       #   - postgres
+#       # env_file:
+#       #   - .env
+#       # restart: no
+#       # tty: true
+
+    nestjs-api:
+      extends:
+        file: compose.base.yaml
+        service: nx-app-base
+      command: pnpm run backend:dev:docker --watch
+      ports:
+        - 3300:3000 # API Entry port
+        # - 4311:4311 # Server Debugging port
+
+# networks:
+#     postgres:
+
+volumes:
+    postgres:
+        name: basedev-db
+    pgadmin:
+        name: pgadmin-db
+    mono-node-modules: null
+    # mono-node-modules:
+    #     name: mono-node-modules
+
