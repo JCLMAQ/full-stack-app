@@ -32,6 +32,6 @@ WORKDIR /app
 COPY . .
 
 RUN pnpm install --force --no-frozen-lockfile
-
+RUN pnpm run zenstack:generate && pnpm run prisma:generate && pnpm run prisma-migrate
 
 CMD ["pnpm", "run", "start", "backend"]

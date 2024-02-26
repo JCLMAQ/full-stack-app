@@ -7,6 +7,7 @@
     "docker:down": "docker compose -f './db/docker-compose.yml' --env-file ./.env down",
     "start:zenstack-prisma": "pnpm run zenstack:generate && pnpm run prisma:generate && pnpm run prisma-migrate",
     "start:backend:dev": "pnpm run configproxy && nx serve backend --watch",
+    "backend:dev:docker": "pnpm run configproxy && nx serve backend --watch",
     "start:frontend": "pnpm run configangular -- --environment=dev && nx serve frontend --proxy-config ./proxy.conf.json --host 127.0.0.1 --port 4300",
     "start: frontendbis": "dotenv -e ../.env ts-node ./scripts/run-env.js",
     "pnpm-instal": "pnpm install --no-frozen-lockfile",
