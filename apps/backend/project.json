@@ -57,6 +57,36 @@
     "docker-build": {
       "dependsOn": ["build"],
       "command": "docker build -f apps/backend/Dockerfile . -t backend"
+    },
+    "container": {
+      "executor": "@nx-tools/nx-container:build",
+      "dependsOn": ["build"],
+      "options": {
+        "engine": "docker",
+        "metadata": {
+          "images": ["backend"],
+          "load": true,
+          "tags": [
+            "type=schedule",
+            "type=ref,event=branch",
+            "type=ref,event=tag",
+            "type=ref,event=pr",
+            "type=sha,prefix=sha-"
+          ]
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/ui-design-system/**/*.ts",
+          "libs/ui-design-system/**/*.html",
+          "libs/ui-design-system/package.json",
+          "libs/ui-design-system/project.json"
+        ]
+      }
     }
   },
   "tags": ["be"]

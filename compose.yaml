@@ -22,8 +22,8 @@ services:
           - postgres
       # depends_on:
       #   - postgres
-      env_file:
-       - .env
+      # env_file:
+      #  - .env
       # required: true
       # restart: no
       # tty: true

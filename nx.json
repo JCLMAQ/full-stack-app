@@ -61,6 +61,11 @@
       }
     }
   ],
+  "pluginsConfig": {
+    "@nrwl/js": {
+      "analyzeSourceFiles": true
+    }
+  },
   "generators": {
     "@nx/angular:application": {
       "e2eTestRunner": "cypress",

@@ -10,7 +10,7 @@ npm-debug.log
 Dockerfile
 .git
 .gitignore
-# .npmrc
+.npmrc
 .env-*
 .github
 *.md
