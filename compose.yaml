@@ -30,7 +30,7 @@ services:
       extends:
         file: compose.base.yaml
         service: nx-app-base
-      command: pnpm run backend:dev:docker --watch
+      command: pnpm run backend:dev:docker01 --watch
       ports:
         - 3300:3000 # API Entry port
         # - 4311:4311 # Server Debugging port
