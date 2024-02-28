@@ -1,0 +1,73 @@
+version: '3.7'
+
+services:
+  traefik:
+    # The official v2 Traefik docker image
+    image: traefik:latest
+    container_name: traefik
+    # Enables the web UI and tells Traefik to listen to docker
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+    ports:
+      # The HTTP port
+      - "80:80"
+      # The Web UI (enabled by --api.insecure=true)
+      - "8080:8080"
+    # labels: # for traefik, delete this if not needed
+    #   - "traefik.enable=true"
+    #   - "traefik.http.routers.traefik-http.entrypoints=web"
+    #   - "traefik.http.routers.traefik.service=api@internal"
+    #   # Still need a trailing / after /traefik to work
+    #   - "traefik.http.routers.traefik.rule=Host(`loxalhost`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"
+    #   # - "traefik.http.routers.traefik.rule=Host(`localhost`) && ((PathPrefix(`/traefik`) || (PathPrefix(`/dashboard`))"
+    #   - "traefik.http.routers.traefik.middlewares=traefik-stripprefix"
+    #   - "traefik.http.routers.traefik.service=traefikservice"
+    #   - "traefik.http.middlewares.traefik-stripprefix.stripprefix.prefixes=/dashboard"
+    #   - "traefik.http.services.traefikservice.loadbalancer.server.port=8080"
+    volumes:
+        # So that Traefik can listen to the Docker events
+        - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+        - oueb
+
+  # whoami:
+  # # A container that exposes an API to show its IP address
+  #   image: containous/whoami
+  #   container_name: whoami
+  #   labels:
+  #       # - "traefik.http.routers.whoami.rule=Host(`whoami.docker.localhost`)"
+  #       # PathPrefix : if /whoami/xxxx is possible
+  #       - "traefik.enable=true"
+  #       - "traefik.http.routers.whoami.rule=Host(`localhost`) && Path(`/whoami`)"
+  #       - "traefik.http.routers.whoami.entrypoints=web"
+
+  portainer:
+    container_name: portainer
+    image: portainer/portainer:latest
+    ports:
+        - 9000:9000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - dataportainer:/data
+    labels: # for traefik, delete this if not needed
+      - "traefik.enable=true"
+      - "traefik.http.routers.portainer-http.entrypoints=web"
+      # Still need a trailing / after /portainer to worsk
+      - "traefik.http.routers.portainer.rule=Host(`localhost`) && PathPrefix(`/portainer`)"
+      - "traefik.http.routers.portainer.middlewares=portainer-stripprefix"
+      - "traefik.http.routers.portainer.service=portainerservice"
+      - "traefik.http.middlewares.portainer-stripprefix.stripprefix.prefixes=/portainer"
+      - "traefik.http.services.portainerservice.loadbalancer.server.port=9000"
+    networks:
+      - oueb
+
+volumes:
+    dataportainer:
+
+networks:
+  oueb:
+    # external: true
+    driver: bridge

@@ -10,19 +10,19 @@ services:
     env_file:
       - .env
     environment:
-        POSTGRES_USER: ${POSTGRES_USER}
-        POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-        POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_URL: ${POSTGRES_URL}
+      DATABASE_PORT: 5432
     volumes:
         - postgres:/var/lib/postgresql/data
     # Uncomment the next two lines to connect to your your database from outside the Docker environment, e.g. using a database GUI like Postico
-    ports:
-        # - "${DATABASE_PORT}:5432"
-        - "5433:5432"
-    # network_mode: "host"
+    # ports:
+    #     # - "${DATABASE_PORT}:5432"
+    #     - "5433:5432"
     networks:
-        postgres:
-    #         ipv4_address: 172.16.238.10
+      - postgres
     restart: unless-stopped
 
   pgadmin-docker:
@@ -34,53 +34,48 @@ services:
       env_file:
         - .env
       environment:
-          PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
-          PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+        PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+        PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+        PGADMIN_PORT: ${PGADMIN_PORT}
       volumes:
           - pgadmin:/root/.pgadmin
-      ports:
-          # - "${PGADMIN_PORT}:80"
-          - "5051:80"
+      # ports:
+      #     # - "${PGADMIN_PORT}:80"
+      #     - "5051:80"
       networks:
-          - postgres
+        - postgres
       restart: unless-stopped
 
-# # nestjs App
-#     nestjs-api:
-#       container_name: nest-api
-#       extends:
-#         file: compose.base.yaml
-#         service: nx-app-base
-#       command: pnpm run backend:dev:docker --watch
-#       # command: pnpm run configproxy && nx serve backend --watch --host=0.0.0.0
-#       # build:
-#       #   context: .
-#       #   dockerfile: ../apps/backend/Dockerfile
-#       #   args:
-#       #     - POSTGRESQL_URL=${POSTGRESQL_URL}
-#       ports:
-#         - 3300:3300
-#       networks:
-#           - postgres
-#       # depends_on:
-#       #   - postgres
-#       # env_file:
-#       #   - .env
-#       # restart: no
-#       # tty: true
-
   nestjs-api:
+    container_name: nestjs-api
     extends:
       file: compose.base.yaml
       service: nx-app-base
-    command: pnpm run backend:dev:docker01
+    command: pnpm run backend:dev:docker
+    env_file:
+        - .env
+    environment:
+      NEST_SERVER_PORT: 3000
+      NEST_SERVER_GLOBAL_PREFIX: api
+      NEST_SERVER_HOST: ${DATABASE_HOST}
+      NEST_SERVER_SECURE: true
+      NEST_SERVER_CACHE: false
+      # NEST_SERVER_PATHREWRITE: "^/api" : "/api"
+      NEST_SERVER_LOGLEV: debug
+      NEST_SERVER_CHANGEORIGINE: true
+      DATABASE_HOST: 192.168.0.208
     ports:
-      - 3300:3000 # API Entry port
+      - 3300:3200 # API Entry port
       # - 4311:4311 # Server Debugging port
     depends_on:
       - postgres-docker
-    env_file:
-      - .env
+    restart: unless-stopped
+    # volumes:
+    #   - .:/app
+      # This ensures that the NestJS container manages the node_modules folder
+      # rather than synchronizes it with the host machine
+    #
+    # - /app/node_modules
     networks:
       - postgres
 
@@ -93,32 +88,4 @@ volumes:
     pgadmin:
         name: pgadmin-db-docker
     mono-node-modules: null
-    # mono-node-modules:
-    #     name: mono-node-modules
 
-
-# services:
-#   api:
-#     container_name: nestjs
-#     image: nestjs-dev
-#     restart: unless-stopped
-#     build:
-#       context: .
-#       dockerfile: Dockerfile
-#       # ✨ Target the dev stage
-#       target: dev
-#     # Mount host directory to docker container to support watch mode
-#     volumes:
-#       - .:/app
-#       # This ensures that the NestJS container manages the node_modules folder
-#       # rather than synchronizes it with the host machine
-#       - /app/node_modules
-#     env_file:
-#       - docker.env
-#     ports:
-#       - 8082:8082
-#     networks:
-#       - nest
-#     depends_on:
-#       - postgres
-#     command: npx nest start --watch
