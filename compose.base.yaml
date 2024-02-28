@@ -7,8 +7,14 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      # ✨ Target the dev stage
+      target: base
+      #   args:
+      #     - POSTGRESQL_URL=${POSTGRESQL_URL}
     environment:
       - DEV_PLATFORM=DOCKER
+    env_file:
+      - .env
     volumes:
       - ./:/app
       - mono-node-modules:/app/node_modules
@@ -35,3 +41,30 @@ services:
 # mono-node-modules will be defined in our docker-compose.yml later as the shared volume. This is for all containers to share the same node_modules volume
 # In a way, this will speed up "npm install" after the first service, because we now only need to install the node dependencies once
 # For our case, it makes total sense because in monorepo, dependencies are shared
+
+
+# services:
+#   api:
+#     container_name: nestjs
+#     image: nestjs-dev
+#     restart: unless-stopped
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#       # ✨ Target the dev stage
+#       target: dev
+#     # Mount host directory to docker container to support watch mode
+#     volumes:
+#       - .:/app
+#       # This ensures that the NestJS container manages the node_modules folder
+#       # rather than synchronizes it with the host machine
+#       - /app/node_modules
+#     env_file:
+#       - docker.env
+#     ports:
+#       - 8082:8082
+#     networks:
+#       - nest
+#     depends_on:
+#       - postgres
+#     command: npx nest start --watch

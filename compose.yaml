@@ -1,6 +1,49 @@
 version: '3.9'
 
 services:
+  postgres-docker:
+    container_name: postgres-docker
+    image: postgres:latest
+    extends:
+      file: compose.base.yaml
+      service: nx-app-base
+    env_file:
+      - .env
+    environment:
+        POSTGRES_USER: ${POSTGRES_USER}
+        POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+        POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+        - postgres:/var/lib/postgresql/data
+    # Uncomment the next two lines to connect to your your database from outside the Docker environment, e.g. using a database GUI like Postico
+    ports:
+        # - "${DATABASE_PORT}:5432"
+        - "5433:5432"
+    # network_mode: "host"
+    networks:
+        postgres:
+    #         ipv4_address: 172.16.238.10
+    restart: unless-stopped
+
+  pgadmin-docker:
+      container_name: pgadmin-docker
+      image: dpage/pgadmin4:latest
+      extends:
+        file: compose.base.yaml
+        service: nx-app-base
+      env_file:
+        - .env
+      environment:
+          PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+          PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+      volumes:
+          - pgadmin:/root/.pgadmin
+      ports:
+          # - "${PGADMIN_PORT}:80"
+          - "5051:80"
+      networks:
+          - postgres
+      restart: unless-stopped
 
 # # nestjs App
 #     nestjs-api:
@@ -26,24 +69,56 @@ services:
 #       # restart: no
 #       # tty: true
 
-    nestjs-api:
-      extends:
-        file: compose.base.yaml
-        service: nx-app-base
-      command: pnpm run backend:dev:docker01
-      ports:
-        - 3300:3000 # API Entry port
-        # - 4311:4311 # Server Debugging port
+  nestjs-api:
+    extends:
+      file: compose.base.yaml
+      service: nx-app-base
+    command: pnpm run backend:dev:docker01
+    ports:
+      - 3300:3000 # API Entry port
+      # - 4311:4311 # Server Debugging port
+    depends_on:
+      - postgres-docker
+    env_file:
+      - .env
+    networks:
+      - postgres
 
-# networks:
-#     postgres:
+networks:
+    postgres:
 
 volumes:
     postgres:
-        name: basedev-db
+        name: basedev-db-docker
     pgadmin:
-        name: pgadmin-db
+        name: pgadmin-db-docker
     mono-node-modules: null
     # mono-node-modules:
     #     name: mono-node-modules
 
+
+# services:
+#   api:
+#     container_name: nestjs
+#     image: nestjs-dev
+#     restart: unless-stopped
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#       # ✨ Target the dev stage
+#       target: dev
+#     # Mount host directory to docker container to support watch mode
+#     volumes:
+#       - .:/app
+#       # This ensures that the NestJS container manages the node_modules folder
+#       # rather than synchronizes it with the host machine
+#       - /app/node_modules
+#     env_file:
+#       - docker.env
+#     ports:
+#       - 8082:8082
+#     networks:
+#       - nest
+#     depends_on:
+#       - postgres
+#     command: npx nest start --watch
