@@ -4,9 +4,6 @@ services:
   postgres-docker:
     container_name: postgres-docker
     image: postgres:latest
-    extends:
-      file: compose.base.yaml
-      service: nx-app-base
     env_file:
       - .env
     environment:
@@ -14,7 +11,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_URL: ${POSTGRES_URL}
-      DATABASE_PORT: 5432
+      # DATABASE_PORT: 5432
     volumes:
         - postgres:/var/lib/postgresql/data
     # Uncomment the next two lines to connect to your your database from outside the Docker environment, e.g. using a database GUI like Postico
@@ -28,9 +25,6 @@ services:
   pgadmin-docker:
       container_name: pgadmin-docker
       image: dpage/pgadmin4:latest
-      extends:
-        file: compose.base.yaml
-        service: nx-app-base
       env_file:
         - .env
       environment:
@@ -54,28 +48,28 @@ services:
     command: pnpm run backend:dev:docker
     env_file:
         - .env
-    environment:
-      NEST_SERVER_PORT: 3000
-      NEST_SERVER_GLOBAL_PREFIX: api
-      NEST_SERVER_HOST: ${DATABASE_HOST}
-      NEST_SERVER_SECURE: true
-      NEST_SERVER_CACHE: false
-      # NEST_SERVER_PATHREWRITE: "^/api" : "/api"
-      NEST_SERVER_LOGLEV: debug
-      NEST_SERVER_CHANGEORIGINE: true
-      DATABASE_HOST: 192.168.0.208
+    # environment:
+    #   NEST_SERVER_PORT: 3000
+    #   NEST_SERVER_GLOBAL_PREFIX: api
+    #   NEST_SERVER_HOST: ${DATABASE_HOST}
+    #   NEST_SERVER_SECURE: true
+    #   NEST_SERVER_CACHE: false
+    #   # NEST_SERVER_PATHREWRITE: "^/api" : "/api"
+    #   NEST_SERVER_LOGLEV: debug
+    #   NEST_SERVER_CHANGEORIGINE: true
+    #   DATABASE_HOST: localhost
     ports:
       - 3300:3200 # API Entry port
       # - 4311:4311 # Server Debugging port
     depends_on:
       - postgres-docker
     restart: unless-stopped
-    # volumes:
-    #   - .:/app
+    volumes:
+      - .:/app
       # This ensures that the NestJS container manages the node_modules folder
       # rather than synchronizes it with the host machine
     #
-    # - /app/node_modules
+      - /app/node_modules
     networks:
       - postgres
 

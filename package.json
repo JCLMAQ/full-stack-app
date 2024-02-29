@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "docker:app:up": "docker compose -f 'compose.yaml' --env-file .env up -d --build",
     "docker:up": "docker compose -f './db/docker-compose.yml' --env-file ./.env up -d --build",
     "docker:down": "docker compose -f './db/docker-compose.yml' --env-file ./.env down",
     "start:zenstack-prisma": "pnpm run zenstack:generate && pnpm run prisma:generate && pnpm run prisma-migrate",
