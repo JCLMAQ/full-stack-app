@@ -15,14 +15,14 @@ services:
     volumes:
         - postgres:/var/lib/postgresql/data
     # Uncomment the next two lines to connect to your your database from outside the Docker environment, e.g. using a database GUI like Postico
-    # ports:
-    #     # - "${DATABASE_PORT}:5432"
-    #     - "5433:5432"
+    ports:
+        # - "${DATABASE_PORT}:5432"
+        - "5432:5432"
     networks:
       - postgres
     restart: unless-stopped
 
-  pgadmin-docker:
+  pgadmin_docker:
       container_name: pgadmin-docker
       image: dpage/pgadmin4:latest
       env_file:
@@ -32,9 +32,9 @@ services:
         PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
         PGADMIN_PORT: ${PGADMIN_PORT}
       volumes:
-          - pgadmin:/root/.pgadmin
+        - pgadmin:/root/.pgadmin
       # ports:
-      #     # - "${PGADMIN_PORT}:80"
+      #   - "${PGADMIN_PORT}:80"
       #     - "5051:80"
       networks:
         - postgres
@@ -45,10 +45,11 @@ services:
     extends:
       file: compose.base.yaml
       service: nx-app-base
-    command: pnpm run backend:dev:docker
+    command: pnpm run backend:dev:docker01
     env_file:
         - .env
-    # environment:
+    environment:
+      - CHOKDIR_USERPOOLING=true
     #   NEST_SERVER_PORT: 3000
     #   NEST_SERVER_GLOBAL_PREFIX: api
     #   NEST_SERVER_HOST: ${DATABASE_HOST}
@@ -74,7 +75,7 @@ services:
       - postgres
 
 networks:
-    postgres:
+    postgres: {}
 
 volumes:
     postgres:

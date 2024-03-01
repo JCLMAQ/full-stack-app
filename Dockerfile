@@ -43,8 +43,10 @@ COPY --chown=node:node . .
 # Install dependencies
 RUN pnpm install --force --no-frozen-lockfile
 
+# Try to set permissions to node user
+RUN chown -R node /app/node_modules
 # Install Prisma with zenstack
-RUN pnpm run zenstack:generate && pnpm run prisma:generate && pnpm run prisma-migrate
+# RUN pnpm run zenstack:generate && pnpm run prisma:generate && pnpm run prisma-migrate
 
 
 # Set Docker as a non-root user
