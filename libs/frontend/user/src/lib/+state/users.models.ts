@@ -1,7 +1,7 @@
 
 import { User } from "@prisma/client";
 
-export interface UserInterface extends Partial<User>{}
+export interface UserInterface extends Partial<User> {}
 
 
 export type ICreateUser =Partial<Omit<UserInterface, 'id'>>;

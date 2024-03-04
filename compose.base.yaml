@@ -14,7 +14,7 @@ services:
     environment:
       - DEV_PLATFORM=DOCKER
     env_file:
-      - .env
+      - .env-docker
     volumes:
       - ./:/app
       - mono-node-modules:/app/node_modules
