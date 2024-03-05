@@ -41,7 +41,8 @@ COPY --chown=node:node . .
 # COPY . .
 
 # Install dependencies
-RUN pnpm install --force --no-frozen-lockfile
+# RUN pnpm install --force --no-frozen-lockfile
+RUN pnpm install
 
 # Try to set permissions to node user
 RUN chown -R node /app/node_modules
