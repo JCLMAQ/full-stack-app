@@ -1,0 +1,47 @@
+{
+    // Utilisez IntelliSense pour en savoir plus sur les attributs possibles.
+    // Pointez pour afficher la description des attributs existants.
+    // Pour plus d'informations, visitez : https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "debug backend my-app",
+        "port": 9229,
+        "request": "launch",
+        "type": "node",
+        "runtimeExecutable": "npx",
+        "runtimeArgs": [
+            "nx",
+            "serve",
+            "backend",
+        ],
+        // "envFile": "${workspaceFolder}/.env",
+        "sourceMaps": true,
+        // "restart": true,
+        // "stopOnEntry": false,
+        "outFiles": [
+          "${workspaceFolder}/dist/**/*.js"
+        ],
+        "console": "integratedTerminal",
+        "autoAttachChildProcesses": true,
+        "cwd": "${workspaceFolder}/apps/backend"
+      },
+      {
+        "name": "Launch Chrome",
+        "request": "launch",
+        "type": "chrome",
+        "url": "http://localhost:4100",
+        "webRoot": "${workspaceFolder}",
+        "sourceMaps": true,
+      },
+      {
+        "name": "Debug Typescript",
+        "port": 9229,
+        "request": "attach",
+        "skipFiles": [
+          "<node_internals>/**"
+        ],
+        "type": "node"
+      }
+    ]
+}

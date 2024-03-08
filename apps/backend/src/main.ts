@@ -11,11 +11,15 @@ import { PrismaService } from '@prisma/prisma';
 import { ClsMiddleware } from 'nestjs-cls';
 import { AppModule } from './app/app.module';
 
+
 async function bootstrap() {
+
   const app = await NestFactory.create(AppModule);
 
   const prismaService = app.get(PrismaService);
   await prismaService.enableShutdownHooks(app);
+
+    // app.enableShutdownHooks()
 
 /* Nestjs has a built-in validation pipe: The ValidationPipe provides a convenient approach
     to enforce validation rules for all incoming client payloads,
@@ -36,6 +40,7 @@ async function bootstrap() {
     new ClassSerializerInterceptor(app.get(Reflector))
     );
 
+
     const globalPrefix = process.env.NEST_SERVER_GLOBAL_PREFIX ||'api';
     app.setGlobalPrefix(globalPrefix);
 
@@ -46,7 +51,11 @@ async function bootstrap() {
       }).use,
   );
 
+    // const configService = app.get(ConfigService);
+  // const port: number = configService.get('NEST_SERVER_PORT');
+
   const port = process.env.NEST_SERVER_PORT || 3333;
+
   // Swagger config
   const config = new DocumentBuilder()
   .setTitle(process.env.SET_APP_TITLE)
