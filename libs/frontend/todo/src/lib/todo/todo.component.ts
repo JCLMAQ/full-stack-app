@@ -4,6 +4,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { MATERIAL } from '@fe/material';
 import { TodoStore } from '../store/todo.state';
+import { TodoDetailComponent } from '../todo-detail/todo-detail.component';
 import { TodoListComponent } from '../todo-list/todo-list.component';
 
 @Component({
@@ -12,7 +13,8 @@ import { TodoListComponent } from '../todo-list/todo-list.component';
   imports: [
     CommonModule,
     ...MATERIAL,
-    TodoListComponent
+    TodoListComponent,
+    TodoDetailComponent,
   ],
   templateUrl: './todo.component.html',
   animations: [

@@ -17,7 +17,7 @@ interface TodoForm extends FormGroup<{
   }> { }
 
 @Component({
-  selector: 'lib-todo-detail',
+  selector: 'full-stack-app-todo-detail',
   standalone: true,
   imports: [
     CommonModule,
