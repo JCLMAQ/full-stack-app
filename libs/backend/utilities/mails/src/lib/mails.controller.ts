@@ -9,7 +9,7 @@ export class MailsController {
   findOneById(@Param('id') id: string) {
     return this.mailsService.findOneUniqueEmailDomain({id: +id});
   }
-  @Get(':id')
+  @Get(':domain')
   findOneByDomain(@Param('domain') domain: string) {
     return this.mailsService.findOneUniqueEmailDomain({domain});
   }

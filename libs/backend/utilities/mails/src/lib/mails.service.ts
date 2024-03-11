@@ -1,8 +1,8 @@
 import { DbConfigService } from '@be/db-config';
-import { MailerService } from '@nestjs-modules/mailer';
+// import { MailerService } from '@nestjs-modules/mailer';
 import { HttpException, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { AppEmailDomain, Prisma, User } from '@prisma/client';
+import { AppEmailDomain, Prisma } from '@prisma/client';
 import { PrismaService } from '@prisma/prisma';
 import { I18nService } from 'nestjs-i18n';
 import * as nodemailer from 'nodemailer';
@@ -20,7 +20,7 @@ import SMTPTransport = require('nodemailer/lib/smtp-transport');
     constructor(
       private prisma: PrismaService,
       private configService: ConfigService,
-      private mailerService: MailerService,
+      // private mailerService: MailerService,
       private dbConfigService: DbConfigService,
       private i18n: I18nService,
       ) {}
@@ -160,18 +160,18 @@ import SMTPTransport = require('nodemailer/lib/smtp-transport');
   *** Not Used
   */
     // Example of sending a confirmation email
-    async sendUserConfirmation(user: User, token: string) {
-      const url = `example.com/auth/confirm?token=${token}`;
+    // async sendUserConfirmation(user: User, token: string) {
+    //   const url = `example.com/auth/confirm?token=${token}`;
 
-      await this.mailerService.sendMail({
-        to: user.email,
-        // from: '"Support Team" <support@example.com>', // override default from
-        subject: 'Welcome to Nice App! Confirm your Email',
-        template: './confirmation', // `.hbs` extension is appended automatically
-        context: { // ✏️ filling curly brackets with content
-          name: user.lastName + " " + user.firstName,
-          url,
-        },
-      });
-    }
+    //   await this.mailerService.sendMail({
+    //     to: user.email,
+    //     // from: '"Support Team" <support@example.com>', // override default from
+    //     subject: 'Welcome to Nice App! Confirm your Email',
+    //     template: './confirmation', // `.hbs` extension is appended automatically
+    //     context: { // ✏️ filling curly brackets with content
+    //       name: user.lastName + " " + user.firstName,
+    //       url,
+    //     },
+    //   });
+    // }
 }
