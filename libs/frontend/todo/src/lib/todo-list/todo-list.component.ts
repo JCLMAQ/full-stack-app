@@ -57,7 +57,7 @@ export class TodoListComponent {
 constructor() {
   console.log("Constructor step")
   effect(()=> {
-    this.todoStore.todoLoaded();
+    // this.todoStore.todoLoaded();
     this.fetchData();
     const state = getState(this.todoStore);
       console.log('Todo state changed', state);
@@ -68,6 +68,7 @@ constructor() {
 
 ngOnInit(): void {
   console.log('ngOnInit step')
+  // this.fetchData();
 }
 
 fetchData(): void {
@@ -119,7 +120,7 @@ ngAfterViewInit(): void {
     patchState(this.todoStore, { selectedId: id });
     patchState(this.todoStore, { lastPosition: this.todoStore.items().length - 1 });
 
-      this.router.navigate([this.routeToDetail, mode]);
+      this.router.navigate([this.routeToDetail, id, mode]); // this.router.navigate([this.routeToDetail, id, mode]);
       // this.router.navigate([this.routeToDetail, id, mode]);
   }
 
