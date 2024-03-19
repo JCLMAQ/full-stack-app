@@ -41,7 +41,7 @@ export class TodoDetailComponent implements OnInit {
 
   form!: FormGroup;
 
-  todoId!: string | undefined;
+  todoId!: string | undefined | null;
   todoItem: TodoInterface | undefined;
   todoItems: TodoInterface[] | undefined;
 
@@ -76,10 +76,18 @@ export class TodoDetailComponent implements OnInit {
     // private alertService: AlertService,
   ) {
     console.log("Start of constructor ")
-    // this.todoId = this.route.snapshot.params['id'];
+    this.todoId = this.route.snapshot.params['id'];
     this.mode = this.route.snapshot.params['mode'];
     this.form = this.fb.group(this.formControls);
 
+
+    if((this.todoId === undefined )|| (this.todoId === null)){
+
+      this.todoId = this.todoStore.selectedId();
+    }
+    if(this.mode === undefined || this.mode === null) {
+      this.mode = 'view';
+    }
     patchState(this.todoStore, { selectedId: this.todoId });
     console.log('Constructor todo page state changed (1): ', getState(this.todoStore));
     effect(() => {
@@ -109,6 +117,9 @@ export class TodoDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if((this.todoId === undefined )|| (this.todoId === null)){
+      this.todoId = this.todoStore.selectedId();
+    }
     console.log("Start of ngInit ")
 this.reload();
     console.log('ngInit todo page state changed: ', getState(this.todoStore));
@@ -160,15 +171,12 @@ this.reload();
 
   positionCompute() {
     this.currentPosition = this.todoStore.items().findIndex(item => item.id === this.todoId)
-
-    this.lastPosition = this.todoStore.items().length - 1;
-
+    this.lastPosition = this.todoStore.items().length - 1
   }
 
 
   next() {
     this.positionCompute();
-
     this.todoStore.next(this.currentPosition, this.lastPosition);
     this.reload();
   }
