@@ -47,6 +47,9 @@ package-lock.json
 # .env
 .env
 
+# Environnement Angular
+environment.ts
+
 # Primsa Migration
 /zmodel/prisma/migrations
 # Prisma utils generated files
