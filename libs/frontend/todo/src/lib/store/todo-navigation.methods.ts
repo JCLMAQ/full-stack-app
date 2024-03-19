@@ -37,14 +37,6 @@ export function withNavigationMethods() {
     ),
     withMethods(
       (store) => ({
-        // setNavigation({ currentPosition, lastPosition, navigation }) {
-        //   patchState(store, {
-        //     currentPosition,
-        //     lastPosition,
-        //     navigation
-        //   });
-        // },
-
         initNavButton(todoId: string) {
           let currentPosition = 0;
           let lastPosition = 0;
@@ -101,12 +93,6 @@ export function withNavigationMethods() {
               isLast
             }
           });
-          // const valtodoEntity = store.items().at(currentPosition)
-          // const todoId = valtodoEntity?.id;
-          // // const todoItem = store.todoEntities().find(p => p.id === todoId);
-          // patchState(store, {
-          //   selectedId: todoId
-          // })
         },
 
         next(currentPosition: number, lastPosition: number) {

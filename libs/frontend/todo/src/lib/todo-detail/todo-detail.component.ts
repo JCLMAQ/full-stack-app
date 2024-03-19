@@ -4,7 +4,7 @@ import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule }
 import { DateAdapter } from '@angular/material/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { MATERIAL } from '@fe/material';
-import { getState, patchState } from '@ngrx/signals';
+import { getState } from '@ngrx/signals';
 import { TodoInterface, TodoPartialInterface } from '../store/todo.model';
 import { TodoStore } from '../store/todo.state';
 
@@ -83,12 +83,14 @@ export class TodoDetailComponent implements OnInit {
 
     if((this.todoId === undefined )|| (this.todoId === null)){
 
-      this.todoId = this.todoStore.selectedId();
+      // this.todoId = this.todoStore.selectedId();
+      this.todoId = this.todoStore.items().at(0)?.id;
     }
     if(this.mode === undefined || this.mode === null) {
       this.mode = 'view';
     }
-    patchState(this.todoStore, { selectedId: this.todoId });
+
+    this.todoStore.todoIdSelectedId(this.todoId!);
     console.log('Constructor todo page state changed (1): ', getState(this.todoStore));
     effect(() => {
       this.fetchData();
@@ -113,15 +115,17 @@ export class TodoDetailComponent implements OnInit {
   fetchData(): void {
     console.log("Start of fetchData ", this.todoItems)
     this.todoItems = this.todoStore.todoEntities();
+    // this.todoStore.initNavButton(this.todoId!);
     console.log("End of fetchData ", this.todoItems)
   }
 
   ngOnInit(): void {
     if((this.todoId === undefined )|| (this.todoId === null)){
-      this.todoId = this.todoStore.selectedId();
+      this.todoStore.initSelectedID();
     }
+    this.todoStore.initNavButton(this.todoId!);
     console.log("Start of ngInit ")
-this.reload();
+    this.reload();
     console.log('ngInit todo page state changed: ', getState(this.todoStore));
 
     console.log("End of ngInit ")

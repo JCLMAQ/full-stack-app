@@ -55,6 +55,15 @@ export function withTodosMethods() {
         patchState(store, setLoaded('todo'));
       },
 
+      initSelectedID() {
+        const firstIndex = store.items().at(0)?.id;
+        patchState(store, { selectedId: firstIndex })
+      },
+
+      todoIdSelectedId(selectedRowId: string) {
+        patchState(store, { selectedId:selectedRowId })
+      },
+
       toggleSelected( selectedRowId: string) {
         const allSelectedRowId = store.selectedIds();
         const existSelectedRowId = allSelectedRowId.filter( item => item === selectedRowId)

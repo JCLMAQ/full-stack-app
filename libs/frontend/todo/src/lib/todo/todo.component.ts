@@ -40,17 +40,10 @@ ownerId = "7c672043-24e4-45a9-909c-693ba5044785"
   constructor() {
     this.initSelectedID()
   }
-  // this.things[0].event
-  // ngOnInit(): void {
-  //   // this.initSelectedID()
-  // }
 
   initSelectedID() {
-    // this.todoStore.selectedId = this.todoStore.items.prototype[0].id
-
-    const result = this.todoStore.items().findIndex((o) => o.id === "Group");
-// const first = result[0];
-
-    const test = this.todoStore.items()[0].id
+    // this.todoStore.selectedId = this.todoStore.items().at(0)?.id
+    // const firstIndex = this.todoStore.items().at(0)?.id;
+    this.todoStore.initSelectedID();
   }
 }
