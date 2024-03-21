@@ -61,14 +61,16 @@ constructor() {
 
     const state = getState(this.todoStore);
       console.log('Todo state changed', state);
-  })
+  });
+  this.todoStore.initSelectedID();
+  console.log('initSelectedID step: ', this.todoStore.selectedId());
 }
 
 
 
 ngOnInit(): void {
   console.log('ngOnInit step')
-  this.todoStore.initSelectedID();
+
   // this.fetchData();
 }
 
@@ -119,6 +121,7 @@ ngAfterViewInit(): void {
   navigateButton( id: string, mode: string ) {
     this.todoStore.todoIdSelectedId(id);
     this.todoStore.initNavButton(id);
+    console.log("navigateButton: selected item", this.todoStore.selectedItem())
     this.router.navigate([this.routeToDetail, id, mode]);
   }
 

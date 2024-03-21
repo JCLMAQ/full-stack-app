@@ -130,6 +130,7 @@ export class TodoDetailComponent implements OnInit {
     if (this.mode === 'update' || this.mode === 'view') {
       // this.todoStore.initNavButton(id!);
       this.todoStore.todoIdSelectedId(id);
+      console.log("selected item: ", this.todoStore.selectedItem())
       this.form.patchValue({
         id: this.todoStore.selectedItem()?.id,
         title: this.todoStore.selectedItem()?.title,
