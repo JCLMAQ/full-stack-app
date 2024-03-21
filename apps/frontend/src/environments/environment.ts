@@ -1,7 +1,7 @@
 
     export const environment = {
         production: false,
-        API_URL: "http://${API_FRONT_END}:${API_PORT}",
+        API_URL: "localhost",
         API_PORT: "4000",
         API_SECRET: "1234AZERTYuiop567890",
         AUTO_REGISTRATION_ENABLE: "0",

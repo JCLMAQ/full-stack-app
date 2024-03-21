@@ -80,10 +80,7 @@ export class TodoDetailComponent implements OnInit {
     this.mode = this.route.snapshot.params['mode'];
     this.form = this.fb.group(this.formControls);
 
-
     if((this.todoId === undefined )|| (this.todoId === null)){
-
-      // this.todoId = this.todoStore.selectedId();
       this.todoId = this.todoStore.items().at(0)?.id;
     }
     if(this.mode === undefined || this.mode === null) {
@@ -98,17 +95,6 @@ export class TodoDetailComponent implements OnInit {
       const state = getState(this.todoStore);
       console.log('Constructor effect todo page state changed: ', state);
     });
-    // this.todoStore.initNavButton(this.todoId);
-    // patchState(this.todoStore, { selectedId: this.todoId });
-
-    // this.todoStore.initNavButton(this.todoId);
-    // if(this.todoStore.todoLoaded()){
-    //   this.todoStore.initNavButton(this.todoId);
-    // }
-
-    // patchState(this.todoStore, { lastPosition: this.todoStore.items().length - 1 });
-    // patchState(this.todoStore, { selectedId: this.todoId });
-    // this.todoStore.initNavButton(this.todoId);
     console.log("End of constructor ")
   }
 
@@ -133,7 +119,6 @@ export class TodoDetailComponent implements OnInit {
 
 
   reload() {
-    this.positionCompute();
     if (this.mode === 'update' || this.mode === 'view') {
       this.form.patchValue({
         id: this.todoStore.selectedItem()?.id,
@@ -173,33 +158,24 @@ export class TodoDetailComponent implements OnInit {
 
   virtualRemove() { }
 
-  positionCompute() {
-    this.currentPosition = this.todoStore.items().findIndex(item => item.id === this.todoId)
-    this.lastPosition = this.todoStore.items().length - 1
-  }
-
 
   next() {
-    this.positionCompute();
-    this.todoStore.next(this.currentPosition, this.lastPosition);
+    this.todoStore.next();
     this.reload();
   }
 
   last() {
-    this.positionCompute();
-    this.todoStore.last(this.lastPosition)
+    this.todoStore.last()
     this.reload();
   }
 
   first() {
-    this.positionCompute();
-    this.todoStore.first(this.lastPosition);
+    this.todoStore.first();
     this.reload();
   }
 
   previous() {
-    this.positionCompute();
-    this.todoStore.previous(this.currentPosition, this.lastPosition);
+    this.todoStore.previous();
     this.reload();
   }
 

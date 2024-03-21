@@ -95,38 +95,61 @@ export function withNavigationMethods() {
           });
         },
 
-        next(currentPosition: number, lastPosition: number) {
-          currentPosition = currentPosition + 1
-          if (currentPosition > lastPosition) {
+        next() {
+          let currentPosition = store.currentPosition() + 1
+          const lastPosition = store.lastPosition()
+          if (currentPosition > store.lastPosition()) {
             currentPosition = lastPosition
           }
-          // let currentPosition = store.currentPosition() + 1
-          // const lastPosition = store.lastPosition()
-          // if (currentPosition > store.lastPosition()) {
-          //   currentPosition = store.lastPosition()
-          // }
           this.navStateMgt( currentPosition, lastPosition );
         },
 
-        last(lastPosition: number) {
-          const currentPosition = lastPosition
+        last() {
+          const currentPosition = store.lastPosition()
+          const lastPosition = store.lastPosition()
           this.navStateMgt( currentPosition, lastPosition );
         },
 
-        first(lastPosition: number) {
+        first() {
           const currentPosition = 0;
-          // const lastPosition = store.lastPosition()
+          const lastPosition = store.lastPosition();
           this.navStateMgt( currentPosition, lastPosition );
         },
 
-        previous(currentPosition: number, lastPosition: number) {
-          currentPosition = currentPosition - 1
+        previous() {
+          let currentPosition = store.currentPosition() - 1
+          const lastPosition = store.lastPosition();
           if (currentPosition < 0) {
             currentPosition= 0
           }
-          // const lastPosition = store.lastPosition()
           this.navStateMgt( currentPosition, lastPosition );
         },
+
+        // next(currentPosition: number, lastPosition: number) {
+        //   currentPosition = currentPosition + 1
+        //   if (currentPosition > lastPosition) {
+        //     currentPosition = lastPosition
+        //   }
+        //   this.navStateMgt( currentPosition, lastPosition );
+        // },
+
+        // last(lastPosition: number) {
+        //   const currentPosition = lastPosition
+        //   this.navStateMgt( currentPosition, lastPosition );
+        // },
+
+        // first(lastPosition: number) {
+        //   const currentPosition = 0;
+        //   this.navStateMgt( currentPosition, lastPosition );
+        // },
+
+        // previous(currentPosition: number, lastPosition: number) {
+        //   currentPosition = currentPosition - 1
+        //   if (currentPosition < 0) {
+        //     currentPosition= 0
+        //   }
+        //   this.navStateMgt( currentPosition, lastPosition );
+        // },
 
       })
     )
