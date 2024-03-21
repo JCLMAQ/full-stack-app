@@ -88,12 +88,10 @@ export class TodoDetailComponent implements OnInit {
     }
 
     this.todoStore.todoIdSelectedId(this.todoId!);
-    this.todoStore.initNavButton(this.todoId!);
-
     console.log('Constructor todo page state changed (1): ', getState(this.todoStore));
     effect(() => {
       this.fetchData();
-      // this.reload(this.todoId!);
+      this.reload(this.todoId!);
       const state = getState(this.todoStore);
       console.log('Constructor effect todo page state changed: ', state);
     });
@@ -102,24 +100,20 @@ export class TodoDetailComponent implements OnInit {
 
   fetchData(): void {
     console.log("Start of fetchData ", this.todoItems)
-
     this.todoItems = this.todoStore.todoEntities();
-    this.todoStore.initSelectedID();
-    this.todoStore.initNavButton(this.todoStore.selectedId()!);
-    this.reload(this.todoStore.selectedId()!);
-
+    this.todoStore.initNavButton(this.todoId!);
     console.log("End of fetchData ", this.todoItems)
   }
 
   ngOnInit(): void {
-    // if((this.todoId === undefined )|| (this.todoId === null)){
-    //   this.todoStore.initSelectedID();
-    // } else {
-    //   this.todoStore.todoIdSelectedId(this.todoId!);
-    // }
-    // this.todoStore.initNavButton(this.todoId!);
+    if((this.todoId === undefined )|| (this.todoId === null)){
+      this.todoStore.initSelectedID();
+    } else {
+      this.todoStore.todoIdSelectedId(this.todoId!);
+    }
+    this.todoStore.initNavButton(this.todoId!);
     console.log("Start of ngInit ")
-    // this.reload(this.todoId!);
+    this.reload(this.todoId!);
     console.log('ngInit todo page state changed: ', getState(this.todoStore));
 
     console.log("End of ngInit ")
@@ -128,7 +122,7 @@ export class TodoDetailComponent implements OnInit {
 
   reload(id: string) {
     if (this.mode === 'update' || this.mode === 'view') {
-      // this.todoStore.initNavButton(id!);
+      this.todoStore.initNavButton(id!);
       this.todoStore.todoIdSelectedId(id);
       this.form.patchValue({
         id: this.todoStore.selectedItem()?.id,

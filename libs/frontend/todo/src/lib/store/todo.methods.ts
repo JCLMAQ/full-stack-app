@@ -61,7 +61,7 @@ export function withTodosMethods() {
       },
 
       todoIdSelectedId(selectedRowId: string) {
-        patchState(store, { selectedId:selectedRowId })
+        patchState(store, { selectedId: selectedRowId })
       },
 
       toggleSelected( selectedRowId: string) {

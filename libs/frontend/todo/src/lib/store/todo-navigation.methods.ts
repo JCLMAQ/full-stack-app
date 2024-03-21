@@ -37,17 +37,20 @@ export function withNavigationMethods() {
     ),
     withMethods(
       (store) => ({
-        initNavButton(todoId: string) {
+        initNavButton(initialTodoId: string) {
           let currentPosition = 0;
           let lastPosition = 0;
-          if(store.selection().selected.length <= 1 ) {
-            currentPosition = store.items().findIndex(p => p.id === todoId);
+          if(store.selection().selected.length <= 1 ) { // no selected items
+            currentPosition = store.items().findIndex(p => p.id === initialTodoId);
             if ( currentPosition === -1) {
               currentPosition = 0;
             }
             lastPosition = store.items().length - 1;
+            if ( lastPosition < 0 || lastPosition < currentPosition ) {
+              lastPosition = 0;
+            }
           } else {
-            currentPosition = store.selection().selected.findIndex(p => p.id === todoId);
+            currentPosition = store.selection().selected.findIndex(p => p.id === initialTodoId);
             lastPosition = store.selection().selected.length - 1;
           }
           if(lastPosition < 0 ) { lastPosition = 0; }
@@ -55,34 +58,46 @@ export function withNavigationMethods() {
           patchState(store, {
             currentPosition,
             lastPosition,
-            // selectedId: todoId
+            selectedId: initialTodoId
           });
           this.navStateMgt(currentPosition, lastPosition);
         },
 
         navStateMgt( currentPosition: number, lastPosition: number) {
           if(lastPosition < 0 ) { lastPosition = 0; }
-          let hasNext = true;
-          let hasPrevious = true;
-          let isFirst = false;
-          let isLast = false;
-          if (currentPosition === 0) {
-            hasNext = true;
+          if(currentPosition > lastPosition ) { currentPosition = lastPosition }
+          if(currentPosition < 0 ) { currentPosition = 0}
+
+          let hasNext = false;
+          let hasPrevious = false;
+          let isFirst = true;
+          let isLast = true;
+
+          if (currentPosition === 0 && lastPosition === 0) {
+            hasNext = false;
             hasPrevious = false;
             isFirst = true;
-            isLast = false;
-          } else
-            if (currentPosition === lastPosition) {
-              hasNext = false;
-              hasPrevious = true;
-              isFirst = false;
-              isLast = true;
-            } else {
+            isLast = true;
+          } else {
+            if (currentPosition === 0) {
               hasNext = true;
-              hasPrevious = true;
-              isFirst = false;
+              hasPrevious = false;
+              isFirst = true;
               isLast = false;
-            }
+            } else
+              if (currentPosition === lastPosition) {
+                hasNext = false;
+                hasPrevious = true;
+                isFirst = false;
+                isLast = true;
+              } else {
+                hasNext = true;
+                hasPrevious = true;
+                isFirst = false;
+                isLast = false;
+              }
+          }
+
           patchState(store, {
             currentPosition,
             lastPosition,
@@ -98,7 +113,7 @@ export function withNavigationMethods() {
         next() {
           let currentPosition = store.currentPosition() + 1
           const lastPosition = store.lastPosition()
-          if (currentPosition > store.lastPosition()) {
+          if (currentPosition > lastPosition) {
             currentPosition = lastPosition
           }
           this.navStateMgt( currentPosition, lastPosition );
@@ -124,33 +139,6 @@ export function withNavigationMethods() {
           }
           this.navStateMgt( currentPosition, lastPosition );
         },
-
-        // next(currentPosition: number, lastPosition: number) {
-        //   currentPosition = currentPosition + 1
-        //   if (currentPosition > lastPosition) {
-        //     currentPosition = lastPosition
-        //   }
-        //   this.navStateMgt( currentPosition, lastPosition );
-        // },
-
-        // last(lastPosition: number) {
-        //   const currentPosition = lastPosition
-        //   this.navStateMgt( currentPosition, lastPosition );
-        // },
-
-        // first(lastPosition: number) {
-        //   const currentPosition = 0;
-        //   this.navStateMgt( currentPosition, lastPosition );
-        // },
-
-        // previous(currentPosition: number, lastPosition: number) {
-        //   currentPosition = currentPosition - 1
-        //   if (currentPosition < 0) {
-        //     currentPosition= 0
-        //   }
-        //   this.navStateMgt( currentPosition, lastPosition );
-        // },
-
       })
     )
   )}

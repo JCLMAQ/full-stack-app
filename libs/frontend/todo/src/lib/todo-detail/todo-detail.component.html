@@ -78,7 +78,7 @@
                                   (click)="last()">
         <mat-icon>last_page</mat-icon>
       </button>
-      <button mat-icon-button placeholder="Reload" matTooltip="Reset" (click)="reload()">
+      <button mat-icon-button placeholder="Reload" matTooltip="Reset" (click)="reload(form.value.id)">
         <!-- <button mat-icon-button placeholder="Reload" matTooltip="Reset" (click)="reload(form.value.id)"> -->
         <mat-icon>autorenew</mat-icon>
       </button>
@@ -94,8 +94,11 @@
 </div>
 <div>Current Position : {{todoStore.currentPosition()}}</div>
 <div>Last Position : {{todoStore.lastPosition()}}</div>
-<div>Selected Items: {{todoStore.selection().selected.length}}</div>
+<div>selected id : {{todoStore.selectedId()}}</div>
+<div>Selected Item: {{todoStore.selectedItem() | json}}</div>
+<div>If selection: </div>
+<div>Selection Items: {{todoStore.selection().selected.length}}</div>
 <div>Selection : {{todoStore.selection().selected | json}}</div>
-<div>SelectedItem Index: {{todoStore.selectedItemIndex()}}</div>
-<div>Selected entries : {{todoStore.selection().selected.entries.length }}</div>
-<div>SelectedRowIds : {{todoStore.selectedIds() | json}}</div>
+<div>SelectedItem Selection Index: {{todoStore.selectedItemIndex()}}</div>
+<div>Selection selected entries : {{todoStore.selection().selected.entries.length }}</div>
+<div>SelectedRowIds from selection: {{todoStore.selectedIds() | json}}</div>

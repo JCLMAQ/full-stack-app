@@ -37,13 +37,4 @@ ownerId = "7c672043-24e4-45a9-909c-693ba5044785"
   readonly todoStore = inject(TodoStore);
   readonly router = inject(Router)
 
-  constructor() {
-    this.initSelectedID()
-  }
-
-  initSelectedID() {
-    // this.todoStore.selectedId = this.todoStore.items().at(0)?.id
-    // const firstIndex = this.todoStore.items().at(0)?.id;
-    this.todoStore.initSelectedID();
-  }
 }

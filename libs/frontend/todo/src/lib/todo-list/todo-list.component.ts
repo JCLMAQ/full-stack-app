@@ -6,7 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { MATERIAL } from '@fe/material';
-import { getState, patchState } from '@ngrx/signals';
+import { getState } from '@ngrx/signals';
 import { TodoInterface } from '../store/todo.model';
 import { TodoStore } from '../store/todo.state';
 
@@ -57,8 +57,8 @@ export class TodoListComponent {
 constructor() {
   console.log("Constructor step")
   effect(()=> {
-    // this.todoStore.todoLoaded();
     this.fetchData();
+
     const state = getState(this.todoStore);
       console.log('Todo state changed', state);
   })
@@ -68,6 +68,7 @@ constructor() {
 
 ngOnInit(): void {
   console.log('ngOnInit step')
+  this.todoStore.initSelectedID();
   // this.fetchData();
 }
 
@@ -116,12 +117,9 @@ ngAfterViewInit(): void {
   }
 
   navigateButton( id: string, mode: string ) {
-    // this.todoStore.initNavButton(id);
-    patchState(this.todoStore, { selectedId: id });
-    patchState(this.todoStore, { lastPosition: this.todoStore.items().length - 1 });
-
-      this.router.navigate([this.routeToDetail, id, mode]); // this.router.navigate([this.routeToDetail, id, mode]);
-      // this.router.navigate([this.routeToDetail, id, mode]);
+    this.todoStore.todoIdSelectedId(id);
+    this.todoStore.initNavButton(id);
+    this.router.navigate([this.routeToDetail, id, mode]);
   }
 
   addOne() {
