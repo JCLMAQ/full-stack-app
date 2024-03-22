@@ -53,21 +53,6 @@ export class TodoDetailComponent implements OnInit {
     content: ['', []]
   };
 
-  // currentPosition =  0
-  // lastPosition = 0;
-
-  // navigation: {
-  //   hasNext: boolean
-  //   hasPrevious: boolean
-  //   isFirst: boolean
-  //   isLast: boolean
-  // } = {
-  //     hasNext: false,
-  //     hasPrevious: false,
-  //     isFirst: false,
-  //     isLast: false
-  //   }
-
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -87,27 +72,26 @@ export class TodoDetailComponent implements OnInit {
       this.mode = 'view';
     }
 
-    this.todoStore.todoIdSelectedId(this.todoId!);
-    this.todoStore.initNavButton(this.todoId!);
+    // this.todoStore.todoIdSelectedId(this.todoId!);
+    // this.todoStore.initNavButton(this.todoId!);
 
     console.log('Constructor todo page state changed (1): ', getState(this.todoStore));
     effect(() => {
       this.fetchData();
-      // this.reload(this.todoId!);
+
       const state = getState(this.todoStore);
       console.log('Constructor effect todo page state changed: ', state);
     });
+    this.todoStore.initSelectedID();
+    console.log('initSelectedID step: ', this.todoStore.selectedId());
+    this.todoStore.initNavButton(this.todoStore.selectedId()!);
+    this.reload(this.todoId!);
     console.log("End of constructor ")
   }
 
   fetchData(): void {
     console.log("Start of fetchData ", this.todoItems)
-
     this.todoItems = this.todoStore.todoEntities();
-    this.todoStore.initSelectedID();
-    this.todoStore.initNavButton(this.todoStore.selectedId()!);
-    this.reload(this.todoStore.selectedId()!);
-
     console.log("End of fetchData ", this.todoItems)
   }
 
@@ -117,9 +101,10 @@ export class TodoDetailComponent implements OnInit {
     // } else {
     //   this.todoStore.todoIdSelectedId(this.todoId!);
     // }
-    // this.todoStore.initNavButton(this.todoId!);
+    this.todoStore.initNavButton(this.todoId!);
     console.log("Start of ngInit ")
-    // this.reload(this.todoId!);
+    this.reload(this.todoId!);
+    console.log('ngInit reload: ', this.todoId);
     console.log('ngInit todo page state changed: ', getState(this.todoStore));
 
     console.log("End of ngInit ")

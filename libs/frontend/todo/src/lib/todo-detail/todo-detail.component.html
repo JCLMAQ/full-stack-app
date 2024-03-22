@@ -28,12 +28,14 @@
             <mat-icon matSuffix>title</mat-icon>
             <mat-hint>Hint</mat-hint>
         </mat-form-field>
+        <div>{{ todoStore.selectedItem()?.title }}</div>
         <mat-form-field >
           <mat-label>Content</mat-label>
           <textarea matInput placeholder="Todo content" formControlName="content"></textarea>
             <mat-hint>Hint</mat-hint>
         </mat-form-field>
-
+        <div>{{ todoStore.selectedItem()?.content }}</div>
+        <div>{{ todoStore.selectedItem()?.id }}</div>
     </mat-card-content>
 
     <mat-card-actions class="todo-actions">
