@@ -88,9 +88,11 @@ export class TodoDetailComponent implements OnInit {
 
 
   reload(id: string) {
+    if (id === undefined || id === null) {
+      id = this.todoStore.selectedId()!
+    }
     if (this.mode === 'update' || this.mode === 'view') {
       this.todoStore.todoIdSelectedId(id);
-      console.log("selected item: ", this.todoStore.selectedItem())
       this.form.patchValue({
         id: this.todoStore.selectedItem()?.id,
         title: this.todoStore.selectedItem()?.title,
@@ -100,12 +102,7 @@ export class TodoDetailComponent implements OnInit {
       this.form = this.fb.group({
         ...this.formControls,
       });
-    };
-    console.log("navigateButton page reload: ", this.todoStore.currentPosition(), " / ", this.todoStore.lastPosition())
-    console.log("navigateButton page reload: statute  isFirst: ", this.todoStore.navigation.isFirst(),
-    " hasPrevious: ",  this.todoStore.navigation.hasPrevious(),
-    " hasNext: ",  this.todoStore.navigation.hasNext(),
-    " isLast: ",  this.todoStore.navigation.isLast())
+    }
   }
 
   save() {
