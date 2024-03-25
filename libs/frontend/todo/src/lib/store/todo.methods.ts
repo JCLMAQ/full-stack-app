@@ -8,6 +8,7 @@ import {
 } from '@ngrx/signals';
 import { addEntity, removeEntity, setAllEntities, updateEntity, withEntities } from '@ngrx/signals/entities';
 import { TodoService } from '../services/todo.service';
+import { withNavigationMethods } from './todo-navigation.methods';
 import { TodoInterface } from './todo.model';
 import { TodoStateInterface } from './todo.state';
 // withCallState base on: https://www.angulararchitects.io/blog/the-new-ngrx-signal-store-for-angular-2-1-flavors/
@@ -18,6 +19,7 @@ export function withTodosMethods() {
     // withState(initialTodoState),
     withEntities({ entity: type<TodoInterface>(), collection: 'todo'}),
     withCallState({collection: 'todo'}),
+    withNavigationMethods(),
     withMethods((store, todoService = inject(TodoService)) => ({
 
       async load() {
@@ -25,7 +27,7 @@ export function withTodosMethods() {
           patchState(store, setLoading('todo'));
           const items = await todoService.load();
           patchState(store, { items },setLoaded('todo'));
-          patchState(store, setAllEntities( items, { collection: 'todo'}))
+          patchState(store, setAllEntities( items, { collection: 'todo'}));
         }
       },
 
@@ -77,11 +79,15 @@ export function withTodosMethods() {
         }
       },
 
-      newSelectedItem(newSelectedItemIndex: number) {
-
-        const selectionId = store.selection().selected[newSelectedItemIndex]
+      newSelectedSelectionItem(newSelectedSelectionItemIndex: number) {
+        const newSelectedSelectionItem = store.selection().selected[newSelectedSelectionItemIndex]
         // const selectedId = store.selectedIds()[newSelectedItemIndex]
-        patchState(store,{ selectedId: selectionId.id })
+        patchState(store,{ selectedId: newSelectedSelectionItem.id })
+      },
+
+      newSelectedItem(newSelectedItemIndex: number) {
+        const selectedItem = store.items()[newSelectedItemIndex]
+        patchState(store,{ selectedId: selectedItem.id })
       },
 
       selectedItemUpdate(selectedRowId: string){

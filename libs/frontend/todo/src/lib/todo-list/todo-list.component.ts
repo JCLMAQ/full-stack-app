@@ -121,6 +121,11 @@ ngAfterViewInit(): void {
   navigateButton( id: string, mode: string ) {
     this.todoStore.todoIdSelectedId(id);
     this.todoStore.initNavButton(id);
+    console.log("navigateButton: ", this.todoStore.currentPosition(), " / ", this.todoStore.lastPosition())
+    console.log("navigateButton: statute  isFirst: ", this.todoStore.navigation.isFirst(),
+    " hasPrevious: ",  this.todoStore.navigation.hasPrevious(),
+    " hasNext: ",  this.todoStore.navigation.hasNext(),
+    " isLast: ",  this.todoStore.navigation.isLast())
     console.log("navigateButton: selected item", this.todoStore.selectedItem())
     this.router.navigate([this.routeToDetail, id, mode]);
   }

@@ -4,6 +4,8 @@
     // Pour plus d'informations, visitez : https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
+
       {
         "name": "debug backend my-app",
         "port": 9229,
@@ -30,7 +32,7 @@
         "name": "Launch Chrome",
         "request": "launch",
         "type": "chrome",
-        "url": "http://localhost:4100",
+        "url": "http://localhost:4200",
         "webRoot": "${workspaceFolder}",
         "sourceMaps": true,
       },

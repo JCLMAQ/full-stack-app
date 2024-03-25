@@ -26,7 +26,6 @@ interface TodoForm extends FormGroup<{
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [TodoStore],
   templateUrl: './todo-detail.component.html',
   styleUrl: './todo-detail.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -72,19 +71,21 @@ export class TodoDetailComponent implements OnInit {
       this.mode = 'view';
     }
 
-    // this.todoStore.todoIdSelectedId(this.todoId!);
-    // this.todoStore.initNavButton(this.todoId!);
-
     console.log('Constructor todo page state changed (1): ', getState(this.todoStore));
     effect(() => {
       this.fetchData();
-
       const state = getState(this.todoStore);
       console.log('Constructor effect todo page state changed: ', state);
     });
-    this.todoStore.initSelectedID();
-    console.log('initSelectedID step: ', this.todoStore.selectedId());
-    this.todoStore.initNavButton(this.todoStore.selectedId()!);
+    console.log("navigateButton page constructor: ", this.todoStore.currentPosition(), " / ", this.todoStore.lastPosition())
+    console.log("navigateButton page constructor: statute  isFirst: ", this.todoStore.navigation.isFirst(),
+    " hasPrevious: ",  this.todoStore.navigation.hasPrevious(),
+    " hasNext: ",  this.todoStore.navigation.hasNext(),
+    " isLast: ",  this.todoStore.navigation.isLast())
+    console.log("navigateButton page constructor: selected item", this.todoStore.selectedItem());
+
+
+
     this.reload(this.todoId!);
     console.log("End of constructor ")
   }
@@ -96,24 +97,22 @@ export class TodoDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // if((this.todoId === undefined )|| (this.todoId === null)){
-    //   this.todoStore.initSelectedID();
-    // } else {
-    //   this.todoStore.todoIdSelectedId(this.todoId!);
-    // }
-    this.todoStore.initNavButton(this.todoId!);
+    // this.todoStore.initNavButton(this.todoId!);
     console.log("Start of ngInit ")
-    this.reload(this.todoId!);
-    console.log('ngInit reload: ', this.todoId);
     console.log('ngInit todo page state changed: ', getState(this.todoStore));
-
     console.log("End of ngInit ")
+    console.log("navigateButton page nginit: ", this.todoStore.currentPosition(), " / ", this.todoStore.lastPosition())
+    console.log("navigateButton page nginit: statute  isFirst: ", this.todoStore.navigation.isFirst(),
+    " hasPrevious: ",  this.todoStore.navigation.hasPrevious(),
+    " hasNext: ",  this.todoStore.navigation.hasNext(),
+    " isLast: ",  this.todoStore.navigation.isLast())
+    console.log("navigateButton page nginit: selected item", this.todoStore.selectedItem())
+    this.reload(this.todoId!);
   }
 
 
   reload(id: string) {
     if (this.mode === 'update' || this.mode === 'view') {
-      // this.todoStore.initNavButton(id!);
       this.todoStore.todoIdSelectedId(id);
       console.log("selected item: ", this.todoStore.selectedItem())
       this.form.patchValue({
@@ -126,7 +125,11 @@ export class TodoDetailComponent implements OnInit {
         ...this.formControls,
       });
     };
-
+    console.log("navigateButton page reload: ", this.todoStore.currentPosition(), " / ", this.todoStore.lastPosition())
+    console.log("navigateButton page reload: statute  isFirst: ", this.todoStore.navigation.isFirst(),
+    " hasPrevious: ",  this.todoStore.navigation.hasPrevious(),
+    " hasNext: ",  this.todoStore.navigation.hasNext(),
+    " isLast: ",  this.todoStore.navigation.isLast())
   }
 
 
@@ -157,21 +160,29 @@ export class TodoDetailComponent implements OnInit {
 
   next() {
     this.todoStore.next();
+    this.todoStore.newSelectedItem(this.todoStore.currentPosition());
+    this.todoId = this.todoStore.selectedId()!;
     this.reload(this.todoStore.selectedId()!);
   }
 
   last() {
-    this.todoStore.last()
+    this.todoStore.last();
+    this.todoStore.newSelectedItem(this.todoStore.currentPosition());
+    this.todoId = this.todoStore.selectedId()!;
     this.reload(this.todoStore.selectedId()!);
   }
 
   first() {
     this.todoStore.first();
+    this.todoStore.newSelectedItem(this.todoStore.currentPosition());
+    this.todoId = this.todoStore.selectedId()!;
     this.reload(this.todoStore.selectedId()!);
   }
 
   previous() {
     this.todoStore.previous();
+    this.todoStore.newSelectedItem(this.todoStore.currentPosition());
+    this.todoId = this.todoStore.selectedId()!;
     this.reload(this.todoStore.selectedId()!);
   }
 

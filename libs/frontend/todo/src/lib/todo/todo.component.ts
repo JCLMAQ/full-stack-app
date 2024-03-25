@@ -26,7 +26,7 @@ import { TodoListComponent } from '../todo-list/todo-list.component';
   ],
   styleUrl: './todo.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [TodoStore],
+  // providers: [TodoStore],
 })
 
 export class TodoComponent  {

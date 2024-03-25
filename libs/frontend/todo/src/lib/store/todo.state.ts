@@ -15,7 +15,7 @@ export interface TodoStateInterface {
   },
   selectedId: string | null,
   selectedIds: string[],
-  selection: SelectionModel<TodoInterface>
+  selection: SelectionModel<TodoInterface>,
 }
 
 export const initialTodoState: TodoStateInterface = {
@@ -34,12 +34,13 @@ export const initialTodoState: TodoStateInterface = {
 // and : https://www.angulararchitects.io/blog/smarter-not-harder-simplifying-your-application-with-ngrx-signal-store-and-custom-features/
 
 export const TodoStore = signalStore(
-    // { providedIn: 'root' },
+    { providedIn: 'root' },
     // withLogger('todo'),
     withState(initialTodoState),
     withTodosSelectors(),
-    withTodosMethods(),
     withNavigationMethods(),
+    withTodosMethods(),
+
     withHooks({
       onInit:
         (store) => {
