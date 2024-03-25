@@ -59,7 +59,6 @@ export class TodoDetailComponent implements OnInit {
     private dateAdapter: DateAdapter<Date>,
     // private alertService: AlertService,
   ) {
-    console.log("Start of constructor ")
     this.todoId = this.route.snapshot.params['id'];
     this.mode = this.route.snapshot.params['mode'];
     this.form = this.fb.group(this.formControls);
@@ -71,23 +70,10 @@ export class TodoDetailComponent implements OnInit {
       this.mode = 'view';
     }
 
-    console.log('Constructor todo page state changed (1): ', getState(this.todoStore));
     effect(() => {
       this.fetchData();
       const state = getState(this.todoStore);
-      console.log('Constructor effect todo page state changed: ', state);
     });
-    console.log("navigateButton page constructor: ", this.todoStore.currentPosition(), " / ", this.todoStore.lastPosition())
-    console.log("navigateButton page constructor: statute  isFirst: ", this.todoStore.navigation.isFirst(),
-    " hasPrevious: ",  this.todoStore.navigation.hasPrevious(),
-    " hasNext: ",  this.todoStore.navigation.hasNext(),
-    " isLast: ",  this.todoStore.navigation.isLast())
-    console.log("navigateButton page constructor: selected item", this.todoStore.selectedItem());
-
-
-
-    this.reload(this.todoId!);
-    console.log("End of constructor ")
   }
 
   fetchData(): void {
@@ -97,16 +83,6 @@ export class TodoDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.todoStore.initNavButton(this.todoId!);
-    console.log("Start of ngInit ")
-    console.log('ngInit todo page state changed: ', getState(this.todoStore));
-    console.log("End of ngInit ")
-    console.log("navigateButton page nginit: ", this.todoStore.currentPosition(), " / ", this.todoStore.lastPosition())
-    console.log("navigateButton page nginit: statute  isFirst: ", this.todoStore.navigation.isFirst(),
-    " hasPrevious: ",  this.todoStore.navigation.hasPrevious(),
-    " hasNext: ",  this.todoStore.navigation.hasNext(),
-    " isLast: ",  this.todoStore.navigation.isLast())
-    console.log("navigateButton page nginit: selected item", this.todoStore.selectedItem())
     this.reload(this.todoId!);
   }
 
@@ -131,8 +107,6 @@ export class TodoDetailComponent implements OnInit {
     " hasNext: ",  this.todoStore.navigation.hasNext(),
     " isLast: ",  this.todoStore.navigation.isLast())
   }
-
-
 
   save() {
     const val = this.form.value;

@@ -1,6 +1,7 @@
 
 // import { withCallState } from '@angular-architects/ngrx-toolkit';
 import { SelectionModel } from '@angular/cdk/collections';
+import { withLogger } from '@fe/shared/util-signal-store';
 import { signalStore, withHooks, withState } from '@ngrx/signals';
 import { withNavigationMethods } from './todo-navigation.methods';
 import { withTodosMethods } from './todo.methods';
@@ -35,7 +36,7 @@ export const initialTodoState: TodoStateInterface = {
 
 export const TodoStore = signalStore(
     { providedIn: 'root' },
-    // withLogger('todo'),
+    withLogger('todo'),
     withState(initialTodoState),
     withTodosSelectors(),
     withNavigationMethods(),
@@ -46,10 +47,10 @@ export const TodoStore = signalStore(
         (store) => {
           store.load(),
           store.initSelectedID()
-        }
-      // onDestroy() {
-      //   console.log('on destroy');
-      // },
+        },
+      onDestroy() {
+        console.log('on destroy');
+      },
     }),
 
   );

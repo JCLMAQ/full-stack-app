@@ -21,16 +21,7 @@ export function withNavigationMethods() {
         initNavButton(initialTodoId: string) {
           let currentPosition = 0;
           let lastPosition = 0;
-          currentPosition = store.items().findIndex(p => p.id === initialTodoId);
-            if ( currentPosition === -1) {
-              currentPosition = 0;
-            }
-            lastPosition = store.items().length - 1;
-            if ( lastPosition < 0 || lastPosition < currentPosition ) {
-              lastPosition = 0;
-            }
-          // if(store.selection().selected.length <= 1 ) { // no selected items
-          //   currentPosition = store.items().findIndex(p => p.id === initialTodoId);
+          // currentPosition = store.items().findIndex(p => p.id === initialTodoId);
           //   if ( currentPosition === -1) {
           //     currentPosition = 0;
           //   }
@@ -38,16 +29,23 @@ export function withNavigationMethods() {
           //   if ( lastPosition < 0 || lastPosition < currentPosition ) {
           //     lastPosition = 0;
           //   }
-          // } else {
-          //   currentPosition = store.selection().selected.findIndex(p => p.id === initialTodoId);
-          //   lastPosition = store.selection().selected.length - 1;
-          // }
+          if(store.selection().selected.length <= 1 ) { // no selected items
+            currentPosition = store.items().findIndex(p => p.id === initialTodoId);
+            if ( currentPosition === -1) {
+              currentPosition = 0;
+            }
+            lastPosition = store.items().length - 1;
+            if ( lastPosition < 0 || lastPosition < currentPosition ) {
+              lastPosition = 0;
+            }
+          } else {
+            currentPosition = store.selection().selected.findIndex(p => p.id === initialTodoId);
+            lastPosition = store.selection().selected.length - 1;
+          }
           if(lastPosition < 0 ) { lastPosition = 0; }
           if(lastPosition < currentPosition ) { lastPosition = currentPosition; }
           this.navStateMgt(currentPosition, lastPosition);
           patchState(store, {
-            // currentPosition,
-            // lastPosition,
             selectedId: initialTodoId
           });
 

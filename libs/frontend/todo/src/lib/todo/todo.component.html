@@ -10,16 +10,12 @@
   }
 
 @if (todoStore.todoLoaded()) {
-  <h2>Loaded...</h2>
+  <h4>Loaded...</h4>
   }
 
 @if (todoStore.todoError()) {
   <div>{{ todoStore.todoError() }}</div>
 }
 
-<div>
-  <span> Selected id: {{todoStore.selectedId()}}</span>
-</div>
-
 <full-stack-app-todo-list></full-stack-app-todo-list>
-<!-- <full-stack-app-todo-detail></full-stack-app-todo-detail> -->
+
