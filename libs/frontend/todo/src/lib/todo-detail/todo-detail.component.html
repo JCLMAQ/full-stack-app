@@ -7,13 +7,13 @@
 
   }
 
-@if (todoStore.todoLoaded()) {
-  <h2>Loaded...</h2>
-  }
+<!-- @if (todoStore.todoLoaded()) {
+  <h4>Loaded...</h4>
+  } -->
 
-@if (todoStore.todoError()) {
+<!-- @if (todoStore.todoError()) {
   <div>{{ todoStore.todoError() }}</div>
-}
+} -->
 
 <div [formGroup]="form">
   <mat-card class="todo-card mat-elevation-z10">
@@ -28,14 +28,11 @@
             <mat-icon matSuffix>title</mat-icon>
             <mat-hint>Hint</mat-hint>
         </mat-form-field>
-        <div>{{ todoStore.selectedItem()?.title }}</div>
         <mat-form-field >
           <mat-label>Content</mat-label>
           <textarea matInput placeholder="Todo content" formControlName="content"></textarea>
             <mat-hint>Hint</mat-hint>
         </mat-form-field>
-        <div>{{ todoStore.selectedItem()?.content }}</div>
-        <div>{{ todoStore.selectedItem()?.id }}</div>
     </mat-card-content>
 
     <mat-card-actions class="todo-actions">
@@ -46,7 +43,6 @@
   }
       @if (isAdmin) {
         <button mat-icon-button (click)="virtualRemove()" [disabled]="!isAdmin" matTooltip="Virtual Delete">
-            <!-- <button mat-icon-button (click)="virtualRemove(user?.id)"> -->
           <mat-icon>delete</mat-icon>
         </button>
       }
@@ -81,7 +77,6 @@
         <mat-icon>last_page</mat-icon>
       </button>
       <button mat-icon-button placeholder="Reload" matTooltip="Reset" (click)="reload(form.value.id)">
-        <!-- <button mat-icon-button placeholder="Reload" matTooltip="Reset" (click)="reload(form.value.id)"> -->
         <mat-icon>autorenew</mat-icon>
       </button>
       <button mat-icon-button matTooltip="Back to list" [routerLink]="['/todos']">
@@ -90,17 +85,17 @@
       <!-- <button (click)="onSubmit()" mat-raised-button color="primary">Save</button> -->
     </mat-card-actions>
     <mat-card-footer class="form-val">
-      {{this.todoStore.selectedId()}} / {{form.value | json}} /
+      <!-- {{this.todoStore.selectedId()}} / {{form.value | json}} / -->
     </mat-card-footer>
   </mat-card>
 </div>
-<div>Current Position : {{todoStore.currentPosition()}}</div>
-<div>Last Position : {{todoStore.lastPosition()}}</div>
-<div>selected id : {{todoStore.selectedId()}}</div>
+<!-- <div>Current Position : {{todoStore.currentPosition()}}</div>
+<div>Last Position : {{todoStore.lastPosition()}}</div> -->
+<!-- <div>selected id : {{todoStore.selectedId()}}</div>
 <div>Selected Item: {{todoStore.selectedItem() | json}}</div>
 <div>If selection: </div>
 <div>Selection Items: {{todoStore.selection().selected.length}}</div>
 <div>Selection : {{todoStore.selection().selected | json}}</div>
 <div>SelectedItem Selection Index: {{todoStore.selectedItemIndex()}}</div>
 <div>Selection selected entries : {{todoStore.selection().selected.entries.length }}</div>
-<div>SelectedRowIds from selection: {{todoStore.selectedIds() | json}}</div>
+<div>SelectedRowIds from selection: {{todoStore.selectedIds() | json}}</div> -->

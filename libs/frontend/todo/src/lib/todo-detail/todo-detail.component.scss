@@ -1,5 +1,7 @@
 .todo-card {
   margin: 20px 10px;
+  width: 100%;
+  display: flex;
 }
 
 .todo-actions {
@@ -8,15 +10,16 @@
 
 .form-val {
 margin-top: 10px;
-text-align: center;
+width: 100%;
+// text-align: center;
 }
 
 .mat-form-field {
 margin: 10px;
 }
 
-// :host {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: flex-start;
-// }
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
