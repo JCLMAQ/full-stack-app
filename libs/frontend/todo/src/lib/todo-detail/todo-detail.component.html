@@ -15,23 +15,23 @@
   <div>{{ todoStore.todoError() }}</div>
 } -->
 
-<div [formGroup]="form">
+<div [formGroup]="form" class="todo-form">
   <mat-card class="todo-card mat-elevation-z10">
     <mat-card-header>
       <mat-card-title>Todo</mat-card-title>
       <mat-card-subtitle>Todo Id : {{todoId}}</mat-card-subtitle>
     </mat-card-header>
       <mat-card-content>
-        <mat-form-field  >
+        <mat-form-field class="todo-field">
           <mat-label>Title</mat-label>
           <input matInput placeholder="Todo Title" formControlName="title">
-            <mat-icon matSuffix>title</mat-icon>
-            <mat-hint>Hint</mat-hint>
+            <!-- <mat-icon matSuffix>title</mat-icon> -->
+            <!-- <mat-hint>Hint</mat-hint> -->
         </mat-form-field>
-        <mat-form-field >
+        <mat-form-field  class="todo-field">
           <mat-label>Content</mat-label>
-          <textarea matInput placeholder="Todo content" formControlName="content"></textarea>
-            <mat-hint>Hint</mat-hint>
+          <textarea class="todo-text-area" matInput placeholder="Todo content" formControlName="content"></textarea>
+            <!-- <mat-hint>Hint</mat-hint> -->
         </mat-form-field>
     </mat-card-content>
 
