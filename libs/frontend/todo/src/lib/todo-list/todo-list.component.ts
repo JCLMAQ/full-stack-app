@@ -6,7 +6,6 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { MATERIAL } from '@fe/material';
-import { getState } from '@ngrx/signals';
 import { TodoInterface } from '../store/todo.model';
 import { TodoStore } from '../store/todo.state';
 
@@ -58,19 +57,11 @@ constructor() {
   console.log("Constructor step")
   effect(()=> {
     this.fetchData();
-
-    const state = getState(this.todoStore);
-      console.log('Todo state changed', state);
+    // const state = getState(this.todoStore);
   });
   this.todoStore.initSelectedID();
-  console.log('initSelectedID step: ', this.todoStore.selectedId());
 }
 
-
-
-ngOnInit(): void {
-  console.log('ngOnInit step')
-}
 
 fetchData(): void {
   this.todosEntities = this.todoStore.todoEntities();

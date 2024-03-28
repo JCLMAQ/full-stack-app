@@ -4,7 +4,6 @@ import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule }
 import { DateAdapter } from '@angular/material/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { MATERIAL } from '@fe/material';
-import { getState } from '@ngrx/signals';
 import { TodoInterface, TodoPartialInterface } from '../store/todo.model';
 import { TodoStore } from '../store/todo.state';
 
@@ -49,7 +48,9 @@ export class TodoDetailComponent implements OnInit {
   isAdmin = false
   formControls = {
     title: ['', []],
-    content: ['', []]
+    content: ['', []],
+    todoState: ['', []],
+    orderTodo: [0, []]
   };
 
   constructor(
@@ -71,15 +72,13 @@ export class TodoDetailComponent implements OnInit {
     }
 
     effect(() => {
-      this.fetchData();
-      const state = getState(this.todoStore);
+      // this.fetchData();
+      // const state = getState(this.todoStore);
     });
   }
 
   fetchData(): void {
-    console.log("Start of fetchData ", this.todoItems)
     this.todoItems = this.todoStore.todoEntities();
-    console.log("End of fetchData ", this.todoItems)
   }
 
   ngOnInit(): void {
@@ -96,7 +95,9 @@ export class TodoDetailComponent implements OnInit {
       this.form.patchValue({
         id: this.todoStore.selectedItem()?.id,
         title: this.todoStore.selectedItem()?.title,
-        content: this.todoStore.selectedItem()?.content
+        content: this.todoStore.selectedItem()?.content,
+        todoState: this.todoStore.selectedItem()?.todoState,
+        orderTodo: this.todoStore.selectedItem()?.orderTodo
       });
     } else if (this.mode == 'create') {
       this.form = this.fb.group({
