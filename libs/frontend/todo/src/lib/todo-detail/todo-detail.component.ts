@@ -7,13 +7,13 @@ import { MATERIAL } from '@fe/material';
 import { TodoInterface, TodoPartialInterface } from '../store/todo.model';
 import { TodoStore } from '../store/todo.state';
 
-interface TodoForm extends FormGroup<{
-    id: FormControl<string | undefined | null>;
+interface TodoForm {
+    id: FormControl<string>;
     title?: FormControl<string | undefined | null>;
     content?: FormControl<string | undefined | null>;
     todoState?: FormControl<string | undefined | null>;
     orderTodo?: FormControl<number | undefined | null>;
-  }> { }
+  }
 
 @Component({
   selector: 'full-stack-app-todo-detail',
@@ -54,7 +54,7 @@ export class TodoDetailComponent implements OnInit {
   };
 
   constructor(
-    private fb: FormBuilder,
+    private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
     private dateAdapter: DateAdapter<Date>,
@@ -62,7 +62,7 @@ export class TodoDetailComponent implements OnInit {
   ) {
     this.todoId = this.route.snapshot.params['id'];
     this.mode = this.route.snapshot.params['mode'];
-    this.form = this.fb.group(this.formControls);
+    // this.form = this.fb.group(this.formControls);
 
     if((this.todoId === undefined )|| (this.todoId === null)){
       this.todoId = this.todoStore.items().at(0)?.id;
@@ -100,7 +100,7 @@ export class TodoDetailComponent implements OnInit {
         orderTodo: this.todoStore.selectedItem()?.orderTodo
       });
     } else if (this.mode == 'create') {
-      this.form = this.fb.group({
+      this.form = this.formBuilder.group({
         ...this.formControls,
       });
     }
