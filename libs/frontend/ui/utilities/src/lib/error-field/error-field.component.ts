@@ -18,9 +18,10 @@ import { ValidationPipe } from '../pipes/validation.pipe';
 export class ErrorFieldComponent {
 
   @Input() control!: FormControl | AbstractControl;
-  // control = input<FormControl | AbstractControl>();
+  // control = input.required<FormControl | AbstractControl>();
   @Input() errorMessages!: object;
-  // errorMessages = input<object | null>();
+  // errorMessages = input.required<object>();
+
   constructor(public formDirective: FormGroupDirective) {}
 
   validationMessages = {
