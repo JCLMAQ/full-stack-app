@@ -46,6 +46,12 @@ export class UsersService {
   }
 
   // To be tested
+  getUser(username: string): Observable<UserInterface> {
+    const url = `${this.baseUrl}/${username}`;
+    return this.http
+      .get<UserInterface>(url, httpOptions)
+      .pipe(catchError(this.handleError));
+  }
 
   getAllUserItems(): Observable<UserInterface[]> {
     return this.http

@@ -4,7 +4,14 @@ import { AbstractControl, FormControl, FormGroupDirective } from '@angular/forms
 import { ValidationPipe } from '../pipes/validation.pipe';
 
 // Source: https://blog.stackademic.com/mastering-angular-form-validation-best-practices-and-pro-tips-%EF%B8%8F-93d75c846f2b
-
+/* Example of implemntation:
+<form [formGroup]="formGroup">
+  <label for="email">Email</label>
+  <input id="email" type="email" formControlName="email">
+  <app-error-field [control]="formGroup.controls['email']" [errorMessages]="validationMessages.email"></app-error-field>
+  <button type="submit">Submit</button>
+</form>
+*/
 @Component({
   selector: 'full-stack-app-error-field',
   standalone: true,
@@ -23,7 +30,7 @@ export class ErrorFieldComponent {
   // errorMessages = input.required<object>();
 
   constructor(public formDirective: FormGroupDirective) {}
-
+ // Add the following validation messages to the component
   validationMessages = {
     email: {
       required: 'Email is required',

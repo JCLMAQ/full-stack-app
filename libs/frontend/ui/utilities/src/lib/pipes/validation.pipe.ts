@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
+// Used by the error-field library
 @Pipe({
   name: 'validation',
   standalone: true,
