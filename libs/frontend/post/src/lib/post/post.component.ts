@@ -1,5 +1,5 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { CommonModule } from '@angular/common';
+
 import { ChangeDetectionStrategy, Component, OnInit, effect, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -13,10 +13,9 @@ import { PostStore } from '../store/post.state';
   selector: 'full-stack-app-post',
   standalone: true,
   imports: [
-    CommonModule,
     ReactiveFormsModule,
-  ...MATERIAL
-  ],
+    ...MATERIAL
+],
   templateUrl: './Post.component.html',
   styleUrl: './Post.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

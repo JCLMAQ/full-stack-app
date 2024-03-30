@@ -1,5 +1,5 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { CommonModule } from '@angular/common';
+
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { MATERIAL } from '@fe/material';
@@ -11,11 +11,10 @@ import { TodoListComponent } from '../todo-list/todo-list.component';
   selector: 'full-stack-app-todo',
   standalone: true,
   imports: [
-    CommonModule,
     ...MATERIAL,
     TodoListComponent,
-    TodoDetailComponent,
-  ],
+    TodoDetailComponent
+],
   templateUrl: './todo.component.html',
   animations: [
     trigger('detailExpand', [

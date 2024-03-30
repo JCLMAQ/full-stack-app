@@ -1,10 +1,10 @@
-import { CommonModule } from '@angular/common';
+
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'full-stack-app-post-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './post-detail.component.html',
   styleUrl: './post-detail.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

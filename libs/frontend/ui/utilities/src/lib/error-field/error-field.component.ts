@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { AbstractControl, FormControl, FormGroupDirective } from '@angular/forms';
 import { ValidationPipe } from '../pipes/validation.pipe';
@@ -9,7 +9,6 @@ import { ValidationPipe } from '../pipes/validation.pipe';
   selector: 'full-stack-app-error-field',
   standalone: true,
   imports: [
-    CommonModule,
     ValidationPipe
 ],
   templateUrl: './error-field.component.html',

@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { ChangeDetectionStrategy, Component, OnInit, effect, inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DateAdapter } from '@angular/material/core';
@@ -19,12 +19,11 @@ export interface TodoForm {
   selector: 'full-stack-app-todo-detail',
   standalone: true,
   imports: [
-    CommonModule,
     ...MATERIAL,
     RouterModule,
     FormsModule,
     ReactiveFormsModule
-  ],
+],
   templateUrl: './todo-detail.component.html',
   styleUrl: './todo-detail.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
