@@ -1,5 +1,5 @@
 
-import { ChangeDetectionStrategy, Component, OnInit, effect, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DateAdapter } from '@angular/material/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
@@ -7,13 +7,16 @@ import { MATERIAL } from '@fe/material';
 import { TodoInterface, TodoPartialInterface } from '../store/todo.model';
 import { TodoStore } from '../store/todo.state';
 
-export interface TodoForm {
+
+// Typed forms based on:  https://offering.solutions/blog/articles/2022/07/09/getting-started-with-angular-strictly-typed-reactive-forms/
+
+  export type TodoForm = FormGroup<{
     id: FormControl<string | null>;
     title: FormControl<string | null>;
     content: FormControl<string | null >;
     todoState: FormControl<string | null>;
     orderTodo: FormControl<number | null>;
-  }
+  }>
 
 @Component({
   selector: 'full-stack-app-todo-detail',
@@ -46,6 +49,7 @@ export class TodoDetailComponent implements OnInit {
   mode: 'create' | 'update' | 'view' | undefined;
   isAdmin = false
   formControlsInit = {
+    id: ['', []],
     title: ['', []],
     content: ['', []],
     todoState: ['', []],
@@ -71,18 +75,6 @@ export class TodoDetailComponent implements OnInit {
     }
 
     this.formGroup = this.formBuilder.group(this.formControlsInit);
-    // this.form = this.formBuilder.group({
-    //   id: ['', []],
-    //   title: ['', []],
-    //   content: ['', []],
-    //   todoState: ['', []],
-    //   orderTodo: ['', []],
-    // });
-
-    effect(() => {
-      // this.fetchData();
-      // const state = getState(this.todoStore);
-    });
   }
 
   fetchData(): void {
@@ -90,11 +82,12 @@ export class TodoDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // this.formGroup = this.formBuilder.group(this.formControlsInit);
     this.reload(this.todoId!);
   }
 
 
-  reload(id: string) {
+  reload(id: string | undefined | null) {
     if (id === undefined || id === null) {
       id = this.todoStore.selectedId()!
     }
@@ -112,6 +105,11 @@ export class TodoDetailComponent implements OnInit {
         ...this.formControlsInit,
       });
     }
+  }
+
+  onSubmit() {
+    const formValue = this.formGroup.value;
+    console.log(formValue);
   }
 
   save() {

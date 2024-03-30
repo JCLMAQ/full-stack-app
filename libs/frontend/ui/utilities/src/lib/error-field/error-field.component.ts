@@ -16,9 +16,20 @@ import { ValidationPipe } from '../pipes/validation.pipe';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ErrorFieldComponent {
-  @Input() control!: FormControl | AbstractControl;
-  @Input() errorMessages!: object;
 
+  @Input() control!: FormControl | AbstractControl;
+  // control = input<FormControl | AbstractControl>();
+  @Input() errorMessages!: object;
+  // errorMessages = input<object | null>();
   constructor(public formDirective: FormGroupDirective) {}
+
+  validationMessages = {
+    email: {
+      required: 'Email is required',
+      email: 'Please provide a valid email',
+    },
+    // Add more validation messages as needed for other form controls
+  };
+
 }
 
