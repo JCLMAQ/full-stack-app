@@ -7,12 +7,12 @@ import { MATERIAL } from '@fe/material';
 import { TodoInterface, TodoPartialInterface } from '../store/todo.model';
 import { TodoStore } from '../store/todo.state';
 
-interface TodoForm {
-    id: FormControl<string>;
-    title?: FormControl<string | undefined | null>;
-    content?: FormControl<string | undefined | null>;
-    todoState?: FormControl<string | undefined | null>;
-    orderTodo?: FormControl<number | undefined | null>;
+export interface TodoForm {
+    id: FormControl<string | null>;
+    title: FormControl<string | null>;
+    content: FormControl<string | null >;
+    todoState: FormControl<string | null>;
+    orderTodo: FormControl<number | null>;
   }
 
 @Component({
@@ -37,7 +37,7 @@ export class TodoDetailComponent implements OnInit {
 
   public todo: TodoPartialInterface | undefined | null;
 
-  form!: FormGroup;
+  formGroup: FormGroup;
 
   todoId!: string | undefined // | null;
   todoItem: TodoInterface | undefined;
@@ -46,7 +46,7 @@ export class TodoDetailComponent implements OnInit {
   submitted = false;
   mode: 'create' | 'update' | 'view' | undefined;
   isAdmin = false
-  formControls = {
+  formControlsInit = {
     title: ['', []],
     content: ['', []],
     todoState: ['', []],
@@ -71,6 +71,15 @@ export class TodoDetailComponent implements OnInit {
       this.mode = 'view';
     }
 
+    this.formGroup = this.formBuilder.group(this.formControlsInit);
+    // this.form = this.formBuilder.group({
+    //   id: ['', []],
+    //   title: ['', []],
+    //   content: ['', []],
+    //   todoState: ['', []],
+    //   orderTodo: ['', []],
+    // });
+
     effect(() => {
       // this.fetchData();
       // const state = getState(this.todoStore);
@@ -92,7 +101,7 @@ export class TodoDetailComponent implements OnInit {
     }
     if (this.mode === 'update' || this.mode === 'view') {
       this.todoStore.todoIdSelectedId(id);
-      this.form.patchValue({
+      this.formGroup.patchValue({
         id: this.todoStore.selectedItem()?.id,
         title: this.todoStore.selectedItem()?.title,
         content: this.todoStore.selectedItem()?.content,
@@ -100,15 +109,18 @@ export class TodoDetailComponent implements OnInit {
         orderTodo: this.todoStore.selectedItem()?.orderTodo
       });
     } else if (this.mode == 'create') {
-      this.form = this.formBuilder.group({
-        ...this.formControls,
+      this.formGroup = this.formBuilder.group({
+        ...this.formControlsInit,
       });
     }
   }
 
   save() {
-    const val = this.form.value;
+    const val = this.formGroup.value;
     if (this.mode == 'update') {
+
+      // todo
+
     } else if (this.mode == 'create') {
 
       // todo
@@ -160,7 +172,7 @@ export class TodoDetailComponent implements OnInit {
 
   onReset() {
     this.submitted = false;
-    this.form.reset();
+    this.formGroup.reset();
   }
 
   backHome() {

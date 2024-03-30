@@ -15,7 +15,7 @@
   <div>{{ todoStore.todoError() }}</div>
 } -->
 
-<div [formGroup]="form" class="todo-form">
+<div [formGroup]="formGroup" class="todo-form">
   <mat-card class="todo-card mat-elevation-z10">
     <mat-card-header>
       <mat-card-title>Todo</mat-card-title>
@@ -56,7 +56,7 @@
           <mat-icon>delete</mat-icon>
         </button>
       }
-     <button mat-icon-button matTooltip="Add record" [disabled]="!isAdmin" (click)="add()">
+      <button mat-icon-button matTooltip="Add record" [disabled]="!isAdmin" (click)="add()">
         <mat-icon>add_circle</mat-icon>
       </button>
       <button mat-icon-button matTooltip="Cancel" [disabled]="mode==='view'" (click)="cancel()">
@@ -86,7 +86,7 @@
                                   (click)="last()">
         <mat-icon>last_page</mat-icon>
       </button>
-      <button mat-icon-button placeholder="Reload" matTooltip="Reset" (click)="reload(form.value.id)">
+      <button mat-icon-button placeholder="Reload" matTooltip="Reset" (click)="reload(formGroup.value.id)">
         <mat-icon>autorenew</mat-icon>
       </button>
       <button mat-icon-button matTooltip="Back to list" [routerLink]="['/todos']">
