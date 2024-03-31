@@ -11,5 +11,8 @@ export * from './lib/themeswitch/themeswitch.service';
 export * from './lib/decorators/index';
 export * from './lib/error-field/error-field.component';
 
+export * from './lib/guards/index';
+export * from './lib/interfaces/index';
+export * from './lib/modals/index';
 export * from './lib/validators/customs.validator';
 

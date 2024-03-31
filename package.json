@@ -50,6 +50,8 @@
   },
   "private": true,
   "dependencies": {
+    "@ng-bootstrap/ng-bootstrap": "^16.0.0",
+    "bootstrap": "^5.3.3",
     "@angular-architects/ngrx-toolkit": "^0.1.2",
     "@angular/animations": "^17.3.1",
     "@angular/cdk": "^17.3.1",
@@ -161,6 +163,7 @@
     "@swc/core": "^1.4.8",
     "@swc/helpers": "^0.5.7",
     "@types/bcrypt": "5.0.2",
+    "@types/bootstrap": "~5.2.10",
     "@types/eslint": "~8.56.6",
     "@types/eslint-config-prettier": "~6.11.3",
     "@types/express": "~4.17.21",
