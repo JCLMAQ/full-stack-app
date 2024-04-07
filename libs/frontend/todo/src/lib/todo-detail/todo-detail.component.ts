@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule }
 import { DateAdapter } from '@angular/material/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { MATERIAL } from '@fe/material';
+import { DirtyComponent } from '@fe/utilities';
 import { TodoInterface, TodoPartialInterface } from '../store/todo.model';
 import { TodoStore } from '../store/todo.state';
 
@@ -33,7 +34,7 @@ import { TodoStore } from '../store/todo.state';
 })
 
 
-export class TodoDetailComponent implements OnInit {
+export class TodoDetailComponent implements OnInit, DirtyComponent {
 
   readonly todoStore = inject(TodoStore);
 
@@ -175,4 +176,11 @@ export class TodoDetailComponent implements OnInit {
   backHome() {
     this.router.navigate(['home']);
   }
+
+
+  isDirty(): boolean {
+    // Here you have to define what "dirty" means for your application.
+    return this.formGroup.dirty;
+  }
+
 }
