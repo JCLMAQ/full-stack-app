@@ -49,6 +49,7 @@ package-lock.json
 
 # Environnement Angular
 environment.ts
+/apps/frontend/src/environments
 
 # Primsa Migration
 /zmodel/prisma/migrations
