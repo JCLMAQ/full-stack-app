@@ -11,6 +11,10 @@ generator client {
     provider = "prisma-client-js"
 }
 
+generator types {
+  provider = "prisma-type-generator"
+}
+
 // generator docs {
 //   provider = "node node_modules/prisma-docs-generator"
 //   output = "../doc"

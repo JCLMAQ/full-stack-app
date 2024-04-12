@@ -12,6 +12,10 @@ generator client {
     provider = "prisma-client-js"
 }
 
+generator types {
+    provider = "prisma-type-generator"
+}
+
 enum TaskState {
     CREATION
     STANDBY
