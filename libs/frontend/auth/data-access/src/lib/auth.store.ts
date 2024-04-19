@@ -10,6 +10,9 @@ import { AuthState, authInitialState, initialUserValue } from './auth.model';
 import { AuthService } from './services/auth.service';
 import { LocalStorageJwtService } from './services/local-storage-jwt.service';
 
+// From: https://github.com/stefanoslig/angular-ngrx-nx-realworld-example-app/tree/main
+// Article: https://medium.com/@stefanoslig/angular-ngrx-nx-realworld-example-app-2a9d8c9a8e7e
+
 export const AuthStore = signalStore(
   { providedIn: 'root' },
   withState<AuthState>(authInitialState),
