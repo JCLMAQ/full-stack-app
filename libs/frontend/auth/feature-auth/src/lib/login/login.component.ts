@@ -5,6 +5,10 @@ import { AuthStore } from '@fe/auth/data-access';
 import { DynamicFormComponent, Field, formsActions, ListErrorsComponent, ngrxFormsQuery } from '@fe/core/forms';
 import { Store } from '@ngrx/store';
 
+
+// From: https://github.com/stefanoslig/angular-ngrx-nx-realworld-example-app/tree/main
+// Article: https://medium.com/@stefanoslig/angular-ngrx-nx-realworld-example-app-2a9d8c9a8e7e
+
 const structure: Field[] = [
   {
     type: 'INPUT',
