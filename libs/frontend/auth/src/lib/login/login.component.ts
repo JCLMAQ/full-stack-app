@@ -80,12 +80,12 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  // cancelLogin() {
-
-  // }
+  cancelLogin() {
+    this.router.navigate(['home'])
+  }
 
   register() {
-    this.router.navigate(['register']);
+    this.router.navigate(['auth/register']);
   }
 
   backhome() {
@@ -93,7 +93,7 @@ export class LoginComponent implements OnInit {
   }
 
   forget() {
-    this.router.navigate(['forgotpwd']);
+    this.router.navigate(['auth/forgotpwd']);
   }
 
 }
