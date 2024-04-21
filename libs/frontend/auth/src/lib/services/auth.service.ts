@@ -19,7 +19,8 @@ export class AuthService {
 
   ) {
     // this.currentUser$ = new BehaviorSubject<ICurrentUser | null>(null)
-    this.authToken = localStorage.authJwtToken || '';
+    // this.authToken = localStorage.authJwtToken || '';
+    this.authToken = localStorage['authJwtToken'] || '';
     // this.fetchUser();
   }
 
@@ -61,7 +62,8 @@ export class AuthService {
       // const { authJwtToken, user } = await this.httpClient.post<ILoginResponse>('api/auth/login/', { username, password }).toPromise();
       const { access_token, fullName , role } = await firstValueFrom(this.httpClient.post<ILoginResponse>('api/auths/auth/loginwithpwd', { email, password }));
 
-      localStorage.authJwtToken = access_token;
+      // localStorage.authJwtToken = access_token;
+      localStorage['authJwtToken'] = access_token;
       // isOK = (!!authJwtToken);
       isOK = (!!access_token);
       // console.log("Retour login: ", isOK, email, fullName)
