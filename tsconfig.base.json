@@ -35,7 +35,6 @@
       "@fe/app": ["libs/frontend/app/src/index.ts"],
       "@fe/auth": ["libs/frontend/auth/src/index.ts"],
       "@fe/auth/data-access": ["libs/frontend/auth/data-access/src/index.ts"],
-      "@fe/auth/feature-auth": ["libs/frontend/auth/feature-auth/src/index.ts"],
       "@fe/core": ["libs/frontend/ui/core/src/index.ts"],
       "@fe/error-handler": ["libs/frontend/ui/core/error-handler/src/index.ts"],
       "@fe/forms": ["libs/frontend/ui/core/forms/src/index.ts"],
