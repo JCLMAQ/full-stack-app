@@ -1,9 +1,0 @@
-{
-  "name": "data-access",
-  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/frontend/auth/data-access/src",
-  "prefix": "full-stack-app",
-  "tags": [],
-  "projectType": "library",
-  "targets": {}
-}
