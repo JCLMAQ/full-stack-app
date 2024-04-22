@@ -1,0 +1,103 @@
+<mat-card class="login-page">
+  <mat-card-title> Login </mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="loginForm" class="login-form">
+      <mat-form-field>
+        <mat-label>Enter your email</mat-label>
+        <input
+          matInput
+          type="email"
+          placeholder="Email"
+          autocomplete="on"
+          formControlName="email"
+        />
+        @if (email.errors?.required) {
+          <mat-error>The email is mandatory.</mat-error>
+        }
+        @if (email.errors?.email) {
+          <mat-error>This is not a valid email.</mat-error>
+        }
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Enter your password</mat-label>
+        <input
+          matInput
+          [type]="hidePassword ? 'password' : 'text'"
+          placeholder="Password"
+          autocomplete="on"
+          formControlName="password"
+        />
+        @if (password.errors?.required) {
+          <mat-error>The password is mandatory.</mat-error>
+        }
+        @if (
+          password.errors | onlyOneError: ['minlength', 'passwordStrength'];
+          as error
+        ) {
+          <mat-error>
+            @if (error.minlength) {
+              <div class="field-message">
+                Your password must have minimum
+                {{ error.minlength.requiredLength }} chars, but it only has
+                {{ error.minlength.actualLength }}.
+              </div>
+            }
+            @if (error.passwordStrength) {
+              <div class="field-message">
+                Your password must have lower case, upper case and numeric
+                characters.
+              </div>
+            }
+          </mat-error>
+        }
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hidePassword = !hidePassword"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hidePassword"
+        >
+          <mat-icon>{{
+            hidePassword ? 'visibility_off' : 'visibility'
+          }}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <div class="forgot-container">
+        <div>
+          <a href="forgotpwd" (click)="forget()">Forgot password?</a>
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      class="login-button"
+      mat-raised-button
+      color="primary"
+      type="submit"
+      (click)="register()"
+    >
+      Enregistrement
+    </button>
+    <button
+      class="login-button"
+      mat-raised-button
+      color="primary"
+      type="submit"
+      (click)="login()"
+      [disabled]="!loginForm.valid"
+    >
+      Login
+    </button>
+    <button class="login-button" mat-button (click)="backhome()">
+      <mat-icon>cancel_presentation</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
+<div>
+  {{ loginForm.value | json }}
+</div>
+<div>
+  {{ loginForm.valid | json }}
+</div>

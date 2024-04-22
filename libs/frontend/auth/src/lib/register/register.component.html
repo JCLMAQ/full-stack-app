@@ -1,0 +1,121 @@
+<div class="register-container">
+  <mat-card class="register-card">
+    <mat-card-title> Formulaire d'enregistrement </mat-card-title>
+    <mat-card-content>
+      <!-- <my-app-language-selector [icon]="false"></my-app-language-selector> -->
+      <form class="register-form">
+        <mat-form-field>
+          <mat-label>Enter your email</mat-label>
+          <input
+            matInput
+            type="email"
+            placeholder="Email"
+            autocomplete="on"
+            formControlName="email"
+          />
+          <!-- <mat-error *ngIf="email.errors?.['required']">The email is mandatory.></mat-error>
+                    <mat-error *ngIf="email.errors?.['minlength']">
+                      Your email must have minimum {{email.errors?.['minlength'].requiredLength}} chars,
+                      but it only has {{email.errors?.['minlength'].actualLength}}.
+                  </mat-error>
+                  <mat-error *ngIf="email.errors?.['email']">This is not a valid email.</mat-error> -->
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Enter your password</mat-label>
+          <input
+            matInput
+            [type]="hidePassword ? 'password' : 'text'"
+            placeholder="Password"
+            autocomplete="of"
+            formControlName="password"
+          />
+          <!-- <mat-error *ngIf="password.errors?.['required']">The password is mandatory.</mat-error>
+          <mat-error  *ngIf="password.errors | onlyOneError:['minlength','passwordStrength'] as error"> -->
+          <!-- <div class="field-message" *ngIf="error.minlength">
+                Your password must have minimum {{error.['minlength'].requiredLength}} chars,
+                but it only has {{error.['minlength'].actualLength}}.
+            </div>
+            <div class="field-message" *ngIf="error.passwordStrength">
+                Your password must have lower case, upper case and numeric characters.
+            </div>
+          </mat-error> -->
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hidePassword = !hidePassword"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hidePassword"
+          >
+            <mat-icon>{{
+              hidePassword ? 'visibility_off' : 'visibility'
+            }}</mat-icon>
+          </button>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Confirm your password</mat-label>
+          <input
+            matInput
+            [type]="hideConfirmPassword ? 'password' : 'text'"
+            placeholder="Confirm Password"
+            autocomplete="of"
+            formControlName="confirmPassword"
+          />
+          @if (confirmPassword.errors?.['required']) {
+            <mat-error>Confirmation of password is mandatory.</mat-error>
+          }
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hideConfirmPassword = !hideConfirmPassword"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hideConfirmPassword"
+          >
+            <mat-icon>{{
+              hideConfirmPassword ? 'visibility_off' : 'visibility'
+            }}</mat-icon>
+          </button>
+        </mat-form-field>
+        <mat-checkbox
+          type="checkbox"
+          formControlName="acceptTerms"
+          id="acceptTerms"
+        >
+          <label for="acceptTerms" class="form-check-label"
+            >Accept Terms & Conditions</label
+          >
+        </mat-checkbox>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        class="button"
+        mat-raised-button
+        color="accent"
+        matTooltip="Aller à la page de login."
+        (click)="login()"
+      >
+        Déjà enregistré ?
+      </button>
+      <button
+        class="button"
+        mat-raised-button
+        color="primary"
+        matTooltip="S'enregistrer."
+        type="submit"
+        [disabled]="!registerForm.valid"
+        (click)="register()"
+      >
+        S'enregistrer
+      </button>
+      <button mat-button matTooltip="Cancel" (click)="backHome()">
+        <mat-icon>cancel_presentation</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+<div>
+  {{ registerForm.value | json }}
+</div>
+<div>
+  {{ registerForm.valid | json }}
+</div>

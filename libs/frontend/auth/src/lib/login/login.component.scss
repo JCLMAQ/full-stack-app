@@ -1,0 +1,52 @@
+.login-page {
+  max-width: 350px;
+  margin: 50px auto;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.field-message {
+  font-size: 10px;
+  color: red;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+.login-container > * {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.card-login {
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 20px;
+}
+
+mat-card-title {
+  text-align: center;
+}
+
+mat-card-actions {
+  text-align: center;
+}
+
+.login-button {
+  margin: 5px 5px 5px 50px;
+  // background-color: #e1234e; /* Green */
+}
+
+.forgot-container {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+}
