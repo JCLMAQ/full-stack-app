@@ -31,7 +31,6 @@
       "@be/time-util": ["libs/backend/utilities/time-util/src/index.ts"],
       "@be/todos": ["libs/backend/todos/src/index.ts"],
       "@be/users": ["libs/backend/users/src/index.ts"],
-      "@fe/api-types": ["libs/frontend/ui/core/api-types/src/index.ts"],
       "@fe/app": ["libs/frontend/app/src/index.ts"],
       "@fe/auth": ["libs/frontend/auth/src/index.ts"],
       "@fe/core": ["libs/frontend/ui/core/src/index.ts"],
