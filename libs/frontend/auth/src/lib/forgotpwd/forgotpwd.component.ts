@@ -53,10 +53,11 @@ export class ForgotpwdComponent implements OnInit {
   async sendforget() {
     // const res = await this.authService.sendEmailForgotPwd(email.value);
     // alert(res.message);
-    // this.router.navigate(['portal']);
+    this.router.navigate(['auth/login']);
   }
 
   backhome() {
-    this.router.navigate(['page/homepage']);
+    // this.router.navigate(['page/homepage']);
+    this.router.navigate(['auth/login']);
   }
 }
