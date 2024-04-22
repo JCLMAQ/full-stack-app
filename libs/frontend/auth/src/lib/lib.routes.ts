@@ -11,8 +11,7 @@ export const uiAuthRoutes: Route[] = [
     // }
   },
   {
-    path: 'register',
-    component: RegisterComponent,
+    path: 'register', component: RegisterComponent,
     // resolve: {
     //   auths: AuthResolver
     // }
