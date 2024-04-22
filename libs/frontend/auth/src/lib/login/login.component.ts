@@ -105,7 +105,7 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['page/homepage']);
   }
 
-  forget() {
+  forgotPwd() {
     this.router.navigate(['auth/forgotpwd']);
   }
 }
