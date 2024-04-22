@@ -1,22 +1,17 @@
+import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
-  FormControl,
   FormGroup,
-  Validators,
   FormsModule,
   ReactiveFormsModule,
+  Validators
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MATERIAL } from '@fe/material';
+import { OnlyOneErrorPipe } from '@fe/utilities';
 import { AuthService } from '../services/auth.service';
 import { createPasswordStrengthValidator } from '../validators/password-strength.validator';
-import { OnlyOneErrorPipe } from '../../pipes/only-one-error.pipe';
-import { JsonPipe } from '@angular/common';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-login',
@@ -24,13 +19,9 @@ import { MatCardModule } from '@angular/material/card';
   styleUrls: ['./login.component.scss'],
   standalone: true,
   imports: [
-    MatCardModule,
+    ...MATERIAL,
     FormsModule,
     ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatIconModule,
     JsonPipe,
     OnlyOneErrorPipe,
   ],
@@ -102,19 +93,19 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  // cancelLogin() {
-
-  // }
+  cancelLogin() {
+    this.router.navigate(['page/homepage']);
+  }
 
   register() {
-    this.router.navigate(['register']);
+    this.router.navigate(['auth/register']);
   }
 
   backhome() {
-    this.router.navigate(['home']);
+    this.router.navigate(['page/homepage']);
   }
 
   forget() {
-    this.router.navigate(['forgotpwd']);
+    this.router.navigate(['auth/forgotpwd']);
   }
 }

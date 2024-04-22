@@ -156,14 +156,14 @@ export class RegisterComponent implements OnInit {
   }
 
   login() {
-    this.router.navigate(['login']);
+    this.router.navigate(['auth/login']);
   }
 
   backHome() {
-    this.router.navigate(['home']);
+    this.router.navigate(['page/homepage']);
   }
 
   cancelRegister() {
-    this.router.navigate(['home']);
+    this.router.navigate(['page/homepage']);
   }
 }
