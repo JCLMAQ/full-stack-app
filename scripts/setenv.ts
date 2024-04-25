@@ -6,7 +6,7 @@ require('dotenv').config();
 const environment = argv.environment;
 const isProduction = environment === 'prod';
 
-if ( !process.env.API_FRONT_END || !process.env.API_PORT || !process.env.API_SECRET || !process.env.AUTO_REGISTRATION_ENABLE || !process.env.REGISTRATION_VALIDATION || !process.env.PWDLESS_LOGIN_ENABLE || !process.env.DEFAULT_LANGUAGE || !process.env.SUPPORTED_LANGUAGE) {
+if ( !process.env.API_FRONTEND || !process.env.API_FRONTEND_PORT || !process.env.API_BACKEND || !process.env.API_BACKEND_PORT || !process.env.API_SECRET || !process.env.AUTO_REGISTRATION_ENABLE || !process.env.REGISTRATION_VALIDATION || !process.env.PWDLESS_LOGIN_ENABLE || !process.env.DEFAULT_LANGUAGE || !process.env.SUPPORTED_LANGUAGE) {
   console.error('All the required environment variables were not provided!');
   process.exit(-1);
 }
@@ -19,8 +19,9 @@ const targetPath = isProduction
 const environmentFileContent = `
     export const environment = {
         production: ${isProduction},
-        API_URL: "http://${process.env.API_FRONT_END}:${process.env.API_PORT}",
-        API_FRONT_END: "${process.env.API_FRONT_END}",
+        API_URL_BACKEND: "http://${process.env.API_BACKEND}:${process.env.API_BACKEND_PORT}",
+        API_URL_FRONTEND: "http://${process.env.API_FRONTEND}:${process.env.API_FRONTEND_PORT}",
+        API_FRONTEND: "${process.env.API_FRONTEND}",
         API_PORT: "${process.env.API_PORT}",
         API_SECRET: "${process.env.API_SECRET}",
         AUTO_REGISTRATION_ENABLE: "${process.env.AUTO_REGISTRATION_ENABLE}",

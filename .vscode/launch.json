@@ -7,8 +7,10 @@
 
 
 
+
+
       {
-        "name": "debug backend my-app",
+        "name": "debug backend",
         "port": 9229,
         "request": "launch",
         "type": "node",

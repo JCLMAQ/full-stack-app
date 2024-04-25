@@ -1,7 +1,7 @@
 // import { Public } from '@be/common';
-import { JoiValidationPipe, Public } from '@be/common';
+import { Public } from '@be/common';
 import { Auth, AuthType } from '@be/iam';
-import { Body, Controller, Get, Param, Post, UseGuards, UsePipes } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { Prisma, Token, User } from '@prisma/client';
 import { I18nLang, I18nService } from 'nestjs-i18n';
 import { AuthsService } from './auths.service';
@@ -10,7 +10,7 @@ import { ChangePwdDto } from './dto/changepwd-auth.dto';
 import { EmailAuthDto } from './dto/email-auth.dto';
 import { ForgotEmailAuthDto } from './dto/forgot-email-auth.dto';
 import { ForgotAuth } from './dto/forgot-pwd-auth.dto';
-import { RegisterAuthDto, registerSchema } from './dto/register-auth.dto';
+import { RegisterAuthDto } from './dto/register-auth.dto';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { LocalAuthGuard } from './guards/local-auth.guard';
 import { AccountValidationService } from './services/account-validation.service';
@@ -77,7 +77,7 @@ export class AuthsController {
   }
   // Register - Sign-up
   @Post('auth/registerwithpwd')
-  @UsePipes(new JoiValidationPipe(registerSchema)) // Joi Schema according : https://www.notion.so/jclmaq5510/Data-Validation-with-Joi-502789ddb6f349ea9d79d0447899cf3d?pvs=4
+  // @UsePipes(new JoiValidationPipe(registerSchema)) // Joi Schema according : https://www.notion.so/jclmaq5510/Data-Validation-with-Joi-502789ddb6f349ea9d79d0447899cf3d?pvs=4
   async registerWithPwd(@Body() registerUserDto: RegisterAuthDto, @I18nLang() lang: string): Promise<unknown> {
     const isRegistered = await this.loginWithPasswdService.registerWithPwd(registerUserDto, lang);
     switch(isRegistered) {
@@ -111,7 +111,7 @@ export class AuthsController {
       }
       default: {
         return {
-          success: true,
+          success: false,
           message: await this.i18n.translate("auths.REGISTRATION_FAIL",{ lang: lang, }) // Registration failed
         }
         break;

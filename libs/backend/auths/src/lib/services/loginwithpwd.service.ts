@@ -105,10 +105,12 @@ export class LoginwithpwdService {
       throw new HttpException(await this.i18n.translate("auths.REGISTER_ALREADY",{ lang: lang, }), 400);
     } else {
       // User does not exist: create the new user
-        // ! For security, it is not possible to register other as "GUEST"
+        // ! For security, if Role is not defined or Role is definad as ADMIN , register  the user as "GUEST"
         if(userRegisterData.Roles !== null) {
           userRegisterData.Roles = [Role.GUEST]
         }
+
+
         // Pwd and VerifyPWd : verify the equality
         const passwordValid = await this.stringUtilities.compareStricklyString (userRegisterData.password, userRegisterData.verifyPassword );
         if(!passwordValid) {
@@ -127,10 +129,13 @@ export class LoginwithpwdService {
           throw new HttpException(await this.i18n.translate("auths.REGISTRATION_FAIL",{ lang: lang, }), 400);
         }
         // User has been created
-        result = "USER_CREATED";
-        result = await  this.accountValidationService.accountValidationEmail(result, userCreated.email, lang)
+        // Account validation by email process
+        result = await  this.accountValidationService.accountValidationEmail(result, userCreated.email, lang);
+        if(result === "USER_VALIDATION_NOT_NEEDED") {
+          result =  "USER_CREATED";
       }
-    return result
+      return result
+    }
   }
 
 /*

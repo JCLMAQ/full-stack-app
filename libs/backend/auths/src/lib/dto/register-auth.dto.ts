@@ -1,10 +1,9 @@
 
 
-import { Gender, Language, Prisma, Role } from "@prisma/client";
-import { IsOptional, IsString } from "class-validator";
+import { Gender, Role } from "@prisma/client";
+import { IsString } from "class-validator";
 import * as Joi from 'joi';
 
-import { IsJsonObject } from "@be/common";
 import { AuthDto } from "./auth.dto";
 
 
@@ -20,14 +19,14 @@ export class RegisterAuthDto extends (AuthDto) {
   nickName: string | undefined;
   @IsString()
   Gender: Gender | undefined;
-  @IsJsonObject()
-  @IsOptional()
-  social?: Prisma.InputJsonValue;
-  @IsString()
-  Language: Language | undefined;
+  // @IsJsonObject()
+  // @IsOptional()
+  // // social?: Prisma.InputJsonValue;
+  // @IsString()
+  // Language: Language | undefined;
   @IsString()
   Roles: Role[] | undefined;
-  dob?: Date;
+  // dob?: Date;
 }
 
 // Joi Schema according : https://www.notion.so/jclmaq5510/Data-Validation-with-Joi-502789ddb6f349ea9d79d0447899cf3d?pvs=4
@@ -40,10 +39,10 @@ export const registerSchema = Joi.object({
   firstName:Joi.string().alphanum().min(3).max(30),
   nickName:Joi.string().alphanum().min(3).max(10),
   Gender: Gender ,
-  social: Joi.object({}).optional(),
-  Language: Language,
+  // social: Joi.object({}).optional(),
+  // Language: Language,
   Roles: Role,
-  dob: Date
+  // dob: Date
 });
 
 

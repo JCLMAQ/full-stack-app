@@ -25,6 +25,7 @@ export class AccountValidationService {
 async accountValidationEmail(result: string, email: string, lang: string): Promise<string> {
   // if account validation needed, send the email with link to validate the account
   // Verify if the registration need a validation by email
+  result = "USER_VALIDATION_NOT_NEEDED"
   const accountValidation = await this.dbConfigService.searchConfigParam( "ACCOUNT_VALIDATION_EMAIL" );
   if(accountValidation === "1") {
     // Send the validation email
@@ -58,7 +59,7 @@ async accountValidationEmail(result: string, email: string, lang: string): Promi
     if (tokenAccountValidation && tokenAccountValidation.emailToken) {
       // Config data for the email to send with the token
       const emailSender = await this.dbConfigService.searchConfigParam( "EMAIL_NOREPLY" );
-      const hostWebAddress = await this.dbConfigService.searchConfigParam( "APP_FRONT_END");
+      const hostWebAddress = await this.dbConfigService.searchConfigParam( "API_URL_BACKEND");
 
       // Email data construction and translate
       const noreply = await this.i18n.translate("auths.NOREPLYEMAIL",{ lang: lang, })
@@ -70,7 +71,7 @@ async accountValidationEmail(result: string, email: string, lang: string): Promi
         toEmail: emailAccountValidation.email,
         subjectEmail: `${subjectEmail}`,
         textEmail: `${textEmail}`,
-        htmlEmail: `${htmlEmail} <a href='${hostWebAddress}/valid-account/${tokenAccountValidation.emailToken}'>Click here</a>` // html body
+        htmlEmail: `${htmlEmail} <a href='${hostWebAddress}/auths/auth/valid-account/${tokenAccountValidation.emailToken}'>Click here</a>` // html body
       }
 
       // Send the email with the link
