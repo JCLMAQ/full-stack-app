@@ -131,7 +131,7 @@ model Organization extends BaseUuid {
     @@allow('create', auth() != null)
 
     // members can read the org
-    @@allow('read', Members?[auth() == this])
+    @@allow('read', Members?[id == auth().id])
 
     // everyone can create a organization
     // @@allow('create', true)
@@ -217,7 +217,7 @@ model User extends BaseUuid {
     // can be created by anyone, even not logged in
     @@allow('create', true)
     // can be read by users in the same organization
-    @@allow('read', Orgs?[Members?[auth() == this]])
+    @@allow('read', Orgs?[Members?[id == auth().id]])
     // full access by oneself
     @@allow('all', auth() == this)
 }
@@ -251,7 +251,7 @@ model Group extends BaseInt {
     // owner User @relation(fields: [userId], references: [id])
     // ownerId String
     // group is shared by organization
-    @@allow('all', org.Members?[auth() == this])
+    @@allow('all', org.Members?[id == auth().id])
 }
 
 model Todo extends organizationBaseEntity {

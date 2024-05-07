@@ -91,8 +91,8 @@
     "@ngx-translate/http-loader": "^8.0.0",
     "@nx/angular": "19.0.0",
     "@prisma/client": "^5.13.0",
-    "@zenstackhq/runtime": "^1.12.5",
-    "@zenstackhq/server": "^1.12.5",
+    "@zenstackhq/runtime": "^2.0.3",
+    "@zenstackhq/server": "^2.0.3",
     "axios": "^1.6.8",
     "bcrypt": "^5.1.1",
     "bootstrap": "^5.3.3",
@@ -186,7 +186,7 @@
     "@types/uuid": "~9.0.8",
     "@typescript-eslint/eslint-plugin": "^7.8.0",
     "@typescript-eslint/parser": "^7.8.0",
-    "@zenstackhq/openapi": "^1.12.5",
+    "@zenstackhq/openapi": "^2.0.3",
     "cypress": "^13.8.1",
     "dotenv": "^16.4.5",
     "dotenv-cli": "^7.4.2",
@@ -211,7 +211,7 @@
     "typescript": "5.4.5",
     "typesync": "^0.12.1",
     "webpack-cli": "^5.1.4",
-    "zenstack": "^1.12.5"
+    "zenstack": "^2.0.3"
   },
   "prisma": {
     "seed": "ts-node zmodel/prisma/seed.ts"
