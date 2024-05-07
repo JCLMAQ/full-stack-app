@@ -645,6 +645,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
   /apizen/organization/{id}:
     get:
       operationId: fetch-Organization
@@ -704,6 +710,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
     patch:
       operationId: update-Organization-patch
       description: Update a "Organization" resource
@@ -731,6 +743,12 @@ paths:
                 $ref: "#/components/schemas/_errorResponse"
         "404":
           description: Resource is not found
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
           content:
             application/vnd.api+json:
               schema:
@@ -12268,6 +12286,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
   /apizen/orgEmail/{id}:
     get:
       operationId: fetch-OrgEmail
@@ -12327,6 +12351,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
     patch:
       operationId: update-OrgEmail-patch
       description: Update a "OrgEmail" resource
@@ -12354,6 +12384,12 @@ paths:
                 $ref: "#/components/schemas/_errorResponse"
         "404":
           description: Resource is not found
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
           content:
             application/vnd.api+json:
               schema:
@@ -13627,6 +13663,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
   /apizen/orgDomain/{id}:
     get:
       operationId: fetch-OrgDomain
@@ -13686,6 +13728,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
     patch:
       operationId: update-OrgDomain-patch
       description: Update a "OrgDomain" resource
@@ -13713,6 +13761,12 @@ paths:
                 $ref: "#/components/schemas/_errorResponse"
         "404":
           description: Resource is not found
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
           content:
             application/vnd.api+json:
               schema:
@@ -14899,6 +14953,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
       security: []
   /apizen/user/{id}:
     get:
@@ -14959,6 +15019,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
     patch:
       operationId: update-User-patch
       description: Update a "User" resource
@@ -14986,6 +15052,12 @@ paths:
                 $ref: "#/components/schemas/_errorResponse"
         "404":
           description: Resource is not found
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
           content:
             application/vnd.api+json:
               schema:
@@ -54131,6 +54203,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
   /apizen/userSecret/{id}:
     get:
       operationId: fetch-UserSecret
@@ -54190,6 +54268,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
     patch:
       operationId: update-UserSecret-patch
       description: Update a "UserSecret" resource
@@ -54217,6 +54301,12 @@ paths:
                 $ref: "#/components/schemas/_errorResponse"
         "404":
           description: Resource is not found
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
           content:
             application/vnd.api+json:
               schema:
@@ -54704,6 +54794,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
   /apizen/profile/{id}:
     get:
       operationId: fetch-Profile
@@ -54763,6 +54859,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
     patch:
       operationId: update-Profile-patch
       description: Update a "Profile" resource
@@ -54790,6 +54892,12 @@ paths:
                 $ref: "#/components/schemas/_errorResponse"
         "404":
           description: Resource is not found
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
           content:
             application/vnd.api+json:
               schema:
@@ -56049,6 +56157,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
   /apizen/group/{id}:
     get:
       operationId: fetch-Group
@@ -56108,6 +56222,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
     patch:
       operationId: update-Group-patch
       description: Update a "Group" resource
@@ -56135,6 +56255,12 @@ paths:
                 $ref: "#/components/schemas/_errorResponse"
         "404":
           description: Resource is not found
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
           content:
             application/vnd.api+json:
               schema:
@@ -61686,105 +61812,9 @@ paths:
           explode: false
           schema:
             type: string
-        - name: filter[ownerId]
-          required: false
-          description: Equality filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$contains]
-          required: false
-          description: String contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$search]
-          required: false
-          description: String full-text search filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$startsWith]
-          required: false
-          description: String startsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$endsWith]
-          required: false
-          description: String endsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
         - name: filter[org]
           required: false
           description: Equality filter for "org"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId]
-          required: false
-          description: Equality filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$contains]
-          required: false
-          description: String contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$search]
-          required: false
-          description: String full-text search filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$startsWith]
-          required: false
-          description: String startsWith filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$endsWith]
-          required: false
-          description: String endsWith filter for "orgId"
           in: query
           style: form
           explode: false
@@ -62018,6 +62048,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
   /apizen/todo/{id}:
     get:
       operationId: fetch-Todo
@@ -62077,6 +62113,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
     patch:
       operationId: update-Todo-patch
       description: Update a "Todo" resource
@@ -62104,6 +62146,12 @@ paths:
                 $ref: "#/components/schemas/_errorResponse"
         "404":
           description: Resource is not found
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
           content:
             application/vnd.api+json:
               schema:
@@ -62623,105 +62671,9 @@ paths:
           explode: false
           schema:
             type: string
-        - name: filter[ownerId]
-          required: false
-          description: Equality filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$contains]
-          required: false
-          description: String contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$search]
-          required: false
-          description: String full-text search filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$startsWith]
-          required: false
-          description: String startsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$endsWith]
-          required: false
-          description: String endsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
         - name: filter[org]
           required: false
           description: Equality filter for "org"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId]
-          required: false
-          description: Equality filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$contains]
-          required: false
-          description: String contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$search]
-          required: false
-          description: String full-text search filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$startsWith]
-          required: false
-          description: String startsWith filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$endsWith]
-          required: false
-          description: String endsWith filter for "orgId"
           in: query
           style: form
           explode: false
@@ -63196,105 +63148,9 @@ paths:
           explode: false
           schema:
             type: string
-        - name: filter[ownerId]
-          required: false
-          description: Equality filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$contains]
-          required: false
-          description: String contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$search]
-          required: false
-          description: String full-text search filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$startsWith]
-          required: false
-          description: String startsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$endsWith]
-          required: false
-          description: String endsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
         - name: filter[org]
           required: false
           description: Equality filter for "org"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId]
-          required: false
-          description: Equality filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$contains]
-          required: false
-          description: String contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$search]
-          required: false
-          description: String full-text search filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$startsWith]
-          required: false
-          description: String startsWith filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$endsWith]
-          required: false
-          description: String endsWith filter for "orgId"
           in: query
           style: form
           explode: false
@@ -63980,105 +63836,9 @@ paths:
           explode: false
           schema:
             type: string
-        - name: filter[ownerId]
-          required: false
-          description: Equality filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$contains]
-          required: false
-          description: String contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$search]
-          required: false
-          description: String full-text search filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$startsWith]
-          required: false
-          description: String startsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$endsWith]
-          required: false
-          description: String endsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
         - name: filter[org]
           required: false
           description: Equality filter for "org"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId]
-          required: false
-          description: Equality filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$contains]
-          required: false
-          description: String contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$search]
-          required: false
-          description: String full-text search filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$startsWith]
-          required: false
-          description: String startsWith filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$endsWith]
-          required: false
-          description: String endsWith filter for "orgId"
           in: query
           style: form
           explode: false
@@ -64553,105 +64313,9 @@ paths:
           explode: false
           schema:
             type: string
-        - name: filter[ownerId]
-          required: false
-          description: Equality filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$contains]
-          required: false
-          description: String contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$search]
-          required: false
-          description: String full-text search filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$startsWith]
-          required: false
-          description: String startsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$endsWith]
-          required: false
-          description: String endsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
         - name: filter[org]
           required: false
           description: Equality filter for "org"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId]
-          required: false
-          description: Equality filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$contains]
-          required: false
-          description: String contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$search]
-          required: false
-          description: String full-text search filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$startsWith]
-          required: false
-          description: String startsWith filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$endsWith]
-          required: false
-          description: String endsWith filter for "orgId"
           in: query
           style: form
           explode: false
@@ -65220,105 +64884,9 @@ paths:
           explode: false
           schema:
             type: string
-        - name: filter[ownerId]
-          required: false
-          description: Equality filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$contains]
-          required: false
-          description: String contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$search]
-          required: false
-          description: String full-text search filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$startsWith]
-          required: false
-          description: String startsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$endsWith]
-          required: false
-          description: String endsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
         - name: filter[org]
           required: false
           description: Equality filter for "org"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId]
-          required: false
-          description: Equality filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$contains]
-          required: false
-          description: String contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$search]
-          required: false
-          description: String full-text search filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$startsWith]
-          required: false
-          description: String startsWith filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$endsWith]
-          required: false
-          description: String endsWith filter for "orgId"
           in: query
           style: form
           explode: false
@@ -65793,105 +65361,9 @@ paths:
           explode: false
           schema:
             type: string
-        - name: filter[ownerId]
-          required: false
-          description: Equality filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$contains]
-          required: false
-          description: String contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$search]
-          required: false
-          description: String full-text search filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$startsWith]
-          required: false
-          description: String startsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$endsWith]
-          required: false
-          description: String endsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
         - name: filter[org]
           required: false
           description: Equality filter for "org"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId]
-          required: false
-          description: Equality filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$contains]
-          required: false
-          description: String contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$search]
-          required: false
-          description: String full-text search filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$startsWith]
-          required: false
-          description: String startsWith filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$endsWith]
-          required: false
-          description: String endsWith filter for "orgId"
           in: query
           style: form
           explode: false
@@ -66460,105 +65932,9 @@ paths:
           explode: false
           schema:
             type: string
-        - name: filter[ownerId]
-          required: false
-          description: Equality filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$contains]
-          required: false
-          description: String contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$search]
-          required: false
-          description: String full-text search filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$startsWith]
-          required: false
-          description: String startsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$endsWith]
-          required: false
-          description: String endsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
         - name: filter[org]
           required: false
           description: Equality filter for "org"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId]
-          required: false
-          description: Equality filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$contains]
-          required: false
-          description: String contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$search]
-          required: false
-          description: String full-text search filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$startsWith]
-          required: false
-          description: String startsWith filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$endsWith]
-          required: false
-          description: String endsWith filter for "orgId"
           in: query
           style: form
           explode: false
@@ -67033,105 +66409,9 @@ paths:
           explode: false
           schema:
             type: string
-        - name: filter[ownerId]
-          required: false
-          description: Equality filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$contains]
-          required: false
-          description: String contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$search]
-          required: false
-          description: String full-text search filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$startsWith]
-          required: false
-          description: String startsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$endsWith]
-          required: false
-          description: String endsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
         - name: filter[org]
           required: false
           description: Equality filter for "org"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId]
-          required: false
-          description: Equality filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$contains]
-          required: false
-          description: String contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$search]
-          required: false
-          description: String full-text search filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$startsWith]
-          required: false
-          description: String startsWith filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$endsWith]
-          required: false
-          description: String endsWith filter for "orgId"
           in: query
           style: form
           explode: false
@@ -67658,6 +66938,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
   /apizen/userTodoLink/{id}:
     get:
       operationId: fetch-UserTodoLink
@@ -67717,6 +67003,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
     patch:
       operationId: update-UserTodoLink-patch
       description: Update a "UserTodoLink" resource
@@ -67744,6 +67036,12 @@ paths:
                 $ref: "#/components/schemas/_errorResponse"
         "404":
           description: Resource is not found
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
           content:
             application/vnd.api+json:
               schema:
@@ -68262,105 +67560,9 @@ paths:
           explode: false
           schema:
             type: string
-        - name: filter[ownerId]
-          required: false
-          description: Equality filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$contains]
-          required: false
-          description: String contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$search]
-          required: false
-          description: String full-text search filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$startsWith]
-          required: false
-          description: String startsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$endsWith]
-          required: false
-          description: String endsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
         - name: filter[org]
           required: false
           description: Equality filter for "org"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId]
-          required: false
-          description: Equality filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$contains]
-          required: false
-          description: String contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$search]
-          required: false
-          description: String full-text search filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$startsWith]
-          required: false
-          description: String startsWith filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$endsWith]
-          required: false
-          description: String endsWith filter for "orgId"
           in: query
           style: form
           explode: false
@@ -68592,6 +67794,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
   /apizen/task/{id}:
     get:
       operationId: fetch-Task
@@ -68651,6 +67859,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
     patch:
       operationId: update-Task-patch
       description: Update a "Task" resource
@@ -68678,6 +67892,12 @@ paths:
                 $ref: "#/components/schemas/_errorResponse"
         "404":
           description: Resource is not found
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
           content:
             application/vnd.api+json:
               schema:
@@ -69197,105 +68417,9 @@ paths:
           explode: false
           schema:
             type: string
-        - name: filter[ownerId]
-          required: false
-          description: Equality filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$contains]
-          required: false
-          description: String contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$search]
-          required: false
-          description: String full-text search filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$startsWith]
-          required: false
-          description: String startsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$endsWith]
-          required: false
-          description: String endsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
         - name: filter[org]
           required: false
           description: Equality filter for "org"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId]
-          required: false
-          description: Equality filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$contains]
-          required: false
-          description: String contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$search]
-          required: false
-          description: String full-text search filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$startsWith]
-          required: false
-          description: String startsWith filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$endsWith]
-          required: false
-          description: String endsWith filter for "orgId"
           in: query
           style: form
           explode: false
@@ -69768,105 +68892,9 @@ paths:
           explode: false
           schema:
             type: string
-        - name: filter[ownerId]
-          required: false
-          description: Equality filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$contains]
-          required: false
-          description: String contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$search]
-          required: false
-          description: String full-text search filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$startsWith]
-          required: false
-          description: String startsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$endsWith]
-          required: false
-          description: String endsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
         - name: filter[org]
           required: false
           description: Equality filter for "org"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId]
-          required: false
-          description: Equality filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$contains]
-          required: false
-          description: String contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$search]
-          required: false
-          description: String full-text search filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$startsWith]
-          required: false
-          description: String startsWith filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$endsWith]
-          required: false
-          description: String endsWith filter for "orgId"
           in: query
           style: form
           explode: false
@@ -70550,105 +69578,9 @@ paths:
           explode: false
           schema:
             type: string
-        - name: filter[ownerId]
-          required: false
-          description: Equality filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$contains]
-          required: false
-          description: String contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$search]
-          required: false
-          description: String full-text search filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$startsWith]
-          required: false
-          description: String startsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$endsWith]
-          required: false
-          description: String endsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
         - name: filter[org]
           required: false
           description: Equality filter for "org"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId]
-          required: false
-          description: Equality filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$contains]
-          required: false
-          description: String contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$search]
-          required: false
-          description: String full-text search filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$startsWith]
-          required: false
-          description: String startsWith filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$endsWith]
-          required: false
-          description: String endsWith filter for "orgId"
           in: query
           style: form
           explode: false
@@ -71121,105 +70053,9 @@ paths:
           explode: false
           schema:
             type: string
-        - name: filter[ownerId]
-          required: false
-          description: Equality filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$contains]
-          required: false
-          description: String contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$search]
-          required: false
-          description: String full-text search filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$startsWith]
-          required: false
-          description: String startsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$endsWith]
-          required: false
-          description: String endsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
         - name: filter[org]
           required: false
           description: Equality filter for "org"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId]
-          required: false
-          description: Equality filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$contains]
-          required: false
-          description: String contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$search]
-          required: false
-          description: String full-text search filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$startsWith]
-          required: false
-          description: String startsWith filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$endsWith]
-          required: false
-          description: String endsWith filter for "orgId"
           in: query
           style: form
           explode: false
@@ -71786,105 +70622,9 @@ paths:
           explode: false
           schema:
             type: string
-        - name: filter[ownerId]
-          required: false
-          description: Equality filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$contains]
-          required: false
-          description: String contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$search]
-          required: false
-          description: String full-text search filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$startsWith]
-          required: false
-          description: String startsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$endsWith]
-          required: false
-          description: String endsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
         - name: filter[org]
           required: false
           description: Equality filter for "org"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId]
-          required: false
-          description: Equality filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$contains]
-          required: false
-          description: String contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$search]
-          required: false
-          description: String full-text search filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$startsWith]
-          required: false
-          description: String startsWith filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$endsWith]
-          required: false
-          description: String endsWith filter for "orgId"
           in: query
           style: form
           explode: false
@@ -72357,105 +71097,9 @@ paths:
           explode: false
           schema:
             type: string
-        - name: filter[ownerId]
-          required: false
-          description: Equality filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$contains]
-          required: false
-          description: String contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$search]
-          required: false
-          description: String full-text search filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$startsWith]
-          required: false
-          description: String startsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$endsWith]
-          required: false
-          description: String endsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
         - name: filter[org]
           required: false
           description: Equality filter for "org"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId]
-          required: false
-          description: Equality filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$contains]
-          required: false
-          description: String contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$search]
-          required: false
-          description: String full-text search filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$startsWith]
-          required: false
-          description: String startsWith filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$endsWith]
-          required: false
-          description: String endsWith filter for "orgId"
           in: query
           style: form
           explode: false
@@ -73097,6 +71741,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
   /apizen/userTaskLink/{id}:
     get:
       operationId: fetch-UserTaskLink
@@ -73156,6 +71806,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
     patch:
       operationId: update-UserTaskLink-patch
       description: Update a "UserTaskLink" resource
@@ -73183,6 +71839,12 @@ paths:
                 $ref: "#/components/schemas/_errorResponse"
         "404":
           description: Resource is not found
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
           content:
             application/vnd.api+json:
               schema:
@@ -73701,105 +72363,9 @@ paths:
           explode: false
           schema:
             type: string
-        - name: filter[ownerId]
-          required: false
-          description: Equality filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$contains]
-          required: false
-          description: String contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$search]
-          required: false
-          description: String full-text search filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$startsWith]
-          required: false
-          description: String startsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$endsWith]
-          required: false
-          description: String endsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
         - name: filter[org]
           required: false
           description: Equality filter for "org"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId]
-          required: false
-          description: Equality filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$contains]
-          required: false
-          description: String contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$search]
-          required: false
-          description: String full-text search filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$startsWith]
-          required: false
-          description: String startsWith filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$endsWith]
-          required: false
-          description: String endsWith filter for "orgId"
           in: query
           style: form
           explode: false
@@ -74017,6 +72583,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
   /apizen/post/{id}:
     get:
       operationId: fetch-Post
@@ -74076,6 +72648,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
     patch:
       operationId: update-Post-patch
       description: Update a "Post" resource
@@ -74103,6 +72681,12 @@ paths:
                 $ref: "#/components/schemas/_errorResponse"
         "404":
           description: Resource is not found
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
           content:
             application/vnd.api+json:
               schema:
@@ -74622,105 +73206,9 @@ paths:
           explode: false
           schema:
             type: string
-        - name: filter[ownerId]
-          required: false
-          description: Equality filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$contains]
-          required: false
-          description: String contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$search]
-          required: false
-          description: String full-text search filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$startsWith]
-          required: false
-          description: String startsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$endsWith]
-          required: false
-          description: String endsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
         - name: filter[org]
           required: false
           description: Equality filter for "org"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId]
-          required: false
-          description: Equality filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$contains]
-          required: false
-          description: String contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$search]
-          required: false
-          description: String full-text search filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$startsWith]
-          required: false
-          description: String startsWith filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$endsWith]
-          required: false
-          description: String endsWith filter for "orgId"
           in: query
           style: form
           explode: false
@@ -75179,105 +73667,9 @@ paths:
           explode: false
           schema:
             type: string
-        - name: filter[ownerId]
-          required: false
-          description: Equality filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$contains]
-          required: false
-          description: String contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$search]
-          required: false
-          description: String full-text search filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$startsWith]
-          required: false
-          description: String startsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$endsWith]
-          required: false
-          description: String endsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
         - name: filter[org]
           required: false
           description: Equality filter for "org"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId]
-          required: false
-          description: Equality filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$contains]
-          required: false
-          description: String contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$search]
-          required: false
-          description: String full-text search filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$startsWith]
-          required: false
-          description: String startsWith filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$endsWith]
-          required: false
-          description: String endsWith filter for "orgId"
           in: query
           style: form
           explode: false
@@ -75830,105 +74222,9 @@ paths:
           explode: false
           schema:
             type: string
-        - name: filter[ownerId]
-          required: false
-          description: Equality filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$contains]
-          required: false
-          description: String contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$search]
-          required: false
-          description: String full-text search filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$startsWith]
-          required: false
-          description: String startsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$endsWith]
-          required: false
-          description: String endsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
         - name: filter[org]
           required: false
           description: Equality filter for "org"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId]
-          required: false
-          description: Equality filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$contains]
-          required: false
-          description: String contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$search]
-          required: false
-          description: String full-text search filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$startsWith]
-          required: false
-          description: String startsWith filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$endsWith]
-          required: false
-          description: String endsWith filter for "orgId"
           in: query
           style: form
           explode: false
@@ -76387,105 +74683,9 @@ paths:
           explode: false
           schema:
             type: string
-        - name: filter[ownerId]
-          required: false
-          description: Equality filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$contains]
-          required: false
-          description: String contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$search]
-          required: false
-          description: String full-text search filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$startsWith]
-          required: false
-          description: String startsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$endsWith]
-          required: false
-          description: String endsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
         - name: filter[org]
           required: false
           description: Equality filter for "org"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId]
-          required: false
-          description: Equality filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$contains]
-          required: false
-          description: String contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$search]
-          required: false
-          description: String full-text search filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$startsWith]
-          required: false
-          description: String startsWith filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$endsWith]
-          required: false
-          description: String endsWith filter for "orgId"
           in: query
           style: form
           explode: false
@@ -77038,105 +75238,9 @@ paths:
           explode: false
           schema:
             type: string
-        - name: filter[ownerId]
-          required: false
-          description: Equality filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$contains]
-          required: false
-          description: String contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$search]
-          required: false
-          description: String full-text search filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$startsWith]
-          required: false
-          description: String startsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$endsWith]
-          required: false
-          description: String endsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
         - name: filter[org]
           required: false
           description: Equality filter for "org"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId]
-          required: false
-          description: Equality filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$contains]
-          required: false
-          description: String contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$search]
-          required: false
-          description: String full-text search filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$startsWith]
-          required: false
-          description: String startsWith filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$endsWith]
-          required: false
-          description: String endsWith filter for "orgId"
           in: query
           style: form
           explode: false
@@ -77595,105 +75699,9 @@ paths:
           explode: false
           schema:
             type: string
-        - name: filter[ownerId]
-          required: false
-          description: Equality filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$contains]
-          required: false
-          description: String contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$search]
-          required: false
-          description: String full-text search filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$startsWith]
-          required: false
-          description: String startsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$endsWith]
-          required: false
-          description: String endsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
         - name: filter[org]
           required: false
           description: Equality filter for "org"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId]
-          required: false
-          description: Equality filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$contains]
-          required: false
-          description: String contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$search]
-          required: false
-          description: String full-text search filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$startsWith]
-          required: false
-          description: String startsWith filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$endsWith]
-          required: false
-          description: String endsWith filter for "orgId"
           in: query
           style: form
           explode: false
@@ -78246,105 +76254,9 @@ paths:
           explode: false
           schema:
             type: string
-        - name: filter[ownerId]
-          required: false
-          description: Equality filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$contains]
-          required: false
-          description: String contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$search]
-          required: false
-          description: String full-text search filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$startsWith]
-          required: false
-          description: String startsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$endsWith]
-          required: false
-          description: String endsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
         - name: filter[org]
           required: false
           description: Equality filter for "org"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId]
-          required: false
-          description: Equality filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$contains]
-          required: false
-          description: String contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$search]
-          required: false
-          description: String full-text search filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$startsWith]
-          required: false
-          description: String startsWith filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$endsWith]
-          required: false
-          description: String endsWith filter for "orgId"
           in: query
           style: form
           explode: false
@@ -78803,105 +76715,9 @@ paths:
           explode: false
           schema:
             type: string
-        - name: filter[ownerId]
-          required: false
-          description: Equality filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$contains]
-          required: false
-          description: String contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$search]
-          required: false
-          description: String full-text search filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$startsWith]
-          required: false
-          description: String startsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$endsWith]
-          required: false
-          description: String endsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
         - name: filter[org]
           required: false
           description: Equality filter for "org"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId]
-          required: false
-          description: Equality filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$contains]
-          required: false
-          description: String contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$search]
-          required: false
-          description: String full-text search filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$startsWith]
-          required: false
-          description: String startsWith filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$endsWith]
-          required: false
-          description: String endsWith filter for "orgId"
           in: query
           style: form
           explode: false
@@ -79579,6 +77395,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
   /apizen/category/{id}:
     get:
       operationId: fetch-Category
@@ -79638,6 +77460,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
     patch:
       operationId: update-Category-patch
       description: Update a "Category" resource
@@ -79665,6 +77493,12 @@ paths:
                 $ref: "#/components/schemas/_errorResponse"
         "404":
           description: Resource is not found
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
           content:
             application/vnd.api+json:
               schema:
@@ -80909,6 +78743,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
   /apizen/comment/{id}:
     get:
       operationId: fetch-Comment
@@ -80968,6 +78808,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
     patch:
       operationId: update-Comment-patch
       description: Update a "Comment" resource
@@ -80995,6 +78841,12 @@ paths:
                 $ref: "#/components/schemas/_errorResponse"
         "404":
           description: Resource is not found
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
           content:
             application/vnd.api+json:
               schema:
@@ -81513,105 +79365,9 @@ paths:
           explode: false
           schema:
             type: string
-        - name: filter[ownerId]
-          required: false
-          description: Equality filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$contains]
-          required: false
-          description: String contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$search]
-          required: false
-          description: String full-text search filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$startsWith]
-          required: false
-          description: String startsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$endsWith]
-          required: false
-          description: String endsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
         - name: filter[org]
           required: false
           description: Equality filter for "org"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId]
-          required: false
-          description: Equality filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$contains]
-          required: false
-          description: String contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$search]
-          required: false
-          description: String full-text search filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$startsWith]
-          required: false
-          description: String startsWith filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$endsWith]
-          required: false
-          description: String endsWith filter for "orgId"
           in: query
           style: form
           explode: false
@@ -81940,6 +79696,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
   /apizen/file/{id}:
     get:
       operationId: fetch-File
@@ -81999,6 +79761,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
     patch:
       operationId: update-File-patch
       description: Update a "File" resource
@@ -82026,6 +79794,12 @@ paths:
                 $ref: "#/components/schemas/_errorResponse"
         "404":
           description: Resource is not found
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
           content:
             application/vnd.api+json:
               schema:
@@ -82545,105 +80319,9 @@ paths:
           explode: false
           schema:
             type: string
-        - name: filter[ownerId]
-          required: false
-          description: Equality filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$contains]
-          required: false
-          description: String contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$search]
-          required: false
-          description: String full-text search filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$startsWith]
-          required: false
-          description: String startsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$endsWith]
-          required: false
-          description: String endsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
         - name: filter[org]
           required: false
           description: Equality filter for "org"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId]
-          required: false
-          description: Equality filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$contains]
-          required: false
-          description: String contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$search]
-          required: false
-          description: String full-text search filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$startsWith]
-          required: false
-          description: String startsWith filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$endsWith]
-          required: false
-          description: String endsWith filter for "orgId"
           in: query
           style: form
           explode: false
@@ -83213,105 +80891,9 @@ paths:
           explode: false
           schema:
             type: string
-        - name: filter[ownerId]
-          required: false
-          description: Equality filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$contains]
-          required: false
-          description: String contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$search]
-          required: false
-          description: String full-text search filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$startsWith]
-          required: false
-          description: String startsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[ownerId$endsWith]
-          required: false
-          description: String endsWith filter for "ownerId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
         - name: filter[org]
           required: false
           description: Equality filter for "org"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId]
-          required: false
-          description: Equality filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$contains]
-          required: false
-          description: String contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$icontains]
-          required: false
-          description: String case-insensitive contains filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$search]
-          required: false
-          description: String full-text search filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$startsWith]
-          required: false
-          description: String startsWith filter for "orgId"
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: string
-        - name: filter[orgId$endsWith]
-          required: false
-          description: String endsWith filter for "orgId"
           in: query
           style: form
           explode: false
@@ -83869,6 +81451,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
   /apizen/userFollower/{id}:
     get:
       operationId: fetch-UserFollower
@@ -83928,6 +81516,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
     patch:
       operationId: update-UserFollower-patch
       description: Update a "UserFollower" resource
@@ -83955,6 +81549,12 @@ paths:
                 $ref: "#/components/schemas/_errorResponse"
         "404":
           description: Resource is not found
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
           content:
             application/vnd.api+json:
               schema:
@@ -84368,6 +81968,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
   /apizen/postLike/{id}:
     get:
       operationId: fetch-PostLike
@@ -84427,6 +82033,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
     patch:
       operationId: update-PostLike-patch
       description: Update a "PostLike" resource
@@ -84454,6 +82066,12 @@ paths:
                 $ref: "#/components/schemas/_errorResponse"
         "404":
           description: Resource is not found
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
           content:
             application/vnd.api+json:
               schema:
@@ -85056,6 +82674,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
   /apizen/story/{id}:
     get:
       operationId: fetch-Story
@@ -85115,6 +82739,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
     patch:
       operationId: update-Story-patch
       description: Update a "Story" resource
@@ -85142,6 +82772,12 @@ paths:
                 $ref: "#/components/schemas/_errorResponse"
         "404":
           description: Resource is not found
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
           content:
             application/vnd.api+json:
               schema:
@@ -85715,6 +83351,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
   /apizen/image/{id}:
     get:
       operationId: fetch-Image
@@ -85774,6 +83416,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
     patch:
       operationId: update-Image-patch
       description: Update a "Image" resource
@@ -85801,6 +83449,12 @@ paths:
                 $ref: "#/components/schemas/_errorResponse"
         "404":
           description: Resource is not found
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
           content:
             application/vnd.api+json:
               schema:
@@ -86217,6 +83871,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
   /apizen/configParam/{id}:
     get:
       operationId: fetch-ConfigParam
@@ -86276,6 +83936,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
     patch:
       operationId: update-ConfigParam-patch
       description: Update a "ConfigParam" resource
@@ -86303,6 +83969,12 @@ paths:
                 $ref: "#/components/schemas/_errorResponse"
         "404":
           description: Resource is not found
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
           content:
             application/vnd.api+json:
               schema:
@@ -86639,6 +84311,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
   /apizen/orgEmailUseTo/{id}:
     get:
       operationId: fetch-OrgEmailUseTo
@@ -86698,6 +84376,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
     patch:
       operationId: update-OrgEmailUseTo-patch
       description: Update a "OrgEmailUseTo" resource
@@ -86725,6 +84409,12 @@ paths:
                 $ref: "#/components/schemas/_errorResponse"
         "404":
           description: Resource is not found
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
           content:
             application/vnd.api+json:
               schema:
@@ -87170,6 +84860,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
   /apizen/appEmailDomain/{id}:
     get:
       operationId: fetch-AppEmailDomain
@@ -87229,6 +84925,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
     patch:
       operationId: update-AppEmailDomain-patch
       description: Update a "AppEmailDomain" resource
@@ -87256,6 +84958,12 @@ paths:
                 $ref: "#/components/schemas/_errorResponse"
         "404":
           description: Resource is not found
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
           content:
             application/vnd.api+json:
               schema:
@@ -87624,6 +85332,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
   /apizen/refreshToken/{id}:
     get:
       operationId: fetch-RefreshToken
@@ -87683,6 +85397,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
     patch:
       operationId: update-RefreshToken-patch
       description: Update a "RefreshToken" resource
@@ -87710,6 +85430,12 @@ paths:
                 $ref: "#/components/schemas/_errorResponse"
         "404":
           description: Resource is not found
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
           content:
             application/vnd.api+json:
               schema:
@@ -88096,6 +85822,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
   /apizen/apiKey/{id}:
     get:
       operationId: fetch-ApiKey
@@ -88155,6 +85887,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
     patch:
       operationId: update-ApiKey-patch
       description: Update a "ApiKey" resource
@@ -88182,6 +85920,12 @@ paths:
                 $ref: "#/components/schemas/_errorResponse"
         "404":
           description: Resource is not found
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
           content:
             application/vnd.api+json:
               schema:
@@ -89409,6 +87153,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
   /apizen/scope/{id}:
     get:
       operationId: fetch-Scope
@@ -89468,6 +87218,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
     patch:
       operationId: update-Scope-patch
       description: Update a "Scope" resource
@@ -89495,6 +87251,12 @@ paths:
                 $ref: "#/components/schemas/_errorResponse"
         "404":
           description: Resource is not found
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
           content:
             application/vnd.api+json:
               schema:
@@ -90600,6 +88362,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
   /apizen/token/{id}:
     get:
       operationId: fetch-Token
@@ -90659,6 +88427,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
     patch:
       operationId: update-Token-patch
       description: Update a "Token" resource
@@ -90686,6 +88460,12 @@ paths:
                 $ref: "#/components/schemas/_errorResponse"
         "404":
           description: Resource is not found
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
           content:
             application/vnd.api+json:
               schema:
@@ -91286,6 +89066,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
   /apizen/changesTracking/{id}:
     get:
       operationId: fetch-ChangesTracking
@@ -91345,6 +89131,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
     patch:
       operationId: update-ChangesTracking-patch
       description: Update a "ChangesTracking" resource
@@ -91372,6 +89164,12 @@ paths:
                 $ref: "#/components/schemas/_errorResponse"
         "404":
           description: Resource is not found
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
           content:
             application/vnd.api+json:
               schema:
@@ -91902,6 +89700,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
   /apizen/accountValidation/{id}:
     get:
       operationId: fetch-AccountValidation
@@ -91961,6 +89765,12 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
     patch:
       operationId: update-AccountValidation-patch
       description: Update a "AccountValidation" resource
@@ -91988,6 +89798,12 @@ paths:
                 $ref: "#/components/schemas/_errorResponse"
         "404":
           description: Resource is not found
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: "#/components/schemas/_errorResponse"
+        "422":
+          description: Request is unprocessable due to validation errors
           content:
             application/vnd.api+json:
               schema:
