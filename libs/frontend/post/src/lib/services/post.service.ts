@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpContext, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { DataService } from '@fe/shared/util-signal-store';
 import { Observable, catchError, firstValueFrom, lastValueFrom, throwError } from 'rxjs';
@@ -43,7 +43,10 @@ export class PostService implements DataService<PostInterface, PostFilter> {
     const params = new HttpParams();
     // const params = new HttpParams().set('ownerId', ownerId).set('orgId', orgId);
     const headers = new HttpHeaders().set('Accept', 'application/json');
-    return this.http.get<PostInterface[]>(url, { params, headers });
+    const context = new HttpContext();
+    // const context = new HttpContext().set(SkipLoading, true); // Add this to avoid the loading indicator
+
+    return this.http.get<PostInterface[]>(url, { params, headers, context });
   }
 
   private handleError(error: HttpErrorResponse) {
