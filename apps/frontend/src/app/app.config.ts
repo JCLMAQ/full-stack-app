@@ -10,6 +10,8 @@ import { appRoutes } from './app.routes';
 import {
   HttpClient,
   provideHttpClient,
+  withFetch,
+  withInterceptors,
   withInterceptorsFromDi,
 } from '@angular/common/http';
 import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
@@ -38,6 +40,7 @@ import { provideMarkdown } from 'ngx-markdown';
 
 // import { reducers } from './reducers';
 import { provideLogger } from '@fe/shared/util-logger';
+import { loadingInterceptor } from '@fe/utilities';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -58,6 +61,10 @@ export const appConfig: ApplicationConfig = {
       withEnabledBlockingInitialNavigation(),
     ),
     provideHttpClient(withInterceptorsFromDi()),
+    provideHttpClient(
+      withFetch(),
+      withInterceptors([loadingInterceptor])
+    ),
     importProvidersFrom(
       BrowserModule,
       FormsModule,

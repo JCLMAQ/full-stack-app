@@ -3,7 +3,7 @@ import { MatProgressSpinner } from "@angular/material/progress-spinner";
 import { LoadingService } from "./loading-indicator.service";
 
 @Component({
-  selector: "loading",
+  selector: "loading-indicator",
   templateUrl: "./loading-indicator.component.html",
   styleUrls: ["./loading-indicator.component.scss"],
   imports: [MatProgressSpinner],

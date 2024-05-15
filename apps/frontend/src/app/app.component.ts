@@ -9,7 +9,7 @@ import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Rout
 import { I18nService } from '@fe/i18n';
 import { LanguageSelectorComponent } from '@fe/language-selector';
 import { MATERIAL } from '@fe/material';
-import { GeolocationComponent, SimpledialogComponent, setAppInject } from '@fe/utilities';
+import { GeolocationComponent, LoadingIndicatorComponent, SimpledialogComponent, setAppInject } from '@fe/utilities';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { map, shareReplay } from 'rxjs';
@@ -32,10 +32,10 @@ export function HttpLoaderFactory(http: HttpClient) {
   NgClass,
   RouterLink,
   LanguageSelectorComponent,
-  RouterOutlet,
   TranslateModule,
-    ...MATERIAL,
-    RouterOutlet,
+  ...MATERIAL,
+  RouterOutlet,
+  LoadingIndicatorComponent
   ],
 })
 export class AppComponent implements OnInit, OnDestroy {
