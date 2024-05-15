@@ -1,0 +1,43 @@
+// _colors.scss
+:root {
+  /* CSS variables */
+    --primary-theme-color: green;
+    --primary-theme-color-dark: darkgreen;
+    --primary-theme-color-light: lightgreen;
+
+    --secondary-theme-color: white;
+    --secondary-theme-color-dark: darkgray;
+    --secondary-theme-color-light: lightgray;
+
+    --primary-white-color: white;
+    --primary-black-color: black;
+    --primary-error-color: red;
+}
+
+.primary-background {
+  background: var(--primary-theme-color);
+}
+.primary-background-dark {
+  background: var(--primary-theme-color-dark);
+}
+.primary-background-disabled {
+  background: var(--primary-theme-color-light);
+}
+
+.secondary-background {
+  background: var(--secondary-theme-color);
+}
+.secondary-background-dark {
+  background: var(--secondary-theme-color-dark);
+}
+.secondary-background-disabled {
+  background: var(--secondary-theme-color-light);
+}
+
+.heading-primary {
+color: var(--primary-black-color)
+}
+
+.error-primary {
+color: var(--primary-error-color)
+}

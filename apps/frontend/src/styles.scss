@@ -1,5 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
+/* Creating Global Styles for your Web Application */
+/* From: https://dev.to/mirzaleka/creating-global-styles-for-your-web-app-3gcc?context=digest */
+@import "./assets/styles/_base";
+@import "./assets/styles/_layouts";
+@import "./assets/styles/_colors";
+@import "./assets/styles/_typography";
+@import "./assets/styles/_forms";
+@import "./assets/styles/_buttons";
+
+/* Material styles */
 @import "./assets/styles/material-theme";
 
 html, body {

@@ -1,0 +1,38 @@
+// _buttons.scss
+// The stylekit for buttons.
+
+.default-button-styles {
+  height: 1.5rem;
+  box-sizing: border-box;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+
+}
+
+.button-primary {
+  //Other classes inherit the default
+  @extend .default-button-styles;
+  background: var(--primary-theme-color);
+  color: var(--primary-white-color);
+  cursor: pointer;
+  /* styles */
+
+  &:hover {
+      /* styles */
+  }
+}
+
+.button-primary-disabled {
+  @extend .default-button-styles;
+  cursor: default;
+  background: var(--primary-theme-color-light);
+  color: var(--primary-white-color);
+  /* styles */
+}
+
+.button-secondary {
+  @extend .default-button-styles;
+  background: var(--secondary-theme-color);
+  color: var(--primary-black-color);
+  /* styles */
+}

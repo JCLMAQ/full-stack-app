@@ -1,0 +1,14 @@
+// _base.scss
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Your font";
+  background-color: var(--secondary-theme-color);
+}
+
+div {
+  color: var(--primary-black-color);
+}

@@ -1,0 +1,38 @@
+// _layouts.scss
+// This is where you define set margins and padding used across the app.
+// For padding around content:
+.layout-sm {
+  padding: 1rem;
+}
+
+.layout-md {
+  padding: 1.5rem;
+}
+
+.layout-lg {
+  padding: 2rem;
+}
+
+.layout-xl {
+  padding: 4rem;
+}
+
+.layout-all-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+// and for margins:
+.layout-gap-sm {
+  margin-bottom: 2rem;
+}
+
+.layout-gap-md {
+  margin-bottom: 4rem;
+}
+
+.layout-gap-lg {
+  margin-bottom: 6rem;
+}

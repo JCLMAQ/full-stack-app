@@ -1,0 +1,39 @@
+// _typography.scss
+// This is where you set font sizes and thickness.
+
+/* font-weight */
+$font-weight-light: 300;
+$font-weight-semi-bold: 500;
+$font-weight-bold: 600;
+
+/* font-size */
+$heading-title-size: 3rem;
+$heading-subtitle-size: 2rem;
+$heading-caption-size: 1.5rem;
+$heading-default-size: 1.2rem;
+
+//To make fonts easily accessible through the app, define classes that wrap font styles.
+
+.heading-title {
+  font-size: $heading-title-size;
+  font-weight: $font-weight-bold;
+  margin: 0.5rem;
+}
+
+.heading-subtitle {
+  font-size: $heading-subtitle-size;
+  font-weight: $font-weight-light;
+  margin: 0.5rem;
+}
+
+.heading-subtitle-bold {
+  font-size: $heading-subtitle-size;
+  font-weight: $font-weight-bold;
+  margin: 0.5rem;
+}
+
+.heading-subtitle-semi-bold {
+  font-size: $heading-subtitle-size;
+  font-weight: $font-weight-semi-bold;
+  margin: 0.5rem;
+}
