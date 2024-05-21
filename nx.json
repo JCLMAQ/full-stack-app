@@ -74,5 +74,6 @@
     }
   },
   "nxCloudAccessToken": "NDVhNDg5MzgtZjQ1YS00Zjc4LWJkZjktN2JjMjM2YWRjYmU2fHJlYWQtd3JpdGU=",
+  "packageManager": "pnpm",
   "defaultBase": "master"
 }
