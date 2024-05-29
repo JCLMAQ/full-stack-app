@@ -5,41 +5,49 @@ mat.$theme-ignore-duplication-warnings: true;
 @include mat.core();
 
 
-$dark-primary-text: rgba(black, 0.87);
+/*
+$red-palette
+$green-palette
+$blue-palette
+$yellow-palette
+$cyan-palette
+$magenta-palette
+$orange-palette
+$chartreuse-palette
+$azure-palette
+$violet-palette
+$rose-palette
+*/
 
-$light-primary-text: white;
+// Define a dark theme
+$angular-app-dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: mat.$green-palette,
+  ),
+));
 
-// Light Theme
-$angular-primary: mat.define-palette(mat.$indigo-palette, 500, 100, 900);
-$angular-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-$angular-warn: mat.define-palette(mat.$red-palette);
+// Define a light theme
+$angular-app-light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$green-palette,
+  ),
+));
 
-$angular-app-light-theme: mat.define-light-theme(
-  (
-    color: (
-      primary: $angular-primary,
-      accent: $angular-accent,
-      warn: $angular-warn,
-    ),
-  )
-);
+html {
+  // Apply the light theme by default
+  // @include mat.core-theme($angular-app-light-theme);
+  // @include mat.button-theme($angular-app-light-theme);
 
-// @include mat.all-component-themes($angular-app-light-theme);
-
-//Dark Theme
-$angular-dark-primary: mat.define-palette(mat.$blue-grey-palette, 500, 100, 900);
-$angular-dark-accent: mat.define-palette(mat.$amber-palette, A200, A100, A400);
-$angular-dark-warn: mat.define-palette(mat.$deep-orange-palette);
-
-$angular-app-dark-theme: mat.define-dark-theme(
-    (
-      color: (
-        primary: $angular-dark-primary,
-        accent: $angular-dark-accent,
-        warn: $angular-dark-warn,
-      ),
-    )
-);
+  // Apply the dark theme only when the user prefers dark themes.
+  // @media (prefers-color-scheme: dark) {
+  //   // Use the `-color` mixins to only apply color styles without reapplying the same
+  //   // typography and density styles.
+  //   @include mat.core-color($angular-app-dark-theme);
+  //   @include mat.button-color($angular-app-dark-theme);
+  // }
+}
 
 .dark-theme{
   @include mat.all-component-themes($angular-app-dark-theme);
@@ -47,5 +55,5 @@ $angular-app-dark-theme: mat.define-dark-theme(
 }
 
 .light-theme{
-@include mat.all-component-themes($angular-app-light-theme);
+  @include mat.all-component-themes($angular-app-light-theme);
 }
