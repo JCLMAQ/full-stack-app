@@ -10,8 +10,8 @@
 // @import "./assets/styles/_buttons";
 
 /* Material styles */
-// @import "./assets/styles/material-theme";
-@import "./assets/styles/material-theme-2";
+@import "./assets/styles/material-theme";
+// @import "./assets/styles/material-theme-2";
 // @import "./assets/styles/m3-theme";
 
 html {
@@ -19,3 +19,5 @@ html {
   height: 100%;
 }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@import "./assets/styles/easy-theming.css";
