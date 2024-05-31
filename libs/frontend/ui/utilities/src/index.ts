@@ -10,7 +10,9 @@ export * from './lib/loading-indicator/index';
 export * from './lib/modals/index';
 export * from './lib/pipes';
 export * from './lib/simpledialog/simpledialog.component';
+export * from './lib/theme-selector/theme-selector.component';
 export * from './lib/themeswitch/themeswitch.component';
 export * from './lib/themeswitch/themeswitch.service';
+export * from './lib/theming/theming.service';
 export * from './lib/validators/index';
 

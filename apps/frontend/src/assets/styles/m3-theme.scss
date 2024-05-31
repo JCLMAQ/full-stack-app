@@ -149,3 +149,12 @@ $dark-theme: mat.define-theme((
     tertiary: $_tertiary,
   ),
 ));
+
+// .dark-theme{
+//   @include mat.all-component-themes($dark-theme);
+//   // @include mat.all-component-colors($angular-app-dark-theme);
+// }
+
+// .light-theme{
+//   @include mat.all-component-themes($light-theme);
+// }

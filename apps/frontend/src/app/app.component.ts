@@ -2,14 +2,14 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, HostBinding, Inject, Injector, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, HostBinding, Inject, Injector, OnDestroy, OnInit, ViewChild, effect, inject, signal } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSidenav } from '@angular/material/sidenav';
 import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 import { I18nService } from '@fe/i18n';
 import { LanguageSelectorComponent } from '@fe/language-selector';
 import { MATERIAL } from '@fe/material';
-import { GeolocationComponent, LoadingIndicatorComponent, SimpledialogComponent, setAppInject } from '@fe/utilities';
+import { GeolocationComponent, LoadingIndicatorComponent, SimpledialogComponent, ThemeSelectorComponent, ThemingService, setAppInject } from '@fe/utilities';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { map, shareReplay } from 'rxjs';
@@ -35,7 +35,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   TranslateModule,
   ...MATERIAL,
   RouterOutlet,
-  LoadingIndicatorComponent
+  LoadingIndicatorComponent,
+  ThemeSelectorComponent
   ],
 })
 export class AppComponent implements OnInit, OnDestroy {
@@ -46,6 +47,27 @@ isHandset$ = this.breakpointObserver.observe(Breakpoints.Handset)
     shareReplay()
   );
 
+  // Theming
+  themeSelectorOpen = signal(false);
+  themingService = inject(ThemingService);
+
+  setTheme = effect(() => {
+    document.body.style.setProperty(`--primary`, this.themingService.primary());
+    document.body.style.setProperty(
+      `--primary-light`,
+      this.themingService.primaryLight()
+    );
+    document.body.style.setProperty(`--ripple`, this.themingService.ripple());
+    document.body.style.setProperty(
+      `--primary-dark`,
+      this.themingService.primaryDark()
+    );
+    document.body.style.setProperty(
+      `--background`,
+      this.themingService.background()
+    );
+    document.body.style.setProperty(`--error`, this.themingService.error());
+  });
 
 title = 'my-app MonoRepo';
 loading : boolean = true;
@@ -59,7 +81,7 @@ isCollapsed = true;
 
 // Light-Dark theme switch variables
 isDark: boolean = false;
-theme: string = "ligt-theme";
+theme: string = "light-theme";
 
 // Dark theme management
 @HostBinding('class') className = '';
@@ -145,10 +167,10 @@ toggleMenu() {
 
 setDefaultTheme ( ) {
   // Light - Dark theme init
-  if (localStorage.getItem('theme' )) {
-  this.theme = localStorage.getItem('theme') as string;
-  const body = document .getElementsByTagName ( 'body' ) [0];
-  body.classList.add(this .theme);
+  if (localStorage.getItem('theme')) {
+    this.theme = localStorage.getItem('theme') as string;
+    const body = document .getElementsByTagName ( 'body' ) [0];
+    body.classList.add(this .theme);
   } else {
     this.theme = 'light-theme';
     localStorage.setItem('theme', this.theme);}

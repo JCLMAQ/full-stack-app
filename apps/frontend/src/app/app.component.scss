@@ -25,6 +25,7 @@ h2 {padding: 1rem;}
 
 mat-toolbar{
   position:fixed;
+  justify-content: space-between;
   top:0;
   z-index: 2;
 }
@@ -59,4 +60,18 @@ mat-sidenav-content{
 
 .expanded {
   width: 250px;
+}
+
+.component-selector {
+  width: 200px;
+  height: inherit;
+  background: rgba(0,0,0,0.05);
+  --mat-sidenav-container-divider-color: var(--primary-light);
+}
+
+.theme-selector {
+  width: 300px;
+  height: inherit;
+  background: rgba(0,0,0,0.05);
+  --mat-sidenav-container-divider-color: var(--primary-light);
 }
