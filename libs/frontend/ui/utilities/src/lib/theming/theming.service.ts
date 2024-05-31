@@ -1,5 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 
+// Work with Theme-selector
 type Theme = {
   name: string;
   background: string;
