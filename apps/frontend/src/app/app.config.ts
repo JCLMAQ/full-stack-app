@@ -1,7 +1,7 @@
 import {
   ApplicationConfig, importProvidersFrom,
   isDevMode,
-  provideZoneChangeDetection,
+  provideExperimentalZonelessChangeDetection
 } from '@angular/core';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -55,7 +55,8 @@ export const appConfig: ApplicationConfig = {
       trace: false,
       traceLimit: 75,
     }),
-    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideExperimentalZonelessChangeDetection(),
+    // provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(
       appRoutes,
       withComponentInputBinding(),
