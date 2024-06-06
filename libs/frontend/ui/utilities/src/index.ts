@@ -7,6 +7,7 @@ export * from './lib/guards/index';
 export * from './lib/interfaces/index';
 export * from './lib/lib.routes';
 export * from './lib/loading-indicator/index';
+export * from './lib/messages/messages.component';
 export * from './lib/modals/index';
 export * from './lib/pipes';
 export * from './lib/simpledialog/simpledialog.component';
