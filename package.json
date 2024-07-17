@@ -85,7 +85,7 @@
     "@ngrx/operators": "^18.0.1",
     "@ngrx/router-store": "18.0.1",
     "@ngrx/store": "18.0.1",
-    "@ngrx/signals": "^17.2.0",
+    "@ngrx/signals": "^18.0.0-rc.2",
     "@ngrx/store-devtools": "^18.0.1",
     "@ngx-translate/core": "^15.0.0",
     "@ngx-translate/http-loader": "^8.0.0",

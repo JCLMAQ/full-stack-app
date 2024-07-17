@@ -37,7 +37,7 @@
       "@fe/language-selector": ["libs/frontend/ui/i18n/src/index.ts"],
       "@fe/material": ["libs/frontend/material/src/index.ts"],
       "@fe/pages": ["libs/frontend/ui/pages/src/index.ts"],
-      "@fe/post": ["libs/frontend/post/src/index.ts"],
+      "@fe/shared": ["libs/frontend/shared/src/index.ts"],
       "@fe/shared/util-common": ["libs/frontend/shared/util-common/index.ts"],
       "@fe/shared/util-http-interceptors": [
         "libs/frontend/shared/util-http-interceptors/index.ts"

@@ -11,10 +11,6 @@ export const appRoutes: Route[] = [
     loadChildren: () => import('@fe/todo').then((m) => m.todoRoutes),
   },
   {
-    path: 'posts',
-    loadChildren: () => import('@fe/post').then((m) => m.postRoutes),
-  },
-  {
     path: 'users',
     loadChildren: () => import('@fe/user').then((m) => m.userRoutes),
   },
