@@ -1,23 +1,29 @@
 import { inject } from '@angular/core';
-import { setLoaded, setLoading, withCallState, withUndoRedo } from '@fe/shared/util-signal-store';
 import {
   patchState,
   signalStoreFeature,
   type,
   withMethods
 } from '@ngrx/signals';
-import { addEntity, removeEntity, setAllEntities, updateEntity, withEntities } from '@ngrx/signals/entities';
+import { addEntity, entityConfig, removeEntity, setAllEntities, updateEntity, withEntities } from '@ngrx/signals/entities';
 import { TodoService } from '../services/todo.service';
 import { withNavigationMethods } from './todo-navigation.methods';
 import { TodoInterface } from './todo.model';
 import { TodoStateInterface } from './todo.state';
+
 // withCallState base on: https://www.angulararchitects.io/blog/the-new-ngrx-signal-store-for-angular-2-1-flavors/
+
+
+const todoConfig = entityConfig({
+  entity: type<TodoInterface>(),
+  collection: 'todo'
+});
 
 export function withTodosMethods() {
   return signalStoreFeature(
     { state: type<TodoStateInterface>() },
     // withState(initialTodoState),
-    withEntities({ entity: type<TodoInterface>(), collection: 'todo'}),
+    withEntities(todoConfig),
     withCallState({collection: 'todo'}),
     withNavigationMethods(),
     withMethods((store, todoService = inject(TodoService)) => ({
@@ -27,7 +33,7 @@ export function withTodosMethods() {
           patchState(store, setLoading('todo'));
           const items = await todoService.load();
           patchState(store, { items },setLoaded('todo'));
-          patchState(store, setAllEntities( items, { collection: 'todo'}));
+          patchState(store, setAllEntities( items, todoConfig));
         }
       },
 
@@ -38,7 +44,7 @@ export function withTodosMethods() {
         orgId: string }) {
         patchState(store, setLoading('todo'));
         const todo = await todoService.addItem(data);
-        patchState(store, addEntity( todo, { collection: 'todo'}));
+        patchState(store, addEntity( todo, todoConfig));
         patchState(store, setLoaded('todo'));
       },
 
@@ -111,3 +117,5 @@ export function withTodosMethods() {
     }),
   )
 }
+
+
