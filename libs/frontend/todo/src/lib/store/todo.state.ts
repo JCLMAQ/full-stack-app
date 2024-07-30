@@ -1,5 +1,5 @@
 
-// import { withCallState } from '@angular-architects/ngrx-toolkit';
+import { withDevtools } from '@angular-architects/ngrx-toolkit';
 import { SelectionModel } from '@angular/cdk/collections';
 import { withLogger } from '@fe/shared/util-signal-store';
 import { signalStore, withHooks, withState } from '@ngrx/signals';
@@ -36,12 +36,14 @@ export const initialTodoState: TodoStateInterface = {
 
 export const TodoStore = signalStore(
     { providedIn: 'root' },
-    withLogger('todo'),
+
     withState(initialTodoState),
+
     withTodosSelectors(),
     withNavigationMethods(),
+    withDevtools('todo'),
     withTodosMethods(),
-
+    withLogger('todo'),
     withHooks({
       onInit:
         (store) => {
