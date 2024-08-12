@@ -17,3 +17,6 @@ export * from './lib/themeswitch/themeswitch.service';
 export * from './lib/theming/theming.service';
 export * from './lib/validators/index';
 
+export * from './lib/image-uploader/image-uploader.component';
+
+export * from './lib/translation/translation.service';
