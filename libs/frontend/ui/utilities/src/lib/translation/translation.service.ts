@@ -2,6 +2,9 @@ import { isPlatformBrowser } from '@angular/common';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
+// According:  https://medium.com/@paul.pietzko/internationalization-in-angular-with-ngx-translate-2cabe06c1b29
+// Internationalization in Angular with ngx-translate
+ 
 @Injectable({
     providedIn: 'root'
   })
