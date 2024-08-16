@@ -126,7 +126,8 @@
     "swagger-ui-express": "^5.0.1",
     "tslib": "^2.6.3",
     "typescript-nestjs-swagger-plugin": "^2.0.0",
-    "uuid": "^10.0.0"
+    "uuid": "^10.0.0",
+    "zone.js": "~0.14.10"
   },
   "devDependencies": {
     "@angular-devkit/architect": "0.1802.0",
