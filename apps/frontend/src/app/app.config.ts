@@ -98,8 +98,3 @@ export const appConfig: ApplicationConfig = {
     provideLogger(loggerConfig),
   ],
 }
-
-
-
-
-

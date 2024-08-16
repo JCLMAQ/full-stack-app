@@ -2,7 +2,8 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, ElementRef, signal, ViewChild } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { I18nService } from '@fe/i18n';
+// import { I18nService } from '@fe/i18n';
+import { TranslateModule } from '@ngx-translate/core';
 
 // According: "Custom File Uploader Angular 18"
 // https://medium.com/@paul.pietzko/custom-file-uploader-angular-18-ca566131f128
@@ -12,8 +13,12 @@ import { I18nService } from '@fe/i18n';
   imports: [
     CommonModule,
     MatIcon,
-
+    TranslateModule
   ],
+  // providers: [
+  //   I18nService,
+  //   TranslateService
+  // ],
   templateUrl: './image-uploader.component.html',
   styleUrl: './image-uploader.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -30,8 +35,10 @@ export class ImageUploaderComponent {
   uploadError: boolean = false;
 
   constructor(private snackBar: MatSnackBar,
-    private i18nService: I18nService
-  ) {}
+    // private i18nService: I18nService,
+    // public translateService: TranslateService,
+  ) {
+  }
 
   // Handler for file input change
   onFileChange(event: any): void {
