@@ -1,5 +1,5 @@
 import { Route } from '@angular/router';
-import { ThemeSwitchComponent } from './themeswitch/themeswitch.component';
+import { ThemeSwitchComponent } from '../../../theming/src/lib/themeswitch/themeswitch.component';
 
 export const uiUtilitiesRoutes: Route[] = [
   {path: '', pathMatch: 'full', component: ThemeSwitchComponent},

@@ -48,6 +48,7 @@
       ],
       "@fe/task": ["libs/frontend/task/src/index.ts"],
       "@fe/test": ["libs/frontend/test/src/index.ts"],
+      "@fe/theming": ["libs/frontend/ui/theming/src/index.ts"],
       "@fe/todo": ["libs/frontend/todo/src/index.ts"],
       "@fe/user": ["libs/frontend/user/src/index.ts"],
       "@fe/utilities": ["libs/frontend/ui/utilities/src/index.ts"],
