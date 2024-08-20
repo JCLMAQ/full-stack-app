@@ -6,5 +6,5 @@ export * from './lib/themeswitch-signal/themeswitch-signal.services';
 export * from './lib/themeswitch-signal/themetoggle.component';
 export * from './lib/themeswitch/themeswitch.component';
 export * from './lib/themeswitch/themeswitch.service';
-export * from './lib/theming/theming.component';
+export * from './lib/theming-m3/theming.component';
 
