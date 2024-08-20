@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MATERIAL } from '@fe/material';
-import { ThemingService } from '@fe/utilities';
+import { ThemingService } from './theming/theming.service';
 
 // Base on: Easy, Dynamic Angular Material Theming with just 6 colors! : https://www.youtube.com/watch?v=h6-BhzFD1CM
 // and https://www.youtube.com/watch?v=DpCwKpZlcbg&t=499s

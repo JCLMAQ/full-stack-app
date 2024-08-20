@@ -1,7 +1,5 @@
-export * from '../../theming/src/lib/theme-selector/theme-selector.component';
-export * from '../../theming/src/lib/theme-selector/theming/theming.service';
-export * from '../../theming/src/lib/themeswitch/themeswitch.component';
-export * from '../../theming/src/lib/themeswitch/themeswitch.service';
+
+export * from './lib/browser-storage/browser-storage.service';
 export * from './lib/confirmation-dialog/confirmation-dialog.component';
 export * from './lib/decorators/index';
 export * from './lib/error-field/error-field.component';

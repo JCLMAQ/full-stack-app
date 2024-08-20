@@ -9,7 +9,8 @@ import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Rout
 import { I18nService } from '@fe/i18n';
 import { LanguageSelectorComponent } from '@fe/language-selector';
 import { MATERIAL } from '@fe/material';
-import { GeolocationComponent, LoadingIndicatorComponent, SimpledialogComponent, ThemeSelectorComponent, ThemingService, setAppInject } from '@fe/utilities';
+import { ThemeSelectorComponent, ThemingService } from '@fe/theming';
+import { GeolocationComponent, LoadingIndicatorComponent, SimpledialogComponent, setAppInject } from '@fe/utilities';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { map, shareReplay } from 'rxjs';
