@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class StyleManager {
-  isDark = false;
+  isDark2 = false;
   constructor(
     private overlay: OverlayContainer
   ) {}
@@ -13,27 +13,27 @@ export class StyleManager {
 
   toggleDarkTheme() {
     const darkClassName = 'darkMode';
-    if (this.isDark) {
+    if (this.isDark2) {
       // this.removeStyle('dark-theme');
       // document.body.classList.remove('dark-theme');
       this.overlay.getContainerElement().classList.remove(darkClassName);
-      this.isDark = false;
+      this.isDark2 = false;
     } else {
       // const href = 'dark-theme.css';
       // getLinkElementForKey('dark-theme').setAttribute('href', href);
       // document.body.classList.add('dark-theme');
       this.overlay.getContainerElement().classList.add(darkClassName);
-      this.isDark = true;
+      this.isDark2 = true;
     }
   }
 
   // const darkClassName = 'darkMode';
   // this.className = darkMode ? darkClassName : '';
   // if (darkMode) {
-  //   this.isDark = true
+  //   this.isDark2 = true
   //   this.overlay.getContainerElement().classList.add(darkClassName);
   // } else {
-  //   this.isDark = false
+  //   this.isDark2 = false
   //   this.overlay.getContainerElement().classList.remove(darkClassName);
   // }
 

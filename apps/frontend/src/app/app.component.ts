@@ -1,6 +1,6 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { OverlayContainer } from '@angular/cdk/overlay';
-import { NgClass } from '@angular/common';
+import { AsyncPipe, NgClass } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, HostBinding, Inject, Injector, OnDestroy, OnInit, ViewChild, effect, inject, signal } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -9,7 +9,7 @@ import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Rout
 import { I18nService } from '@fe/i18n';
 import { LanguageSelectorComponent } from '@fe/language-selector';
 import { MATERIAL } from '@fe/material';
-import { ThemeSelectorComponent, ThemingService } from '@fe/theming';
+import { ThemeManagerService, ThemeSelectorComponent, ThemingService } from '@fe/theming';
 import { GeolocationComponent, LoadingIndicatorComponent, SimpledialogComponent, setAppInject } from '@fe/utilities';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -37,10 +37,34 @@ export function HttpLoaderFactory(http: HttpClient) {
   ...MATERIAL,
   RouterOutlet,
   LoadingIndicatorComponent,
-  ThemeSelectorComponent
+  ThemeSelectorComponent,
+  AsyncPipe
   ],
 })
 export class AppComponent implements OnInit, OnDestroy {
+
+  title = 'full-stack-app';
+
+  // Theming with "theming-m3"
+  themeManager = inject(ThemeManagerService);
+  isDark = this.themeManager.isDark;
+
+  changeTheme(theme: string) {
+    this.themeManager.changeTheme(theme);
+  }
+
+  // Theming with "theme-selector"
+  themeSelectorOpen = signal(false);
+  themingService = inject(ThemingService);
+
+  setTheme = effect(() => {
+    document.body.style.setProperty(`--primary`, this.themingService.primary());
+    document.body.style.setProperty(`--primary-light`, this.themingService.primaryLight());
+    document.body.style.setProperty(`--ripple`, this.themingService.ripple());
+    document.body.style.setProperty(`--primary-dark`,  this.themingService.primaryDark());
+    document.body.style.setProperty(`--background`,  this.themingService.background());
+    document.body.style.setProperty(`--error`, this.themingService.error());
+  });
 
 isHandset$ = this.breakpointObserver.observe(Breakpoints.Handset)
   .pipe(
@@ -48,29 +72,9 @@ isHandset$ = this.breakpointObserver.observe(Breakpoints.Handset)
     shareReplay()
   );
 
-  // Theming
-  themeSelectorOpen = signal(false);
-  themingService = inject(ThemingService);
 
-  setTheme = effect(() => {
-    document.body.style.setProperty(`--primary`, this.themingService.primary());
-    document.body.style.setProperty(
-      `--primary-light`,
-      this.themingService.primaryLight()
-    );
-    document.body.style.setProperty(`--ripple`, this.themingService.ripple());
-    document.body.style.setProperty(
-      `--primary-dark`,
-      this.themingService.primaryDark()
-    );
-    document.body.style.setProperty(
-      `--background`,
-      this.themingService.background()
-    );
-    document.body.style.setProperty(`--error`, this.themingService.error());
-  });
 
-title = 'my-app MonoRepo';
+
 loading : boolean = true;
 defaultLang = 'en'; // default
 
@@ -81,7 +85,7 @@ isMobile= true;
 isCollapsed = true;
 
 // Light-Dark theme switch variables
-isDark: boolean = false;
+isDark1: boolean = false;
 theme: string = "light-theme";
 
 // Dark theme management
@@ -175,7 +179,7 @@ setDefaultTheme ( ) {
   } else {
     this.theme = 'light-theme';
     localStorage.setItem('theme', this.theme);}
-    this.theme === 'light-theme' ? this.isDark = true  : this.isDark =  false;
+    this.theme === 'light-theme' ? this.isDark1 = true  : this.isDark1 =  false;
 }
 
 switchTheme ( ) {
@@ -185,7 +189,7 @@ switchTheme ( ) {
   this.theme === 'light-theme'? this.theme = 'dark-theme': this. theme = 'light-theme';
   body .classList.add (this .theme);
   localStorage.setItem('theme', this.theme);
-  this.isDark = !this.isDark;
+  this.isDark1 = !this.isDark1;
 }
 
 switchLang(language: string): void {

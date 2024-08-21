@@ -25,7 +25,6 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use "@angular/material" as mat;
-@use "./styles/themes/all" as themes;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -33,31 +32,13 @@
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
-// @import "./assets/styles/m3-theme.scss";
+@import "./assets/styles/m3-theme.scss";
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 :root {
-
-  // @include mat.all-component-themes($light-theme);
-  @include mat.all-component-themes(themes.$my-app-theme);
-  // Include only used components' themes to reduce loading time
-  // @include mat.core-theme(themes.$my-app-theme);
-  // @include mat.button-theme(themes.$my-app-theme);
-  // @include mat.icon-theme(themes.$my-app-theme);
-  // @include mat.menu-theme(themes.$my-app-theme);
-}
-
-// Apply dark theme according to user préférence
-@media (prefers-color-scheme: dark) {
-  :root {
-    @include mat.all-component-colors(themes.$my-app-dark-theme);
-    // @include mat.core-color(themes.$my-app-dark-theme);
-    // @include mat.button-color(themes.$my-app-dark-theme);
-    // @include mat.icon-color(themes.$my-app-dark-theme);
-    // @include mat.menu-color(themes.$my-app-dark-theme);
-  }
+  @include mat.all-component-themes($light-theme);
 }
 
 // Comment out the line below if you want to use the pre-defined typography utility classes.
@@ -77,7 +58,7 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-// @import "./assets/styles/easy-theming.css";
+@import "./assets/styles/easy-theming.css";
 
 .flex-row {
   display: flex;

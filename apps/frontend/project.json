@@ -17,7 +17,14 @@
         "tsConfig": "apps/frontend/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": ["apps/frontend/src/favicon.ico", "apps/frontend/src/assets"],
-        "styles": ["apps/frontend/src/styles.scss"],
+        "styles": [
+          "apps/frontend/src/styles.scss",
+          {
+            "bundleName": "dark-theme",
+            "inject": false,
+            "input": "apps/frontend/src/styles/themes/dark.scss"
+        }
+        ],
         "scripts": []
       },
       "configurations": {

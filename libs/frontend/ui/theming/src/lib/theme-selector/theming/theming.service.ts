@@ -61,6 +61,15 @@ export class ThemingService {
       primaryDark: '#a6cbd7',
       error: '#f09494',
     },
+    {
+      name: 'Dark Blue',
+      background: '#01212A',
+      primary: '#06A7D9',
+      primaryLight: '#023747',
+      ripple: '#81B6C71e',
+      primaryDark: '#a6cbd7',
+      error: '#f09494',
+    },
   ];
 
   setPrimary(color: string) {

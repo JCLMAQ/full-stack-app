@@ -1,0 +1,29 @@
+// src/styles/themes/_all.scss
+
+@use "@angular/material" as mat;
+
+// Light Theme
+$my-app-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    density: (
+      scale: 0,
+    ),
+  )
+);
+
+// Dark Theme
+$my-app-dark-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: dark,
+      primary: mat.$magenta-palette,
+      tertiary: mat.$violet-palette,
+    )
+  )
+);
+
