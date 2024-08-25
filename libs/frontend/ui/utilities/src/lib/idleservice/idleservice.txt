@@ -1,0 +1,64 @@
+/*
+This service monitors user activity and checks if the user has been idle for a specified duration. If so, it triggers an event through idleSubject
+
+app.component.ts:
+Subscribes to the idle state and handles the user being idle or active. It also resets the idle timer on user interactions such as mouse movements, clicks, or key presses.
+app.component.html:
+Captures user interactions to reset the idle timer whenever activity is detected.
+
+Comment:
+
+In times when applications communicate with REST servers using tokens, JWTs, or others, these functions seem unnecessary.
+Of course, if the server issues long-lived tokens, that is a flaw on the server's part.
+
+Instead, I believe a good control mechanism should be implemented for the refresh token.
+Before reaching out to the server to refresh the access token, we could calculate the expiration of the refresh token and notify users that it has expired,
+or we could monitor the refresh token's expiration time and alert users a few minutes before it is about to expire,
+ indicating that an action needs to be taken or the session will end.
+
+It’s also important to consider that often the application in the browser is performing tasks and does not require
+communication with the REST server, which means the refresh token could expire,
+leading to a poor user experience by notifying them that their session is about to expire.
+In such cases, it would be essential to refresh the token without interrupting the user's task.
+*/
+
+// app.component.ts
+
+import { inject, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { IdleService } from 'path-to-your-idleService';
+
+export class AppComponent implements OnInit, OnDestroy {
+private idleSubscription?: Subscription;
+private idleService = inject(IdleService);
+
+ngOnInit(): void {
+   this.idleSubscription = this.idleService.idleState.subscribe((isIdle) => {
+      if (isIdle) {
+        console.log("user is idle");
+        // Add logic for handling idle state, e.g., logging out
+      } else {
+       console.log("user is active");
+     }
+    });
+}
+
+onUserAction(): void {
+    this.idleService.resetTimer();
+}
+
+ngOnDestroy(): void {
+    if (this.idleSubscription) {
+      this.idleSubscription.unsubscribe();
+    }
+}
+
+// app.component.html
+
+<div
+    (mousemove)="onUserAction()"
+    (click)="onUserAction()"
+    (keypress)="onUserAction()"
+>
+    <router-outlet />
+</div>
