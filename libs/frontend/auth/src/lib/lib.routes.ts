@@ -1,22 +1,22 @@
 import { Route } from '@angular/router';
-import { ForgotpwdComponent } from './forgotpwd/forgotpwd.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+
+
+
 
 export const uiAuthRoutes: Route[] = [
-  { path: '', pathMatch: 'full', component: RegisterComponent },
-  { path: 'login', component: LoginComponent,
+  { path: '', pathMatch: 'full', loadComponent: () => import('./register/register.component').then(m => m.RegisterComponent) },
+  { path: 'login', loadComponent: () => import('./login/login.component').then(m => m.LoginComponent),
     // resolve: {
     //   auths: AuthResolver
     // }
   },
   {
-    path: 'register', component: RegisterComponent,
+    path: 'register', loadComponent: () => import('./register/register.component').then(m => m.RegisterComponent),
     // resolve: {
     //   auths: AuthResolver
     // }
   },
-  { path: 'forgotpwd', component: ForgotpwdComponent,
+  { path: 'forgotpwd', loadComponent: () => import('./forgotpwd/forgotpwd.component').then(m => m.ForgotpwdComponent),
     // resolve: {
     //   auths: AuthResolver
     // }

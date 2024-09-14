@@ -2,14 +2,14 @@ import { Route } from '@angular/router';
 import * as fromUsers from '@fe/user';
 import { provideEffects } from '@ngrx/effects';
 import { provideState } from '@ngrx/store';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-import { UserComponent } from './user/user.component';
+
+
 
 export const userRoutes: Route[] = [
-  { path: 'userprofile/:id/:mode', component: UserProfileComponent },
+  { path: 'userprofile/:id/:mode', loadComponent: () => import('./user-profile/user-profile.component').then(m => m.UserProfileComponent) },
   {
     path: '',
-    component: UserComponent,
+    loadComponent: () => import('./user/user.component').then(m => m.UserComponent),
     providers: [
       // provideState(fromUsers.usersFeature),
       provideState(fromUsers.usersFeatureKey, fromUsers.usersReducer),
