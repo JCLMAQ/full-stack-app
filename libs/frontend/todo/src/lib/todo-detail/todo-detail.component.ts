@@ -35,6 +35,11 @@ import { TodoStore } from '../store/todo.state';
 
 
 export class TodoDetailComponent implements OnInit, DirtyComponent {
+  private formBuilder = inject(FormBuilder);
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
+  private dateAdapter = inject<DateAdapter<Date>>(DateAdapter);
+
 
   readonly todoStore = inject(TodoStore);
 
@@ -57,12 +62,10 @@ export class TodoDetailComponent implements OnInit, DirtyComponent {
     orderTodo: [0, []]
   };
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private router: Router,
-    private route: ActivatedRoute,
-    private dateAdapter: DateAdapter<Date>,
-    // private alertService: AlertService,
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor(  // private alertService: AlertService,
   ) {
     this.todoId = this.route.snapshot.params['id'];
     this.mode = this.route.snapshot.params['mode'];

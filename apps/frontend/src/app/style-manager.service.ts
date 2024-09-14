@@ -1,14 +1,17 @@
 // style-manager.service.ts
 
 import { OverlayContainer } from '@angular/cdk/overlay';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class StyleManager {
+  private overlay = inject(OverlayContainer);
+
   isDark2 = false;
-  constructor(
-    private overlay: OverlayContainer
-  ) {}
+
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+  constructor() {}
 
 
   toggleDarkTheme() {

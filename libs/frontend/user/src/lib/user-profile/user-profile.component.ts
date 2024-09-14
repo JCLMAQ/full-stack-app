@@ -28,6 +28,12 @@ import { createPasswordStrengthValidator } from '../validators/password-strength
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserProfileComponent implements OnInit {
+  private fb = inject(FormBuilder);
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
+  private usersService = inject(UsersService);
+  private dateAdapter = inject<DateAdapter<Date>>(DateAdapter);
+
 
   private errorMsg?: string;
 
@@ -47,13 +53,10 @@ export class UserProfileComponent implements OnInit {
   // readonly selectedUser$ = this.store.select(usersFeature.selectSelectedUser);
   readonly selectedUser$ = this.store.pipe(select(usersFeature.selectSelectedUser));
 
-  constructor(
-    private fb: FormBuilder,
-    private router: Router,
-    private route: ActivatedRoute,
-    private usersService: UsersService,
-    private dateAdapter: DateAdapter<Date>,
-    // private alertService: AlertService,
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor(  // private alertService: AlertService,
   ) {
     this.mode = 'view'
   }

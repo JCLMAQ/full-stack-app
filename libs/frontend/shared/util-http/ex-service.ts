@@ -1,5 +1,5 @@
 import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+import { Injectable, inject } from "@angular/core";
 import { Post } from "@prisma/client";
 import { ResourceService } from "./http-generic-service";
 
@@ -8,9 +8,18 @@ import { ResourceService } from "./http-generic-service";
   providedIn: 'root'
 })
 export class PostService extends ResourceService<Post>{
+  protected httpClient: HttpClient;
 
-  constructor(protected httpClient: HttpClient ) {
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+
+  constructor() {
+    const httpClient = inject(HttpClient);
+
     super(httpClient);
+    this.httpClient = httpClient;
+
   }
 
   getResourceUrl(): string {
@@ -24,9 +33,18 @@ export class PostService extends ResourceService<Post>{
   providedIn: 'root'
 })
 export class CommentService extends ResourceService<Comment>{
+  protected httpClient: HttpClient;
 
-  constructor(protected httpClient: HttpClient ) {
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+
+  constructor() {
+    const httpClient = inject(HttpClient);
+
     super(httpClient);
+    this.httpClient = httpClient;
+
   }
 
   getResourceUrl(): string {

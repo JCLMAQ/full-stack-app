@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
 import { NavigableButtonsService } from './navigable-buttons.service';
 
 
@@ -8,6 +8,8 @@ import { NavigableButtonsService } from './navigable-buttons.service';
   styleUrls: ['./buttons-detail.component.scss']
 })
 export class ButtonsDetailComponent implements OnInit {
+  navigable = inject(NavigableButtonsService);
+
 
   action: string | undefined;
 // Management of buttons Component
@@ -21,9 +23,10 @@ export class ButtonsDetailComponent implements OnInit {
 // Return action
   @Output() actionButton = new EventEmitter<string>();
 
-  constructor(
-    public navigable: NavigableButtonsService
-  ) { }
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() { }
 
   ngOnInit() {
 

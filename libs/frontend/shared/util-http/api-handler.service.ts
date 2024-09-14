@@ -2,7 +2,7 @@
 
 
 import { HttpClient, HttpParams } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+import { Injectable, inject } from "@angular/core";
 import { tap } from "rxjs/internal/operators/tap";
 import { responseMessage } from "../constants/response.constant";
 import { IApiBaseActions, ParamsType } from "./api-base-actions.interface";
@@ -11,7 +11,12 @@ import { IApiBaseActions, ParamsType } from "./api-base-actions.interface";
   providedIn: 'root'
 })
 export class ApiHandlerService implements IApiBaseActions {
-  constructor(public httpClient: HttpClient) {
+  httpClient = inject(HttpClient);
+
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
   }
 
   Get(url: string, params?: ParamsType) {

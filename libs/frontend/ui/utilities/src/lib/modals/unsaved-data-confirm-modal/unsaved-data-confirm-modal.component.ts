@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 // Based on https://medium.com/@danioropezasoria/simple-unsaved-data-changes-guard-in-angular-17-dfc40a67fa64
@@ -10,5 +10,10 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './unsaved-data-confirm-modal.component.html',
 })
 export class UnsavedDataConfirmModal {
-	constructor(public modal: NgbActiveModal) {}
+	modal = inject(NgbActiveModal);
+
+	/** Inserted by Angular inject() migration for backwards compatibility */
+	constructor(...args: unknown[]);
+
+	constructor() {}
 }

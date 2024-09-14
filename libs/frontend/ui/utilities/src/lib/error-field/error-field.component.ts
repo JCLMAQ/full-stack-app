@@ -1,5 +1,5 @@
 
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
 import { AbstractControl, FormControl, FormGroupDirective } from '@angular/forms';
 import { ValidationPipe } from '../pipes/validation.pipe';
 
@@ -23,13 +23,18 @@ import { ValidationPipe } from '../pipes/validation.pipe';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ErrorFieldComponent {
+  formDirective = inject(FormGroupDirective);
+
 
   @Input() control!: FormControl | AbstractControl;
   // control = input.required<FormControl | AbstractControl>();
   @Input() errorMessages!: object;
+
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
   // errorMessages = input.required<object>();
 
-  constructor(public formDirective: FormGroupDirective) {}
+  constructor() {}
  // Add the following validation messages to the component
   validationMessages = {
     email: {

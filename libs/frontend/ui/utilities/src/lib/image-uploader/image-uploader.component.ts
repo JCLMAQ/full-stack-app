@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, signal, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, signal, ViewChild, inject } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
 // import { I18nService } from '@fe/i18n';
@@ -24,6 +24,8 @@ import { TranslateModule } from '@ngx-translate/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ImageUploaderComponent {
+  private snackBar = inject(MatSnackBar);
+
 
   imageName = signal('');
   fileSize = signal(0);
@@ -34,8 +36,10 @@ export class ImageUploaderComponent {
   uploadSuccess: boolean = false;
   uploadError: boolean = false;
 
-  constructor(private snackBar: MatSnackBar,
-    // private i18nService: I18nService,
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor(  // private i18nService: I18nService,
     // public translateService: TranslateService,
   ) {
   }

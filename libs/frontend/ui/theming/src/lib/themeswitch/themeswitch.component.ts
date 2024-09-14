@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -21,12 +21,15 @@ import { ThemeSwitchService } from './themeswitch.service';
     ],
 })
 export class ThemeSwitchComponent implements OnInit {
+  private themeSwitchService = inject(ThemeSwitchService);
+
 
   isDarkTheme!: boolean;
 
-  constructor(
-    private themeSwitchService: ThemeSwitchService
-  ) {}
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {}
 
   ngOnInit() {
     this.themeSwitchService.getDarkThemeState().subscribe((value) => {

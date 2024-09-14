@@ -1,5 +1,5 @@
 
-import { Component, Inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MATERIAL } from '@fe/material';
 
@@ -11,7 +11,12 @@ import { MATERIAL } from '@fe/material';
   styleUrl: './confirmation-dialog.component.scss',
 })
 export class ConfirmationDialogComponent {
-  constructor(@Inject(MAT_DIALOG_DATA) public message: string) {
+  message = inject(MAT_DIALOG_DATA);
+
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
@@ -39,12 +39,20 @@ import { MatCardModule } from '@angular/material/card';
   ],
 })
 export class ChangepwdComponent implements OnInit {
+  private fb = inject(FormBuilder);
+  private auth = inject(AuthService);
+  private router = inject(Router);
+  private store = inject<Store<AppState>>(Store);
+
   // changepwdForm: FormGroup;
   hidePassword = true;
   hidePassword2 = true;
   hidePassword3 = true;
 
   changepwdForm!: FormGroup;
+
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
   // formOptions: AbstractControlOptions = { validators: [ MustMatch('newPassword', 'verifyPassword'), MustNotMatch('oldPassword', 'newPassword') ]};
   // changepwdForm = this.fb.group({
   //         oldPassword: ['', [
@@ -58,12 +66,9 @@ export class ChangepwdComponent implements OnInit {
   //         verifyPassword: ['', [Validators.required]]
   //     }, this.formOptions);
 
-  constructor(
-    private fb: FormBuilder,
-    private auth: AuthService,
-    private router: Router,
-    private store: Store<AppState>,
-  ) {
+  constructor() {
+    const fb = this.fb;
+
     const formOptions: AbstractControlOptions = {
       validators: [
         MustMatch('newPassword', 'verifyPassword'),

@@ -1,5 +1,5 @@
 import { JsonPipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {
   AbstractControlOptions,
   FormBuilder,
@@ -21,6 +21,11 @@ import { createPasswordStrengthValidator } from '../validators/password-strength
   imports: [...MATERIAL, JsonPipe],
 })
 export class RegisterComponent implements OnInit {
+  private fb = inject(FormBuilder);
+  private registerService = inject(RegisterService);
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
+
   private errorMsg?: string;
 
   registerForm!: FormGroup;
@@ -41,12 +46,10 @@ export class RegisterComponent implements OnInit {
     title: '',
   };
 
-  constructor(
-    private fb: FormBuilder,
-    private registerService: RegisterService,
-    private router: Router,
-    private route: ActivatedRoute,
-    // private alertService: AlertService,
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor(  // private alertService: AlertService,
   ) {}
 
   ngOnInit() {

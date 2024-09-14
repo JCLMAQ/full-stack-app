@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {
   AbstractControlOptions,
   FormBuilder,
@@ -39,17 +39,22 @@ import { MatCardModule } from '@angular/material/card';
   ],
 })
 export class ResetpwdComponent implements OnInit {
+  private fb = inject(FormBuilder);
+  private auth = inject(AuthService);
+  private router = inject(Router);
+  private store = inject<Store<AppState>>(Store);
+
   hidePassword = true;
   hideConfirmPassword = true;
 
   resetpwdForm: FormGroup;
 
-  constructor(
-    private fb: FormBuilder,
-    private auth: AuthService,
-    private router: Router,
-    private store: Store<AppState>,
-  ) {
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
+    const fb = this.fb;
+
     const formOptions: AbstractControlOptions = {
       validators: MustMatch('newPassword', 'confirmNewPassword'),
     };

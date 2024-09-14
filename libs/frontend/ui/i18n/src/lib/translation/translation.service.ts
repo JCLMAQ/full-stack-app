@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { Injectable, PLATFORM_ID, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 // According:  https://medium.com/@paul.pietzko/internationalization-in-angular-with-ngx-translate-2cabe06c1b29
@@ -10,12 +10,15 @@ import { TranslateService } from '@ngx-translate/core';
   })
 
 export class TranslationService {
+  private translateService = inject(TranslateService);
+  private platformId = inject<Object>(PLATFORM_ID);
+
   defaultLang = 'en';
 
-  constructor(
-    private translateService: TranslateService,
-    @Inject(PLATFORM_ID) private platformId: Object
-  ) {
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
     if (isPlatformBrowser(this.platformId)) {
       const savedLang = localStorage.getItem('lng');
       if (savedLang) {

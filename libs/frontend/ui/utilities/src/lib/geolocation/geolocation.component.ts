@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { GeolocationService } from './geolocation.service';
 
 
@@ -12,7 +12,12 @@ import { GeolocationService } from './geolocation.service';
 // According: https://www.notion.so/jclmaq5510/Geolocation-b6e2c6030c4a4a06a674a2cbac8d1d76?pvs=4
 
 export class GeolocationComponent implements OnInit {
-  constructor(private geolocationService: GeolocationService) {}
+  private geolocationService = inject(GeolocationService);
+
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {}
 
   ngOnInit(): void {
     this.getGeoLocation();

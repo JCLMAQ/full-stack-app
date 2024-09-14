@@ -1,14 +1,19 @@
 // Inheriting the base service or using Dependency injection. finally, we have a generic service
 // for CRUD operation that is used throughout the application.
 
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { ApiHandlerService } from './api-handler.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GenericService {
-  constructor(private apiService: ApiHandlerService) {
+  private apiService = inject(ApiHandlerService);
+
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
   }
   get(endpoint:string){
     return this.apiService.Get(`${AppSettings}`+endpoint)

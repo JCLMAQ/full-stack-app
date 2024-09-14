@@ -1,6 +1,6 @@
 
 import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+import { Injectable, inject } from "@angular/core";
 import { Observable, catchError, map, throwError } from "rxjs";
 import { TaskInterface } from "../+state/tasks.models";
 
@@ -15,11 +15,15 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class TasksService {
+  private readonly http = inject(HttpClient);
 
-  private baseUrl = 'api/tasks'; // URL to web api
 
-  constructor(
-    private readonly http: HttpClient)
+  private baseUrl = 'api/tasks';
+
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]); // URL to web api
+
+  constructor()
     { }
 
   private handleError(error: HttpErrorResponse) {

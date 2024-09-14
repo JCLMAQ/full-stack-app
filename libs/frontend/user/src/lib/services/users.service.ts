@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable, catchError, map, throwError } from 'rxjs';
 import { ICreateUser, IUpdateUser, IUpsertUser, UserInterface } from '../+state/users.models';
 
@@ -14,11 +14,15 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UsersService {
+  private readonly http = inject(HttpClient);
 
-  private baseUrl = 'api/users'; // URL to web api
 
-  constructor(
-    private readonly http: HttpClient)
+  private baseUrl = 'api/users';
+
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]); // URL to web api
+
+  constructor()
     { }
 
 	private handleError(error: HttpErrorResponse) {

@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { jwtDecode } from 'jwt-decode';
 import { BehaviorSubject, firstValueFrom } from 'rxjs';
 import { ICurrentUser, IJwt, ILoginResponse } from '../auth.model';
@@ -8,12 +8,17 @@ import { ICurrentUser, IJwt, ILoginResponse } from '../auth.model';
   providedIn: 'root',
 })
 export class AuthService {
+  private httpClient = inject(HttpClient);
+
   authToken: string;
   currentUser$: BehaviorSubject<ICurrentUser | null> =
     new BehaviorSubject<ICurrentUser | null>(null);
+
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
   // currentUser: BehaviorSubject<ICurrentUser | null> = new BehaviorSubject(null);
 
-  constructor(private httpClient: HttpClient) {
+  constructor() {
     // this.currentUser$ = new BehaviorSubject<ICurrentUser | null>(null)
     this.authToken = localStorage.authJwtToken || '';
     // this.fetchUser();

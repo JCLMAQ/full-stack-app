@@ -2,7 +2,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { AsyncPipe, NgClass } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, HostBinding, Inject, Injector, OnDestroy, OnInit, ViewChild, effect, inject, signal } from '@angular/core';
+import { Component, HostBinding, Injector, OnDestroy, OnInit, ViewChild, effect, inject, signal } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSidenav } from '@angular/material/sidenav';
 import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterLink, RouterModule, RouterOutlet } from '@angular/router';
@@ -42,6 +42,16 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
 })
 export class AppComponent implements OnInit, OnDestroy {
+  private injector = inject(Injector);
+  private router = inject(Router);
+  private styleManager = inject(StyleManager);
+  private dialog = inject(MatDialog);
+  private overlay = inject(OverlayContainer);
+  private observer = inject(BreakpointObserver);
+  translateService = inject(TranslateService);
+  private i18nService = inject(I18nService);
+  private breakpointObserver = inject<BreakpointObserver>(BreakpointObserver);
+
 
   title = 'full-stack-app';
 
@@ -91,20 +101,15 @@ theme: string = "light-theme";
 // Dark theme management
 @HostBinding('class') className = '';
 
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
 // toggleControl = new FormControl(false);
 
 
-constructor(
-  private injector: Injector,
-  private router: Router,
-  private styleManager: StyleManager,
-  private dialog: MatDialog,
-  private overlay: OverlayContainer,
-  private observer: BreakpointObserver,
-  public translateService: TranslateService,
-  private i18nService: I18nService,
-  @Inject(BreakpointObserver) private breakpointObserver: BreakpointObserver
-) {
+constructor() {
+  const translateService = this.translateService;
+
   setAppInject(this.injector);
   translateService.setDefaultLang(this.defaultLang);
   // translateService.use('en');

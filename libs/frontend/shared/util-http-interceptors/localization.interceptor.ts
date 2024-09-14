@@ -9,12 +9,17 @@ import {
   HttpInterceptor,
   HttpRequest,
 } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { LocaleService } from './locale.service';
 
 @Injectable()
 export class LocalizationInterceptor implements HttpInterceptor {
-  constructor(private localeService: LocaleService) {}
+  private localeService = inject(LocaleService);
+
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler) {
     const userLocale = this.localeService.getUserLocale();

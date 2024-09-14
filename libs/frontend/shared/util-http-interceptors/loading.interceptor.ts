@@ -9,13 +9,18 @@ import {
   HttpInterceptor,
   HttpRequest,
 } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { finalize } from 'rxjs/operators';
 import { LoadingService } from './loading.service';
 
 @Injectable()
 export class LoadingInterceptor implements HttpInterceptor {
-  constructor(private loadingService: LoadingService) {}
+  private loadingService = inject(LoadingService);
+
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler) {
     this.loadingService.showLoading();
