@@ -90125,6 +90125,20 @@ components:
           type: string
         attributes:
           type: object
+          required:
+            - numSeq
+            - createdAt
+            - updatedAt
+            - published
+            - isPublic
+            - isDeleted
+            - isDeletedDT
+            - name
+            - description
+            - address
+            - emailITAdmin
+            - webSite
+            - mainOrgId
           properties:
             numSeq:
               type: integer
@@ -90469,6 +90483,16 @@ components:
           type: string
         attributes:
           type: object
+          required:
+            - createdAt
+            - updatedAt
+            - published
+            - isPublic
+            - isDeleted
+            - isDeletedDT
+            - email
+            - description
+            - orgId
           properties:
             createdAt:
               type: string
@@ -90689,6 +90713,16 @@ components:
           type: string
         attributes:
           type: object
+          required:
+            - createdAt
+            - updatedAt
+            - published
+            - isPublic
+            - isDeleted
+            - isDeletedDT
+            - domainName
+            - extension
+            - orgId
           properties:
             createdAt:
               type: string
@@ -90896,6 +90930,32 @@ components:
           type: string
         attributes:
           type: object
+          required:
+            - numSeq
+            - createdAt
+            - updatedAt
+            - published
+            - isPublic
+            - isDeleted
+            - isDeletedDT
+            - email
+            - lastName
+            - firstName
+            - title
+            - nickName
+            - Gender
+            - social
+            - Language
+            - dob
+            - address
+            - isValidated
+            - isSuspended
+            - managerId
+            - Roles
+            - Permissions
+            - isTfaEnable
+            - tfaSecret
+            - passWordFaker
           properties:
             numSeq:
               type: integer
@@ -91480,6 +91540,13 @@ components:
           type: string
         attributes:
           type: object
+          required:
+            - createdAt
+            - updatedAt
+            - userId
+            - pwdHash
+            - salt
+            - isAdmin
           properties:
             createdAt:
               type: string
@@ -91670,6 +91737,15 @@ components:
           type: string
         attributes:
           type: object
+          required:
+            - createdAt
+            - updatedAt
+            - published
+            - isPublic
+            - isDeleted
+            - isDeletedDT
+            - orderProfile
+            - bio
           properties:
             createdAt:
               type: string
@@ -91864,6 +91940,18 @@ components:
           type: string
         attributes:
           type: object
+          required:
+            - createdAt
+            - updatedAt
+            - published
+            - isPublic
+            - isDeleted
+            - isDeletedDT
+            - orderGroup
+            - name
+            - description
+            - isActiv
+            - orgId
           properties:
             createdAt:
               type: string
@@ -92132,6 +92220,21 @@ components:
           type: string
         attributes:
           type: object
+          required:
+            - numSeq
+            - createdAt
+            - updatedAt
+            - published
+            - isDeleted
+            - isDeletedDT
+            - isPublic
+            - ownerId
+            - orgId
+            - orderTodo
+            - title
+            - content
+            - todoState
+            - mainTodoId
           properties:
             numSeq:
               type: integer
@@ -92430,7 +92533,19 @@ components:
           type: string
         attributes:
           type: object
+          required:
+            - userId
+            - todoId
+            - isAuthor
+            - isAssigned
+            - createdAt
+            - updatedAt
+            - comment
           properties:
+            userId:
+              type: string
+            todoId:
+              type: string
             isAuthor:
               type: boolean
             isAssigned:
@@ -92471,9 +92586,15 @@ components:
             attributes:
               type: object
               required:
+                - userId
+                - todoId
                 - updatedAt
                 - comment
               properties:
+                userId:
+                  type: string
+                todoId:
+                  type: string
                 isAuthor:
                   type: boolean
                 isAssigned:
@@ -92516,6 +92637,10 @@ components:
             attributes:
               type: object
               properties:
+                userId:
+                  type: string
+                todoId:
+                  type: string
                 isAuthor:
                   type: boolean
                 isAssigned:
@@ -92608,6 +92733,22 @@ components:
           type: string
         attributes:
           type: object
+          required:
+            - numSeq
+            - createdAt
+            - updatedAt
+            - published
+            - isDeleted
+            - isDeletedDT
+            - isPublic
+            - ownerId
+            - orgId
+            - orderTask
+            - title
+            - content
+            - taskState
+            - mainTaskId
+            - todoId
           properties:
             numSeq:
               type: integer
@@ -92924,7 +93065,19 @@ components:
           type: string
         attributes:
           type: object
+          required:
+            - userId
+            - taskId
+            - isAuthor
+            - isAssigned
+            - createdAt
+            - updatedAt
+            - comment
           properties:
+            userId:
+              type: string
+            taskId:
+              type: string
             isAuthor:
               type: boolean
             isAssigned:
@@ -92965,9 +93118,15 @@ components:
             attributes:
               type: object
               required:
+                - userId
+                - taskId
                 - updatedAt
                 - comment
               properties:
+                userId:
+                  type: string
+                taskId:
+                  type: string
                 isAuthor:
                   type: boolean
                 isAssigned:
@@ -93010,6 +93169,10 @@ components:
             attributes:
               type: object
               properties:
+                userId:
+                  type: string
+                taskId:
+                  type: string
                 isAuthor:
                   type: boolean
                 isAssigned:
@@ -93102,6 +93265,19 @@ components:
           type: string
         attributes:
           type: object
+          required:
+            - numSeq
+            - createdAt
+            - updatedAt
+            - published
+            - isDeleted
+            - isDeletedDT
+            - isPublic
+            - ownerId
+            - orgId
+            - orderPost
+            - title
+            - content
           properties:
             numSeq:
               type: integer
@@ -93373,6 +93549,16 @@ components:
           type: string
         attributes:
           type: object
+          required:
+            - numSeq
+            - createdAt
+            - updatedAt
+            - published
+            - isPublic
+            - isDeleted
+            - isDeletedDT
+            - orderCategory
+            - name
           properties:
             numSeq:
               type: integer
@@ -93591,6 +93777,18 @@ components:
           type: string
         attributes:
           type: object
+          required:
+            - numSeq
+            - createdAt
+            - updatedAt
+            - published
+            - isPublic
+            - isDeleted
+            - isDeletedDT
+            - orderComment
+            - content
+            - postId
+            - authorId
           properties:
             numSeq:
               type: integer
@@ -93836,6 +94034,22 @@ components:
           type: string
         attributes:
           type: object
+          required:
+            - numSeq
+            - createdAt
+            - updatedAt
+            - published
+            - isDeleted
+            - isDeletedDT
+            - isPublic
+            - ownerId
+            - orgId
+            - name
+            - storageName
+            - type
+            - data
+            - size
+            - isArchived
           properties:
             numSeq:
               type: integer
@@ -94117,7 +94331,16 @@ components:
           type: string
         attributes:
           type: object
+          required:
+            - user_id
+            - follower_id
+            - createdAt
+            - updatedAt
           properties:
+            user_id:
+              type: string
+            follower_id:
+              type: string
             createdAt:
               type: string
               format: date-time
@@ -94151,7 +94374,14 @@ components:
               type: string
             attributes:
               type: object
+              required:
+                - user_id
+                - follower_id
               properties:
+                user_id:
+                  type: string
+                follower_id:
+                  type: string
                 createdAt:
                   type: string
                   format: date-time
@@ -94188,6 +94418,10 @@ components:
             attributes:
               type: object
               properties:
+                user_id:
+                  type: string
+                follower_id:
+                  type: string
                 createdAt:
                   type: string
                   format: date-time
@@ -94274,7 +94508,16 @@ components:
           type: string
         attributes:
           type: object
+          required:
+            - user_id
+            - post_id
+            - createdAt
+            - updatedAt
           properties:
+            user_id:
+              type: string
+            post_id:
+              type: string
             createdAt:
               type: string
               format: date-time
@@ -94308,7 +94551,14 @@ components:
               type: string
             attributes:
               type: object
+              required:
+                - user_id
+                - post_id
               properties:
+                user_id:
+                  type: string
+                post_id:
+                  type: string
                 createdAt:
                   type: string
                   format: date-time
@@ -94345,6 +94595,10 @@ components:
             attributes:
               type: object
               properties:
+                user_id:
+                  type: string
+                post_id:
+                  type: string
                 createdAt:
                   type: string
                   format: date-time
@@ -94431,6 +94685,16 @@ components:
           type: string
         attributes:
           type: object
+          required:
+            - numSeq
+            - createdAt
+            - updatedAt
+            - published
+            - isPublic
+            - isDeleted
+            - isDeletedDT
+            - caption
+            - user_id
           properties:
             numSeq:
               type: integer
@@ -94649,6 +94913,17 @@ components:
           type: string
         attributes:
           type: object
+          required:
+            - createdAt
+            - updatedAt
+            - published
+            - isPublic
+            - isDeleted
+            - isDeletedDT
+            - type
+            - url
+            - associated_id
+            - sequence
           properties:
             createdAt:
               type: string
@@ -94840,6 +95115,16 @@ components:
           type: string
         attributes:
           type: object
+          required:
+            - createdAt
+            - updatedAt
+            - published
+            - isPublic
+            - isDeleted
+            - isDeletedDT
+            - name
+            - value
+            - utility
           properties:
             createdAt:
               type: string
@@ -95024,6 +95309,16 @@ components:
           type: string
         attributes:
           type: object
+          required:
+            - createdAt
+            - updatedAt
+            - published
+            - isPublic
+            - isDeleted
+            - isDeletedDT
+            - useTo
+            - isActiv
+            - emailOrgId
           properties:
             createdAt:
               type: string
@@ -95225,6 +95520,15 @@ components:
           type: string
         attributes:
           type: object
+          required:
+            - createdAt
+            - updatedAt
+            - published
+            - isPublic
+            - isDeleted
+            - isDeletedDT
+            - domain
+            - allowed
           properties:
             createdAt:
               type: string
@@ -95402,6 +95706,15 @@ components:
           type: string
         attributes:
           type: object
+          required:
+            - createdAt
+            - updatedAt
+            - published
+            - isPublic
+            - isDeleted
+            - isDeletedDT
+            - userId
+            - tokenId
           properties:
             createdAt:
               type: string
@@ -95579,6 +95892,16 @@ components:
           type: string
         attributes:
           type: object
+          required:
+            - createdAt
+            - updatedAt
+            - published
+            - isPublic
+            - isDeleted
+            - isDeletedDT
+            - key
+            - uuid
+            - userId
           properties:
             createdAt:
               type: string
@@ -95788,6 +96111,14 @@ components:
           type: string
         attributes:
           type: object
+          required:
+            - createdAt
+            - updatedAt
+            - published
+            - isPublic
+            - isDeleted
+            - isDeletedDT
+            - scope
           properties:
             createdAt:
               type: string
@@ -95975,6 +96306,19 @@ components:
           type: string
         attributes:
           type: object
+          required:
+            - createdAt
+            - updatedAt
+            - published
+            - isPublic
+            - isDeleted
+            - isDeletedDT
+            - tokenId
+            - type
+            - emailToken
+            - valid
+            - expiration
+            - userId
           properties:
             createdAt:
               type: string
@@ -96209,6 +96553,20 @@ components:
           type: string
         attributes:
           type: object
+          required:
+            - createdAt
+            - updatedAt
+            - published
+            - isPublic
+            - isDeleted
+            - isDeletedDT
+            - doneAt
+            - modifiedById
+            - modelName
+            - recordId
+            - operation
+            - newData
+            - oldData
           properties:
             createdAt:
               type: string
@@ -96434,6 +96792,17 @@ components:
           type: string
         attributes:
           type: object
+          required:
+            - numSeq
+            - createdAt
+            - updatedAt
+            - published
+            - isPublic
+            - isDeleted
+            - isDeletedDT
+            - isValidated
+            - emailToken
+            - timeStamp
           properties:
             numSeq:
               type: integer
