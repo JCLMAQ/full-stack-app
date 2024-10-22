@@ -59,5 +59,6 @@
     "@nx/angular:component": { "style": "css" }
   },
   "nxCloudAccessToken": "NTI2Zjc4NWItZTg4Zi00MWYwLTgyNmUtMzcwNTA4ZjMwNTlhfHJlYWQtd3JpdGU=",
-  "defaultBase": "master"
+  "defaultBase": "master",
+  "nxCloudId": "67174886ec876e83097b7ab4"
 }
