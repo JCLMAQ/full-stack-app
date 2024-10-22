@@ -30,18 +30,8 @@
     }
   },
   "plugins": [
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    },
-    {
-      "plugin": "@nx/jest/plugin",
-      "options": {
-        "targetName": "test"
-      }
-    },
+    { "plugin": "@nx/eslint/plugin", "options": { "targetName": "lint" } },
+    { "plugin": "@nx/jest/plugin", "options": { "targetName": "test" } },
     {
       "plugin": "@nx/cypress/plugin",
       "options": {
@@ -65,14 +55,9 @@
       "style": "scss",
       "unitTestRunner": "jest"
     },
-    "@nx/angular:library": {
-      "linter": "eslint",
-      "unitTestRunner": "jest"
-    },
-    "@nx/angular:component": {
-      "style": "css"
-    }
+    "@nx/angular:library": { "linter": "eslint", "unitTestRunner": "jest" },
+    "@nx/angular:component": { "style": "css" }
   },
-  "nxCloudAccessToken": "NDVhNDg5MzgtZjQ1YS00Zjc4LWJkZjktN2JjMjM2YWRjYmU2fHJlYWQtd3JpdGU=",
+  "nxCloudAccessToken": "NTI2Zjc4NWItZTg4Zi00MWYwLTgyNmUtMzcwNTA4ZjMwNTlhfHJlYWQtd3JpdGU=",
   "defaultBase": "master"
 }
