@@ -5,7 +5,7 @@
     "module": "commonjs",
     "types": ["node"],
     "emitDecoratorMetadata": true,
-    "target": "ES2022",
+    "target": "ES2021",
     "plugins": [
       { "transform": "@nestjs/swagger/plugin", "introspectComments": true },
     ],
