@@ -10,7 +10,10 @@
       "!{projectRoot}/tsconfig.spec.json",
       "!{projectRoot}/jest.config.[jt]s",
       "!{projectRoot}/src/test-setup.[jt]s",
-      "!{projectRoot}/test-setup.[jt]s"
+      "!{projectRoot}/test-setup.[jt]s",
+      "!{projectRoot}/cypress/**/*",
+      "!{projectRoot}/**/*.cy.[jt]s?(x)",
+      "!{projectRoot}/cypress.config.[jt]s"
     ],
     "sharedGlobals": []
   },
@@ -51,6 +54,13 @@
     },
     "e2e-ci--**/*": {
       "dependsOn": ["^build"]
+    },
+    "start:frontend:dev": {
+      "cache": true
+    },
+    "e2e": {
+      "cache": true,
+      "inputs": ["default", "^production"]
     }
   },
   "generators": {
@@ -60,10 +70,16 @@
       "style": "scss",
       "unitTestRunner": "jest"
     },
-    "@nx/angular:library": { "linter": "eslint", "unitTestRunner": "jest" },
-    "@nx/angular:component": { "style": "scss" }
+    "@nx/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nx/angular:component": {
+      "style": "scss"
+    }
   },
   "nxCloudAccessToken": "NTI2Zjc4NWItZTg4Zi00MWYwLTgyNmUtMzcwNTA4ZjMwNTlhfHJlYWQtd3JpdGU=",
   "defaultBase": "master",
-  "nxCloudId": "67174886ec876e83097b7ab4"
+  "nxCloudId": "67174886ec876e83097b7ab4",
+  "useLegacyCache": true
 }

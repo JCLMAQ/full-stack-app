@@ -92586,15 +92586,9 @@ components:
             attributes:
               type: object
               required:
-                - userId
-                - todoId
                 - updatedAt
                 - comment
               properties:
-                userId:
-                  type: string
-                todoId:
-                  type: string
                 isAuthor:
                   type: boolean
                 isAssigned:
@@ -92637,10 +92631,6 @@ components:
             attributes:
               type: object
               properties:
-                userId:
-                  type: string
-                todoId:
-                  type: string
                 isAuthor:
                   type: boolean
                 isAssigned:
@@ -93118,15 +93108,9 @@ components:
             attributes:
               type: object
               required:
-                - userId
-                - taskId
                 - updatedAt
                 - comment
               properties:
-                userId:
-                  type: string
-                taskId:
-                  type: string
                 isAuthor:
                   type: boolean
                 isAssigned:
@@ -93169,10 +93153,6 @@ components:
             attributes:
               type: object
               properties:
-                userId:
-                  type: string
-                taskId:
-                  type: string
                 isAuthor:
                   type: boolean
                 isAssigned:
@@ -94374,14 +94354,7 @@ components:
               type: string
             attributes:
               type: object
-              required:
-                - user_id
-                - follower_id
               properties:
-                user_id:
-                  type: string
-                follower_id:
-                  type: string
                 createdAt:
                   type: string
                   format: date-time
@@ -94418,10 +94391,6 @@ components:
             attributes:
               type: object
               properties:
-                user_id:
-                  type: string
-                follower_id:
-                  type: string
                 createdAt:
                   type: string
                   format: date-time
@@ -94551,14 +94520,7 @@ components:
               type: string
             attributes:
               type: object
-              required:
-                - user_id
-                - post_id
               properties:
-                user_id:
-                  type: string
-                post_id:
-                  type: string
                 createdAt:
                   type: string
                   format: date-time
@@ -94595,10 +94557,6 @@ components:
             attributes:
               type: object
               properties:
-                user_id:
-                  type: string
-                post_id:
-                  type: string
                 createdAt:
                   type: string
                   format: date-time

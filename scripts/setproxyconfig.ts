@@ -1,12 +1,12 @@
 const { writeFile } = require('fs');
 // read server variables from .env file
-// require('dotenv').config();
+require('dotenv').config();
+require('dotenv-expand').expand(require('dotenv').config());
+// import dotEnv from 'dotenv';
+// import dotenvExpand from 'dotenv-expand';
 
-import dotEnv from 'dotenv';
-import dotenvExpand from 'dotenv-expand';
-
-const config = dotEnv.config();
-dotenvExpand.expand(config);
+// const config = dotEnv.config();
+// dotenvExpand.expand(config);
 
 // Verify that all variables are provided
 if (!process.env.NEST_SERVER_HOST || !process.env.NEST_SERVER_PORT || !process.env.NEST_SERVER_SECURE || !process.env.NEST_SERVER_PATHREWRITE || !process.env.NEST_SERVER_LOGLEVEL || !process.env.NEST_SERVER_CHANGEORIGINE) {
