@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client';
+// import { PrismaClient } from '@prisma/client';
 import { createAppEmailDomain } from '../factories-bis/appemaildomain';
 import { createCategories } from '../factories-bis/category';
 import { createComment } from '../factories-bis/comment';
@@ -13,6 +13,7 @@ import { createTodo } from '../factories-bis/todo';
 import { create4Users } from '../factories-bis/user';
 import { dataUserFollower } from '../factories-bis/userFollower';
 
+const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 
