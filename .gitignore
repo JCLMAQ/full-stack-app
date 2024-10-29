@@ -79,7 +79,7 @@ environment.ts
 proxy.conf.json
 
 # pnpm
-pnpm-lock.yaml
+# pnpm-lock.yaml
 
 .nx/cache
 
