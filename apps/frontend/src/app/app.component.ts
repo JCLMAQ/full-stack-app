@@ -85,7 +85,7 @@ isHandset$ = this.breakpointObserver.observe(Breakpoints.Handset)
 
 
 
-loading : boolean = true;
+loading = true;
 defaultLang = 'en'; // default
 
 // SideNav Variables
@@ -95,8 +95,8 @@ isMobile= true;
 isCollapsed = true;
 
 // Light-Dark theme switch variables
-isDark1: boolean = false;
-theme: string = "light-theme";
+isDark1 = false;
+theme = "light-theme";
 
 // Dark theme management
 @HostBinding('class') className = '';
