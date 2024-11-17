@@ -75,10 +75,6 @@ enum TokenType {
   REFREZH
 }
 
-/// @@allow('all', auth() != null && published)
-/// @@deny('read', isDeleted != 0)
-/// @@allow('create', auth() != null)
-/// @@allow('read', Members?[id == auth().id])
 model Organization {
   id           String         @id() @default(uuid())
   numSeq       Int            @default(autoincrement())
@@ -86,13 +82,11 @@ model Organization {
   updatedAt    DateTime       @default(now()) @updatedAt()
   published    Boolean?       @default(false)
   isPublic     Boolean?       @default(true)
-  /// @omit
   isDeleted    Int?           @default(0)
   isDeletedDT  DateTime?
   name         String         @unique()
   description  String?
   address      Json?          @db.Json()
-  /// @email
   emailITAdmin String
   webSite      String?
   OrgEmails    OrgEmail[]     @relation("OrgEmails")
@@ -108,18 +102,14 @@ model Organization {
   Todos        Todo[]
 }
 
-/// @@allow('all', auth() != null && published)
-/// @@deny('read', isDeleted != 0)
 model OrgEmail {
   id             Int             @id() @default(autoincrement())
   createdAt      DateTime        @default(now())
   updatedAt      DateTime        @default(now()) @updatedAt()
   published      Boolean         @default(true)
   isPublic       Boolean         @default(true)
-  /// @omit
   isDeleted      Int             @default(0)
   isDeletedDT    DateTime?
-  /// @email
   email          String
   description    String?
   org            Organization?   @relation("OrgEmails", fields: [orgId], references: [id], onDelete: NoAction, onUpdate: NoAction)
@@ -127,15 +117,12 @@ model OrgEmail {
   OrgEmailUseTos OrgEmailUseTo[]
 }
 
-/// @@allow('all', auth() != null && published)
-/// @@deny('read', isDeleted != 0)
 model OrgDomain {
   id          Int           @id() @default(autoincrement())
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @default(now()) @updatedAt()
   published   Boolean       @default(true)
   isPublic    Boolean       @default(true)
-  /// @omit
   isDeleted   Int           @default(0)
   isDeletedDT DateTime?
   domainName  String
@@ -144,11 +131,6 @@ model OrgDomain {
   orgId       String
 }
 
-/// @@allow('all', auth() != null && published)
-/// @@deny('read', isDeleted != 0)
-/// @@allow('create', true)
-/// @@allow('read', Orgs?[Members?[id == auth().id]])
-/// @@allow('all', auth() == this)
 model User {
   id            String            @id() @default(uuid())
   numSeq        Int               @default(autoincrement())
@@ -156,10 +138,8 @@ model User {
   updatedAt     DateTime          @default(now()) @updatedAt()
   published     Boolean?          @default(false)
   isPublic      Boolean?          @default(true)
-  /// @omit
   isDeleted     Int?              @default(0)
   isDeletedDT   DateTime?
-  /// @email
   email         String            @unique()
   lastName      String?
   firstName     String?
@@ -206,22 +186,17 @@ model UserSecret {
   updatedAt DateTime @default(now()) @updatedAt()
   user      User     @relation(fields: [userId], references: [email], onDelete: Cascade)
   userId    String   @unique()
-  /// @password
-  /// @omit
   pwdHash   String?
   salt      String?
   isAdmin   Boolean? @default(false)
 }
 
-/// @@allow('all', auth() != null && published)
-/// @@deny('read', isDeleted != 0)
 model Profile {
   id           Int       @id() @default(autoincrement())
   createdAt    DateTime  @default(now())
   updatedAt    DateTime  @default(now()) @updatedAt()
   published    Boolean   @default(true)
   isPublic     Boolean   @default(true)
-  /// @omit
   isDeleted    Int       @default(0)
   isDeletedDT  DateTime?
   orderProfile Int
@@ -229,16 +204,12 @@ model Profile {
   bio          String
 }
 
-/// @@allow('all', auth() != null && published)
-/// @@deny('read', isDeleted != 0)
-/// @@allow('all', org.Members?[id == auth().id])
 model Group {
   id          Int          @id() @default(autoincrement())
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @default(now()) @updatedAt()
   published   Boolean      @default(true)
   isPublic    Boolean      @default(true)
-  /// @omit
   isDeleted   Int          @default(0)
   isDeletedDT DateTime?
   orderGroup  Int
@@ -254,20 +225,12 @@ model Group {
   orgId       String
 }
 
-/// @@allow('all', auth() != null && published)
-/// @@allow('create', owner == auth() && org.Members?[id == auth().id])
-/// @@allow('update', owner == auth() && org.Members?[id == auth().id] && future().owner == owner)
-/// @@allow('read,delete', owner == auth())
-/// @@allow('read', groups?[Users?[id == auth().id]])
-/// @@allow('read', isPublic && org.Members?[id == auth().id])
-/// @@deny('read', isDeleted != 0)
 model Todo {
   id          String         @id() @default(uuid())
   numSeq      Int            @default(autoincrement())
   createdAt   DateTime       @default(now())
   updatedAt   DateTime       @default(now()) @updatedAt()
   published   Boolean        @default(true)
-  /// @omit
   isDeleted   Int            @default(0)
   isDeletedDT DateTime?
   isPublic    Boolean        @default(false)
@@ -301,20 +264,12 @@ model UserTodoLink {
   @@id([userId, todoId])
 }
 
-/// @@allow('all', auth() != null && published)
-/// @@allow('create', owner == auth() && org.Members?[id == auth().id])
-/// @@allow('update', owner == auth() && org.Members?[id == auth().id] && future().owner == owner)
-/// @@allow('read,delete', owner == auth())
-/// @@allow('read', groups?[Users?[id == auth().id]])
-/// @@allow('read', isPublic && org.Members?[id == auth().id])
-/// @@deny('read', isDeleted != 0)
 model Task {
   id          String         @id() @default(uuid())
   numSeq      Int            @default(autoincrement())
   createdAt   DateTime       @default(now())
   updatedAt   DateTime       @default(now()) @updatedAt()
   published   Boolean        @default(true)
-  /// @omit
   isDeleted   Int            @default(0)
   isDeletedDT DateTime?
   isPublic    Boolean        @default(false)
@@ -349,20 +304,12 @@ model UserTaskLink {
   @@id([userId, taskId])
 }
 
-/// @@allow('all', auth() != null && published)
-/// @@allow('create', owner == auth() && org.Members?[id == auth().id])
-/// @@allow('update', owner == auth() && org.Members?[id == auth().id] && future().owner == owner)
-/// @@allow('read,delete', owner == auth())
-/// @@allow('read', groups?[Users?[id == auth().id]])
-/// @@allow('read', isPublic && org.Members?[id == auth().id])
-/// @@deny('read', isDeleted != 0)
 model Post {
   id          String       @id() @default(uuid())
   numSeq      Int          @default(autoincrement())
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @default(now()) @updatedAt()
   published   Boolean      @default(true)
-  /// @omit
   isDeleted   Int          @default(0)
   isDeletedDT DateTime?
   isPublic    Boolean      @default(false)
@@ -379,8 +326,6 @@ model Post {
   LikedBys    PostLike[]
 }
 
-/// @@allow('all', auth() != null && published)
-/// @@deny('read', isDeleted != 0)
 model Category {
   id            String    @id() @default(uuid())
   numSeq        Int       @default(autoincrement())
@@ -388,7 +333,6 @@ model Category {
   updatedAt     DateTime  @default(now()) @updatedAt()
   published     Boolean?  @default(false)
   isPublic      Boolean?  @default(true)
-  /// @omit
   isDeleted     Int?      @default(0)
   isDeletedDT   DateTime?
   orderCategory Int
@@ -396,8 +340,6 @@ model Category {
   Posts         Post[]    @relation("PostsCategory")
 }
 
-/// @@allow('all', auth() != null && published)
-/// @@deny('read', isDeleted != 0)
 model Comment {
   id           String    @id() @default(uuid())
   numSeq       Int       @default(autoincrement())
@@ -405,7 +347,6 @@ model Comment {
   updatedAt    DateTime  @default(now()) @updatedAt()
   published    Boolean?  @default(false)
   isPublic     Boolean?  @default(true)
-  /// @omit
   isDeleted    Int?      @default(0)
   isDeletedDT  DateTime?
   orderComment Int
@@ -416,20 +357,12 @@ model Comment {
   authorId     String
 }
 
-/// @@allow('all', auth() != null && published)
-/// @@allow('create', owner == auth() && org.Members?[id == auth().id])
-/// @@allow('update', owner == auth() && org.Members?[id == auth().id] && future().owner == owner)
-/// @@allow('read,delete', owner == auth())
-/// @@allow('read', groups?[Users?[id == auth().id]])
-/// @@allow('read', isPublic && org.Members?[id == auth().id])
-/// @@deny('read', isDeleted != 0)
 model File {
   id          String       @id() @default(uuid())
   numSeq      Int          @default(autoincrement())
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @default(now()) @updatedAt()
   published   Boolean      @default(true)
-  /// @omit
   isDeleted   Int          @default(0)
   isDeletedDT DateTime?
   isPublic    Boolean      @default(false)
@@ -468,8 +401,6 @@ model PostLike {
   @@id([user_id, post_id])
 }
 
-/// @@allow('all', auth() != null && published)
-/// @@deny('read', isDeleted != 0)
 model Story {
   id          String    @id() @default(uuid())
   numSeq      Int       @default(autoincrement())
@@ -477,7 +408,6 @@ model Story {
   updatedAt   DateTime  @default(now()) @updatedAt()
   published   Boolean?  @default(false)
   isPublic    Boolean?  @default(true)
-  /// @omit
   isDeleted   Int?      @default(0)
   isDeletedDT DateTime?
   caption     String
@@ -485,15 +415,12 @@ model Story {
   user        User      @relation(fields: [user_id], references: [id])
 }
 
-/// @@allow('all', auth() != null && published)
-/// @@deny('read', isDeleted != 0)
 model Image {
   id            Int       @id() @default(autoincrement())
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @default(now()) @updatedAt()
   published     Boolean   @default(true)
   isPublic      Boolean   @default(true)
-  /// @omit
   isDeleted     Int       @default(0)
   isDeletedDT   DateTime?
   type          String
@@ -502,15 +429,12 @@ model Image {
   sequence      Int
 }
 
-/// @@allow('all', auth() != null && published)
-/// @@deny('read', isDeleted != 0)
 model ConfigParam {
   id          Int       @id() @default(autoincrement())
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @default(now()) @updatedAt()
   published   Boolean   @default(true)
   isPublic    Boolean   @default(true)
-  /// @omit
   isDeleted   Int       @default(0)
   isDeletedDT DateTime?
   name        String    @unique()
@@ -518,15 +442,12 @@ model ConfigParam {
   utility     String
 }
 
-/// @@allow('all', auth() != null && published)
-/// @@deny('read', isDeleted != 0)
 model OrgEmailUseTo {
   id          Int       @id() @default(autoincrement())
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @default(now()) @updatedAt()
   published   Boolean   @default(true)
   isPublic    Boolean   @default(true)
-  /// @omit
   isDeleted   Int       @default(0)
   isDeletedDT DateTime?
   useTo       String
@@ -535,45 +456,36 @@ model OrgEmailUseTo {
   emailOrgId  Int
 }
 
-/// @@allow('all', auth() != null && published)
-/// @@deny('read', isDeleted != 0)
 model AppEmailDomain {
   id          Int       @id() @default(autoincrement())
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @default(now()) @updatedAt()
   published   Boolean   @default(true)
   isPublic    Boolean   @default(true)
-  /// @omit
   isDeleted   Int       @default(0)
   isDeletedDT DateTime?
   domain      String    @unique()
   allowed     Boolean
 }
 
-/// @@allow('all', auth() != null && published)
-/// @@deny('read', isDeleted != 0)
 model RefreshToken {
   id          Int       @id() @default(autoincrement())
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @default(now()) @updatedAt()
   published   Boolean   @default(true)
   isPublic    Boolean   @default(true)
-  /// @omit
   isDeleted   Int       @default(0)
   isDeletedDT DateTime?
   userId      String    @unique()
   tokenId     String    @unique()
 }
 
-/// @@allow('all', auth() != null && published)
-/// @@deny('read', isDeleted != 0)
 model ApiKey {
   id          Int       @id() @default(autoincrement())
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @default(now()) @updatedAt()
   published   Boolean   @default(true)
   isPublic    Boolean   @default(true)
-  /// @omit
   isDeleted   Int       @default(0)
   isDeletedDT DateTime?
   key         String
@@ -583,30 +495,24 @@ model ApiKey {
   Scopes      Scope[]   @relation("apikeysscopes")
 }
 
-/// @@allow('all', auth() != null && published)
-/// @@deny('read', isDeleted != 0)
 model Scope {
   id          Int       @id() @default(autoincrement())
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @default(now()) @updatedAt()
   published   Boolean   @default(true)
   isPublic    Boolean   @default(true)
-  /// @omit
   isDeleted   Int       @default(0)
   isDeletedDT DateTime?
   scope       String
   ApiKey      ApiKey[]  @relation("apikeysscopes")
 }
 
-/// @@allow('all', auth() != null && published)
-/// @@deny('read', isDeleted != 0)
 model Token {
   id          Int       @id() @default(autoincrement())
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @default(now()) @updatedAt()
   published   Boolean   @default(true)
   isPublic    Boolean   @default(true)
-  /// @omit
   isDeleted   Int       @default(0)
   isDeletedDT DateTime?
   tokenId     String?   @unique()
@@ -618,15 +524,12 @@ model Token {
   userId      String
 }
 
-/// @@allow('all', auth() != null && published)
-/// @@deny('read', isDeleted != 0)
 model ChangesTracking {
   id           Int       @id() @default(autoincrement())
   createdAt    DateTime  @default(now())
   updatedAt    DateTime  @default(now()) @updatedAt()
   published    Boolean   @default(true)
   isPublic     Boolean   @default(true)
-  /// @omit
   isDeleted    Int       @default(0)
   isDeletedDT  DateTime?
   doneAt       DateTime  @default(now())
@@ -639,8 +542,6 @@ model ChangesTracking {
   oldData      Json
 }
 
-/// @@allow('all', auth() != null && published)
-/// @@deny('read', isDeleted != 0)
 model AccountValidation {
   id          String    @id() @default(uuid())
   numSeq      Int       @default(autoincrement())
@@ -648,7 +549,6 @@ model AccountValidation {
   updatedAt   DateTime  @default(now()) @updatedAt()
   published   Boolean?  @default(false)
   isPublic    Boolean?  @default(true)
-  /// @omit
   isDeleted   Int?      @default(0)
   isDeletedDT DateTime?
   isValidated Boolean   @default(false)
