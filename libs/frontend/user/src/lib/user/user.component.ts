@@ -2,7 +2,7 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { CommonModule } from '@angular/common';
 
-import { AfterViewInit, ChangeDetectionStrategy, Component, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, OnDestroy, OnInit, inject, viewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -39,8 +39,8 @@ export class UserComponent implements OnInit,  AfterViewInit, OnDestroy {
   master = false; // true : button is disable
   owner = false; // true button is disable
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
+  readonly paginator = viewChild.required(MatPaginator);
+  readonly sort = viewChild.required(MatSort);
 
   private readonly store = inject(Store<{ users: UsersStateInterface}>);
   private readonly router = inject(Router);
@@ -94,8 +94,8 @@ export class UserComponent implements OnInit,  AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    this.userDataSource.paginator = this.paginator;
-    this.userDataSource.sort = this.sort;
+    this.userDataSource.paginator = this.paginator();
+    this.userDataSource.sort = this.sort();
     }
 
   ngOnDestroy(): void {
@@ -116,8 +116,8 @@ export class UserComponent implements OnInit,  AfterViewInit, OnDestroy {
       .subscribe((objectResult) => {
         this.items = Object.values(objectResult)
         this.userDataSource  =  new MatTableDataSource(this.items);
-        this.userDataSource.paginator = this.paginator;
-        this.userDataSource.sort = this.sort;
+        this.userDataSource.paginator = this.paginator();
+        this.userDataSource.sort = this.sort();
       });
 
       // this.store.select(usersFeature.selectAll)

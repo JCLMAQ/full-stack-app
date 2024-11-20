@@ -1,5 +1,5 @@
 import { Route } from '@angular/router';
-import { PageNotFoundComponent } from '@fe/pages';
+
 
 export const appRoutes: Route[] = [
   {
@@ -26,5 +26,5 @@ export const appRoutes: Route[] = [
   },
   { path: '', redirectTo: 'page', pathMatch: 'full' },
 
-  { path: '**', component: PageNotFoundComponent },
+  { path: '**', loadComponent: () => import('@fe/pages').then(m => m.PageNotFoundComponent) },
 ];

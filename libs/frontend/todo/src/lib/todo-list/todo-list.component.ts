@@ -1,6 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
-import { ChangeDetectionStrategy, Component, ViewChild, effect, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, inject, viewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -49,8 +49,8 @@ export class TodoListComponent {
   master = false; // true : button is disable
   owner = false; // true button is disable
 
-  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
-  @ViewChild(MatSort) sort: MatSort | undefined;
+  readonly paginator = viewChild(MatPaginator);
+  readonly sort = viewChild(MatSort);
 
 constructor() {
   console.log("Constructor step")
@@ -65,14 +65,14 @@ constructor() {
 fetchData(): void {
   this.todosEntities = this.todoStore.todoEntities();
   this.dataSource = new MatTableDataSource(this.todosEntities);
-  this.dataSource.paginator = this.paginator!;
-  this.dataSource.sort = this.sort!;
+  this.dataSource.paginator = this.paginator()!;
+  this.dataSource.sort = this.sort()!;
 }
 
 ngAfterViewInit(): void {
   this.dataSource = new MatTableDataSource(this.todosEntities);
-  this.dataSource.paginator = this.paginator!;
-  this.dataSource.sort = this.sort!;
+  this.dataSource.paginator = this.paginator()!;
+  this.dataSource.sort = this.sort()!;
 }
 
  // Selection

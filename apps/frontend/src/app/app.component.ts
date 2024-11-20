@@ -2,7 +2,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { AsyncPipe, NgClass } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, HostBinding, Injector, OnDestroy, OnInit, ViewChild, effect, inject, signal } from '@angular/core';
+import { Component, HostBinding, Injector, OnDestroy, OnInit, effect, inject, signal, viewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSidenav } from '@angular/material/sidenav';
 import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterLink, RouterModule, RouterOutlet } from '@angular/router';
@@ -89,8 +89,7 @@ loading = true;
 defaultLang = 'en'; // default
 
 // SideNav Variables
-@ViewChild(MatSidenav)
-sidenav!: MatSidenav;
+readonly sidenav = viewChild.required(MatSidenav);
 isMobile= true;
 isCollapsed = true;
 
@@ -168,9 +167,9 @@ showDialog(): void {
 toggleMenu() {
   // Responsive sidebar management open/close
   if(this.isMobile){
-    this.sidenav.toggle();
+    this.sidenav().toggle();
   } else {
-    this.sidenav.open(); // On desktop/tablet, the menu can never be fully closed
+    this.sidenav().open(); // On desktop/tablet, the menu can never be fully closed
     this.isCollapsed = !this.isCollapsed;
   }
 }

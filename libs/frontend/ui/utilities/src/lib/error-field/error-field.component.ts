@@ -1,5 +1,5 @@
 
-import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, inject, input } from '@angular/core';
 import { AbstractControl, FormControl, FormGroupDirective } from '@angular/forms';
 import { ValidationPipe } from '../pipes/validation.pipe';
 
@@ -26,9 +26,12 @@ export class ErrorFieldComponent {
   formDirective = inject(FormGroupDirective);
 
 
+  // TODO: Skipped for migration because:
+  //  This input is used in a control flow expression (e.g. `@if` or `*ngIf`)
+  //  and migrating would break narrowing currently.
   @Input() control!: FormControl | AbstractControl;
   // control = input.required<FormControl | AbstractControl>();
-  @Input() errorMessages!: object;
+  readonly errorMessages = input.required<object>();
 
   /** Inserted by Angular inject() migration for backwards compatibility */
   constructor(...args: unknown[]);

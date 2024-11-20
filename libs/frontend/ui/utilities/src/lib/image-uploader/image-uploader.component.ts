@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, signal, ViewChild, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, signal, inject, viewChild } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
 // import { I18nService } from '@fe/i18n';
@@ -31,7 +31,7 @@ export class ImageUploaderComponent {
   fileSize = signal(0);
   uploadProgress = signal(0);
   imagePreview = signal('');
-  @ViewChild('fileInput') fileInput: ElementRef | undefined;
+  readonly fileInput = viewChild<ElementRef>('fileInput');
   selectedFile: File | null = null;
   uploadSuccess: boolean = false;
   uploadError: boolean = false;

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
@@ -19,7 +19,7 @@ import { I18nService } from '../i18n.service';
 export class LanguageSelectorComponent implements OnInit {
   private i18nService = inject(I18nService);
 
-  @Input() icon = false;
+  readonly icon = input(false);
 
   /** Inserted by Angular inject() migration for backwards compatibility */
   constructor(...args: unknown[]);
