@@ -90272,10 +90272,6 @@ components:
                   oneOf:
                     - type: "null"
                     - type: string
-                mainOrgId:
-                  oneOf:
-                    - type: "null"
-                    - type: string
             relationships:
               type: object
               properties:
@@ -90362,10 +90358,6 @@ components:
                 emailITAdmin:
                   type: string
                 webSite:
-                  oneOf:
-                    - type: "null"
-                    - type: string
-                mainOrgId:
                   oneOf:
                     - type: "null"
                     - type: string
@@ -90547,7 +90539,6 @@ components:
               type: object
               required:
                 - email
-                - orgId
               properties:
                 createdAt:
                   type: string
@@ -90572,8 +90563,6 @@ components:
                   oneOf:
                     - type: "null"
                     - type: string
-                orgId:
-                  type: string
             relationships:
               type: object
               properties:
@@ -90629,8 +90618,6 @@ components:
                   oneOf:
                     - type: "null"
                     - type: string
-                orgId:
-                  type: string
             relationships:
               type: object
               properties:
@@ -90774,7 +90761,6 @@ components:
               required:
                 - domainName
                 - extension
-                - orgId
               properties:
                 createdAt:
                   type: string
@@ -90796,8 +90782,6 @@ components:
                 domainName:
                   type: string
                 extension:
-                  type: string
-                orgId:
                   type: string
             relationships:
               type: object
@@ -90849,8 +90833,6 @@ components:
                 domainName:
                   type: string
                 extension:
-                  type: string
-                orgId:
                   type: string
             relationships:
               type: object
@@ -91196,10 +91178,6 @@ components:
                     - type: "null"
                     - type: string
                       format: date-time
-                managerId:
-                  oneOf:
-                    - type: "null"
-                    - type: string
                 Roles:
                   type: array
                   items:
@@ -91362,10 +91340,6 @@ components:
                     - type: "null"
                     - type: string
                       format: date-time
-                managerId:
-                  oneOf:
-                    - type: "null"
-                    - type: string
                 Roles:
                   type: array
                   items:
@@ -91590,8 +91564,6 @@ components:
               type: string
             attributes:
               type: object
-              required:
-                - userId
               properties:
                 createdAt:
                   type: string
@@ -91599,8 +91571,6 @@ components:
                 updatedAt:
                   type: string
                   format: date-time
-                userId:
-                  type: string
                 pwdHash:
                   oneOf:
                     - type: "null"
@@ -91647,8 +91617,6 @@ components:
                 updatedAt:
                   type: string
                   format: date-time
-                userId:
-                  type: string
                 pwdHash:
                   oneOf:
                     - type: "null"
@@ -92020,7 +91988,6 @@ components:
               required:
                 - orderGroup
                 - name
-                - orgId
               properties:
                 createdAt:
                   type: string
@@ -92052,8 +92019,6 @@ components:
                     - type: "null"
                     - type: string
                       format: date-time
-                orgId:
-                  type: string
             relationships:
               type: object
               properties:
@@ -92122,8 +92087,6 @@ components:
                     - type: "null"
                     - type: string
                       format: date-time
-                orgId:
-                  type: string
             relationships:
               type: object
               properties:
@@ -92310,8 +92273,6 @@ components:
             attributes:
               type: object
               required:
-                - ownerId
-                - orgId
                 - orderTodo
                 - title
               properties:
@@ -92334,10 +92295,6 @@ components:
                       format: date-time
                 isPublic:
                   type: boolean
-                ownerId:
-                  type: string
-                orgId:
-                  type: string
                 orderTodo:
                   type: integer
                 title:
@@ -92348,10 +92305,6 @@ components:
                     - type: string
                 todoState:
                   $ref: "#/components/schemas/TodoState"
-                mainTodoId:
-                  oneOf:
-                    - type: "null"
-                    - type: string
             relationships:
               type: object
               properties:
@@ -92413,10 +92366,6 @@ components:
                       format: date-time
                 isPublic:
                   type: boolean
-                ownerId:
-                  type: string
-                orgId:
-                  type: string
                 orderTodo:
                   type: integer
                 title:
@@ -92427,10 +92376,6 @@ components:
                     - type: string
                 todoState:
                   $ref: "#/components/schemas/TodoState"
-                mainTodoId:
-                  oneOf:
-                    - type: "null"
-                    - type: string
             relationships:
               type: object
               properties:
@@ -92820,8 +92765,6 @@ components:
             attributes:
               type: object
               required:
-                - ownerId
-                - orgId
                 - orderTask
                 - title
               properties:
@@ -92844,10 +92787,6 @@ components:
                       format: date-time
                 isPublic:
                   type: boolean
-                ownerId:
-                  type: string
-                orgId:
-                  type: string
                 orderTask:
                   type: integer
                 title:
@@ -92858,14 +92797,6 @@ components:
                     - type: string
                 taskState:
                   $ref: "#/components/schemas/TaskState"
-                mainTaskId:
-                  oneOf:
-                    - type: "null"
-                    - type: string
-                todoId:
-                  oneOf:
-                    - type: "null"
-                    - type: string
             relationships:
               type: object
               properties:
@@ -92929,10 +92860,6 @@ components:
                       format: date-time
                 isPublic:
                   type: boolean
-                ownerId:
-                  type: string
-                orgId:
-                  type: string
                 orderTask:
                   type: integer
                 title:
@@ -92943,14 +92870,6 @@ components:
                     - type: string
                 taskState:
                   $ref: "#/components/schemas/TaskState"
-                mainTaskId:
-                  oneOf:
-                    - type: "null"
-                    - type: string
-                todoId:
-                  oneOf:
-                    - type: "null"
-                    - type: string
             relationships:
               type: object
               properties:
@@ -93325,8 +93244,6 @@ components:
             attributes:
               type: object
               required:
-                - ownerId
-                - orgId
                 - title
               properties:
                 numSeq:
@@ -93348,10 +93265,6 @@ components:
                       format: date-time
                 isPublic:
                   type: boolean
-                ownerId:
-                  type: string
-                orgId:
-                  type: string
                 orderPost:
                   oneOf:
                     - type: "null"
@@ -93419,10 +93332,6 @@ components:
                       format: date-time
                 isPublic:
                   type: boolean
-                ownerId:
-                  type: string
-                orgId:
-                  type: string
                 orderPost:
                   oneOf:
                     - type: "null"
@@ -93831,8 +93740,6 @@ components:
               type: object
               required:
                 - orderComment
-                - postId
-                - authorId
               properties:
                 numSeq:
                   type: integer
@@ -93865,10 +93772,6 @@ components:
                   oneOf:
                     - type: "null"
                     - type: string
-                postId:
-                  type: string
-                authorId:
-                  type: string
             relationships:
               type: object
               properties:
@@ -93930,10 +93833,6 @@ components:
                   oneOf:
                     - type: "null"
                     - type: string
-                postId:
-                  type: string
-                authorId:
-                  type: string
             relationships:
               type: object
               properties:
@@ -94102,8 +94001,6 @@ components:
             attributes:
               type: object
               required:
-                - ownerId
-                - orgId
                 - name
                 - storageName
               properties:
@@ -94126,10 +94023,6 @@ components:
                       format: date-time
                 isPublic:
                   type: boolean
-                ownerId:
-                  type: string
-                orgId:
-                  type: string
                 name:
                   type: string
                 storageName:
@@ -94202,10 +94095,6 @@ components:
                       format: date-time
                 isPublic:
                   type: boolean
-                ownerId:
-                  type: string
-                orgId:
-                  type: string
                 name:
                   type: string
                 storageName:
@@ -94707,7 +94596,6 @@ components:
               type: object
               required:
                 - caption
-                - user_id
               properties:
                 numSeq:
                   type: integer
@@ -94735,8 +94623,6 @@ components:
                     - type: string
                       format: date-time
                 caption:
-                  type: string
-                user_id:
                   type: string
             relationships:
               type: object
@@ -94792,8 +94678,6 @@ components:
                     - type: string
                       format: date-time
                 caption:
-                  type: string
-                user_id:
                   type: string
             relationships:
               type: object
@@ -95326,7 +95210,6 @@ components:
               required:
                 - useTo
                 - isActiv
-                - emailOrgId
               properties:
                 createdAt:
                   type: string
@@ -95349,8 +95232,6 @@ components:
                   type: string
                 isActiv:
                   type: boolean
-                emailOrgId:
-                  type: integer
             relationships:
               type: object
               properties:
@@ -95400,8 +95281,6 @@ components:
                   type: string
                 isActiv:
                   type: boolean
-                emailOrgId:
-                  type: integer
             relationships:
               type: object
               properties:
@@ -95911,7 +95790,6 @@ components:
               required:
                 - key
                 - uuid
-                - userId
               properties:
                 createdAt:
                   type: string
@@ -95933,8 +95811,6 @@ components:
                 key:
                   type: string
                 uuid:
-                  type: string
-                userId:
                   type: string
             relationships:
               type: object
@@ -95986,8 +95862,6 @@ components:
                 key:
                   type: string
                 uuid:
-                  type: string
-                userId:
                   type: string
             relationships:
               type: object
@@ -96337,7 +96211,6 @@ components:
               required:
                 - type
                 - expiration
-                - userId
               properties:
                 createdAt:
                   type: string
@@ -96371,8 +96244,6 @@ components:
                 expiration:
                   type: string
                   format: date-time
-                userId:
-                  type: string
             relationships:
               type: object
               properties:
@@ -96433,8 +96304,6 @@ components:
                 expiration:
                   type: string
                   format: date-time
-                userId:
-                  type: string
             relationships:
               type: object
               properties:
@@ -96579,7 +96448,6 @@ components:
             attributes:
               type: object
               required:
-                - modifiedById
                 - modelName
                 - recordId
                 - operation
@@ -96606,8 +96474,6 @@ components:
                 doneAt:
                   type: string
                   format: date-time
-                modifiedById:
-                  type: string
                 modelName:
                   type: string
                 recordId:
@@ -96664,8 +96530,6 @@ components:
                 doneAt:
                   type: string
                   format: date-time
-                modifiedById:
-                  type: string
                 modelName:
                   type: string
                 recordId:
