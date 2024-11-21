@@ -14,7 +14,7 @@ if (!process.env.NEST_SERVER_HOST || !process.env.NEST_SERVER_PORT || !process.e
   process.exit(-1);
 }
 
-const proxyconfPath = 'proxy.conf.json';
+const proxyconfPath = 'proxy.config.json';
 
 // we have access to our proxy variables
 // in the process.env object thanks to dotenv

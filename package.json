@@ -128,7 +128,7 @@
     "tslib": "^2.8.1",
     "typescript-nestjs-swagger-plugin": "^2.0.0",
     "uuid": "^11.0.3",
-    "zone.js": "~0.14.10"
+    "zone.js": "~0.15.0"
   },
   "devDependencies": {
     "@angular-devkit/architect": "^0.1900.0",
@@ -221,7 +221,7 @@
     "run-script-webpack-plugin": "^0.2.0",
     "ts-jest": "^29.2.5",
     "ts-node": "~10.9.2",
-    "typescript": "5.5.4",
+    "typescript": "5.6.3",
     "typescript-eslint": "^8.15.0",
     "typesync": "^0.13.4",
     "webpack": "^5.96.1",
@@ -231,6 +231,5 @@
   },
   "prisma": {
     "seed": "ts-node zmodel/prisma/seed.ts"
-  },
-  "nx": {}
+  }
 }
