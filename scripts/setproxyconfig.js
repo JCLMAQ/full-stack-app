@@ -31,8 +31,8 @@ const proxyFileContent = `
 `;
 // write the content to the respective file
 writeFile(proxyconfPath, proxyFileContent, function (err) {
-    if (err) {
-      console.log(err);
-    }
-    console.log(`Wrote variables to ${proxyconfPath}`);
+  if (err) {
+    console.log(err);
+  }
+  console.log(`Wrote variables to ${proxyconfPath}`);
 });

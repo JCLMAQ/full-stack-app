@@ -2,6 +2,7 @@
   "name": "@fe/source",
   "version": "0.0.0",
   "license": "MIT",
+  "type":"commonjs",
   "scripts": {
     "db:docker:up": "docker compose -f './db/docker-compose.yml' --env-file ./.env up -d --build",
     "db:docker:down": "docker compose -f './db/docker-compose.yml' --env-file ./.env down",
@@ -39,8 +40,8 @@
     "prisma:generate:watch": "pnpm exec prisma generate --schema=./zmodel/prisma/schema.prisma --watch",
     "prisma-migrate": "dotenv -e ../.env -- pnpm exec prisma migrate dev --schema=./zmodel/prisma/schema.prisma",
     "circular-dependency": "pnpm madge --circular apps/backend/src/main.ts",
-    "configangular": "dotenv -e ../.env ts-node ./scripts/setenv.ts",
-    "configproxy": "dotenv -e ../.env ts-node ./scripts/setproxyconfig.ts",
+    "configangular": "dotenv -e ../.env ts-node ./scripts/setenv.js",
+    "configproxy": "dotenv -e ../.env ts-node ./scripts/setproxyconfig.js",
     "configangular-docker": "dotenv -e ../.env-docker ts-node ./scripts/setenv.ts",
     "configproxy-docker": "dotenv -e ../.env-docker ts-node ./scripts/setproxyconfig.ts",
     "ng": "pnpm nx",
