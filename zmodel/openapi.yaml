@@ -92520,12 +92520,9 @@ components:
           type: object
           description: The "UserTodoLink" model
           required:
-            - id
             - type
             - attributes
           properties:
-            id:
-              type: string
             type:
               type: string
             attributes:
@@ -93016,12 +93013,9 @@ components:
           type: object
           description: The "UserTaskLink" model
           required:
-            - id
             - type
             - attributes
           properties:
-            id:
-              type: string
             type:
               type: string
             attributes:
@@ -94233,12 +94227,9 @@ components:
           type: object
           description: The "UserFollower" model
           required:
-            - id
             - type
             - attributes
           properties:
-            id:
-              type: string
             type:
               type: string
             attributes:
@@ -94399,12 +94390,9 @@ components:
           type: object
           description: The "PostLike" model
           required:
-            - id
             - type
             - attributes
           properties:
-            id:
-              type: string
             type:
               type: string
             attributes:
