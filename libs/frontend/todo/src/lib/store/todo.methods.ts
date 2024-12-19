@@ -34,7 +34,7 @@ export function withTodosMethods() {
         if (!store.todoLoaded()) {
           patchState(store, setLoading('todo'));
           const items = await todoService.load();
-          patchState(store, { items },setLoaded('todo'));
+          patchState(store, { items, todoLoaded: true }, setLoaded('todo'));
           patchState(store, setAllEntities( items, todoConfig));
         }
       },
@@ -115,7 +115,7 @@ export function withTodosMethods() {
 
     })),
     withUndoRedo({
-      collections: ['todo'],
+      collections: ['todo'] as unknown as never[],
     }),
   )
 }

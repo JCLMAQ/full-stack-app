@@ -17,7 +17,9 @@ export interface TodoStateInterface {
   selectedId: string | null,
   selectedIds: string[],
   selection: SelectionModel<TodoInterface>,
-}
+  todoLoaded: boolean;
+};
+
 
 export const initialTodoState: TodoStateInterface = {
   items: [],
@@ -28,6 +30,7 @@ export const initialTodoState: TodoStateInterface = {
   selectedId: null,
   selectedIds: [],
   selection: new SelectionModel<TodoInterface>(true, []),
+  todoLoaded: false
 };
 
 // Base on: https://offering.solutions/blog/articles/2023/12/03/ngrx-signal-store-getting-started/
