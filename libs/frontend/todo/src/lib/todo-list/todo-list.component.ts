@@ -85,8 +85,8 @@ ngAfterViewInit(): void {
  /** Selects all rows if they are not all selected; otherwise clear selection. */
   masterToggle() {
       this.isAllSelected() ?
-      this.todoStore.selection().clear() :
-      this.dataSource.data.forEach(row => this.todoStore.selection().select(row));
+         this.todoStore.selection().clear() :
+         this.dataSource.data.forEach(row => this.todoStore.selection().select(row));
       // Update
       this.dataSource.data.forEach(row => this.todoStore.toggleSelected(row.id));
 }

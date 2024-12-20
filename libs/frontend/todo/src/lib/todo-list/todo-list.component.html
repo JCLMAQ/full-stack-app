@@ -64,21 +64,21 @@
             }
           </button>
 
-            <button mat-icon-button aria-label="expand row" (click)="todoStore.selection().toggle(element)"
+            <button mat-icon-button  (click)="todoStore.selection().toggle(element)"
                                                             (click)="todoStore.toggleSelected(element.id)"
                                                             (click)="navigateButton(element.id, 'update')">
               <mat-icon>edit</mat-icon>
             </button>
-              <button mat-icon-button aria-label="expand row"
+              <button mat-icon-button
 
                                                               (click)="navigateButton(element.id, 'view')">
               <mat-icon>remove_red_eye</mat-icon>
             </button>
-            <button mat-icon-button  aria-label="expand row" (click)="virtualRemove(element.id)">
+            <button mat-icon-button   (click)="virtualRemove(element.id)">
               <mat-icon>delete</mat-icon>
             </button>
             @if (owner) {
-              <button mat-icon-button aria-label="expand row" [disabled]=owner (click)="virtualRemove(element)">
+              <button mat-icon-button  [disabled]=owner (click)="virtualRemove(element)">
                 <mat-icon>delete</mat-icon>
               </button>
             }
