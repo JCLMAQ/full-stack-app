@@ -44,14 +44,10 @@ export class RegisterComponent implements OnInit {
     gender: '',
     role: '',
     title: '',
+    language: ''
   };
 
   /** Inserted by Angular inject() migration for backwards compatibility */
-  constructor(...args: unknown[]);
-
-  constructor(  // private alertService: AlertService,
-  ) {}
-
   ngOnInit() {
     const formOptions: AbstractControlOptions = {
       validators: MustMatch('password', 'confirmPassword'),
@@ -81,39 +77,44 @@ export class RegisterComponent implements OnInit {
         gender: [''],
         role: [''],
         title: [''],
-        acceptTerms: [false, Validators.requiredTrue],
+        language: ['fr'],
+        // acceptTerms: [false, Validators.requiredTrue],
+        acceptTerms: [false],
       },
       formOptions,
     );
   }
 
-  get email() {
-    return this.registerForm.controls['email'];
-  }
-  get password() {
-    return this.registerForm.controls['password'];
-  }
-  get confirmPassword() {
-    return this.registerForm.controls['confirmPassword'];
-  }
-  get lastName() {
-    return this.registerForm.controls['lastName'];
-  }
-  get firstName() {
-    return this.registerForm.controls['firstName'];
-  }
-  get title() {
-    return this.registerForm.controls['title'];
-  }
-  get role() {
-    return this.registerForm.controls['role'];
-  }
-  get gender() {
-    return this.registerForm.controls['gender'];
-  }
-  get acceptTerms() {
-    return this.registerForm.controls['acceptTerms'];
-  }
+  // get email() {
+  //   return this.registerForm.controls['email'];
+  // }
+  // get password() {
+  //   return this.registerForm.controls['password'];
+  // }
+  // get confirmPassword() {
+  //   return this.registerForm.controls['confirmPassword'];
+  // }
+  // get lastName() {
+  //   return this.registerForm.controls['lastName'];
+  // }
+  // get firstName() {
+  //   return this.registerForm.controls['firstName'];
+  // }
+  // get title() {
+  //   return this.registerForm.controls['title'];
+  // }
+  // get role() {
+  //   return this.registerForm.controls['role'];
+  // }
+  // get gender() {
+  //   return this.registerForm.controls['gender'];
+  // }
+  // get language() {
+  //   return this.registerForm.controls['language'];
+  // }
+  // get acceptTerms() {
+  //   return this.registerForm.controls['acceptTerms'];
+  // }
 
   // convenience getter for easy access to form fields
   get formField() {

@@ -51,11 +51,13 @@ async function bootstrap() {
       }).use,
   );
 
-    // const configService = app.get(ConfigService);
-  // const port: number = configService.get('NEST_SERVER_PORT');
+  //   const configService = app.get(ConfigService);
+  // const port1: number = configService.get('NEST_SERVER_PORT');
 
-  const port = process.env.NEST_SERVER_PORT || 3333;
-
+  // const port = port1 || 3333;
+  // const port = process.env.NEST_SERVER_PORT || 3333;
+  const port = 3200;
+console.log('port:', port);
   // Swagger config
   const config = new DocumentBuilder()
   .setTitle(process.env.SET_APP_TITLE)

@@ -8,6 +8,7 @@ export interface IUserRegister {
   title?: string;
   gender?: string;
   role?: string;
+  language?: string;
 }
 
 export interface ICurrentUser {

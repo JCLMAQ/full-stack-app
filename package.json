@@ -9,7 +9,7 @@
     "start:zenstack-prisma": "pnpm run zenstack:generate && pnpm run prisma:generate && pnpm run prisma-migrate",
     "start:backend:dev": "pnpm run configproxy && nx serve backend --watch",
     "start:dev": "nest build --webpack --webpackPath webpack-hmr.config.js --watch",
-    "start:frontend:dev": "pnpm run configangular -- --environment=dev && nx serve frontend --proxy-config ./proxy.conf.json --host 127.0.0.1 --port 4000",
+    "start:frontend:dev": "pnpm run configangular -- --environment=dev && nx serve frontend --proxy-config ./proxy.config.json --host 127.0.0.1 --port 4200",
     "start:frontend:script": "dotenv -e ../.env ts-node ./scripts/run-env.js",
     "prisma:studio": "dotenv -e ../.env -- pnpm exec prisma studio --schema=./zmodel/prisma/schema.prisma",
     "seed-param": "dotenv -e ../.env npx tsx zmodel/prisma/seed-param.ts",

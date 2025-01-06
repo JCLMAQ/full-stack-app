@@ -19,22 +19,22 @@ async function main() {
       },
       {
         name: 'APP_EMAIL_LIMIT_DOMAIN',
-        value: '1',
+        value: '0',
         utility: 'Email domain limitation (domains listed in the DB)'
       },
       {
         name: 'ORG_LIMIT_DOMAIN',
-        value: '1',
+        value: '0',
         utility: 'Email domain limitation for the Organization (domains listed in the DB)'
       },
       {
         name: 'ORG_LIMIT_EXTENSION',
-        value: '1',
+        value: '0',
         utility: 'Email domain extension limitation (extensions listed in the DB)'
       },
       {
         name: 'ACCOUNT_VALIDATION_EMAIL',
-        value: '1',
+        value: '0',
         utility: 'Email addresse verification with new register or account change email.'
       },
       {

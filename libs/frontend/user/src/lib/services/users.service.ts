@@ -19,12 +19,6 @@ export class UsersService {
 
   private baseUrl = 'api/users';
 
-  /** Inserted by Angular inject() migration for backwards compatibility */
-  constructor(...args: unknown[]); // URL to web api
-
-  constructor()
-    { }
-
 	private handleError(error: HttpErrorResponse) {
 		if (error.error instanceof ErrorEvent) {
 			// A client-side or network error occured. Handle it accordingly

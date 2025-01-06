@@ -60,9 +60,9 @@
             autocomplete="of"
             formControlName="confirmPassword"
           />
-          @if (confirmPassword.errors?.['required']) {
-            <mat-error>Confirmation of password is mandatory.</mat-error>
-          }
+          <mat-error *ngIf="registerForm.get('confirmPassword').errors?.['required']">
+            Confirmation of password is mandatory.
+          </mat-error>
           <button
             mat-icon-button
             matSuffix
