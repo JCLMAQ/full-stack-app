@@ -1,17 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, resource } from '@angular/core';
-import { MatTableModule } from '@angular/material/table';
-import { TasksService } from '@be/tasks';
-import { MATERIAL } from '@fe/material';
 import { Task } from '@prisma/client';
+import { TasksService } from '../services/tasks.service';
+
 
 @Component({
   selector: 'full-stack-app-task',
   standalone: true,
   imports: [
     CommonModule,
-    MatTableModule,
-    ...MATERIAL
+
+
   ],
   templateUrl: './task.component.html',
   styleUrl: './task.component.css',
