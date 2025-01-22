@@ -14,7 +14,7 @@
         "index": "apps/frontend/src/index.html",
         "main": "apps/frontend/src/main.ts",
       "polyfills": [
-          "zone.js",
+
           "@angular/localize/init"
         ],
         "tsConfig": "apps/frontend/tsconfig.app.json",

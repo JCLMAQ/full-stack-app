@@ -14,7 +14,22 @@ const httpOptions = {
 })
 export class TasksService {
   private readonly http = inject(HttpClient);
-  private baseUrl = 'api/tasks';
+  private baseUrl = 'api';
+
+  async getAllTasks() {
+
+    const response = await fetch(`${this.baseUrl}/alltasks`, {
+      method: 'get',
+      headers: {
+        "Content-Type": "application/json",
+    }});
+
+    if (!response.ok) throw new Error("Unable to load tasks!");
+    const tasks = await response.json();
+
+    return tasks;
+
+  }
 
 
 
