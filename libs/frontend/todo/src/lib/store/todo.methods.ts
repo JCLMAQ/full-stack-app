@@ -33,7 +33,8 @@ export function withTodosMethods() {
       async load() {
         if (!store.todoLoaded()) {
           patchState(store, setLoading('todo'));
-          const items = await todoService.load();
+          const items = await todoService.getItems();
+          // const items = await todoService.load();
           patchState(store, { items, todoLoaded: true }, setLoaded('todo'));
           patchState(store, setAllEntities( items, todoConfig));
         }

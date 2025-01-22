@@ -94,7 +94,7 @@ export class TodoService {
 
   getItems(): Promise<TodoInterface[]>{
     const todos = lastValueFrom(this.http
-      .get<TodoInterface[]>(`${this.baseUrl}/todos`, httpOptions)
+      .get<TodoInterface[]>(`${this.baseUrl}/alltodos`, httpOptions)
       .pipe(
         catchError(this.handleError)));
         console.log("GetItems for Todos: ", todos)
