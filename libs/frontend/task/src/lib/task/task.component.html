@@ -1,13 +1,18 @@
 <p>task works!</p>
 
-@if (isLoading$ | async) {
-  <div>Loading...</div>
-}
-@if (error$ | async; as error ) {
-  <div>{{ error }}</div>
-}
-<!-- <div *ngfor="let task of tasks$ | async">{{ task.title }}</div> -->
-@for (task of tasks$ | async; track task) {
-  <div>{{ task.title }}</div>
-}
+<ul>
+  @let error = tasks.error();
+  @if (error) {
+    <p>{{ error }}</p>
+  }
 
+  @if (tasks.isLoading()) {
+    <p>Loading Tasks...</p>
+  }
+
+@for (task of tasks.value(); track task.id) {
+  <li>{{task.title }} {{ task.id }}</li>
+}  @empty {
+  <p>No Tasks!</p>
+}
+</ul>

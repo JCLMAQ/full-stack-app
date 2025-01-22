@@ -1,11 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, inject, resource } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { MATERIAL } from '@fe/material';
-import { Store, select } from '@ngrx/store';
-import { delay } from 'rxjs';
-import * as TasksActions from '../+state/tasks.actions';
-import { tasksFeature } from '../+state/tasks.state';
+import { Task } from '@prisma/client';
 
 @Component({
   selector: 'full-stack-app-task',
@@ -18,23 +16,23 @@ import { tasksFeature } from '../+state/tasks.state';
   templateUrl: './task.component.html',
   styleUrl: './task.component.css',
 })
-export class TaskComponent implements OnInit{//
+export class TaskComponent {
+  private readonly http = inject(HttpClient);
 
-  displayedColumns: string[] = ['a', 'b', 'c'];
-
-  private readonly store = inject(Store);
-
-  readonly tasks$ = this.store.select(tasksFeature.selectAll);
-  readonly istaskSelected$ = this.store.select(tasksFeature.selectIsTaskSelected);
-  readonly selectedtask$ = this.store.select(tasksFeature.selectSelectedTask);
-  readonly loaded$ = this.store.select(tasksFeature.selectLoaded)
-  readonly isLoading$ = this.store.pipe(delay(1500),select(tasksFeature.selectIsLoading) );
-  readonly error$ = this.store.pipe(select(tasksFeature.selectError));
-
-  ngOnInit(): void {
-    this.store.dispatch(TasksActions.tasksPageActions.load()) ;
-  }
+  private baseUrl = 'api/';
 
 
+tasks = resource<Task[], string>({
+ loader: async () => {
+  const response = await fetch(`${this.baseUrl}/alltasks`, {
+    method: 'get',
+    headers: {
+      "Content-Type": "application/json",
+  }});
 
+  if (!response.ok) throw new Error("Unable to load tasks!");
+  const tasks = await response.json();
+  return tasks;
+},
+ });
 }
