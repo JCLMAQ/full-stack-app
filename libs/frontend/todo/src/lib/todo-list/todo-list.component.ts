@@ -58,6 +58,7 @@ constructor() {
     this.fetchData();
     // const state = getState(this.todoStore);
   });
+
   this.todoStore.initSelectedID();
 }
 

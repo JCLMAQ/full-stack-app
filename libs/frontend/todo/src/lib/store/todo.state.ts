@@ -50,8 +50,8 @@ export const TodoStore = signalStore(
     withHooks({
       onInit:
         (store) => {
-          store.load(),
-          store.initSelectedID()
+          store.load();
+          store.initSelectedID();
         },
       onDestroy() {
         console.log('on destroy');
