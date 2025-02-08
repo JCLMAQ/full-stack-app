@@ -21,7 +21,7 @@ export function withNavigationMethods() {
         initNavButton(initialTodoId: string) {
           let currentPosition = 0;
           let lastPosition = 0;
-          if(store.selection().selected.length <= 1 ) { // no selected items
+          if(store.selection.isEmpty() ) { // no selected items
             currentPosition = store.items().findIndex(p => p.id === initialTodoId);
             if ( currentPosition === -1) {
               currentPosition = 0;

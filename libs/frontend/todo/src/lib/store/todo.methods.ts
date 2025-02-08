@@ -18,7 +18,8 @@ import { TodoStateInterface } from './todo.state';
 
 const todoConfig = entityConfig({
   entity: type<TodoInterface>(),
-  collection: 'todo'
+  collection: 'todo',
+  selectId: (todo: TodoInterface) => todo.id
 });
 
 export function withTodosMethods() {
