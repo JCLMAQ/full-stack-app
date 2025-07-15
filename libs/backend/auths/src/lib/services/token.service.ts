@@ -4,8 +4,8 @@ import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { Token, TokenType } from '@prisma/client';
 import { PrismaService } from '@prisma/prisma';
-// import * as MilliSecond from 'ms';
-import MilliSecond = require("ms");
+import ms from 'ms';
+// import MilliSecond = require("ms");
 
 
 @Injectable()
@@ -61,7 +61,7 @@ async emailTokenExpiration(usageType: string): Promise<Date> {
     }
   }
   const tokenExpirationTime = await this.dbConfigService.searchConfigParam( expirationTime );
-  const milliSecondToAdd = MilliSecond(tokenExpirationTime as MilliSecond.StringValue);
+  const milliSecondToAdd = ms(tokenExpirationTime as string);
   const currentDate = new Date();
   const tokenExpirationDate = new Date(currentDate.getTime()+ milliSecondToAdd);
   return tokenExpirationDate
@@ -83,7 +83,7 @@ async generateAuthToken(userEmail: string, userId: string, role: string): Promis
 async jwtTokenExpiration() {
   const delayToAdd = await this.dbConfigService.searchConfigParam( "JWT_VALIDITY_DURATION" );
   // const delayToAdd = this.configService.get<string>("JWT_VALIDITY_DURATION")
-  const milliSecondToAdd = MilliSecond(delayToAdd as unknown as MilliSecond.StringValue);
+  const milliSecondToAdd = ms(delayToAdd as unknown as string);
   const currentDate = new Date();
   const jwtTokenExpirationDate =  new Date(currentDate.getTime()+ milliSecondToAdd);
   return jwtTokenExpirationDate
@@ -174,7 +174,7 @@ async mgtToken(userId: string, tokenType: TokenType, emailToken: string, logout:
       const tokenEmailId = tokenEmailExist.id;
       // const delayMilliSecond =
       const delayValue = await this.dbConfigService.searchConfigParam( "EMAIL_TOKEN_EXPIRATION" )
-      const delayMilliSecond = (MilliSecond(delayValue as MilliSecond.StringValue))*2;
+      const delayMilliSecond = (ms(delayValue as string))*2;
       const newExpirationDate = await this.timeUtilitiesService.dateLessDelay(tokenEmailExist.expiration, delayMilliSecond)
       // Update a longlived token record
       await this.prismaService.token.update({
