@@ -1,9 +1,14 @@
-const { writeFile } = require('fs');
-const { argv } = require('yargs');
+// const { writeFile } = require('fs');
+import { writeFile } from 'fs';
+// const { argv } = require('yargs');
 // read environment variables from .env file
-require('dotenv').config();
+// require('dotenv').config();
+import dotenv from 'dotenv';
+const config = dotenv.config()
 // read the command line arguments passed with yargs
-const environment = argv.environment;
+// const argv = yargs.environemnt;
+
+const environment = process.env.NODE_ENV || 'dev';
 const isProduction = environment === 'prod';
 
 if ( !process.env.API_FRONTEND || !process.env.API_FRONTEND_PORT || !process.env.API_BACKEND || !process.env.API_BACKEND_PORT || !process.env.API_SECRET || !process.env.AUTO_REGISTRATION_ENABLE || !process.env.REGISTRATION_VALIDATION || !process.env.PWDLESS_LOGIN_ENABLE || !process.env.DEFAULT_LANGUAGE || !process.env.SUPPORTED_LANGUAGE) {
@@ -12,8 +17,8 @@ if ( !process.env.API_FRONTEND || !process.env.API_FRONTEND_PORT || !process.env
 }
 
 const targetPath = isProduction
-    ? `./apps/frontend/src/environments/environment.prod.ts`
-    : `./apps/frontend/src/environments/environment.ts`;
+    ? `./apps/frontend/jcm-app/environments/environment.prod.ts`
+    : `./apps/frontend/jcm-app/environments/environment.ts`;
 // we have access to our environment variables
 // in the process.env object thanks to dotenv
 const environmentFileContent = `
@@ -31,7 +36,7 @@ const environmentFileContent = `
         supportedLanguages: ${process.env.SUPPORTED_LANGUAGE}
     };`;
 // write the content to the respective file
-writeFile(targetPath, environmentFileContent, function (err) {
+writeFile(targetPath, environmentFileContent, function (err: any) {
     if (err) {
       console.log(err);
     }

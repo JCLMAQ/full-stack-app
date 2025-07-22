@@ -414,7 +414,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[emailITAdmin]
           required: false
           description: Equality filter for "emailITAdmin"
@@ -1128,7 +1130,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[emailITAdmin]
           required: false
           description: Equality filter for "emailITAdmin"
@@ -1694,7 +1698,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[emailITAdmin]
           required: false
           description: Equality filter for "emailITAdmin"
@@ -2354,7 +2360,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[emailITAdmin]
           required: false
           description: Equality filter for "emailITAdmin"
@@ -2920,7 +2928,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[emailITAdmin]
           required: false
           description: Equality filter for "emailITAdmin"
@@ -3697,7 +3707,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[emailITAdmin]
           required: false
           description: Equality filter for "emailITAdmin"
@@ -4263,7 +4275,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[emailITAdmin]
           required: false
           description: Equality filter for "emailITAdmin"
@@ -4923,7 +4937,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[emailITAdmin]
           required: false
           description: Equality filter for "emailITAdmin"
@@ -5489,7 +5505,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[emailITAdmin]
           required: false
           description: Equality filter for "emailITAdmin"
@@ -6149,7 +6167,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[emailITAdmin]
           required: false
           description: Equality filter for "emailITAdmin"
@@ -6715,7 +6735,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[emailITAdmin]
           required: false
           description: Equality filter for "emailITAdmin"
@@ -7375,7 +7397,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[emailITAdmin]
           required: false
           description: Equality filter for "emailITAdmin"
@@ -7941,7 +7965,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[emailITAdmin]
           required: false
           description: Equality filter for "emailITAdmin"
@@ -8601,7 +8627,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[emailITAdmin]
           required: false
           description: Equality filter for "emailITAdmin"
@@ -9167,7 +9195,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[emailITAdmin]
           required: false
           description: Equality filter for "emailITAdmin"
@@ -9827,7 +9857,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[emailITAdmin]
           required: false
           description: Equality filter for "emailITAdmin"
@@ -10393,7 +10425,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[emailITAdmin]
           required: false
           description: Equality filter for "emailITAdmin"
@@ -11053,7 +11087,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[emailITAdmin]
           required: false
           description: Equality filter for "emailITAdmin"
@@ -11619,7 +11655,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[emailITAdmin]
           required: false
           description: Equality filter for "emailITAdmin"
@@ -14374,7 +14412,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -14434,7 +14474,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -15549,7 +15591,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -15609,7 +15653,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -16575,7 +16621,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -16635,7 +16683,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -17812,7 +17862,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -17872,7 +17924,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -18838,7 +18892,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -18898,7 +18954,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -19958,7 +20016,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -20018,7 +20078,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -20984,7 +21046,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -21044,7 +21108,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -22104,7 +22170,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -22164,7 +22232,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -23130,7 +23200,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -23190,7 +23262,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -24250,7 +24324,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -24310,7 +24386,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -25276,7 +25354,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -25336,7 +25416,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -26396,7 +26478,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -26456,7 +26540,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -27422,7 +27508,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -27482,7 +27570,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -28542,7 +28632,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -28602,7 +28694,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -29568,7 +29662,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -29628,7 +29724,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -30688,7 +30786,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -30748,7 +30848,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -31714,7 +31816,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -31774,7 +31878,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -32834,7 +32940,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -32894,7 +33002,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -33860,7 +33970,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -33920,7 +34032,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -34980,7 +35094,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -35040,7 +35156,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -36006,7 +36124,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -36066,7 +36186,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -37126,7 +37248,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -37186,7 +37310,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -38152,7 +38278,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -38212,7 +38340,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -39272,7 +39402,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -39332,7 +39464,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -40298,7 +40432,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -40358,7 +40494,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -41418,7 +41556,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -41478,7 +41618,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -42444,7 +42586,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -42504,7 +42648,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -43564,7 +43710,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -43624,7 +43772,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -44590,7 +44740,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -44650,7 +44802,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -45710,7 +45864,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -45770,7 +45926,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -46736,7 +46894,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -46796,7 +46956,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -47973,7 +48135,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -48033,7 +48197,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -48999,7 +49165,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -49059,7 +49227,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -50119,7 +50289,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -50179,7 +50351,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -51145,7 +51319,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -51205,7 +51381,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -52265,7 +52443,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -52325,7 +52505,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -53291,7 +53473,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[Language]
           required: false
           description: Equality filter for "Language"
@@ -53351,7 +53535,9 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[isValidated]
           required: false
           description: Equality filter for "isValidated"
@@ -89022,14 +89208,18 @@ paths:
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
         - name: filter[oldData]
           required: false
           description: Equality filter for "oldData"
           in: query
           style: form
           explode: false
-          schema: {}
+          schema:
+            type: string
+            format: json
       responses:
         "200":
           description: Successful operation
@@ -90470,7 +90660,7 @@ components:
         - attributes
       properties:
         id:
-          type: string
+          type: integer
         type:
           type: string
         attributes:
@@ -90589,7 +90779,7 @@ components:
             - attributes
           properties:
             id:
-              type: string
+              type: integer
             type:
               type: string
             attributes:
@@ -90695,7 +90885,7 @@ components:
         - attributes
       properties:
         id:
-          type: string
+          type: integer
         type:
           type: string
         attributes:
@@ -90807,7 +90997,7 @@ components:
             - attributes
           properties:
             id:
-              type: string
+              type: integer
             type:
               type: string
             attributes:
@@ -91509,7 +91699,7 @@ components:
         - attributes
       properties:
         id:
-          type: string
+          type: integer
         type:
           type: string
         attributes:
@@ -91605,7 +91795,7 @@ components:
             - attributes
           properties:
             id:
-              type: string
+              type: integer
             type:
               type: string
             attributes:
@@ -91700,7 +91890,7 @@ components:
         - attributes
       properties:
         id:
-          type: string
+          type: integer
         type:
           type: string
         attributes:
@@ -91805,7 +91995,7 @@ components:
             - attributes
           properties:
             id:
-              type: string
+              type: integer
             type:
               type: string
             attributes:
@@ -91903,7 +92093,7 @@ components:
         - attributes
       properties:
         id:
-          type: string
+          type: integer
         type:
           type: string
         attributes:
@@ -92051,7 +92241,7 @@ components:
             - attributes
           properties:
             id:
-              type: string
+              type: integer
             type:
               type: string
             attributes:
@@ -94738,7 +94928,7 @@ components:
         - attributes
       properties:
         id:
-          type: string
+          type: integer
         type:
           type: string
         attributes:
@@ -94845,7 +95035,7 @@ components:
             - attributes
           properties:
             id:
-              type: string
+              type: integer
             type:
               type: string
             attributes:
@@ -94940,7 +95130,7 @@ components:
         - attributes
       properties:
         id:
-          type: string
+          type: integer
         type:
           type: string
         attributes:
@@ -95041,7 +95231,7 @@ components:
             - attributes
           properties:
             id:
-              type: string
+              type: integer
             type:
               type: string
             attributes:
@@ -95134,7 +95324,7 @@ components:
         - attributes
       properties:
         id:
-          type: string
+          type: integer
         type:
           type: string
         attributes:
@@ -95242,7 +95432,7 @@ components:
             - attributes
           properties:
             id:
-              type: string
+              type: integer
             type:
               type: string
             attributes:
@@ -95340,7 +95530,7 @@ components:
         - attributes
       properties:
         id:
-          type: string
+          type: integer
         type:
           type: string
         attributes:
@@ -95435,7 +95625,7 @@ components:
             - attributes
           properties:
             id:
-              type: string
+              type: integer
             type:
               type: string
             attributes:
@@ -95526,7 +95716,7 @@ components:
         - attributes
       properties:
         id:
-          type: string
+          type: integer
         type:
           type: string
         attributes:
@@ -95621,7 +95811,7 @@ components:
             - attributes
           properties:
             id:
-              type: string
+              type: integer
             type:
               type: string
             attributes:
@@ -95712,7 +95902,7 @@ components:
         - attributes
       properties:
         id:
-          type: string
+          type: integer
         type:
           type: string
         attributes:
@@ -95824,7 +96014,7 @@ components:
             - attributes
           properties:
             id:
-              type: string
+              type: integer
             type:
               type: string
             attributes:
@@ -95926,7 +96116,7 @@ components:
         - attributes
       properties:
         id:
-          type: string
+          type: integer
         type:
           type: string
         attributes:
@@ -96025,7 +96215,7 @@ components:
             - attributes
           properties:
             id:
-              type: string
+              type: integer
             type:
               type: string
             attributes:
@@ -96121,7 +96311,7 @@ components:
         - attributes
       properties:
         id:
-          type: string
+          type: integer
         type:
           type: string
         attributes:
@@ -96254,7 +96444,7 @@ components:
             - attributes
           properties:
             id:
-              type: string
+              type: integer
             type:
               type: string
             attributes:
@@ -96363,7 +96553,7 @@ components:
         - attributes
       properties:
         id:
-          type: string
+          type: integer
         type:
           type: string
         attributes:
@@ -96492,7 +96682,7 @@ components:
             - attributes
           properties:
             id:
-              type: string
+              type: integer
             type:
               type: string
             attributes:
