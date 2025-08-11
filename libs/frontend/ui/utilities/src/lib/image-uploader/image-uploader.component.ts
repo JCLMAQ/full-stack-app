@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { ChangeDetectionStrategy, Component, ElementRef, signal, inject, viewChild } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -11,10 +11,9 @@ import { TranslateModule } from '@ngx-translate/core';
   selector: 'full-stack-app-image-uploader',
   standalone: true,
   imports: [
-    CommonModule,
     MatIcon,
     TranslateModule
-  ],
+],
   // providers: [
   //   I18nService,
   //   TranslateService

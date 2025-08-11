@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, inject, resource } from '@angular/core';
 import { Task } from '@prisma/client';
 import { TasksService } from '../services/tasks.service';
@@ -7,11 +7,7 @@ import { TasksService } from '../services/tasks.service';
 @Component({
   selector: 'full-stack-app-task',
   standalone: true,
-  imports: [
-    CommonModule,
-
-
-  ],
+  imports: [],
   templateUrl: './task.component.html',
   styleUrl: './task.component.css',
 })

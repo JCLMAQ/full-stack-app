@@ -13,10 +13,7 @@
         "outputPath": "dist/apps/frontend",
         "index": "apps/frontend/src/index.html",
         "main": "apps/frontend/src/main.ts",
-      "polyfills": [
-
-          "@angular/localize/init"
-        ],
+        "polyfills": ["@angular/localize/init"],
         "tsConfig": "apps/frontend/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": ["apps/frontend/src/favicon.ico", "apps/frontend/src/assets"],
@@ -26,7 +23,7 @@
             "bundleName": "dark-theme",
             "inject": false,
             "input": "apps/frontend/src/styles/themes/dark.scss"
-        }
+          }
         ],
         "scripts": []
       },
@@ -71,7 +68,8 @@
       "options": {
         "proxyConfig": "apps/frontend/proxy.conf.json",
         "port": 4300
-      }
+      },
+      "continuous": true
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",

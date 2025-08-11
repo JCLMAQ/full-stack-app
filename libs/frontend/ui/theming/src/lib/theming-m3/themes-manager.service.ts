@@ -1,6 +1,6 @@
 
-import { DOCUMENT } from '@angular/common';
-import { Injectable, inject, signal } from '@angular/core';
+
+import { Injectable, inject, signal, DOCUMENT } from '@angular/core';
 import { BrowserStorageService } from '@fe/utilities';
 
 const LOCAL_STORAGE_KEY = 'theming-app';

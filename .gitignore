@@ -85,3 +85,5 @@ proxy.conf.json
 
 # ZenStack
 .zenstack_repl_history
+.cursor/rules/nx-rules.mdc
+.github/instructions/nx.instructions.md
