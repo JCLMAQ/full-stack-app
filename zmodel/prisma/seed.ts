@@ -1,4 +1,4 @@
-// import { PrismaClient } from '@prisma/client';
+// import { PrismaClient } from '@prisma/prisma-client-new';
 import { createAppEmailDomain } from '../factories-bis/appemaildomain';
 import { createCategories } from '../factories-bis/category';
 import { createComment } from '../factories-bis/comment';

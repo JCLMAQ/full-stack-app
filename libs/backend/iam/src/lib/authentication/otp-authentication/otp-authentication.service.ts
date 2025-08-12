@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { User } from '@prisma/client';
 import { PrismaService } from '@prisma/prisma';
+import { User } from '@prisma/prisma-client-new';
 import { authenticator } from 'otplib';
 @Injectable()
 export class OtpAuthenticationService {

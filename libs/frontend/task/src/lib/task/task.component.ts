@@ -1,6 +1,6 @@
 
 import { Component, inject, resource } from '@angular/core';
-import { Task } from '@prisma/client';
+import { Task } from '@prisma/prisma-client-new';
 import { TasksService } from '../services/tasks.service';
 
 

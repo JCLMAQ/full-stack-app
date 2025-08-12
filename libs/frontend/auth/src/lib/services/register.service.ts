@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { User } from '@prisma/client';
+import { User } from '@prisma/prisma-client-new';
 
 import { Observable } from 'rxjs';
 

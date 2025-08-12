@@ -1,21 +1,21 @@
-import { Organization, Post, PrismaClient, Task, User } from "@prisma/client";
+import { Organization, Post, PrismaClient, Task, User } from '@prisma/prisma-client-new';
 import {
-  fakeCategory,
-  fakeComment,
-  fakeGroup,
-  fakeImage,
-  fakeOrg,
-  fakeOrgDomain,
-  fakeOrgEmail,
-  fakeOrgEmailUseTo,
-  fakePost,
-  fakePostLike,
-  fakeProfile,
-  fakeStory,
-  fakeTask,
-  fakeUser,
-  fakeUserFollower,
-  fakeUserTaskLink
+    fakeCategory,
+    fakeComment,
+    fakeGroup,
+    fakeImage,
+    fakeOrg,
+    fakeOrgDomain,
+    fakeOrgEmail,
+    fakeOrgEmailUseTo,
+    fakePost,
+    fakePostLike,
+    fakeProfile,
+    fakeStory,
+    fakeTask,
+    fakeUser,
+    fakeUserFollower,
+    fakeUserTaskLink
 } from "../factories";
 
 const prisma = new PrismaClient();

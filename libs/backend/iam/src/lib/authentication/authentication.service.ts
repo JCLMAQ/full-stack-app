@@ -1,14 +1,14 @@
 import { ActiveUserData, HashingService } from '@be/common';
 import {
-  ConflictException,
-  Inject,
-  Injectable,
-  UnauthorizedException
+    ConflictException,
+    Inject,
+    Injectable,
+    UnauthorizedException
 } from '@nestjs/common';
 import { ConfigType } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
-import { User } from '@prisma/client';
 import { PrismaService } from '@prisma/prisma';
+import { User } from '@prisma/prisma-client-new';
 import { randomUUID } from 'crypto';
 
 

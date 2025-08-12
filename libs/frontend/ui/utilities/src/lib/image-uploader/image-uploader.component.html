@@ -17,7 +17,7 @@
     <p>{{ "ACTIONS.UPLOAD_PLACEHOLDER" | translate }}</p>
     @if (imageName()) {
       <div>
-        @if (selectedFile || imagePreview) {
+        @if (selectedFile || imagePreview()!== '') {
           <div>
             <img
               [src]="imagePreview()"

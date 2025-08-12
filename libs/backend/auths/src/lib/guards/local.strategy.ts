@@ -1,6 +1,6 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
-import { User } from '@prisma/client';
+import { User } from '@prisma/prisma-client-new';
 import { Strategy } from 'passport-local';
 import { AuthsService } from '../auths.service';
 

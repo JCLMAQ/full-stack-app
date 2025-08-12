@@ -1,6 +1,6 @@
 import { UserEntity } from "@be/users";
 import { ApiProperty } from "@nestjs/swagger";
-import { Category, User } from "@prisma/client";
+import { Category, User } from '@prisma/prisma-client-new';
 
 export class PostEntity {
   id: string ;

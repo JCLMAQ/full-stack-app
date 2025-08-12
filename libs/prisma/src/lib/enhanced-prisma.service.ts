@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import type { PrismaClient } from '@prisma/client';
+import type { PrismaClient } from '@prisma/prisma-client-new';
 import { enhance } from '@zenstackhq/runtime';
 import { ClsService } from 'nestjs-cls';
 import { PrismaService } from './prisma.service';

@@ -1,4 +1,4 @@
-// import { PrismaClient } from '@prisma/client';
+// import { PrismaClient } from '@prisma/prisma-client-new';
 const { PrismaClient } = require('@prisma/client');
 
 const prisma = new PrismaClient();

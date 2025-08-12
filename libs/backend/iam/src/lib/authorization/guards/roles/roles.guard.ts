@@ -1,7 +1,7 @@
 import { ActiveUserData, REQUEST_USER_KEY } from '@be/common';
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import { Role } from '@prisma/client';
+import { Role } from '@prisma/prisma-client-new';
 import { Observable } from 'rxjs';
 
 import { ROLES_KEY } from '../../decorators/roles.decorator';

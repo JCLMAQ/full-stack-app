@@ -2,7 +2,7 @@
 import { Public } from '@be/common';
 import { Auth, AuthType } from '@be/iam';
 import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
-import { Prisma, Token, User } from '@prisma/client';
+import { Prisma, Token, User } from '@prisma/prisma-client-new';
 import { I18nLang, I18nService } from 'nestjs-i18n';
 import { AuthsService } from './auths.service';
 import { AuthDto } from './dto/auth.dto';

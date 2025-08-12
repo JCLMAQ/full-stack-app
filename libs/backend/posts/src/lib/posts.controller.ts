@@ -3,7 +3,7 @@
 import { Public } from '@be/common';
 import { Auth, AuthType } from '@be/iam';
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
-import { Post as Posts, Prisma } from '@prisma/client';
+import { Post as Posts, Prisma } from '@prisma/prisma-client-new';
 import { PostsService } from './posts.service';
 @Controller()
 export class PostsController {

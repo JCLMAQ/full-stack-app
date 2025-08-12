@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { Prisma } from '@prisma/client';
 import { PrismaService } from '@prisma/prisma';
+import { Prisma } from '@prisma/prisma-client-new';
 import { InvalidatedRefreshTokenError } from './invalid-refresh-token.error';
 
 @Injectable()

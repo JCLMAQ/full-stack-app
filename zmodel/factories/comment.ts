@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { Post, Prisma, User } from "@prisma/client";
+import { Post, Prisma, User } from '@prisma/prisma-client-new';
 
 // alternatively can make both as optional, and create new relations if absent
 export const fakeComment = (

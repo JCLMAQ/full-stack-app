@@ -2,8 +2,8 @@ import { DbConfigService } from '@be/db-config';
 import { TimeUtilService } from '@be/time-util';
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { Token, TokenType } from '@prisma/client';
 import { PrismaService } from '@prisma/prisma';
+import { Token, TokenType } from '@prisma/prisma-client-new';
 const ms = require('ms');
 // import MilliSecond = require("ms");
 

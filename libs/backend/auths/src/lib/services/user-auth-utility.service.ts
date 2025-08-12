@@ -1,7 +1,7 @@
 import { DbConfigService } from '@be/db-config';
 import { Injectable } from '@nestjs/common';
-import { Prisma, Role, User, UserSecret } from '@prisma/client';
 import { PrismaService } from '@prisma/prisma';
+import { Prisma, Role, User, UserSecret } from '@prisma/prisma-client-new';
 
 @Injectable()
 export class UserAuthUtilityService {

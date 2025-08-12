@@ -5,7 +5,7 @@ import { Public } from '@be/common';
 import { Auth, AuthType } from '@be/iam';
 import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards } from '@nestjs/common';
 import { ApiCreatedResponse, ApiOkResponse, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { Prisma, Role, User } from '@prisma/client';
+import { Prisma, Role, User } from '@prisma/prisma-client-new';
 import { UserEntity } from './entities/user.entity';
 import { UsersService } from './users.service';
 
