@@ -22,28 +22,28 @@ const config: runtime.GetPrismaClientConfig = {
       "value": "prisma-client"
     },
     "output": {
-      "value": "/Users/jcm/Programmation/Monorepo/full-stack-app/zmodel/generated/prisma_client",
+      "value": "/Users/jean-claudemaquinay/Programmation/Monorepo/full-stack-app/zmodel/generated/prisma_client",
       "fromEnvVar": null
     },
     "config": {
-      "importFileExtension": "ts",
       "generatedFileExtension": "ts",
+      "importFileExtension": "ts",
       "engineType": "library"
     },
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "darwin",
+        "value": "darwin-arm64",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/Users/jcm/Programmation/Monorepo/full-stack-app/zmodel/prisma/schema.prisma",
+    "sourceFilePath": "/Users/jean-claudemaquinay/Programmation/Monorepo/full-stack-app/zmodel/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativePath": "../../prisma",
-  "clientVersion": "6.13.0",
-  "engineVersion": "361e86d0ea4987e9f53a565309b3eed797a6bcbd",
+  "clientVersion": "6.14.0",
+  "engineVersion": "717184b7b35ea05dfa71a3236b7af656013e1e49",
   "datasourceNames": [
     "db"
   ],
@@ -93,10 +93,11 @@ export interface PrismaClientConstructor {
    */
 
   new <
-    ClientOptions extends Prisma.PrismaClientOptions = Prisma.PrismaClientOptions,
-    const U = LogOptions<ClientOptions>,
+    Options extends Prisma.PrismaClientOptions,
+    LogOpts extends LogOptions<Options>,
+    OmitOpts extends Prisma.PrismaClientOptions['omit'] = Options extends { omit: infer U } ? U : Prisma.PrismaClientOptions['omit'],
     ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs
-  >(options?: Prisma.Subset<ClientOptions, Prisma.PrismaClientOptions>): PrismaClient<ClientOptions, U, ExtArgs>
+  >(options?: Prisma.Subset<Options, Prisma.PrismaClientOptions> ): PrismaClient<LogOpts, OmitOpts, ExtArgs>
 }
 
 /**
@@ -114,13 +115,13 @@ export interface PrismaClientConstructor {
  */
 
 export interface PrismaClient<
-  ClientOptions extends Prisma.PrismaClientOptions = Prisma.PrismaClientOptions,
-  U = LogOptions<ClientOptions>,
-  ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs
+  in LogOpts extends Prisma.LogLevel = never,
+  in out OmitOpts extends Prisma.PrismaClientOptions['omit'] = Prisma.PrismaClientOptions['omit'],
+  in out ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs
 > {
   [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['other'] }
 
-  $on<V extends U>(eventType: V, callback: (event: V extends 'query' ? Prisma.QueryEvent : Prisma.LogEvent) => void): PrismaClient;
+  $on<V extends LogOpts>(eventType: V, callback: (event: V extends 'query' ? Prisma.QueryEvent : Prisma.LogEvent) => void): PrismaClient;
 
   /**
    * Connect with the database
@@ -131,13 +132,6 @@ export interface PrismaClient<
    * Disconnect from the database
    */
   $disconnect(): runtime.Types.Utils.JsPromise<void>;
-
-  /**
-   * Add a middleware
-   * @deprecated since 4.16.0. For new code, prefer client extensions instead.
-   * @see https://pris.ly/d/extensions
-   */
-  $use(cb: Prisma.Middleware): void
 
 /**
    * Executes a prepared raw query and returns the number of affected rows.
@@ -204,7 +198,7 @@ export interface PrismaClient<
   $transaction<R>(fn: (prisma: Omit<PrismaClient, runtime.ITXClientDenyList>) => runtime.Types.Utils.JsPromise<R>, options?: { maxWait?: number, timeout?: number, isolationLevel?: Prisma.TransactionIsolationLevel }): runtime.Types.Utils.JsPromise<R>
 
 
-  $extends: runtime.Types.Extensions.ExtendsHook<"extends", Prisma.TypeMapCb<ClientOptions>, ExtArgs, runtime.Types.Utils.Call<Prisma.TypeMapCb<ClientOptions>, {
+  $extends: runtime.Types.Extensions.ExtendsHook<"extends", Prisma.TypeMapCb<OmitOpts>, ExtArgs, runtime.Types.Utils.Call<Prisma.TypeMapCb<OmitOpts>, {
     extArgs: ExtArgs
   }>>
 
@@ -216,7 +210,7 @@ export interface PrismaClient<
     * const organizations = await prisma.organization.findMany()
     * ```
     */
-  get organization(): Prisma.OrganizationDelegate<ExtArgs, ClientOptions>;
+  get organization(): Prisma.OrganizationDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
    * `prisma.orgEmail`: Exposes CRUD operations for the **OrgEmail** model.
@@ -226,7 +220,7 @@ export interface PrismaClient<
     * const orgEmails = await prisma.orgEmail.findMany()
     * ```
     */
-  get orgEmail(): Prisma.OrgEmailDelegate<ExtArgs, ClientOptions>;
+  get orgEmail(): Prisma.OrgEmailDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
    * `prisma.orgDomain`: Exposes CRUD operations for the **OrgDomain** model.
@@ -236,7 +230,7 @@ export interface PrismaClient<
     * const orgDomains = await prisma.orgDomain.findMany()
     * ```
     */
-  get orgDomain(): Prisma.OrgDomainDelegate<ExtArgs, ClientOptions>;
+  get orgDomain(): Prisma.OrgDomainDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
    * `prisma.user`: Exposes CRUD operations for the **User** model.
@@ -246,7 +240,7 @@ export interface PrismaClient<
     * const users = await prisma.user.findMany()
     * ```
     */
-  get user(): Prisma.UserDelegate<ExtArgs, ClientOptions>;
+  get user(): Prisma.UserDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
    * `prisma.userSecret`: Exposes CRUD operations for the **UserSecret** model.
@@ -256,7 +250,7 @@ export interface PrismaClient<
     * const userSecrets = await prisma.userSecret.findMany()
     * ```
     */
-  get userSecret(): Prisma.UserSecretDelegate<ExtArgs, ClientOptions>;
+  get userSecret(): Prisma.UserSecretDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
    * `prisma.profile`: Exposes CRUD operations for the **Profile** model.
@@ -266,7 +260,7 @@ export interface PrismaClient<
     * const profiles = await prisma.profile.findMany()
     * ```
     */
-  get profile(): Prisma.ProfileDelegate<ExtArgs, ClientOptions>;
+  get profile(): Prisma.ProfileDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
    * `prisma.group`: Exposes CRUD operations for the **Group** model.
@@ -276,7 +270,7 @@ export interface PrismaClient<
     * const groups = await prisma.group.findMany()
     * ```
     */
-  get group(): Prisma.GroupDelegate<ExtArgs, ClientOptions>;
+  get group(): Prisma.GroupDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
    * `prisma.todo`: Exposes CRUD operations for the **Todo** model.
@@ -286,7 +280,7 @@ export interface PrismaClient<
     * const todos = await prisma.todo.findMany()
     * ```
     */
-  get todo(): Prisma.TodoDelegate<ExtArgs, ClientOptions>;
+  get todo(): Prisma.TodoDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
    * `prisma.userTodoLink`: Exposes CRUD operations for the **UserTodoLink** model.
@@ -296,7 +290,7 @@ export interface PrismaClient<
     * const userTodoLinks = await prisma.userTodoLink.findMany()
     * ```
     */
-  get userTodoLink(): Prisma.UserTodoLinkDelegate<ExtArgs, ClientOptions>;
+  get userTodoLink(): Prisma.UserTodoLinkDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
    * `prisma.task`: Exposes CRUD operations for the **Task** model.
@@ -306,7 +300,7 @@ export interface PrismaClient<
     * const tasks = await prisma.task.findMany()
     * ```
     */
-  get task(): Prisma.TaskDelegate<ExtArgs, ClientOptions>;
+  get task(): Prisma.TaskDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
    * `prisma.userTaskLink`: Exposes CRUD operations for the **UserTaskLink** model.
@@ -316,7 +310,7 @@ export interface PrismaClient<
     * const userTaskLinks = await prisma.userTaskLink.findMany()
     * ```
     */
-  get userTaskLink(): Prisma.UserTaskLinkDelegate<ExtArgs, ClientOptions>;
+  get userTaskLink(): Prisma.UserTaskLinkDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
    * `prisma.post`: Exposes CRUD operations for the **Post** model.
@@ -326,7 +320,7 @@ export interface PrismaClient<
     * const posts = await prisma.post.findMany()
     * ```
     */
-  get post(): Prisma.PostDelegate<ExtArgs, ClientOptions>;
+  get post(): Prisma.PostDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
    * `prisma.category`: Exposes CRUD operations for the **Category** model.
@@ -336,7 +330,7 @@ export interface PrismaClient<
     * const categories = await prisma.category.findMany()
     * ```
     */
-  get category(): Prisma.CategoryDelegate<ExtArgs, ClientOptions>;
+  get category(): Prisma.CategoryDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
    * `prisma.comment`: Exposes CRUD operations for the **Comment** model.
@@ -346,7 +340,7 @@ export interface PrismaClient<
     * const comments = await prisma.comment.findMany()
     * ```
     */
-  get comment(): Prisma.CommentDelegate<ExtArgs, ClientOptions>;
+  get comment(): Prisma.CommentDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
    * `prisma.file`: Exposes CRUD operations for the **File** model.
@@ -356,7 +350,7 @@ export interface PrismaClient<
     * const files = await prisma.file.findMany()
     * ```
     */
-  get file(): Prisma.FileDelegate<ExtArgs, ClientOptions>;
+  get file(): Prisma.FileDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
    * `prisma.userFollower`: Exposes CRUD operations for the **UserFollower** model.
@@ -366,7 +360,7 @@ export interface PrismaClient<
     * const userFollowers = await prisma.userFollower.findMany()
     * ```
     */
-  get userFollower(): Prisma.UserFollowerDelegate<ExtArgs, ClientOptions>;
+  get userFollower(): Prisma.UserFollowerDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
    * `prisma.postLike`: Exposes CRUD operations for the **PostLike** model.
@@ -376,7 +370,7 @@ export interface PrismaClient<
     * const postLikes = await prisma.postLike.findMany()
     * ```
     */
-  get postLike(): Prisma.PostLikeDelegate<ExtArgs, ClientOptions>;
+  get postLike(): Prisma.PostLikeDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
    * `prisma.story`: Exposes CRUD operations for the **Story** model.
@@ -386,7 +380,7 @@ export interface PrismaClient<
     * const stories = await prisma.story.findMany()
     * ```
     */
-  get story(): Prisma.StoryDelegate<ExtArgs, ClientOptions>;
+  get story(): Prisma.StoryDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
    * `prisma.image`: Exposes CRUD operations for the **Image** model.
@@ -396,7 +390,7 @@ export interface PrismaClient<
     * const images = await prisma.image.findMany()
     * ```
     */
-  get image(): Prisma.ImageDelegate<ExtArgs, ClientOptions>;
+  get image(): Prisma.ImageDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
    * `prisma.configParam`: Exposes CRUD operations for the **ConfigParam** model.
@@ -406,7 +400,7 @@ export interface PrismaClient<
     * const configParams = await prisma.configParam.findMany()
     * ```
     */
-  get configParam(): Prisma.ConfigParamDelegate<ExtArgs, ClientOptions>;
+  get configParam(): Prisma.ConfigParamDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
    * `prisma.orgEmailUseTo`: Exposes CRUD operations for the **OrgEmailUseTo** model.
@@ -416,7 +410,7 @@ export interface PrismaClient<
     * const orgEmailUseTos = await prisma.orgEmailUseTo.findMany()
     * ```
     */
-  get orgEmailUseTo(): Prisma.OrgEmailUseToDelegate<ExtArgs, ClientOptions>;
+  get orgEmailUseTo(): Prisma.OrgEmailUseToDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
    * `prisma.appEmailDomain`: Exposes CRUD operations for the **AppEmailDomain** model.
@@ -426,7 +420,7 @@ export interface PrismaClient<
     * const appEmailDomains = await prisma.appEmailDomain.findMany()
     * ```
     */
-  get appEmailDomain(): Prisma.AppEmailDomainDelegate<ExtArgs, ClientOptions>;
+  get appEmailDomain(): Prisma.AppEmailDomainDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
    * `prisma.refreshToken`: Exposes CRUD operations for the **RefreshToken** model.
@@ -436,7 +430,7 @@ export interface PrismaClient<
     * const refreshTokens = await prisma.refreshToken.findMany()
     * ```
     */
-  get refreshToken(): Prisma.RefreshTokenDelegate<ExtArgs, ClientOptions>;
+  get refreshToken(): Prisma.RefreshTokenDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
    * `prisma.apiKey`: Exposes CRUD operations for the **ApiKey** model.
@@ -446,7 +440,7 @@ export interface PrismaClient<
     * const apiKeys = await prisma.apiKey.findMany()
     * ```
     */
-  get apiKey(): Prisma.ApiKeyDelegate<ExtArgs, ClientOptions>;
+  get apiKey(): Prisma.ApiKeyDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
    * `prisma.scope`: Exposes CRUD operations for the **Scope** model.
@@ -456,7 +450,7 @@ export interface PrismaClient<
     * const scopes = await prisma.scope.findMany()
     * ```
     */
-  get scope(): Prisma.ScopeDelegate<ExtArgs, ClientOptions>;
+  get scope(): Prisma.ScopeDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
    * `prisma.token`: Exposes CRUD operations for the **Token** model.
@@ -466,7 +460,7 @@ export interface PrismaClient<
     * const tokens = await prisma.token.findMany()
     * ```
     */
-  get token(): Prisma.TokenDelegate<ExtArgs, ClientOptions>;
+  get token(): Prisma.TokenDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
    * `prisma.changesTracking`: Exposes CRUD operations for the **ChangesTracking** model.
@@ -476,7 +470,7 @@ export interface PrismaClient<
     * const changesTrackings = await prisma.changesTracking.findMany()
     * ```
     */
-  get changesTracking(): Prisma.ChangesTrackingDelegate<ExtArgs, ClientOptions>;
+  get changesTracking(): Prisma.ChangesTrackingDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
    * `prisma.accountValidation`: Exposes CRUD operations for the **AccountValidation** model.
@@ -486,7 +480,7 @@ export interface PrismaClient<
     * const accountValidations = await prisma.accountValidation.findMany()
     * ```
     */
-  get accountValidation(): Prisma.AccountValidationDelegate<ExtArgs, ClientOptions>;
+  get accountValidation(): Prisma.AccountValidationDelegate<ExtArgs, { omit: OmitOpts }>;
 }
 
 export function getPrismaClientClass(dirname: string): PrismaClientConstructor {
