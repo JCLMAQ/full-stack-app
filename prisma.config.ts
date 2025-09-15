@@ -3,14 +3,14 @@ import path from "node:path";
 import { defineConfig } from "prisma/config";
 
 export default defineConfig({
-  schema: path.join("libs/db/prisma", "schema.prisma"),
+  schema: path.join("zmodel/prisma", "schema.prisma"),
   migrations: {
-    path: path.join("libs/db", "migrations"),
+    path: path.join("zmodel/prisma", "migrations"),
   },
-  views: {
-    path: path.join("libs/db/views", "views"),
-  },
-  typedSql: {
-    path: path.join("libs/db/queries", "queries"),
-  }
+  // views: {
+  //   path: path.join("zmodel/views", "views"),
+  // },
+  // typedSql: {
+  //   path: path.join("zmodelqueries", "queries"),
+  // }
 });

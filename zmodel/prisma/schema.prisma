@@ -15,12 +15,6 @@ generator client {
   importFileExtension    = "ts"
 }
 
-generator types {
-  provider = "prisma-type-generator"
-  output   = "../generated/types"
-  global   = true
-}
-
 enum TaskState {
   CREATION
   STANDBY
