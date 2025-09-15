@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { Prisma, User } from 'zmodel/generated/prisma_client/client.ts';
+import { Prisma, User } from '../generated/prisma_client/client.ts';
 
 export const dataProfile = (user: User): Prisma.ProfileCreateInput => {
 

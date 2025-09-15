@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { OrgEmail, Prisma } from 'zmodel/generated/prisma_client/client.ts';
+import { OrgEmail, Prisma } from '../generated/prisma_client/client.ts';
 
 export const dataOrgEmailUseTo = (emailOrg: OrgEmail): Prisma.OrgEmailUseToCreateInput => {
   const useTo = faker.lorem.sentence(5);

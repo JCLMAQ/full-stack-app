@@ -12,7 +12,7 @@ import { createTask } from '../factories-bis/task';
 import { createTodo } from '../factories-bis/todo';
 import { create4Users } from '../factories-bis/user';
 import { dataUserFollower } from '../factories-bis/userFollower';
-import { PrismaClient } from '../prisma_new/schema.prisma/client';
+import { PrismaClient } from '../generated/prisma_client/client.ts';
 // const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 

@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 import { pbkdf2Sync, randomBytes } from "crypto";
-import { PrismaClient, Role, User } from 'zmodel/generated/prisma_client/client.ts';
+import { PrismaClient, Role, User } from '../generated/prisma_client/client.ts';
 
 const prisma = new PrismaClient();
 

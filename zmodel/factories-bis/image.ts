@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { Prisma, PrismaClient } from 'zmodel/generated/prisma_client/client.ts';
+import { Prisma, PrismaClient } from '../generated/prisma_client/client.ts';
 
 
 const prisma = new PrismaClient();
