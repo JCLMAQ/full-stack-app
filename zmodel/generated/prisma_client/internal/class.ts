@@ -22,7 +22,7 @@ const config: runtime.GetPrismaClientConfig = {
       "value": "prisma-client"
     },
     "output": {
-      "value": "/Users/jean-claudemaquinay/Programmation/Monorepo/full-stack-app/zmodel/generated/prisma_client",
+      "value": "/Users/jcm/Programmation/Monorepo/full-stack-app/zmodel/generated/prisma_client",
       "fromEnvVar": null
     },
     "config": {
@@ -33,12 +33,12 @@ const config: runtime.GetPrismaClientConfig = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "darwin-arm64",
+        "value": "darwin",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/Users/jean-claudemaquinay/Programmation/Monorepo/full-stack-app/zmodel/prisma/schema.prisma",
+    "sourceFilePath": "/Users/jcm/Programmation/Monorepo/full-stack-app/zmodel/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativePath": "../../prisma",

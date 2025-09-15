@@ -16,11 +16,11 @@ generator client {
 
 }
 
-generator types {
-  provider = "prisma-type-generator"
-  output   = "../generated/types"
-  global   = true
-}
+// generator types {
+//     provider = "prisma-type-generator"
+//     output   = "../generated/types"
+//     global   = true
+// }
 
 // generator docs {
 //   provider = "node node_modules/prisma-docs-generator"
