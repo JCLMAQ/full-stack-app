@@ -1,7 +1,6 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { AsyncPipe, NgClass } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { Component, HostBinding, Injector, OnDestroy, OnInit, effect, inject, signal, viewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSidenav } from '@angular/material/sidenav';
@@ -12,14 +11,13 @@ import { MATERIAL } from '@fe/material';
 import { ThemeManagerService, ThemeSelectorComponent, ThemingService } from '@fe/theming';
 import { GeolocationComponent, LoadingIndicatorComponent, SimpledialogComponent, setAppInject } from '@fe/utilities';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { map, shareReplay } from 'rxjs';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 import { StyleManager } from './style-manager.service';
 // AoT requires an exported function for factories
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
-}
+// export function HttpLoaderFactory(http: HttpClient) {
+//   return new TranslateHttpLoader();
+// }
 
 @Component({
   standalone: true,

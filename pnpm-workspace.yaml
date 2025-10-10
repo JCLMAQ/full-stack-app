@@ -3,6 +3,7 @@ onlyBuiltDependencies:
   - '@prisma/engines'
   - '@swc/core'
   - cypress
+  - esbuild
   - nx
   - prisma
   - zenstack

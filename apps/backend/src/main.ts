@@ -55,8 +55,8 @@ async function bootstrap() {
   // const port1: number = configService.get('NEST_SERVER_PORT');
 
   // const port = port1 || 3333;
-  // const port = process.env.NEST_SERVER_PORT || 3333;
-  const port = 3200;
+  const port = process.env.NEST_SERVER_PORT || 3333;
+  // const port = 3200;
 console.log('port:', port);
   // Swagger config
   const config = new DocumentBuilder()

@@ -17,8 +17,8 @@ if ( !process.env.API_FRONTEND || !process.env.API_FRONTEND_PORT || !process.env
 }
 
 const targetPath = isProduction
-    ? `./apps/frontend/jcm-app/environments/environment.prod.ts`
-    : `./apps/frontend/jcm-app/environments/environment.ts`;
+    ? `./apps/frontend/environments/environment.prod.ts`
+    : `./apps/frontend/environments/environment.ts`;
 // we have access to our environment variables
 // in the process.env object thanks to dotenv
 const environmentFileContent = `

@@ -9,17 +9,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { appRoutes } from './app.routes';
 
 import {
-  HttpClient,
   provideHttpClient,
   withFetch,
   withInterceptors,
-  withInterceptorsFromDi,
+  withInterceptorsFromDi
 } from '@angular/common/http';
 import { MAT_DATE_LOCALE, MatNativeDateModule, provideNativeDateAdapter } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HttpLoaderFactory } from './app.component';
+import { provideTranslateService } from '@ngx-translate/core';
 import { loggerConfig } from './logger.config';
 
 
@@ -43,6 +41,7 @@ import { provideMarkdown } from 'ngx-markdown';
 // import { reducers } from './reducers';
 import { provideLogger } from '@fe/shared/util-logger';
 import { loadingInterceptor } from '@fe/utilities';
+import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -68,6 +67,18 @@ export const appConfig: ApplicationConfig = {
       withFetch(),
       withInterceptors([loadingInterceptor])
     ),
+
+  provideTranslateService({
+          fallbackLang: 'en',
+          loader: provideTranslateHttpLoader({
+            prefix:"i18n/",
+            suffix:".json",
+            enforceLoading: true,
+            useHttpBackend: true,
+          }),
+        }),
+
+
     importProvidersFrom(
       BrowserModule,
       FormsModule,
@@ -76,13 +87,13 @@ export const appConfig: ApplicationConfig = {
       MatDatepickerModule,
       LetDirective,
       PushPipe,
-      TranslateModule.forRoot({
-        loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient],
-        },
-      }),
+      // TranslateModule.forRoot({
+      //   loader: {
+      //     provide: TranslateLoader,
+      //     useFactory: HttpLoaderFactory,
+      //     deps: [HttpClient],
+      //   },
+      // }),
     ),
     MatNativeDateModule,
     MatDatepickerModule,
