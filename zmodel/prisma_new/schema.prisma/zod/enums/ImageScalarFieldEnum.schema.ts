@@ -3,8 +3,7 @@
  ******************************************************************************/
 
 /* eslint-disable */
-// @ts-nocheck
 
-import { z } from 'zod';
+import { z } from 'zod/v3';
 
 export const ImageScalarFieldEnumSchema = z.enum(["id", "createdAt", "updatedAt", "published", "isPublic", "isDeleted", "isDeletedDT", "type", "url", "associated_id", "sequence"])

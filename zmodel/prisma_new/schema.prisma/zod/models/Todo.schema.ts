@@ -3,9 +3,8 @@
  ******************************************************************************/
 
 /* eslint-disable */
-// @ts-nocheck
 
-import { z } from 'zod';
+import { z } from 'zod/v3';
 import { TodoState } from '../../../../generated/prisma_client/client';
 import { TodoStateSchema } from '../enums/TodoState.schema';
 const baseSchema = z.object({

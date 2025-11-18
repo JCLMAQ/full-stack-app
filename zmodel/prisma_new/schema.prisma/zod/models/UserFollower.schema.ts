@@ -3,9 +3,8 @@
  ******************************************************************************/
 
 /* eslint-disable */
-// @ts-nocheck
 
-import { z } from 'zod';
+import { z } from 'zod/v3';
 const baseSchema = z.object({
     user_id: z.string(),
     follower_id: z.string(),

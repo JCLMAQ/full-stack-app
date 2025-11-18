@@ -3,8 +3,7 @@
  ******************************************************************************/
 
 /* eslint-disable */
-// @ts-nocheck
 
-import { z } from 'zod';
+import { z } from 'zod/v3';
 
 export const FileScalarFieldEnumSchema = z.enum(["id", "numSeq", "createdAt", "updatedAt", "published", "isDeleted", "isDeletedDT", "isPublic", "ownerId", "orgId", "name", "storageName", "type", "data", "size", "isArchived"])

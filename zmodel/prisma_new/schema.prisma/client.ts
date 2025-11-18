@@ -3,6 +3,5 @@
  ******************************************************************************/
 
 /* eslint-disable */
-// @ts-nocheck
 
 export * from '../../generated/prisma_client/client';

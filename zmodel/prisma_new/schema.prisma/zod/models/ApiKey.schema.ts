@@ -3,9 +3,8 @@
  ******************************************************************************/
 
 /* eslint-disable */
-// @ts-nocheck
 
-import { z } from 'zod';
+import { z } from 'zod/v3';
 const baseSchema = z.object({
     id: z.number(),
     createdAt: z.coerce.date().default(() => new Date()),

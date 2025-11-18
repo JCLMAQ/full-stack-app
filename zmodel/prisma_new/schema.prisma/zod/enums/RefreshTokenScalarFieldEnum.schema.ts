@@ -3,8 +3,7 @@
  ******************************************************************************/
 
 /* eslint-disable */
-// @ts-nocheck
 
-import { z } from 'zod';
+import { z } from 'zod/v3';
 
 export const RefreshTokenScalarFieldEnumSchema = z.enum(["id", "createdAt", "updatedAt", "published", "isPublic", "isDeleted", "isDeletedDT", "userId", "tokenId"])

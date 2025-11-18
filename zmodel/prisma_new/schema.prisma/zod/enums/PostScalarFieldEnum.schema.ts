@@ -3,8 +3,7 @@
  ******************************************************************************/
 
 /* eslint-disable */
-// @ts-nocheck
 
-import { z } from 'zod';
+import { z } from 'zod/v3';
 
 export const PostScalarFieldEnumSchema = z.enum(["id", "numSeq", "createdAt", "updatedAt", "published", "isDeleted", "isDeletedDT", "isPublic", "ownerId", "orgId", "orderPost", "title", "content"])

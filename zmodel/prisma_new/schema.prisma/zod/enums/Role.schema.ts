@@ -3,8 +3,7 @@
  ******************************************************************************/
 
 /* eslint-disable */
-// @ts-nocheck
 
-import { z } from 'zod';
+import { z } from 'zod/v3';
 
 export const RoleSchema = z.enum(["GUEST", "USER", "ADMIN", "SUPERADMIN", "REGULAR"])

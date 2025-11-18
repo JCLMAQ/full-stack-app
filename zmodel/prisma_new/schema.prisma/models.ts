@@ -3,7 +3,5 @@
  ******************************************************************************/
 
 /* eslint-disable */
-// @ts-nocheck
 
 export * from '../../generated/prisma_client/models';
-export * from './json-types';

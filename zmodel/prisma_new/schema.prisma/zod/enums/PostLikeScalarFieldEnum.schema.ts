@@ -3,8 +3,7 @@
  ******************************************************************************/
 
 /* eslint-disable */
-// @ts-nocheck
 
-import { z } from 'zod';
+import { z } from 'zod/v3';
 
 export const PostLikeScalarFieldEnumSchema = z.enum(["user_id", "post_id", "createdAt", "updatedAt"])

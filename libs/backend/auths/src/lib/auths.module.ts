@@ -24,7 +24,8 @@ import { UserAuthUtilityService } from './services/user-auth-utility.service';
     }),
     JwtModule.register({
       secret: process.env['JWT_SECRET'],
-      signOptions: { expiresIn: process.env['JWT_VALIDITY_DURATION'] },
+      // signOptions: { expiresIn: process.env['JWT_VALIDITY_DURATION'] },
+      signOptions: { expiresIn: Number(process.env['JWT_VALIDITY_DURATION']) || 3600 },
     }),
     MailsModule,
     CommonModule,

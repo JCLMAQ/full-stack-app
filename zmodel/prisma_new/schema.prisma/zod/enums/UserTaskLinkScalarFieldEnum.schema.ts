@@ -3,8 +3,7 @@
  ******************************************************************************/
 
 /* eslint-disable */
-// @ts-nocheck
 
-import { z } from 'zod';
+import { z } from 'zod/v3';
 
 export const UserTaskLinkScalarFieldEnumSchema = z.enum(["userId", "taskId", "isAuthor", "isAssigned", "createdAt", "updatedAt", "comment"])
