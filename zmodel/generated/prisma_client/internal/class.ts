@@ -23,7 +23,7 @@ const config: runtime.GetPrismaClientConfig = {
       "value": "prisma-client"
     },
     "output": {
-      "value": "/Users/jcm/Programmation/Monorepo/full-stack-app/zmodel/generated/prisma_client",
+      "value": "/Users/jean-claudemaquinay/Programmation/Monorepo/full-stack-app/zmodel/generated/prisma_client",
       "fromEnvVar": null
     },
     "config": {
@@ -39,16 +39,17 @@ const config: runtime.GetPrismaClientConfig = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/Users/jcm/Programmation/Monorepo/full-stack-app/zmodel/prisma/schema.prisma",
+    "sourceFilePath": "/Users/jean-claudemaquinay/Programmation/Monorepo/full-stack-app/zmodel/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativePath": "../../prisma",
-  "clientVersion": "6.19.0",
-  "engineVersion": "2ba551f319ab1df4bc874a89965d8b3641056773",
+  "clientVersion": "6.19.1",
+  "engineVersion": "c2990dca591cba766e3b7ef5d9e8a84796e47ab7",
   "datasourceNames": [
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": true,
   "inlineDatasources": {
     "db": {
       "url": {
