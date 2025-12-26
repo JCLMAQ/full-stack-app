@@ -64,7 +64,7 @@ export class AuthService {
     try {
       // const { authJwtToken, user } = await this.httpClient.post<ILoginResponse>('api/auth/login/', { username, password }).toPromise();
       const { access_token, fullName, role } = await firstValueFrom(
-        this.httpClient.post<ILoginResponse>('api/auths/auth/loginwithpwd', {
+        this.httpClient.post<ILoginResponse>('api/authentication/sign-in', {
           email,
           password,
         }),

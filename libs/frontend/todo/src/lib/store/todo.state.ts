@@ -1,9 +1,8 @@
 
 import { withDevtools } from '@angular-architects/ngrx-toolkit';
 import { SelectionModel } from '@angular/cdk/collections';
-import { withLogger } from '@fe/shared/util-signal-store';
+import { withLogger, withNavigationMethods } from '@fe/shared/util-signal-store';
 import { signalStore, withHooks, withState } from '@ngrx/signals';
-import { withNavigationMethods } from './todo-navigation.methods';
 import { withTodosMethods } from './todo.methods';
 import { TodoInterface } from './todo.model';
 import { withTodosSelectors } from './todo.selectors';

@@ -46,12 +46,12 @@ export class AuthenticationService {
 
       const data = {
         email: signUpDto.email,
-        UserSecret: {
+        userSecret: {
           create: {
             pwdHash: password,
           }
         },
-        ApiKey: {
+        ApiKeys: {
           create: {
             key: key,
             uuid: uuid,
@@ -81,11 +81,19 @@ export class AuthenticationService {
     if (!user) {
       throw new UnauthorizedException('User does not exists');
     }
+
+    console.log('User found:', user.email);
+    console.log('UserSecret:', user.userSecret);
+    console.log('pwdHash exists:', !!user.userSecret?.pwdHash);
+    console.log('Password to compare:', signInDto.password);
+    console.log('pwdHash value:', user.userSecret?.pwdHash);
+
     const isEqual = await this.hashingService.compare(
       signInDto.password,
       user.userSecret?.pwdHash,
     );
 
+    console.log('Comparison result:', isEqual);
 
     if (!isEqual) {
       throw new UnauthorizedException('Password does not match');

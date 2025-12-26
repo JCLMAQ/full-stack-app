@@ -5,7 +5,6 @@
 /* eslint-disable */
 
 import { z } from 'zod/v3';
-import { TodoState } from '../../../../generated/prisma_client/client';
 import { TodoStateSchema } from '../enums/TodoState.schema';
 const baseSchema = z.object({
     id: z.string(),
@@ -19,7 +18,7 @@ const baseSchema = z.object({
     orderTodo: z.number(),
     title: z.string(),
     content: z.string().nullish(),
-    todoState: TodoStateSchema,
+    todoState: TodoStateSchema.default("CREATION"),
 }
 ).strict();
 const baseSchemaWithoutDefaults = z.object({

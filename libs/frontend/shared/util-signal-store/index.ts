@@ -1,5 +1,6 @@
 
 export * from './logger.feature';
+export * from './navigation.feature';
 export * from './selected-entity.feature';
 
 // export {

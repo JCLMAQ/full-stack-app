@@ -5,7 +5,6 @@
 /* eslint-disable */
 
 import { z } from 'zod/v3';
-import { Gender, Language } from '../../../../generated/prisma_client/client';
 import { TitleSchema } from '../enums/Title.schema';
 import { GenderSchema } from '../enums/Gender.schema';
 import { LanguageSchema } from '../enums/Language.schema';
@@ -25,9 +24,9 @@ const baseSchema = z.object({
     firstName: z.string().nullish(),
     title: TitleSchema.nullish(),
     nickName: z.string().nullish(),
-    Gender: GenderSchema.nullish(),
+    Gender: GenderSchema.default("UNKNOWN").nullish(),
     social: z.any().nullish(),
-    Language: LanguageSchema.nullish(),
+    Language: LanguageSchema.default("en").nullish(),
     dob: z.coerce.date().nullish(),
     address: z.any().nullish(),
     isValidated: z.coerce.date().nullish(),

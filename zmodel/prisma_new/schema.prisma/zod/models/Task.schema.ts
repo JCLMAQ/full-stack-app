@@ -5,7 +5,6 @@
 /* eslint-disable */
 
 import { z } from 'zod/v3';
-import { TaskState } from '../../../../generated/prisma_client/client';
 import { TaskStateSchema } from '../enums/TaskState.schema';
 const baseSchema = z.object({
     id: z.string(),
@@ -19,7 +18,7 @@ const baseSchema = z.object({
     orderTask: z.number(),
     title: z.string(),
     content: z.string().nullish(),
-    taskState: TaskStateSchema,
+    taskState: TaskStateSchema.default("CREATION"),
 }
 ).strict();
 const baseSchemaWithoutDefaults = z.object({

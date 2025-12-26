@@ -1,7 +1,7 @@
 import {
-  ApplicationConfig, importProvidersFrom,
-  isDevMode,
-  provideZonelessChangeDetection
+    ApplicationConfig, importProvidersFrom,
+    isDevMode,
+    provideZonelessChangeDetection
 } from '@angular/core';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -9,10 +9,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { appRoutes } from './app.routes';
 
 import {
-  provideHttpClient,
-  withFetch,
-  withInterceptors,
-  withInterceptorsFromDi
+    provideHttpClient,
+    withFetch,
+    withInterceptors,
+    withInterceptorsFromDi
 } from '@angular/common/http';
 import { MAT_DATE_LOCALE, MatNativeDateModule, provideNativeDateAdapter } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -25,10 +25,10 @@ import { loggerConfig } from './logger.config';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {
-  provideRouter,
-  withComponentInputBinding,
-  withDebugTracing,
-  withEnabledBlockingInitialNavigation,
+    provideRouter,
+    withComponentInputBinding,
+    withDebugTracing,
+    withEnabledBlockingInitialNavigation,
 } from '@angular/router';
 import { LetDirective, PushPipe } from '@ngrx/component';
 import { provideStore } from '@ngrx/store';
@@ -71,8 +71,8 @@ export const appConfig: ApplicationConfig = {
   provideTranslateService({
           fallbackLang: 'en',
           loader: provideTranslateHttpLoader({
-            prefix:"i18n/",
-            suffix:".json",
+            prefix: "/assets/i18n/",
+            suffix: ".json",
             enforceLoading: true,
             useHttpBackend: true,
           }),

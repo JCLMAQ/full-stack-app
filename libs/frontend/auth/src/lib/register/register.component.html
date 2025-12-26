@@ -3,7 +3,7 @@
     <mat-card-title> Formulaire d'enregistrement </mat-card-title>
     <mat-card-content>
       <!-- <my-app-language-selector [icon]="false"></my-app-language-selector> -->
-      <form class="register-form">
+      <form class="register-form" [formGroup]="registerForm">
         <mat-form-field>
           <mat-label>Enter your email</mat-label>
           <input

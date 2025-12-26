@@ -4,6 +4,7 @@ import {
   AbstractControlOptions,
   FormBuilder,
   FormGroup,
+  ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -18,7 +19,7 @@ import { createPasswordStrengthValidator } from '../validators/password-strength
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
   standalone: true,
-  imports: [...MATERIAL, JsonPipe],
+  imports: [...MATERIAL, JsonPipe, ReactiveFormsModule],
 })
 export class RegisterComponent implements OnInit {
   private fb = inject(FormBuilder);
@@ -65,7 +66,7 @@ export class RegisterComponent implements OnInit {
         password: [
           '',
           [
-            Validators.minLength(8),
+            Validators.minLength(10),
             Validators.required,
             createPasswordStrengthValidator(),
           ],

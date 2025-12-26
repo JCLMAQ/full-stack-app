@@ -1,15 +1,15 @@
 import { inject } from '@angular/core';
 // import { setLoaded, setLoading, withCallState, withUndoRedo } from '@fe/shared/util-signal-store';
 import { setLoaded, setLoading, withCallState, withUndoRedo } from '@angular-architects/ngrx-toolkit';
+import { withNavigationMethods } from '@fe/shared/util-signal-store';
 import {
-  patchState,
-  signalStoreFeature,
-  type,
-  withMethods
+    patchState,
+    signalStoreFeature,
+    type,
+    withMethods
 } from '@ngrx/signals';
 import { addEntity, entityConfig, removeEntity, setAllEntities, updateEntity, withEntities } from '@ngrx/signals/entities';
 import { TodoService } from '../services/todo.service';
-import { withNavigationMethods } from './todo-navigation.methods';
 import { TodoInterface } from './todo.model';
 import { TodoStateInterface } from './todo.state';
 
