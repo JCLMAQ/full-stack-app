@@ -70,7 +70,7 @@ import SMTPTransport = require('nodemailer/lib/smtp-transport');
   // Compare password and verify passwor
   async verifyPwd( password: string | undefined , verifyPassword: string | undefined): Promise<boolean> {
     let answer = false
-   password === verifyPassword ? answer = true : answer= false
+   answer = password === verifyPassword ? answer = true : answer= false
    return answer
   }
 
