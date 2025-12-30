@@ -5,7 +5,7 @@ import { withLogger, withNavigationMethods } from '@fe/shared/util-signal-store'
 import { signalStore, withHooks, withState } from '@ngrx/signals';
 import { withTodosMethods } from './todo.methods';
 import { TodoInterface } from './todo.model';
-import { withTodosSelectors } from './todo.selectors';
+import { withTodosSelectors } from './todo.selectors-entities';
 
 export interface TodoStateInterface {
   items: TodoInterface[],
@@ -19,6 +19,7 @@ export interface TodoStateInterface {
   todoLoaded: boolean;
 };
 
+// items, selection, selectedId, selectedIds
 
 export const initialTodoState: TodoStateInterface = {
   items: [],
@@ -41,10 +42,10 @@ export const TodoStore = signalStore(
 
     withState(initialTodoState),
 
+    withTodosMethods(),
     withTodosSelectors(),
     withNavigationMethods(),
     withDevtools('todo'),
-    withTodosMethods(),
     withLogger('todo'),
     withHooks({
       onInit:

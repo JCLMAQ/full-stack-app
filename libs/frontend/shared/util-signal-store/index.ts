@@ -1,4 +1,6 @@
 
+export * from './entity-list-selectors.feature';
+export * from './list-selectors.feature';
 export * from './logger.feature';
 export * from './navigation.feature';
 export * from './selected-entity.feature';
